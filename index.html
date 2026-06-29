@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>リカ・クエスト（仮）</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme-rpg.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand-lockup" aria-label="リカ・クエスト（仮）">
+        <span class="brand-mark" aria-hidden="true">RQ</span>
+        <div>
+          <p class="eyebrow">小学5・6年 理科RPG</p>
+          <h1>リカ・クエスト（仮）</h1>
+        </div>
+      </div>
+      <section id="status-bar" class="status-bar" aria-live="polite"></section>
+      <nav class="top-nav" aria-label="メインメニュー">
+        <button type="button" data-route="home">ホーム</button>
+        <button type="button" data-route="map">マップ</button>
+        <button type="button" data-route="inventory">そうび</button>
+        <button type="button" data-route="settings">設定</button>
+      </nav>
+    </header>
+
+    <main id="app" class="app-main" tabindex="-1"></main>
+
+    <div id="modal-root" class="modal-root" aria-live="polite"></div>
+    <div id="toast-root" class="toast-root" aria-live="polite"></div>
+
+    <script src="data/curriculum.js"></script>
+    <script src="data/monsters-data.js"></script>
+    <script src="data/equipment-data.js"></script>
+    <script src="data/companions.js"></script>
+    <script src="data/questions/_template.js"></script>
+    <script src="data/questions/g5_u01.js"></script>
+    <script src="data/questions/g5_u02.js"></script>
+    <script src="data/questions/g5_u03.js"></script>
+    <script src="data/questions/g5_u04.js"></script>
+    <script src="data/questions/g5_u05.js"></script>
+    <script src="data/questions/g5_u06.js"></script>
+    <script src="data/questions/g5_u07_solution.js"></script>
+    <script src="data/questions/g5_u08.js"></script>
+    <script src="data/questions/g5_u09.js"></script>
+    <script src="data/questions/g5_u10.js"></script>
+    <script src="data/questions/g6_u01.js"></script>
+    <script src="data/questions/g6_u02.js"></script>
+    <script src="data/questions/g6_u03.js"></script>
+    <script src="data/questions/g6_u04.js"></script>
+    <script src="data/questions/g6_u05.js"></script>
+    <script src="data/questions/g6_u06.js"></script>
+    <script src="data/questions/g6_u07.js"></script>
+    <script src="data/questions/g6_u08.js"></script>
+    <script src="data/questions/g6_u09.js"></script>
+    <script src="data/questions/g6_u10.js"></script>
+    <script src="data/questions/g6_u11.js"></script>
+
+    <script src="js/svg.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/equipment.js"></script>
+    <script src="js/monsters.js"></script>
+    <script src="js/rewards.js"></script>
+    <script src="js/inventory.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/battle.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

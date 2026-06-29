@@ -1,0 +1,134 @@
+.rpg-frame {
+  position: relative;
+}
+
+.rpg-frame::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  pointer-events: none;
+  border: 1px solid rgba(90, 61, 24, 0.26);
+  border-radius: 5px;
+}
+
+.quest-log {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 8px;
+  border: 2px solid #415865;
+  color: #f8fbfb;
+  background: #172f3b;
+  box-shadow: inset 0 -7px 0 rgba(0, 0, 0, 0.18);
+  font-weight: 800;
+}
+
+.quest-log p {
+  margin: 0;
+}
+
+.hp-hearts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-height: 28px;
+}
+
+.heart {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #8d271f;
+  color: #fff;
+  background: #d8483f;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.heart.is-empty {
+  border-color: #b8b8b8;
+  color: #7b8790;
+  background: #e8ecef;
+}
+
+.status-crown,
+.status-flag,
+.status-lock,
+.status-gear {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 0.88rem;
+  font-weight: 900;
+}
+
+.status-crown {
+  color: #533700;
+  background: #ffd85a;
+}
+
+.status-flag {
+  color: #064c2d;
+  background: #96e0b3;
+}
+
+.status-lock {
+  color: #47525a;
+  background: #d8dde0;
+}
+
+.status-gear {
+  color: #fff;
+  background: #875bd6;
+}
+
+.result-list {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.result-list li {
+  padding: 10px;
+  border: 1px solid #d2bf88;
+  border-radius: 8px;
+  background: #fff8df;
+  font-weight: 800;
+}
+
+.bonus-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #fff;
+  background: #6f4ab5;
+  font-weight: 900;
+}
+
+.combo-flash {
+  animation: comboPulse 480ms ease-out;
+}
+
+@keyframes comboPulse {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
