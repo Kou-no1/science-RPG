@@ -29,7 +29,7 @@
       return;
     }
     var effects = window.RikaEquipment.effects();
-    var questions = tier === "basic" ? shuffle(source).slice(0, Math.min(5, source.length)) : shuffle(source);
+    var questions = shuffle(source);
     var monster = window.RikaMonsters.choose(unit, tier);
     if (monster) window.RikaState.rememberMonster(monster.id, false);
     var extraLife = tier === "boss" ? 1 : 0;
