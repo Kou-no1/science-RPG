@@ -128,7 +128,7 @@
   }
 
   function choose(unit, tier) {
-    var role = tier === "boss" ? "boss" : "zako";
+    var role = tier === "boss" || tier === "bonus" ? "boss" : "zako";
     var monsters = byTheme(unit.theme, role);
     if (unit.unitId === "g5_u07" && tier === "basic") {
       monsters = byTheme("solution", "zako");

@@ -117,10 +117,20 @@
   animation: comboPulse 480ms ease-out;
 }
 
+.rare-card.is-owned,
+.tag.rare-tag {
+  animation: rareGlow 1800ms ease-in-out infinite;
+}
+
 @keyframes comboPulse {
   0% { transform: scale(1); }
   45% { transform: scale(1.08); }
   100% { transform: scale(1); }
+}
+
+@keyframes rareGlow {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(255, 216, 90, 0.24); }
+  50% { box-shadow: 0 0 16px 2px rgba(255, 216, 90, 0.58); }
 }
 
 @media (prefers-reduced-motion: reduce) {

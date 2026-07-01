@@ -9,11 +9,14 @@
     window.RikaEquipment.slots.forEach(function (slot) {
       var equippedId = data.player.equipped[slot];
       var equipped = equippedId && window.EQUIPMENT[equippedId];
-      var owned = window.RikaEquipment.ownedBySlot(slot);
+      var owned = window.RikaEquipment.ownedBySlot(slot).sort(function (a, b) {
+        if ((a.rarity === "rare") !== (b.rarity === "rare")) return a.rarity === "rare" ? -1 : 1;
+        return window.RikaUI.renderPlain(a.name).localeCompare(window.RikaUI.renderPlain(b.name), "ja");
+      });
       html += '<article class="inventory-card"><div class="equipment-slot">' +
         window.RikaSVG.slotIcon(slot, 44) +
         '<div><h3>' + window.RikaUI.escapeHtml(window.RikaEquipment.slotLabels[slot]) + '</h3>' +
-        '<p>' + (equipped ? window.RikaUI.renderFurigana(equipped.name) : "未そうび") + '</p></div></div>';
+        '<p>' + (equipped ? rareMark(equipped) + window.RikaUI.renderFurigana(equipped.name) : "未そうび") + '</p></div></div>';
       if (equipped) html += '<p>' + window.RikaUI.renderFurigana(equipped.desc) + '</p>';
       if (owned.length) {
         html += '<label><span class="sr-only">' + window.RikaUI.escapeHtml(window.RikaEquipment.slotLabels[slot]) + 'を選ぶ</span><select data-equip-slot="' + slot + '"><option value="">はずす</option>';
@@ -32,9 +35,36 @@
       '<span class="tag">ブロック ' + (effects.block || 0) + '回</span>' +
       '<span class="tag">ライフ +' + (effects.hpUp || 0) + '</span>' +
       '<span class="tag">コンボ +' + (effects.comboUp || 0) + '</span>' +
-      '<span class="tag">ヒント ' + (effects.freeHint || 0) + '回</span>' +
-      '</div></section>';
+      '<span class="tag">ヒント ' + ((effects.freeHint || 0) + (effects.hintFree || 0)) + '回</span>' +
+      '<span class="tag rare-tag">二連撃 ' + (effects.doubleCrit ? "あり" : "なし") + '</span>' +
+      '<span class="tag rare-tag">復活 ' + (effects.reviveOnce || 0) + '回</span>' +
+      '<span class="tag rare-tag">コンボ守り ' + (effects.comboKeep || 0) + '回</span>' +
+      '</div>' + renderRareEquipment(data) + '</section>';
     return html;
+  }
+
+  function rareMark(item) {
+    return item && item.rarity === "rare" ? '<span class="rare-mark" aria-label="レア">★</span>' : "";
+  }
+
+  function renderRareEquipment(data) {
+    var owned = data.owned.equipment || [];
+    var rares = window.RikaEquipment.all().filter(function (item) { return item.rarity === "rare"; }).sort(function (a, b) {
+      return (a.unitId || "").localeCompare(b.unitId || "");
+    });
+    if (!rares.length) return "";
+    return '<h3>★レアそうび</h3><p>🎓中学チャレンジを全問正かいすると手に入る、とくべつなそうびだよ。</p><div class="collection-grid rare-equipment-grid">' +
+      rares.map(function (item) {
+        var has = owned.indexOf(item.id) !== -1;
+        return '<article class="collection-card rare-card ' + (has ? "is-owned" : "is-locked") + '">' +
+          '<div class="rare-card-head">' +
+          '<span class="rare-silhouette">' + (has ? window.RikaSVG.slotIcon(item.slot, 44) : "?") + '</span>' +
+          '<div><h4>' + (has ? window.RikaUI.renderFurigana(item.name) : "？？？★") + '</h4>' +
+          '<span class="tag rare-tag">' + window.RikaUI.escapeHtml(item.unitId || item.theme) + '</span></div></div>' +
+          '<p>' + (has ? window.RikaUI.renderFurigana(item.desc) : "🎓中学チャレンジ全問正かいで手に入る。") + '</p>' +
+          '</article>';
+      }).join("") +
+      '</div>';
   }
 
   function renderItems() {

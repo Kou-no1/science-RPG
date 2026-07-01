@@ -44,6 +44,7 @@
     var p = (coords[unit.grade] || [])[index] || [100 + index * 50, 240];
     var c = window.RikaSVG.colors(unit.theme);
     var status = statusFor(unit);
+    var progress = window.RikaState.progress(unit.unitId);
     var label = unit.unitNo + ". " + unit.title;
     var icon = status === "locked"
       ? window.RikaSVG.lockIcon(p[0], p[1] - 2)
@@ -53,6 +54,7 @@
       '<circle class="node-ring" cx="' + p[0] + '" cy="' + p[1] + '" r="45" fill="' + c.land + '" stroke="#ffcf45"/>' +
       icon +
       window.RikaSVG.statusGlyph(status, p[0] + 31, p[1] - 31) +
+      (progress.bonusPerfected ? '<circle cx="' + (p[0] - 32) + '" cy="' + (p[1] - 32) + '" r="16" fill="#ffd85a" stroke="#7b5200" stroke-width="3"/><text x="' + (p[0] - 32) + '" y="' + (p[1] - 27) + '" text-anchor="middle" font-size="17">🎓</text>' : "") +
       '<text x="' + p[0] + '" y="' + (p[1] + 66) + '" class="node-label">' + window.RikaSVG.esc(unit.unitNo + " " + unit.title) + '</text>' +
       '</g>';
   }
@@ -99,6 +101,8 @@
       '<span class="tag ' + (status === "locked" ? "warn" : "good") + '">' + statusLabel(status) + '</span>' +
       '<span class="tag">基本 ' + (bank.basic ? bank.basic.length : 0) + '問</span>' +
       '<span class="tag">ボス ' + (bank.boss ? bank.boss.length : 0) + '問</span>' +
+      '<span class="tag">おまけ ' + (bank.bonus ? bank.bonus.length : 0) + '問</span>' +
+      (progress.bonusPerfected ? '<span class="tag rare-tag">🎓全問正かい</span>' : '<span class="tag warn">★レア未入手</span>') +
       '</div>' +
       '<h3>小単元</h3><ol class="sub-list">' + unit.sub.map(function (sub) {
         return '<li>' + window.RikaUI.renderFurigana(sub.title) + ' <span class="tag">' + window.RikaUI.escapeHtml(sub.ref) + '</span></li>';
@@ -107,7 +111,7 @@
       '<div class="button-row" style="margin-top:14px">' +
       '<button type="button" class="primary-button" data-start-tier="basic" ' + (!progress.unlocked ? "disabled" : "") + '>洞窟へ</button>' +
       '<button type="button" class="secondary-button" data-start-tier="boss" ' + (!bossReady ? "disabled" : "") + '>城へ</button>' +
-      '<button type="button" class="ghost-button" data-start-tier="bonus" ' + (!bonusReady ? "disabled" : "") + '>おまけ</button>' +
+      '<button type="button" class="ghost-button" data-start-tier="bonus" ' + (!bonusReady ? "disabled" : "") + '>🎓中学チャレンジ</button>' +
       '</div>' +
       '<p class="empty-state">' + fallbackText(progress, bank) + '</p>';
   }
@@ -118,7 +122,8 @@
     if (!bank.boss || !bank.boss.length) return "城は準備中。洞窟は何度でも復習できるよ。";
     if (!progress.bossCleared) return "城に入れるよ。全問正かいでテーマそうびが手に入る。";
     if (!bank.bonus || !bank.bonus.length) return "おまけは準備中。";
-    return "おまけは本筋と別枠のチャレンジだよ。";
+    if (!progress.bonusPerfected) return "🎓中学チャレンジは本筋と別枠だよ。15問全問正かいで★レアそうびが手に入る。";
+    return "🎓中学チャレンジ全問正かいずみ。★レアそうびも記録されているよ。";
   }
 
   function bind(root, grade) {

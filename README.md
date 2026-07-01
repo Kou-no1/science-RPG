@@ -19,7 +19,8 @@ python3 -m http.server 8000
 - 洞窟＝基本問題、城＝ボス問題、おまけ＝中学チャレンジ／科学トリビア
 - `localStorage` に自動保存
 - 経験値、レベル、アイテム、仲間、モンスター図鑑、4スロット装備
-- 5年・単元7「物のとけ方」は基本16問、ボス6問、おまけ6問を実装済み
+- 5年10単元は各 `basic` 20問、`boss` 10問、`bonus` 15問を実装済み
+- ボス全問正解で通常装備、🎓中学チャレンジ全問正解で★レア装備を入手
 
 ## セーブデータ
 
@@ -27,7 +28,7 @@ python3 -m http.server 8000
 
 - `player`: 名前、レベル、経験値、基礎ライフ、装備中ID
 - `owned`: 所持装備、アイテム、仲間、モンスター図鑑
-- `progress`: 単元ごとの解放、基本クリア、ボスクリア、全問正解、おまけ解放
+- `progress`: 単元ごとの解放、基本クリア、ボスクリア、ボス全問正解、おまけ解放、🎓全問正解
 - `settings`: ルビ、音
 
 ## 問題を追加する方法
@@ -49,7 +50,7 @@ window.QUESTION_BANK["g5_u07"] = {
 - `basic` と `boss` は、その単元の小単元名と `curriculumRef` の範囲内に収めます。
 - 迷った内容は出さず、易しい側へ寄せます。
 - 中学用語、範囲外概念、発展トリビアは `bonus` だけに入れます。
-- `bonus` は画面でも「中学チャレンジ／科学トリビア」として、本筋のクリア判定・装備ドロップから分けています。
+- `bonus` は画面でも「中学チャレンジ／科学トリビア」として、本筋のクリア判定・通常装備ドロップから分けています。全問正解時だけ★レア装備を付与します。
 - 教科書本文・図版・写真・イラストは転載しません。設問と解説はオリジナルで作成します。
 
 ## モンスター・装備の追加
@@ -57,5 +58,7 @@ window.QUESTION_BANK["g5_u07"] = {
 - モンスター定義: `data/monsters-data.js`
 - SVG描画関数: `js/monsters.js`
 - 装備定義: `data/equipment-data.js`
+
+通常装備は `rarity: "normal"` または省略、★レア装備は `rarity: "rare"` と `unitId` を持たせます。レア効果は `doubleCrit`, `reviveOnce`, `comboKeep`, `hintFree`, `expBoostBig` などを使えます。
 
 テーマキーは `sky`, `plant`, `life`, `water`, `solution`, `electric`, `physics`, `fire`, `body`, `space`, `earth`, `chem`, `eco` です。画像・外部フォント・音源は使わず、初期素材はインラインSVGとWebAudioのみで構成します。

@@ -27,6 +27,7 @@
       basicCleared: false,
       bossCleared: false,
       perfected: false,
+      bonusPerfected: false,
       bestStreak: 0,
       bonusUnlocked: false
     };

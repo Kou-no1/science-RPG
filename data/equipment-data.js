@@ -33,6 +33,7 @@
       id: "sol_sword",
       slot: "sword",
       theme: "solution",
+      rarity: "normal",
       name: "{溶解|ようかい}のつるぎ",
       desc: "正かいで「{会心|かいしん}の一{撃|げき}」が出やすくなる。",
       effect: { critUp: 0.15 }
@@ -41,6 +42,7 @@
       id: "sol_shield",
       slot: "shield",
       theme: "solution",
+      rarity: "normal",
       name: "けっしょうの{盾|たて}",
       desc: "まちがえても1回だけ耐えられる。",
       effect: { block: 1 }
@@ -49,6 +51,7 @@
       id: "sol_armor",
       slot: "armor",
       theme: "solution",
+      rarity: "normal",
       name: "ろ過の{鎧|よろい}",
       desc: "バトル開始時のライフ＋1。",
       effect: { hpUp: 1 }
@@ -57,6 +60,7 @@
       id: "sol_gauntlet",
       slot: "gauntlet",
       theme: "solution",
+      rarity: "normal",
       name: "{蒸発|じょうはつ}のこて",
       desc: "3問れんぞく正かいでコンボボーナス。",
       effect: { comboUp: 1 }
@@ -72,10 +76,114 @@
         id: key,
         slot: slot,
         theme: theme,
+        rarity: "normal",
         name: "{" + label + "|" + yomi + "}" + slotNames[slot][0],
         desc: slotNames[slot][1],
         effect: Object.assign({}, effectBySlot[slot])
       };
     });
+  });
+
+  Object.assign(window.EQUIPMENT, {
+    sky_rare_gauntlet_g5u01: {
+      id: "sky_rare_gauntlet_g5u01",
+      unitId: "g5_u01",
+      slot: "gauntlet",
+      theme: "sky",
+      rarity: "rare",
+      name: "{稲妻|いなずま}のグローブ★",
+      desc: "1回のミスではコンボが切れない。会心も少し出やすい。",
+      effect: { comboKeep: 1, critUp: 0.1 }
+    },
+    plant_rare_armor_g5u02: {
+      id: "plant_rare_armor_g5u02",
+      unitId: "g5_u02",
+      slot: "armor",
+      theme: "plant",
+      rarity: "rare",
+      name: "いのちの{若葉|わかば}よろい★",
+      desc: "ライフ0でも1回だけライフ1でふっかつする。",
+      effect: { hpUp: 2, reviveOnce: 1 }
+    },
+    life_rare_sword_g5u03: {
+      id: "life_rare_sword_g5u03",
+      unitId: "g5_u03",
+      slot: "sword",
+      theme: "life",
+      rarity: "rare",
+      name: "{受精|じゅせい}の{輝剣|きけん}★",
+      desc: "{会心|かいしん}の一{撃|げき}が2ダメージになる。",
+      effect: { critUp: 0.3, doubleCrit: 1 }
+    },
+    plant_rare_shield_g5u04: {
+      id: "plant_rare_shield_g5u04",
+      unitId: "g5_u04",
+      slot: "shield",
+      theme: "plant",
+      rarity: "rare",
+      name: "{花粉|かふん}ガードの{盾|たて}★",
+      desc: "まちがいを2回までふせぐ。",
+      effect: { block: 2 }
+    },
+    sky_rare_sword_g5u05: {
+      id: "sky_rare_sword_g5u05",
+      unitId: "g5_u05",
+      slot: "sword",
+      theme: "sky",
+      rarity: "rare",
+      name: "{大|おお}うずの{牙|きば}★",
+      desc: "{会心|かいしん}の一{撃|げき}が2ダメージになる。",
+      effect: { critUp: 0.3, doubleCrit: 1 }
+    },
+    water_rare_gauntlet_g5u06: {
+      id: "water_rare_gauntlet_g5u06",
+      unitId: "g5_u06",
+      slot: "gauntlet",
+      theme: "water",
+      rarity: "rare",
+      name: "けずるダイヤのこて★",
+      desc: "コンボボーナスが大きくなる。",
+      effect: { comboUp: 2 }
+    },
+    sol_rare_sword: {
+      id: "sol_rare_sword",
+      unitId: "g5_u07",
+      slot: "sword",
+      theme: "solution",
+      rarity: "rare",
+      name: "{幻晶|げんしょう}のつるぎ★",
+      desc: "{会心|かいしん}の一{撃|げき}が2ダメージになる。",
+      effect: { critUp: 0.3, doubleCrit: 1 }
+    },
+    life_rare_armor_g5u08: {
+      id: "life_rare_armor_g5u08",
+      unitId: "g5_u08",
+      slot: "armor",
+      theme: "life",
+      rarity: "rare",
+      name: "{母|はは}なるまもりの{鎧|よろい}★",
+      desc: "ライフ0でも1回だけライフ1でふっかつする。",
+      effect: { hpUp: 2, reviveOnce: 1 }
+    },
+    electric_rare_sword_g5u09: {
+      id: "electric_rare_sword_g5u09",
+      unitId: "g5_u09",
+      slot: "sword",
+      theme: "electric",
+      rarity: "rare",
+      name: "{雷神|らいじん}の{電磁剣|でんじけん}★",
+      desc: "{会心|かいしん}の一{撃|げき}が2ダメージになる。",
+      effect: { critUp: 0.3, doubleCrit: 1 }
+    },
+    physics_rare_gauntlet_g5u10: {
+      id: "physics_rare_gauntlet_g5u10",
+      unitId: "g5_u10",
+      slot: "gauntlet",
+      theme: "physics",
+      rarity: "rare",
+      name: "{等時|とうじ}のリズムこて★",
+      desc: "1回のミスではコンボが切れない。",
+      effect: { comboKeep: 1, comboUp: 1 }
+    }
   });
 })();

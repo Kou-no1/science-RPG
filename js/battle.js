@@ -32,7 +32,7 @@
     var questions = shuffle(source);
     var monster = window.RikaMonsters.choose(unit, tier);
     if (monster) window.RikaState.rememberMonster(monster.id, false);
-    var extraLife = tier === "boss" ? 1 : 0;
+    var extraLife = tier === "boss" || tier === "bonus" ? 1 : 0;
     var maxLives = window.RikaState.get().player.hpBase + (effects.hpUp || 0) + extraLife;
     battle = {
       unit: unit,
@@ -45,7 +45,9 @@
       monster: monster,
       effects: effects,
       blockLeft: effects.block || 0,
-      freeHintLeft: effects.freeHint || 0,
+      freeHintLeft: (effects.freeHint || 0) + (effects.hintFree || 0),
+      reviveLeft: effects.reviveOnce || 0,
+      comboKeepLeft: effects.comboKeep || 0,
       usedHint: false,
       hiddenChoices: {},
       streak: 0,
@@ -67,7 +69,7 @@
     if (!battle || !app) return;
     var q = currentQuestion();
     var hpPct = battle.questions.length ? (battle.enemyHp / battle.questions.length * 100) : 0;
-    app.innerHTML = '<section class="battle-panel rpg-frame">' +
+    app.innerHTML = '<section class="battle-panel rpg-frame tier-' + battle.tier + '">' +
       '<div class="button-row" style="justify-content:space-between;margin-bottom:12px">' +
       '<button type="button" class="ghost-button" data-battle-exit>マップにもどる</button>' +
       (battle.tier === "bonus" ? '<span class="bonus-label">中学チャレンジ／科学トリビア</span>' : '<span class="tag">' + tierLabel(battle.tier) + '</span>') +
@@ -79,7 +81,7 @@
       '<div class="battle-stats">' +
       '<div><strong>モンスターHP</strong>' + window.RikaUI.progressBar(hpPct, "モンスターHP") + '</div>' +
       '<div><strong>ライフ</strong>' + window.RikaUI.hearts(battle.lives, battle.maxLives) + '</div>' +
-      '<div class="reward-row"><span class="tag">れんぞく ' + battle.streak + '</span><span class="tag">ブロック ' + battle.blockLeft + '</span><span class="tag">ヒント ' + hintCount() + '</span></div>' +
+      '<div class="reward-row"><span class="tag">れんぞく ' + battle.streak + '</span><span class="tag">ブロック ' + battle.blockLeft + '</span><span class="tag">ヒント ' + hintCount() + '</span><span class="tag">復活 ' + battle.reviveLeft + '</span></div>' +
       '<div class="quest-log"><p>' + window.RikaUI.renderFurigana(battle.log) + '</p></div>' +
       '</div></aside>' +
       '<section class="question-card">' +
@@ -177,9 +179,13 @@
       battle.log = "やったー！ こうげき成功！";
       var flourish = "";
       if ((battle.effects.critUp || 0) > 0 && Math.random() < battle.effects.critUp) {
-        battle.enemyHp = Math.max(0, battle.enemyHp - 1);
-        battle.extraExp += 25;
-        flourish = " 会心の一撃！";
+        if (battle.effects.doubleCrit) {
+          battle.enemyHp = Math.max(0, battle.enemyHp - 1);
+          flourish = " ★会心の二連撃！";
+        } else {
+          flourish = " 会心の一撃！";
+        }
+        battle.extraExp += battle.effects.doubleCrit ? 35 : 25;
       }
       if (battle.streak > 0 && battle.streak % 3 === 0) {
         battle.extraExp += 20 + (battle.effects.comboUp || 0) * 10;
@@ -190,13 +196,23 @@
       window.RikaAudio.ok();
     } else {
       battle.perfect = false;
-      battle.streak = 0;
+      if (battle.comboKeepLeft > 0 && battle.streak > 0) {
+        battle.comboKeepLeft -= 1;
+        battle.log = "★レア装備がコンボを守った！";
+      } else {
+        battle.streak = 0;
+      }
       if (battle.blockLeft > 0) {
         battle.blockLeft -= 1;
         battle.log = "けっしょうの盾が守ってくれた！";
       } else {
         battle.lives -= 1;
         battle.log = "おしい！ 解説を読んで次につなげよう。";
+      }
+      if (battle.lives <= 0 && battle.reviveLeft > 0) {
+        battle.reviveLeft -= 1;
+        battle.lives = 1;
+        battle.log = "★レア装備の力でライフ1でふっかつ！";
       }
       if (feedback) feedback.className = "feedback is-visible bad";
       if (feedback) feedback.innerHTML = '<div class="feedback-mark">✗ おしい！</div><p>正かいは「' + window.RikaUI.renderFurigana(q.choices[q.answer]) + '」。</p><p>' + window.RikaUI.renderFurigana(q.explanation) + '</p>' + nextButton();

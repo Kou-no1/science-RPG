@@ -456,6 +456,13 @@ ruby rt {
   color: #155b35;
 }
 
+.tag.rare-tag,
+.rare-tag {
+  color: #573800;
+  background: #fff1ad;
+  border-color: #d4a923;
+}
+
 .sub-list {
   margin: 12px 0;
   padding-left: 1.2em;
@@ -502,6 +509,12 @@ ruby rt {
   border-radius: var(--radius);
   background: linear-gradient(180deg, #dff5f7, #f9f0d3);
   border: 2px solid #93b8bb;
+}
+
+.battle-panel.tier-bonus .enemy-stage {
+  background: linear-gradient(180deg, #fff5bf, #e8f8ff);
+  border-color: #d4a923;
+  box-shadow: inset 0 0 0 2px rgba(255, 216, 90, 0.42);
 }
 
 .enemy-art {
@@ -614,6 +627,69 @@ ruby rt {
   border: 2px solid #d2bf88;
   border-radius: var(--radius);
   background: #fffdf7;
+}
+
+.rare-equipment-grid {
+  margin-top: 10px;
+}
+
+.rare-card {
+  border-color: #d4a923;
+  background:
+    linear-gradient(180deg, rgba(255, 240, 161, 0.9), rgba(255, 253, 247, 0.95));
+  box-shadow: 0 0 0 2px rgba(255, 216, 90, 0.28);
+}
+
+.rare-card.is-locked {
+  border-style: dashed;
+  color: #6d6d6d;
+  background: #f1eee2;
+  box-shadow: none;
+}
+
+.rare-card-head {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.rare-card h4 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.rare-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+  border-radius: 50%;
+  color: #573800;
+  background: #ffd85a;
+  border: 1px solid #8b6500;
+  font-weight: 900;
+}
+
+.rare-silhouette {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  color: #573800;
+  background: #fff1ad;
+  border: 2px solid #d4a923;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.rare-card.is-locked .rare-silhouette {
+  color: #777;
+  background: #d8d5cc;
+  border-color: #aaa;
 }
 
 .equipment-slot {

@@ -14,6 +14,16 @@
     return all().filter(function (item) { return item.theme === theme; });
   }
 
+  function normalByTheme(theme) {
+    return byTheme(theme).filter(function (item) { return item.rarity !== "rare"; });
+  }
+
+  function rareForUnit(unitId) {
+    return all().find(function (item) {
+      return item.rarity === "rare" && item.unitId === unitId;
+    }) || null;
+  }
+
   function ownedBySlot(slot) {
     var owned = window.RikaState.get().owned.equipment;
     return all().filter(function (item) {
@@ -23,7 +33,19 @@
 
   function combineEffects() {
     var data = window.RikaState.get();
-    var effect = { critUp: 0, block: 0, hpUp: 0, comboUp: 0, expRate: 0, freeHint: 0 };
+    var effect = {
+      critUp: 0,
+      block: 0,
+      hpUp: 0,
+      comboUp: 0,
+      expRate: 0,
+      freeHint: 0,
+      hintFree: 0,
+      expBoostBig: 0,
+      doubleCrit: 0,
+      reviveOnce: 0,
+      comboKeep: 0
+    };
     Object.keys(data.player.equipped).forEach(function (slot) {
       var id = data.player.equipped[slot];
       var item = id && window.EQUIPMENT[id];
@@ -57,6 +79,8 @@
     slotLabels: slotLabels,
     all: all,
     byTheme: byTheme,
+    normalByTheme: normalByTheme,
+    rareForUnit: rareForUnit,
     ownedBySlot: ownedBySlot,
     effects: combineEffects,
     companionForTheme: companionForTheme
