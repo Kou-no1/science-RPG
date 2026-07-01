@@ -19,7 +19,7 @@ python3 -m http.server 8000
 - 洞窟＝基本問題、城＝ボス問題、おまけ＝中学チャレンジ／科学トリビア
 - `localStorage` に自動保存
 - 経験値、レベル、アイテム、仲間、モンスター図鑑、4スロット装備
-- 5年10単元は各 `basic` 20問、`boss` 10問、`bonus` 15問を実装済み
+- 5年10単元と6年11単元は各 `basic` 20問、`boss` 10問、`bonus` 15問を実装済み
 - ボス全問正解で通常装備、🎓中学チャレンジ全問正解で★レア装備を入手
 
 ## セーブデータ
@@ -33,7 +33,7 @@ python3 -m http.server 8000
 
 ## 問題を追加する方法
 
-`data/questions/{unitId}.js` に、次の形で問題を追加します。
+`data/questions/{unitId}.js` または `data/questions/{unitId}_*.js` に、次の形で問題を追加します。
 
 ```js
 window.QUESTION_BANK["g5_u07"] = {

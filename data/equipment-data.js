@@ -184,6 +184,116 @@
       name: "{等時|とうじ}のリズムこて★",
       desc: "1回のミスではコンボが切れない。",
       effect: { comboKeep: 1, comboUp: 1 }
+    },
+    fire_rare_sword_g6u01: {
+      id: "fire_rare_sword_g6u01",
+      unitId: "g6_u01",
+      slot: "sword",
+      theme: "fire",
+      rarity: "rare",
+      name: "{灼熱|しゃくねつ}の{炎剣|えんけん}★",
+      desc: "{会心|かいしん}の一{撃|げき}が2ダメージになる。",
+      effect: { critUp: 0.3, doubleCrit: 1 }
+    },
+    body_rare_armor_g6u02: {
+      id: "body_rare_armor_g6u02",
+      unitId: "g6_u02",
+      slot: "armor",
+      theme: "body",
+      rarity: "rare",
+      name: "{生命|せいめい}のこどうの{鎧|よろい}★",
+      desc: "ライフ0でも1回だけライフ1でふっかつする。",
+      effect: { hpUp: 2, reviveOnce: 1 }
+    },
+    plant_rare_gauntlet_g6u03: {
+      id: "plant_rare_gauntlet_g6u03",
+      unitId: "g6_u03",
+      slot: "gauntlet",
+      theme: "plant",
+      rarity: "rare",
+      name: "みどりの{葉脈|ようみゃく}こて★",
+      desc: "1回のミスではコンボが切れない。",
+      effect: { comboKeep: 1, comboUp: 1 }
+    },
+    eco_rare_shield_g6u04: {
+      id: "eco_rare_shield_g6u04",
+      unitId: "g6_u04",
+      slot: "shield",
+      theme: "eco",
+      rarity: "rare",
+      name: "{食物|しょくもつ}れんさの{盾|たて}★",
+      desc: "まちがいを2回までふせぐ。",
+      effect: { block: 2 }
+    },
+    space_rare_sword_g6u05: {
+      id: "space_rare_sword_g6u05",
+      unitId: "g6_u05",
+      slot: "sword",
+      theme: "space",
+      rarity: "rare",
+      name: "{満月|まんげつ}の{光剣|こうけん}★",
+      desc: "{会心|かいしん}の一{撃|げき}が2ダメージになる。",
+      effect: { critUp: 0.3, doubleCrit: 1 }
+    },
+    earth_rare_armor_g6u06: {
+      id: "earth_rare_armor_g6u06",
+      unitId: "g6_u06",
+      slot: "armor",
+      theme: "earth",
+      rarity: "rare",
+      name: "{地層|ちそう}の{岩|いわ}よろい★",
+      desc: "バトル開始時のライフが2ふえる。",
+      effect: { hpUp: 2 }
+    },
+    earth_rare_sword_g6u07: {
+      id: "earth_rare_sword_g6u07",
+      unitId: "g6_u07",
+      slot: "sword",
+      theme: "earth",
+      rarity: "rare",
+      name: "{噴火|ふんか}の{溶岩剣|ようがんけん}★",
+      desc: "{会心|かいしん}の一{撃|げき}が2ダメージになる。",
+      effect: { critUp: 0.3, doubleCrit: 1 }
+    },
+    physics_rare_gauntlet_g6u08: {
+      id: "physics_rare_gauntlet_g6u08",
+      unitId: "g6_u08",
+      slot: "gauntlet",
+      theme: "physics",
+      rarity: "rare",
+      name: "{支点|してん}のパワーこて★",
+      desc: "コンボボーナスが大きくなる。",
+      effect: { comboUp: 2 }
+    },
+    electric_rare_sword_g6u09: {
+      id: "electric_rare_sword_g6u09",
+      unitId: "g6_u09",
+      slot: "sword",
+      theme: "electric",
+      rarity: "rare",
+      name: "{発電|はつでん}の{雷剣|らいけん}★",
+      desc: "{会心|かいしん}の一{撃|げき}が2ダメージになる。",
+      effect: { critUp: 0.3, doubleCrit: 1 }
+    },
+    chem_rare_shield_g6u10: {
+      id: "chem_rare_shield_g6u10",
+      unitId: "g6_u10",
+      slot: "shield",
+      theme: "chem",
+      rarity: "rare",
+      name: "リトマスの{守|まも}り{盾|たて}★",
+      desc: "まちがいを2回までふせぐ。",
+      effect: { block: 2 }
+    },
+    eco_rare_armor_g6u11: {
+      id: "eco_rare_armor_g6u11",
+      unitId: "g6_u11",
+      slot: "armor",
+      theme: "eco",
+      rarity: "rare",
+      name: "{地球|ちきゅう}のいのりの{鎧|よろい}★",
+      desc: "1回ふっかつし、バトルで手に入る経験値が大きくふえる。",
+      effect: { hpUp: 2, reviveOnce: 1, expBoostBig: 1 }
     }
   });
 })();
