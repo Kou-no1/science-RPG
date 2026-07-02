@@ -118,7 +118,7 @@
     var monster = window.MONSTERS[id];
     if (!monster) return "";
     var fn = window.RikaMonsterSVG[monster.svg] || window.RikaMonsterSVG.makeGenericSlime;
-    return '<span class="' + (className || "") + '">' + fn(monster) + "</span>";
+    return '<span class="monster-figure theme-' + window.RikaSVG.esc(monster.theme) + ' role-' + window.RikaSVG.esc(monster.role) + ' ' + (className || "") + '">' + fn(monster) + "</span>";
   }
 
   function byTheme(theme, role) {

@@ -91,20 +91,24 @@
     var q = currentQuestion();
     var hpPct = battle.questions.length ? (battle.enemyHp / battle.questions.length * 100) : 0;
     app.innerHTML = '<section class="battle-panel rpg-frame tier-' + battle.tier + '">' +
-      '<div class="button-row" style="justify-content:space-between;margin-bottom:12px">' +
+      '<div class="battle-topbar">' +
       '<button type="button" class="ghost-button" data-battle-exit>マップにもどる</button>' +
       (battle.tier === "bonus" ? '<span class="bonus-label">中学チャレンジ／科学トリビア</span>' : '<span class="tag">' + tierLabel(battle.tier) + '</span>') +
       '</div>' +
-      '<div class="battle-grid">' +
+      '<div class="battle-stage" data-battle-stage>' +
+      '<div class="stage-orb a"></div><div class="stage-orb b"></div><div class="stage-orb c"></div><div class="stage-ground"></div>' +
+      '<div class="enemy-bar"><div class="enemy-bar-row"><span>' + (battle.monster ? window.RikaUI.renderFurigana(battle.monster.name) : "モンスター") + '</span><span class="tag">Lv ' + Math.max(1, battle.unit.unitNo + (battle.tier === "boss" ? 4 : battle.tier === "bonus" ? 6 : 1)) + '</span></div>' +
+      window.RikaUI.progressBar(hpPct, "モンスターHP") + '</div>' +
       '<aside class="enemy-stage">' +
-      '<div class="enemy-art">' + renderMonsterArt() + '</div>' +
-      '<h2>' + (battle.monster ? window.RikaUI.renderFurigana(battle.monster.name) : "モンスター") + '</h2>' +
+      '<div class="enemy-art" data-enemy-art>' + renderMonsterArt() + '</div>' +
       '<div class="battle-stats">' +
-      '<div><strong>モンスターHP</strong>' + window.RikaUI.progressBar(hpPct, "モンスターHP") + '</div>' +
       '<div><strong>ライフ</strong>' + window.RikaUI.hearts(battle.lives, battle.maxLives) + '</div>' +
       '<div class="reward-row"><span class="tag">れんぞく ' + battle.streak + '</span><span class="tag">ブロック ' + battle.blockLeft + '</span><span class="tag">ヒント ' + hintCount() + '</span><span class="tag">復活 ' + battle.reviveLeft + '</span></div>' +
       '<div class="quest-log"><p>' + window.RikaUI.renderFurigana(battle.log) + '</p></div>' +
       '</div></aside>' +
+      '<div class="battle-hero">' + window.RikaSVG.hero() + '</div>' +
+      '<div class="battle-flash"><div class="battle-word" data-battle-word></div></div>' +
+      '</div>' +
       '<section class="question-card">' +
       '<div class="question-count">問題 ' + (battle.index + 1) + ' / ' + battle.questions.length + ' ・ ' + window.RikaUI.escapeHtml(q.skill) + '</div>' +
       '<p class="question-stem">' + window.RikaUI.renderFurigana(q.stem) + '</p>' +
@@ -114,7 +118,7 @@
       '</div>' +
       renderChoices(q) +
       '<div id="feedback" class="feedback"></div>' +
-      '</section></div></section>';
+      '</section></section>';
     bind();
     if (window.RikaApp) window.RikaApp.renderStatus();
   }
@@ -137,6 +141,54 @@
         window.RikaUI.renderFurigana(choice) +
         '</button>';
     }).join("") + '</div>';
+  }
+
+  function showBattleWord(text, good) {
+    var word = document.querySelector("[data-battle-word]");
+    if (!word) return;
+    word.textContent = text;
+    word.className = "battle-word " + (good ? "good" : "bad");
+    void word.offsetWidth;
+    word.classList.add("show");
+  }
+
+  function animateEnemyHit() {
+    var enemy = document.querySelector("[data-enemy-art]");
+    if (!enemy) return;
+    enemy.classList.remove("hit");
+    void enemy.offsetWidth;
+    enemy.classList.add("hit");
+  }
+
+  function shakeStage() {
+    var stage = document.querySelector("[data-battle-stage]");
+    if (!stage) return;
+    stage.classList.remove("shake");
+    void stage.offsetWidth;
+    stage.classList.add("shake");
+  }
+
+  function sparkle() {
+    var stage = document.querySelector("[data-battle-stage]");
+    var enemy = document.querySelector("[data-enemy-art]");
+    if (!stage || !enemy) return;
+    var stageRect = stage.getBoundingClientRect();
+    var enemyRect = enemy.getBoundingClientRect();
+    var cx = enemyRect.left - stageRect.left + enemyRect.width / 2;
+    var cy = enemyRect.top - stageRect.top + enemyRect.height / 2;
+    for (var i = 0; i < 14; i += 1) {
+      var spark = document.createElement("span");
+      var angle = Math.random() * Math.PI * 2;
+      var dist = 40 + Math.random() * 70;
+      spark.className = "spark";
+      spark.style.left = cx + "px";
+      spark.style.top = cy + "px";
+      spark.style.setProperty("--dx", Math.cos(angle) * dist + "px");
+      spark.style.setProperty("--dy", Math.sin(angle) * dist + "px");
+      if (i % 2) spark.style.background = "linear-gradient(180deg,#fff,#22d3ee)";
+      stage.appendChild(spark);
+      window.setTimeout(function (node) { node.remove(); }, 760, spark);
+    }
   }
 
   function hintCount() {
@@ -223,6 +275,9 @@
       }
       if (feedback) feedback.className = "feedback is-visible good";
       if (feedback) feedback.innerHTML = '<div class="feedback-mark">✓ 正かい！' + window.RikaUI.renderFurigana(flourish) + '</div><p>' + window.RikaUI.renderFurigana(q.explanation) + '</p>' + nextButton();
+      showBattleWord("こうげき成功！", true);
+      animateEnemyHit();
+      sparkle();
       window.RikaAudio.ok();
     } else {
       battle.perfect = false;
@@ -246,6 +301,8 @@
       }
       if (feedback) feedback.className = "feedback is-visible bad";
       if (feedback) feedback.innerHTML = '<div class="feedback-mark">✗ おしい！</div><p>正かいは「' + window.RikaUI.renderFurigana(q.choices[q.answer]) + '」。</p><p>' + window.RikaUI.renderFurigana(q.explanation) + '</p>' + nextButton();
+      showBattleWord("おしい！", false);
+      shakeStage();
       window.RikaAudio.bad();
     }
     if (battle.lives <= 0) {

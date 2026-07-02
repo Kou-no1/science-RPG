@@ -17,15 +17,20 @@
     var data = window.RikaState.get();
     var info = window.RikaState.levelInfo(data.player.exp);
     var equipped = data.player.equipped;
-    root.innerHTML = '<div class="player-line">' +
-      '<span class="player-name">' + window.RikaUI.escapeHtml(data.player.name) + '</span>' +
-      '<span class="stat-chip">Lv ' + info.level + '</span>' +
+    root.innerHTML = '<div class="hud">' +
+      '<div class="lv"><b>' + info.level + '</b><small>Lv</small></div>' +
+      '<div class="who">' +
+      '<div class="name">' + window.RikaUI.escapeHtml(data.player.name) + '</div>' +
+      '<div class="xp" role="progressbar" aria-label="経験値" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + Math.round(info.percent) + '"><i style="width:' + info.percent + '%"></i></div>' +
+      '<div class="exp-text">' + info.current + " / " + info.next + ' EXP</div>' +
+      '</div>' +
+      '<div class="gear">' +
       window.RikaEquipment.slots.map(function (slot) {
         var id = equipped[slot];
         var item = id && window.EQUIPMENT[id];
-        return '<span class="stat-chip" title="' + window.RikaUI.escapeHtml(item ? window.RikaUI.renderPlain(item.name) : "未そうび") + '">' + window.RikaSVG.slotIcon(slot, 24) + (item ? "装" : "-") + '</span>';
+        return '<span class="slot ' + (item && item.rarity === "rare" ? "rare" : "") + '" title="' + window.RikaUI.escapeHtml(item ? window.RikaUI.renderPlain(item.name) : "未そうび") + '">' + window.RikaSVG.slotIcon(slot, 24) + '</span>';
       }).join("") +
-      '</div><div class="exp-wrap"><span>EXP</span>' + window.RikaUI.progressBar(info.percent, "経験値") + '<span>' + info.current + " / " + info.next + '</span></div>';
+      '</div></div>';
   }
 
   function showHome() {
@@ -37,7 +42,7 @@
       '<div class="hero-scene">' +
       '<div class="hero-content">' +
       '<div>' +
-      '<h2 class="hero-title">リカ・クエスト（仮）</h2>' +
+      '<h2 class="hero-title">リカ・クエスト</h2>' +
       '<p class="lead">5年・6年の理科単元を、洞窟と城のクエストで進める学習ポータル。ぼうけんは自動で記録されるよ。</p>' +
       '<div class="button-row">' +
       '<button type="button" class="primary-button" data-home-map>マップへ</button>' +
@@ -49,7 +54,7 @@
       '<button type="submit" class="secondary-button">名前を記録</button>' +
       '</form>' +
       '</div>' +
-      '<div class="home-dragon">' + window.RikaMonsters.render("crystadra") + '</div>' +
+      '<div class="home-hero">' + window.RikaSVG.hero() + '</div>' +
       '</div></div></section>' +
       '<div class="view-grid" style="margin-top:18px">' +
       '<section class="panel rpg-frame"><h2>進み具合</h2><ul class="info-list">' +
