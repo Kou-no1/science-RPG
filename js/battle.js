@@ -12,6 +12,27 @@
     return copy;
   }
 
+  function prepareQuestion(question) {
+    var prepared = Object.assign({}, question, {
+      choices: (question.choices || []).slice()
+    });
+    if (prepared.type !== "mc4") return prepared;
+
+    var indexedChoices = prepared.choices.map(function (choice, index) {
+      return { choice: choice, originalIndex: index };
+    });
+    var shuffledChoices = shuffle(indexedChoices);
+    prepared.choices = shuffledChoices.map(function (item) { return item.choice; });
+    prepared.answer = shuffledChoices.findIndex(function (item) {
+      return item.originalIndex === question.answer;
+    });
+    return prepared;
+  }
+
+  function prepareQuestions(source) {
+    return shuffle(source).map(prepareQuestion);
+  }
+
   function unitById(unitId) {
     return (window.CURRICULUM || []).find(function (unit) { return unit.unitId === unitId; });
   }
@@ -29,7 +50,7 @@
       return;
     }
     var effects = window.RikaEquipment.effects();
-    var questions = shuffle(source);
+    var questions = prepareQuestions(source);
     var monster = window.RikaMonsters.choose(unit, tier);
     if (monster) window.RikaState.rememberMonster(monster.id, false);
     var extraLife = tier === "boss" || tier === "bonus" ? 1 : 0;
@@ -76,7 +97,7 @@
       '</div>' +
       '<div class="battle-grid">' +
       '<aside class="enemy-stage">' +
-      '<div class="enemy-art">' + (battle.monster ? window.RikaMonsters.render(battle.monster.id) : "") + '</div>' +
+      '<div class="enemy-art">' + renderMonsterArt() + '</div>' +
       '<h2>' + (battle.monster ? window.RikaUI.renderFurigana(battle.monster.name) : "モンスター") + '</h2>' +
       '<div class="battle-stats">' +
       '<div><strong>モンスターHP</strong>' + window.RikaUI.progressBar(hpPct, "モンスターHP") + '</div>' +
@@ -96,6 +117,15 @@
       '</section></div></section>';
     bind();
     if (window.RikaApp) window.RikaApp.renderStatus();
+  }
+
+  function renderMonsterArt() {
+    if (!battle.monster) {
+      return '<div class="monster-fallback">?</div>';
+    }
+    var art = window.RikaMonsters.render(battle.monster.id, "battle-monster");
+    if (art) return art;
+    return '<div class="monster-fallback">' + window.RikaUI.escapeHtml(battle.monster.name.charAt(0) || "?") + '</div>';
   }
 
   function renderChoices(q) {

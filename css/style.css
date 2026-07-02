@@ -491,6 +491,18 @@ ruby rt {
   font-weight: 800;
 }
 
+.monster-mini > span:first-child {
+  display: block;
+  width: 42px;
+  height: 36px;
+}
+
+.monster-mini svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .battle-panel {
   padding: 18px;
 }
@@ -521,6 +533,33 @@ ruby rt {
   min-height: 230px;
   display: grid;
   place-items: center;
+}
+
+.battle-monster {
+  display: block;
+  width: min(100%, 280px);
+  max-width: 280px;
+  aspect-ratio: 11 / 9;
+}
+
+.battle-monster svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.monster-fallback {
+  display: grid;
+  place-items: center;
+  width: 180px;
+  height: 150px;
+  border: 4px solid #274255;
+  border-radius: 50%;
+  background: #fff7d1;
+  color: #274255;
+  font-size: 4rem;
+  font-weight: 900;
 }
 
 .battle-stats {
