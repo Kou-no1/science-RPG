@@ -1,5 +1,8 @@
 (function () {
   var themeColors = {
+    light: { main: "#ffd43b", dark: "#a4670a", light: "#fff8ca", land: "#e6edb5" },
+    sound: { main: "#55d5b5", dark: "#187663", light: "#e8fff8", land: "#f2baba" },
+    heat: { main: "#ef8582", dark: "#a53653", light: "#fff0ed", land: "#a7e3e5" },
     sky: { main: "#5dbfe3", dark: "#276d94", light: "#d9f5ff", land: "#cfeffc" },
     plant: { main: "#55aa5b", dark: "#276a34", light: "#e5f7df", land: "#cde9bf" },
     life: { main: "#e58aa9", dark: "#9b3f61", light: "#fff0f5", land: "#f4cfdc" },

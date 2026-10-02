@@ -1,9 +1,5 @@
-/* =====================================================================
- * リカ・クエスト 問題バンク : 6年「電気と私たちのくらし」(g6_u09)
- * basic/boss は単元スコープ内、bonus は🎓中学チャレンジ/💡トリビア。
- * ===================================================================== */
+/* Original Rika Quest questions. Generated from tools/content-*.cjs. */
 window.QUESTION_BANK = window.QUESTION_BANK || {};
-
 window.QUESTION_BANK["g6_u09"] = {
   "basic": [
     {
@@ -11,296 +7,456 @@ window.QUESTION_BANK["g6_u09"] = {
       "tier": "basic",
       "type": "mc4",
       "skill": "term",
-      "stem": "手で回して電気を作る器具は？",
+      "stem": "手で回して{電気|でんき}を作る器具は？",
       "choices": [
-        "手回し発電機",
-        "気体検知管",
-        "石灰水",
+        "手回し{発電|はつでん}機",
+        "{気体検知管|きたいけんちかん}",
+        "{石|いし}灰{水|みず}",
         "てこ"
       ],
       "answer": 0,
-      "explanation": "手回し発電機は、回すことで電気を作るよ。"
+      "explanation": "手回し{発電|はつでん}機は、回すことで{電気|でんき}を作るよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-002",
       "tier": "basic",
       "type": "mc4",
       "skill": "term",
-      "stem": "光を受けて電気を作るものは？",
+      "stem": "{光|ひかり}を受けて{電気|でんき}を作るものは？",
       "choices": [
-        "光電池",
+        "{光電池|こうでんち}",
         "コンデンサー",
-        "電熱線",
+        "{電熱線|でんねつせん}",
         "リトマス紙"
       ],
       "answer": 0,
-      "explanation": "光電池は光を受けると電気を作るよ。"
+      "explanation": "{光電池|こうでんち}は{光|ひかり}を受けると{電気|でんき}を作るよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-003",
       "tier": "basic",
       "type": "mc4",
       "skill": "term",
-      "stem": "電気をためる部品は？",
+      "stem": "{電気|でんき}をためる部品は？",
       "choices": [
         "コンデンサー",
         "LED",
-        "電熱線",
-        "石灰水"
+        "{電熱線|でんねつせん}",
+        "{石|いし}灰{水|みず}"
       ],
       "answer": 0,
-      "explanation": "コンデンサーは電気をためることができる部品だよ。"
+      "explanation": "コンデンサーは{電気|でんき}をためることができる部品だよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-004",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "電気で豆電球やLEDを光らせると、電気は何に変わった？",
+      "stem": "{電気|でんき}で{豆電球|まめでんきゅう}やLEDを{光|ひかり}らせると、{電気|でんき}は何に{変|か}わった？",
       "choices": [
-        "光",
+        "{光|ひかり}",
         "でんぷん",
-        "火山灰",
-        "化石"
+        "{火山灰|かざんばい}",
+        "化{石|いし}"
       ],
       "answer": 0,
-      "explanation": "電気は光に変えて利用できるよ。"
+      "explanation": "{電気|でんき}は{光|ひかり}に{変|か}えて利用できるよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-005",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "電子オルゴールを鳴らすと、電気は何に変わった？",
+      "stem": "電子オルゴールを鳴らすと、{電気|でんき}は何に{変|か}わった？",
       "choices": [
-        "音",
-        "水",
-        "砂",
-        "二酸化炭素"
+        "{音|おと}",
+        "{水|みず}",
+        "{砂|すな}",
+        "{二酸化炭素|にさんかたんそ}"
       ],
       "answer": 0,
-      "explanation": "電気は音に変えて利用できるよ。"
+      "explanation": "{電気|でんき}は{音|おと}に{変|か}えて利用できるよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-006",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "電熱線を使うと、電気は何に変わる？",
+      "stem": "{電熱線|でんねつせん}を{使|つか}うと、{電気|でんき}は何に{変|か}わる？",
       "choices": [
         "熱",
-        "月の光",
+        "{月|つき}の{光|ひかり}",
         "でんぷん",
-        "化石"
+        "化{石|いし}"
       ],
       "answer": 0,
-      "explanation": "電気は熱に変えて利用できるよ。"
+      "explanation": "{電気|でんき}は熱に{変|か}えて利用できるよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-007",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "モーターを回すと、電気は何に変わる？",
+      "stem": "モーターを回すと、{電気|でんき}は何に{変|か}わる？",
       "choices": [
-        "運動",
-        "石灰水",
-        "火山灰",
+        "{運動|うんどう}",
+        "{石|いし}灰{水|みず}",
+        "{火山灰|かざんばい}",
         "だ液"
       ],
       "answer": 0,
-      "explanation": "電気は運動に変えて利用できるよ。"
+      "explanation": "{電気|でんき}は{運動|うんどう}に{変|か}えて利用できるよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-008",
       "tier": "basic",
       "type": "ox",
       "skill": "concept",
-      "stem": "電気は、光・音・熱・運動などに変えて使える。",
+      "stem": "{電気|でんき}は、{光|ひかり}・{音|おと}・熱・{運動|うんどう}などに{変|か}えて{使|つか}える。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "電気はいろいろな形でくらしに役立っているよ。"
+      "explanation": "{電気|でんき}はいろいろな{形|かたち}でくらしに役立っているよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-009",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "豆電球とLEDをくらべたとき、LEDのよいところとして近いものは？",
+      "stem": "{豆電球|まめでんきゅう}とLEDをくらべたとき、LEDのよいところとして近いものは？",
       "choices": [
-        "少ない電気で明るくできる",
+        "少ない{電気|でんき}で{明|あか}るくできる",
         "必ず熱くなる",
-        "水を作る",
-        "酸性になる"
+        "{水|みず}を作る",
+        "{酸性|さんせい}になる"
       ],
       "answer": 0,
-      "explanation": "LEDは少ない電気で明るく光らせやすいよ。"
+      "explanation": "LEDは少ない{電気|でんき}で{明|あか}るく{光|ひかり}らせやすいよ。",
+      "subId": "g6_u09_s3",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-010",
       "tier": "basic",
       "type": "mc4",
       "skill": "term",
-      "stem": "まわりの明るさや動きを感じる部品を何という？",
+      "stem": "まわりの{明るさ|あかるさ}や{動|うご}きを感じる部品を何という？",
       "choices": [
         "センサー",
-        "支点",
-        "小腸",
-        "火山灰"
+        "{支点|してん}",
+        "{小腸|しょうちょう}",
+        "{火山灰|かざんばい}"
       ],
       "answer": 0,
-      "explanation": "センサーはまわりのようすを調べる部品だよ。"
+      "explanation": "センサーはまわりのようすを{調|しら}べる部品だよ。",
+      "subId": "g6_u09_s4",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-011",
       "tier": "basic",
       "type": "mc4",
       "skill": "term",
-      "stem": "機械に動き方を命令する手順を何という？",
+      "stem": "機械に{動|うご}き方を命令する{手順|てじゅん}を何という？",
       "choices": [
         "プログラム",
-        "石灰水",
+        "{石|いし}灰{水|みず}",
         "リトマス紙",
-        "化石"
+        "化{石|いし}"
       ],
       "answer": 0,
-      "explanation": "プログラムで、電気を利用した物を自動で動かせるよ。"
+      "explanation": "プログラムで、{電気|でんき}を利用した{物|もの}を自{動|うご}で{動|うご}かせるよ。",
+      "subId": "g6_u09_s4",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-012",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "電気を作る方法として正しいものは？",
+      "stem": "{電気|でんき}を作る{方法|ほうほう}として正しいものは？",
       "choices": [
-        "風力発電",
-        "受粉",
-        "消化",
-        "蒸散"
+        "{風|かぜ}{力|ちから}{発電|はつでん}",
+        "{受粉|じゅふん}",
+        "{消化|しょうか}",
+        "{蒸散|じょうさん}"
       ],
       "answer": 0,
-      "explanation": "風の力で発電する方法があるよ。"
+      "explanation": "{風|かぜ}の{力|ちから}で{発電|はつでん}する{方法|ほうほう}があるよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-013",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "水の流れを利用する発電は？",
+      "stem": "{水|みず}の流れを利用する{発電|はつでん}は？",
       "choices": [
-        "水力発電",
-        "火力発電",
-        "太陽光発電",
-        "だ液発電"
+        "{水|みず}{力|ちから}{発電|はつでん}",
+        "火{力|ちから}{発電|はつでん}",
+        "{太陽|たいよう}{光|ひかり}{発電|はつでん}",
+        "だ液{発電|はつでん}"
       ],
       "answer": 0,
-      "explanation": "水の流れで発電する方法を水力発電というよ。"
+      "explanation": "{水|みず}の流れで{発電|はつでん}する{方法|ほうほう}を{水|みず}{力|ちから}{発電|はつでん}というよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-014",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "太陽の光を利用する発電は？",
+      "stem": "{太陽|たいよう}の{光|ひかり}を利用する{発電|はつでん}は？",
       "choices": [
-        "太陽光発電",
-        "水力発電",
-        "火力発電",
-        "地層発電"
+        "{太陽|たいよう}{光|ひかり}{発電|はつでん}",
+        "{水|みず}{力|ちから}{発電|はつでん}",
+        "火{力|ちから}{発電|はつでん}",
+        "{地層|ちそう}{発電|はつでん}"
       ],
       "answer": 0,
-      "explanation": "太陽光発電は光を利用して電気を作るよ。"
+      "explanation": "{太陽|たいよう}{光|ひかり}{発電|はつでん}は{光|ひかり}を利用して{電気|でんき}を作るよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-015",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "燃料を燃やして電気を作る発電は？",
+      "stem": "燃料を燃やして{電気|でんき}を作る{発電|はつでん}は？",
       "choices": [
-        "火力発電",
-        "水力発電",
-        "風力発電",
-        "月力発電"
+        "火{力|ちから}{発電|はつでん}",
+        "{水|みず}{力|ちから}{発電|はつでん}",
+        "{風|かぜ}{力|ちから}{発電|はつでん}",
+        "{月|つき}{力|ちから}{発電|はつでん}"
       ],
       "answer": 0,
-      "explanation": "火力発電は燃料を燃やす熱などを利用して電気を作るよ。"
+      "explanation": "火{力|ちから}{発電|はつでん}は燃料を燃やす熱などを利用して{電気|でんき}を作るよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-016",
       "tier": "basic",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "手回し発電機を速く回すと、豆電球の明るさはどうなりやすい？",
+      "stem": "手回し{発電|はつでん}機を速く回すと、{豆電球|まめでんきゅう}の{明るさ|あかるさ}はどうなりやすい？",
       "choices": [
-        "明るくなりやすい",
+        "{明|あか}るくなりやすい",
         "必ず消える",
-        "水にとける",
-        "酸性になる"
+        "{水|みず}にとける",
+        "{酸性|さんせい}になる"
       ],
       "answer": 0,
-      "explanation": "作られる電気が多くなると、明るくなりやすいよ。"
+      "explanation": "作られる{電気|でんき}が多くなると、{明|あか}るくなりやすいよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-017",
       "tier": "basic",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "光電池の実験で、光を強く当てるとモーターはどうなりやすい？",
+      "stem": "{光電池|こうでんち}の{実験|じっけん}で、{光|ひかり}を強く当てるとモーターはどうなりやすい？",
       "choices": [
         "よく回りやすい",
-        "必ず止まる",
-        "火山灰になる",
-        "月になる"
+        "必ず{止|と}まる",
+        "{火山灰|かざんばい}になる",
+        "{月|つき}になる"
       ],
       "answer": 0,
-      "explanation": "光が強いほど、作られる電気が多くなりやすいよ。"
+      "explanation": "{光|ひかり}が{強い|つよい}ほど、作られる{電気|でんき}が多くなりやすいよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-018",
       "tier": "basic",
       "type": "ox",
       "skill": "concept",
-      "stem": "電気は作り出せるだけでなく、ためることもできる。",
+      "stem": "{電気|でんき}は作り{出|で}せるだけでなく、ためることもできる。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "コンデンサーなどに電気をためることができるよ。"
+      "explanation": "コンデンサーなどに{電気|でんき}をためることができるよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-019",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "電気をむだなく使う工夫として正しいものは？",
+      "stem": "{電気|でんき}をむだなく{使|つか}う工夫として正しいものは？",
       "choices": [
-        "必要なときだけセンサーで明かりをつける",
-        "使わない部屋の電気をつけ続ける",
-        "LEDを使わない",
-        "プログラムを使わない"
+        "{必要|ひつよう}なときだけセンサーで{明|あか}かりをつける",
+        "{使|つか}わない部屋の{電気|でんき}をつけ続ける",
+        "LEDを{使|つか}わない",
+        "プログラムを{使|つか}わない"
       ],
       "answer": 0,
-      "explanation": "センサーやプログラムで必要なときだけ使うと、電気を有効に使えるよ。"
+      "explanation": "センサーやプログラムで{必要|ひつよう}なときだけ{使|つか}うと、{電気|でんき}を有効に{使|つか}えるよ。",
+      "subId": "g6_u09_s4",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-b-020",
       "tier": "basic",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "コンデンサーにためた電気でできることは？",
+      "stem": "コンデンサーにためた{電気|でんき}でできることは？",
       "choices": [
-        "LEDをしばらく光らせる",
-        "石灰水を白くする",
-        "月を満月にする",
+        "LEDをしばらく{光|ひかり}らせる",
+        "{石|いし}灰{水|みず}を白くする",
+        "{月|つき}を{満月|まんげつ}にする",
         "だ液を作る"
       ],
       "answer": 0,
-      "explanation": "ためた電気を使って、LEDなどを動かせるよ。"
+      "explanation": "ためた{電気|でんき}を{使|つか}って、LEDなどを{動|うご}かせるよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "{光電池|こうでんち}で{発電|はつでん}するには？",
+      "choices": [
+        "{光|ひかり}を当てる",
+        "{暗|くら}い箱に{入|い}れる",
+        "{水|みず}にしずめる",
+        "{導線|どうせん}を全部外す"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "concept",
+      "explanation": "{光電池|こうでんち}は{光|ひかり}を受けて{発電|はつでん}するよ。",
+      "context": "everyday",
+      "id": "g6u09-b-021",
+      "tier": "basic",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "同じ{明るさ|あかるさ}で{長|なが}く照らすなら、少ない{電気|でんき}ですむ{物|もの}は？",
+      "choices": [
+        "LED",
+        "{条件|じょうけん}をそろえず決める",
+        "必ず{豆電球|まめでんきゅう}",
+        "どちらも電気不要"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "concept",
+      "explanation": "LEDは少ない{電気|でんき}で{明|あか}るく{光|ひかり}る。{比較|ひかく}では{明るさ|あかるさ}などをそろえよう。",
+      "context": "everyday",
+      "id": "g6u09-b-022",
+      "tier": "basic",
+      "subId": "g6_u09_s3",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "{暗|くら}くなったときだけ照明をつける仕組みに{必要|ひつよう}なのは？",
+      "choices": [
+        "{明るさ|あかるさ}のセンサーとプログラム",
+        "{温度計|おんどけい}だけ",
+        "じしゃくだけ",
+        "{電気|でんき}の道を常に{切|き}るだけ"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "concept",
+      "explanation": "センサーで{周り|まわり}の状態を{調|しら}べ、プログラムで点灯を決められるよ。",
+      "context": "everyday",
+      "id": "g6u09-b-023",
+      "tier": "basic",
+      "subId": "g6_u09_s4",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     }
   ],
   "boss": [
@@ -309,146 +465,254 @@ window.QUESTION_BANK["g6_u09"] = {
       "tier": "boss",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "手回し発電機を回してコンデンサーに電気をためた。次にできることは？",
+      "stem": "手回し{発電|はつでん}機を回してコンデンサーに{電気|でんき}をためた。{次|つぎ}にできることは？",
       "choices": [
-        "ためた電気でLEDを光らせる",
-        "月を反射させる",
+        "ためた{電気|でんき}でLEDを{光|ひかり}らせる",
+        "{月|つき}を{反射|はんしゃ}させる",
         "だ液を作る",
-        "地層を作る"
+        "{地層|ちそう}を作る"
       ],
       "answer": 0,
-      "explanation": "コンデンサーにためた電気を、光などに変えて使えるよ。"
+      "explanation": "コンデンサーにためた{電気|でんき}を、{光|ひかり}などに{変|か}えて{使|つか}えるよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-boss-002",
       "tier": "boss",
       "type": "mc4",
       "skill": "concept",
-      "stem": "LEDが豆電球より少ない電気で明るいなら、くらしで役立つ点は？",
+      "stem": "LEDが{豆電球|まめでんきゅう}より少ない{電気|でんき}で{明|あか}るいなら、くらしで役立つ点は？",
       "choices": [
-        "電気を有効に使える",
-        "必ず水が増える",
-        "必ず酸性になる",
-        "火山灰が出る"
+        "{電気|でんき}を有効に{使|つか}える",
+        "必ず{水|みず}が{増|ふ}える",
+        "必ず{酸性|さんせい}になる",
+        "{火山灰|かざんばい}が{出|で}る"
       ],
       "answer": 0,
-      "explanation": "少ない電気で使えると、省エネにつながるよ。"
+      "explanation": "少ない{電気|でんき}で{使|つか}えると、省エネにつながるよ。",
+      "subId": "g6_u09_s3",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-boss-003",
       "tier": "boss",
       "type": "ox",
       "skill": "concept",
-      "stem": "電気は光・音・熱・運動に変えて利用できる。",
+      "stem": "{電気|でんき}は{光|ひかり}・{音|おと}・熱・{運動|うんどう}に{変|か}えて利用できる。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "電気はいろいろなはたらきに変えられるよ。"
+      "explanation": "{電気|でんき}はいろいろなはたらきに{変|か}えられるよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-boss-004",
       "tier": "boss",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "光電池に当てる光を弱くした。モーターの回り方はどうなりやすい？",
+      "stem": "{光電池|こうでんち}に当てる{光|ひかり}を弱くした。モーターの回り方はどうなりやすい？",
       "choices": [
-        "弱くなる・止まりやすい",
+        "弱くなる・{止|と}まりやすい",
         "必ず速くなる",
-        "酸性になる",
-        "満月になる"
+        "{酸性|さんせい}になる",
+        "{満月|まんげつ}になる"
       ],
       "answer": 0,
-      "explanation": "光電池は光を受けて電気を作るので、光の強さが関係するよ。"
+      "explanation": "{光電池|こうでんち}は{光|ひかり}を受けて{電気|でんき}を作るので、{光|ひかり}の{強さ|つよさ}が{関係|かんけい}するよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-boss-005",
       "tier": "boss",
       "type": "mc4",
       "skill": "concept",
-      "stem": "センサーとプログラムを使うよさは？",
+      "stem": "センサーとプログラムを{使|つか}うよさは？",
       "choices": [
-        "まわりのようすに合わせて自動で動かせる",
+        "まわりのようすに合わせて自{動|うご}で{動|うご}かせる",
         "必ず熱くする",
-        "地震を止める",
-        "月を作る"
+        "{地震|じしん}を{止|と}める",
+        "{月|つき}を作る"
       ],
       "answer": 0,
-      "explanation": "センサーでようすを調べ、プログラムで動きを決められるよ。"
+      "explanation": "センサーでようすを{調|しら}べ、プログラムで{動|うご}きを決められるよ。",
+      "subId": "g6_u09_s4",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-boss-006",
       "tier": "boss",
       "type": "mc4",
       "skill": "concept",
-      "stem": "電熱線を長く使うときに気をつけることは？",
+      "stem": "{電熱線|でんねつせん}を{長|なが}く{使|つか}うときに気をつけることは？",
       "choices": [
-        "熱くなるので安全に扱う",
-        "口に入れる",
-        "水に入れて遊ぶ",
+        "熱くなるので{安全|あんぜん}に扱う",
+        "口に{入|い}れる",
+        "{水|みず}に{入|い}れて遊ぶ",
         "紙に必ず近づける"
       ],
       "answer": 0,
-      "explanation": "電熱線は熱を出すので、やけどや火に注意するよ。"
+      "explanation": "{電熱線|でんねつせん}は熱を{出|で}すので、やけどや火に注意するよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-boss-007",
       "tier": "boss",
       "type": "mc4",
       "skill": "concept",
-      "stem": "発電方法の組として正しいものは？",
+      "stem": "{発電|はつでん}{方法|ほうほう}の{組|くみ}として正しいものは？",
       "choices": [
-        "火力・水力・風力・太陽光",
-        "受粉・蒸散・消化",
-        "満月・半月・三日月",
-        "酸性・中性・月性"
+        "{火力|かりょく}・{水力|すいりょく}・{風力|ふうりょく}・{太陽|たいよう}{光|ひかり}",
+        "{受粉|じゅふん}・{蒸散|じょうさん}・{消化|しょうか}",
+        "{満月|まんげつ}・{半月|はんげつ}・{三日月|みかづき}",
+        "{酸性|さんせい}・{中性|ちゅうせい}・{月|つき}性"
       ],
       "answer": 0,
-      "explanation": "電気はいろいろな方法で作られているよ。"
+      "explanation": "{電気|でんき}はいろいろな{方法|ほうほう}で作られているよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-boss-008",
       "tier": "boss",
       "type": "ox",
       "skill": "concept",
-      "stem": "コンデンサーは、電気を作る部品ではなく、ためる部品として使う。",
+      "stem": "コンデンサーは、{電気|でんき}を作る部品ではなく、ためる部品として{使|つか}う。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "コンデンサーは電気をためて、あとで使えるようにするよ。"
+      "explanation": "コンデンサーは{電気|でんき}をためて、あとで{使|つか}えるようにするよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-boss-009",
       "tier": "boss",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "豆電球とLEDの明るさを{比|くら}べるとき、そろえるとよいことは？",
+      "stem": "{豆電球|まめでんきゅう}とLEDの{明るさ|あかるさ}を{比|くら}べるとき、そろえるとよいことは？",
       "choices": [
-        "使う電源やつなぎ方",
-        "月の形",
+        "{使|つか}う電源やつなぎ方",
+        "{月|つき}の{形|かたち}",
         "だ液の量",
-        "火山灰の色"
+        "{火山灰|かざんばい}の{色|いろ}"
       ],
       "answer": 0,
-      "explanation": "条件をそろえると、豆電球とLEDのちがいを{比|くら}べやすいよ。"
+      "explanation": "{条件|じょうけん}をそろえると、{豆電球|まめでんきゅう}とLEDのちがいを{比|くら}べやすいよ。",
+      "subId": "g6_u09_s3",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u09-boss-010",
       "tier": "boss",
       "type": "mc4",
       "skill": "concept",
-      "stem": "電気の有効利用として正しいものは？",
+      "stem": "{電気|でんき}の有効利用として正しいものは？",
       "choices": [
-        "必要なときだけ使うしくみにする",
-        "いつも全部つけっぱなしにする",
-        "発電しない",
-        "ためた電気をすぐ捨てる"
+        "{必要|ひつよう}なときだけ{使|つか}うしくみにする",
+        "いつも{全部|ぜんぶ}つけっぱなしにする",
+        "{発電|はつでん}しない",
+        "ためた{電気|でんき}をすぐ捨てる"
       ],
       "answer": 0,
-      "explanation": "必要なときに必要な分だけ使う工夫が大切だよ。"
+      "explanation": "{必要|ひつよう}なときに{必要|ひつよう}な分だけ{使|つか}う工夫が{大|おお}{切|き}だよ。",
+      "subId": "g6_u09_s3",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "同じ{明るさ|あかるさ}、{同じ|おなじ}ためた{電気|でんき}で{比較|ひかく}。表から言えるのは？",
+      "choices": [
+        "この{条件|じょうけん}ではLEDの方が{長|なが}く{光|ひかり}った",
+        "{豆電球|まめでんきゅう}の方が{長い|ながい}",
+        "同じ{時間|じかん}",
+        "{電気|でんき}を{使|つか}っていない"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "experiment",
+      "explanation": "公平な{条件|じょうけん}で、{光|ひかり}った{時間|じかん}と{使|つか}う{電気|でんき}の{関係|かんけい}を{比|くら}べよう。",
+      "context": "everyday",
+      "diagramKey": "table",
+      "diagramData": {
+        "headers": [
+          "器具",
+          "光った時間"
+        ],
+        "rows": [
+          [
+            "豆電球",
+            "30秒"
+          ],
+          [
+            "LED",
+            "90秒"
+          ]
+        ],
+        "fictional": true
+      },
+      "id": "g6u09-boss-011",
+      "tier": "boss",
+      "subId": "g6_u09_s3",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "手回し発電機からコンデンサーへ。あとでモーターが回った。{確認|かくにん}できる{組|くみ}は？",
+      "choices": [
+        "{電気|でんき}をつくる・ためる・{運動|うんどう}に{変|か}える",
+        "{電気|でんき}をつくれない",
+        "{電気|でんき}をためられない",
+        "{電気|でんき}は{光|ひかり}にしか{変|か}わらない"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "concept",
+      "explanation": "{電気|でんき}をつくり、ためて、いろいろなはたらきに{変|か}えられるよ。",
+      "context": "everyday",
+      "id": "g6u09-boss-012",
+      "tier": "boss",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     }
   ],
   "bonus": [
@@ -457,219 +721,309 @@ window.QUESTION_BANK["g6_u09"] = {
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 電気の流れの大きさを何という？",
+      "stem": "🎓 {電流|でんりゅう}という言葉は4年で学ぶよ。{中学|ちゅうがく}で{電流|でんりゅう}の{大きさ|おおきさ}を表す{単位|たんい}は？",
       "choices": [
-        "電流",
-        "電圧",
-        "抵抗",
-        "支点"
+        "アンペア",
+        "ボルト",
+        "オーム",
+        "ワット"
       ],
       "answer": 0,
-      "explanation": "電流は中学でくわしく学ぶ言葉だよ。"
+      "explanation": "{電流|でんりゅう}の{大きさ|おおきさ}はアンペアで表す。{電圧|でんあつ}や{抵抗|ていこう}との{関係|かんけい}も{中学|ちゅうがく}で学ぶよ。",
+      "contentVersion": 2,
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u09-bonus-002",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 電気を流そうとするはたらきの大きさを何という？",
+      "stem": "🎓 {電気|でんき}を流そうとするはたらきの{大きさ|おおきさ}を何という？",
       "choices": [
-        "電圧",
-        "電流",
-        "抵抗",
-        "地層"
+        "{電圧|でんあつ}",
+        "{電流|でんりゅう}",
+        "{抵抗|ていこう}",
+        "{地層|ちそう}"
       ],
       "answer": 0,
-      "explanation": "電圧は中学で学ぶ電気の量だよ。"
+      "explanation": "{電圧|でんあつ}は{中学|ちゅうがく}で学ぶ{電気|でんき}の量だよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u09-bonus-003",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 電気の流れにくさを何という？",
+      "stem": "🎓 {電気|でんき}の流れにくさを何という？",
       "choices": [
-        "抵抗",
-        "電圧",
-        "電流",
-        "月食"
+        "{抵抗|ていこう}",
+        "{電圧|でんあつ}",
+        "{電流|でんりゅう}",
+        "{月食|げっしょく}"
       ],
       "answer": 0,
-      "explanation": "抵抗は中学で学ぶ電気の性質だよ。"
+      "explanation": "{抵抗|ていこう}は{中学|ちゅうがく}で学ぶ{電気|でんき}の性質だよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u09-bonus-004",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 電流・電圧・抵抗の関係を表す法則は？",
+      "stem": "🎓 {電流|でんりゅう}・{電圧|でんあつ}・{抵抗|ていこう}の{関係|かんけい}を表す法則は？",
       "choices": [
         "オームの法則",
         "てこの法則",
-        "食物連鎖",
-        "中和"
+        "{食物連鎖|しょくもつれんさ}",
+        "{中和|ちゅうわ}"
       ],
       "answer": 0,
-      "explanation": "オームの法則は中学で学ぶ計算の内容だよ。"
+      "explanation": "オームの法則は{中学|ちゅうがく}で学ぶ計算の内容だよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u09-bonus-005",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 電気の力の大きさを表す単位は？",
+      "stem": "🎓 一秒あたりに{使|つか}う{電気|でんき}のエネルギーの{大きさ|おおきさ}を{電力|でんりょく}という。{電力|でんりょく}の{単位|たんい}は？",
       "choices": [
         "ワット",
         "ニュートン",
         "リットル",
-        "グラムだけ"
+        "グラム"
       ],
       "answer": 0,
-      "explanation": "ワットは電力の単位で、中学でくわしく学ぶよ。"
+      "explanation": "ワットは{電力|でんりょく}の{単位|たんい}。{物|もの}を押す{力|ちから}の{単位|たんい}とはちがうよ。{中学|ちゅうがく}で学ぶよ。",
+      "contentVersion": 2,
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u09-bonus-006",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 コイルと磁石の動きで電気ができるしくみを何という？",
+      "stem": "🎓 コイルと{磁石|じしゃく}の{動|うご}きで{電気|でんき}ができるしくみを何という？",
       "choices": [
-        "電磁誘導",
-        "蒸散",
-        "受粉",
+        "{電磁誘導|でんじゆうどう}",
+        "{蒸散|じょうさん}",
+        "{受粉|じゅふん}",
         "たい積"
       ],
       "answer": 0,
-      "explanation": "電磁誘導は発電のしくみにつながるよ。"
+      "explanation": "{電磁誘導|でんじゆうどう}は{発電|はつでん}のしくみにつながるよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u09-bonus-007",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 電気によって発生する熱を何という？",
+      "stem": "🎓 {電気|でんき}によって{発生|はっせい}する熱を何という？",
       "choices": [
         "ジュール熱",
-        "火山灰",
-        "石灰水",
-        "月光"
+        "{火山灰|かざんばい}",
+        "{石|いし}灰{水|みず}",
+        "{月|つき}{光|ひかり}"
       ],
       "answer": 0,
-      "explanation": "ジュール熱は中学で学ぶ電気と熱の内容だよ。"
+      "explanation": "ジュール熱は{中学|ちゅうがく}で学ぶ{電気|でんき}と熱の内容だよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u09-bonus-008",
       "tier": "bonus",
       "type": "ox",
       "skill": "concept",
-      "stem": "🎓 直列つなぎ・並列つなぎでは、電気の流れ方がちがう。",
+      "stem": "🎓 {直列|ちょくれつ}つなぎ・{並列|へいれつ}つなぎでは、{電気|でんき}の流れ方がちがう。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "つなぎ方によるちがいは中学でくわしく学ぶよ。"
+      "explanation": "つなぎ方によるちがいは{中学|ちゅうがく}でくわしく学ぶよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u09-bonus-009",
       "tier": "bonus",
       "type": "mc4",
       "skill": "concept",
-      "stem": "💡 充電してくり返し使える電池を何ということがある？",
+      "stem": "💡 充電してくり返し{使|つか}える{電池|でんち}を何ということがある？",
       "choices": [
-        "蓄電池",
-        "石灰水",
-        "半月",
-        "化石"
+        "蓄{電池|でんち}",
+        "{石|いし}灰{水|みず}",
+        "{半月|はんげつ}",
+        "化{石|いし}"
       ],
       "answer": 0,
-      "explanation": "蓄電池は電気をためて使うしくみだよ。"
+      "explanation": "蓄{電池|でんち}は{電気|でんき}をためて{使|つか}うしくみだよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u09-bonus-010",
       "tier": "bonus",
       "type": "mc4",
       "skill": "concept",
-      "stem": "💡 地熱発電は何を利用する？",
+      "stem": "💡 地熱{発電|はつでん}は何を利用する？",
       "choices": [
         "地下の熱",
-        "月の光だけ",
+        "{月|つき}の{光|ひかり}だけ",
         "だ液",
         "リトマス紙"
       ],
       "answer": 0,
-      "explanation": "地熱発電は地下の熱を利用する発電だよ。"
+      "explanation": "地熱{発電|はつでん}は地下の熱を利用する{発電|はつでん}だよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u09-bonus-011",
       "tier": "bonus",
       "type": "ox",
       "skill": "concept",
-      "stem": "💡 LEDは白熱電球より少ない電気で明るくできることが多い。",
+      "stem": "💡 LEDは白熱電球より少ない{電気|でんき}で{明|あか}るくできることが多い。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "LEDは省エネに役立つことがあるよ。"
+      "explanation": "LEDは省エネに役立つことがあるよ。",
+      "subId": "g6_u09_s3",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u09-bonus-012",
       "tier": "bonus",
       "type": "mc4",
       "skill": "concept",
-      "stem": "💡 風力発電で羽根が回る力のもとは？",
+      "stem": "💡 {風|かぜ}{力|ちから}{発電|はつでん}で{羽|はね}{根|ね}が回る{力|ちから}のもとは？",
       "choices": [
-        "風",
+        "{風|かぜ}",
         "だ液",
-        "石灰水",
-        "月のクレーター"
+        "{石|いし}灰{水|みず}",
+        "{月|つき}のクレーター"
       ],
       "answer": 0,
-      "explanation": "風の力で発電機を回して電気を作るよ。"
+      "explanation": "{風|かぜ}の{力|ちから}で{発電|はつでん}機を回して{電気|でんき}を作るよ。",
+      "subId": "g6_u09_s1",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u09-bonus-013",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 電気をためるしくみをより大きくしたものとして身近なのは？",
+      "stem": "🎓 {電気|でんき}をためるしくみをより{大|おお}きくしたものとして身近なのは？",
       "choices": [
         "バッテリー",
-        "化石",
-        "気孔",
-        "火山灰"
+        "化{石|いし}",
+        "{気孔|きこう}",
+        "{火山灰|かざんばい}"
       ],
       "answer": 0,
-      "explanation": "バッテリーは電気をためて使う道具だよ。"
+      "explanation": "バッテリーは{電気|でんき}をためて{使|つか}う{道具|どうぐ}だよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u09-bonus-014",
       "tier": "bonus",
       "type": "ox",
       "skill": "concept",
-      "stem": "🎓 電気を熱に変えるしくみは、身近な電気器具にも使われている。",
+      "stem": "🎓 {電気|でんき}を熱に{変|か}えるしくみは、身近な{電気|でんき}器具にも{使|つか}われている。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "電気ポットやヒーターなどにも熱への変化が使われるよ。"
+      "explanation": "{電気|でんき}ポットやヒーターなどにも熱への{変化|へんか}が{使|つか}われるよ。",
+      "subId": "g6_u09_s2",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u09-bonus-015",
       "tier": "bonus",
       "type": "mc4",
       "skill": "concept",
-      "stem": "💡 省エネで大切な考え方は？",
+      "stem": "💡 省エネで{大|おお}{切|き}な考え方は？",
       "choices": [
-        "必要な電気をむだなく使う",
-        "電気をいつもむだにする",
-        "発電を全部やめる",
-        "明かりを消せないようにする"
+        "{必要|ひつよう}な{電気|でんき}をむだなく{使|つか}う",
+        "{電気|でんき}をいつもむだにする",
+        "{発電|はつでん}を{全部|ぜんぶ}やめる",
+        "{明|あか}かりを消せないようにする"
       ],
       "answer": 0,
-      "explanation": "くらしに合わせて電気をむだなく使うことが大切だよ。"
+      "explanation": "くらしに合わせて{電気|でんき}をむだなく{使|つか}うことが{大|おお}{切|き}だよ。",
+      "subId": "g6_u09_s3",
+      "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     }
   ]
 };

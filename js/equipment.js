@@ -55,7 +55,7 @@
         });
       }
     });
-    data.owned.companions.forEach(function (id) {
+    data.activeCompanions.forEach(function (id) {
       var companion = window.COMPANIONS[id];
       if (companion && companion.effect) {
         Object.keys(companion.effect).forEach(function (key) {

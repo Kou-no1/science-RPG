@@ -1,9 +1,5 @@
-/* =====================================================================
- * リカ・クエスト 問題バンク : 6年「てこのはたらきとしくみ」(g6_u08)
- * basic/boss は単元スコープ内、bonus は🎓中学チャレンジ/💡トリビア。
- * ===================================================================== */
+/* Original Rika Quest questions. Generated from tools/content-*.cjs. */
 window.QUESTION_BANK = window.QUESTION_BANK || {};
-
 window.QUESTION_BANK["g6_u08"] = {
   "basic": [
     {
@@ -14,72 +10,97 @@ window.QUESTION_BANK["g6_u08"] = {
       "stem": "てこで、棒を支える点を何という？",
       "choices": [
         "{支点|してん}",
-        "力点",
-        "作用点",
-        "半月"
+        "{力点|りきてん}",
+        "{作用点|さようてん}",
+        "{半月|はんげつ}"
       ],
       "answer": 0,
-      "explanation": "{支点|してん}は、てこが動くときの中心になる点だよ。"
+      "explanation": "{支点|してん}は、てこが{動|うご}くときの中心になる点だよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-002",
       "tier": "basic",
       "type": "mc4",
       "skill": "term",
-      "stem": "てこで、力を加える点を何という？",
+      "stem": "てこで、{力|ちから}を加える点を何という？",
       "choices": [
         "{力点|りきてん}",
-        "支点",
-        "作用点",
-        "化石"
+        "{支点|してん}",
+        "{作用点|さようてん}",
+        "化{石|いし}"
       ],
       "answer": 0,
-      "explanation": "{力点|りきてん}は、人が力を加える点だよ。"
+      "explanation": "{力点|りきてん}は、人が{力|ちから}を加える点だよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-003",
       "tier": "basic",
       "type": "mc4",
       "skill": "term",
-      "stem": "てこで、物にはたらきかける点を何という？",
+      "stem": "てこで、{物|もの}にはたらきかける点を何という？",
       "choices": [
         "{作用点|さようてん}",
-        "支点",
-        "力点",
-        "小腸"
+        "{支点|してん}",
+        "{力点|りきてん}",
+        "{小腸|しょうちょう}"
       ],
       "answer": 0,
-      "explanation": "{作用点|さようてん}は、持ち上げたい物などにはたらく点だよ。"
+      "explanation": "{作用点|さようてん}は、{持|も}ち上げたい{物|もの}などにはたらく点だよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-004",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "小さな力で重い物を持ち上げやすくするには、力点をどうする？",
+      "stem": "{小|ちい}さな{力|ちから}で重い{物|もの}を{持|も}ち上げやすくするには、{力点|りきてん}をどうする？",
       "choices": [
-        "支点から遠くする",
-        "支点に近づける",
-        "作用点を遠くする",
+        "{支点|してん}から遠くする",
+        "{支点|してん}に近づける",
+        "{作用点|さようてん}を遠くする",
         "棒をなくす"
       ],
       "answer": 0,
-      "explanation": "{力点|りきてん}を{支点|してん}から遠くすると、小さな力で動かしやすくなるよ。"
+      "explanation": "{力点|りきてん}を{支点|してん}から遠くすると、{小|ちい}さな{力|ちから}で{動|うご}かしやすくなるよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-005",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "小さな力で持ち上げやすくするには、作用点をどうする？",
+      "stem": "{小|ちい}さな{力|ちから}で{持|も}ち上げやすくするには、{作用点|さようてん}をどうする？",
       "choices": [
-        "支点に近づける",
-        "支点から遠くする",
-        "力点と同じにする",
-        "月に近づける"
+        "{支点|してん}に近づける",
+        "{支点|してん}から遠くする",
+        "{力点|りきてん}と{同じ|おなじ}にする",
+        "{月|つき}に近づける"
       ],
       "answer": 0,
-      "explanation": "{作用点|さようてん}を{支点|してん}に近づけると、小さな力で動かしやすくなるよ。"
+      "explanation": "{作用点|さようてん}を{支点|してん}に近づけると、{小|ちい}さな{力|ちから}で{動|うご}かしやすくなるよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-006",
@@ -89,64 +110,84 @@ window.QUESTION_BANK["g6_u08"] = {
       "stem": "てこがかたむかず横になっていることを何という？",
       "choices": [
         "{水平|すいへい}",
-        "酸性",
-        "満月",
-        "蒸散"
+        "{酸性|さんせい}",
+        "{満月|まんげつ}",
+        "{蒸散|じょうさん}"
       ],
       "answer": 0,
-      "explanation": "てこが横でつり合っているとき、{水平|すいへい}というよ。"
+      "explanation": "てこが横でつり合っているとき、{水平|すいへい}というよ。",
+      "subId": "g6_u08_s2",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-007",
       "tier": "basic",
       "type": "mc4",
       "skill": "term",
-      "stem": "左右がかたむかず止まっていることを何という？",
+      "stem": "{左右|さゆう}がかたむかず{止|と}まっていることを何という？",
       "choices": [
         "つり合い",
         "燃焼",
-        "受粉",
-        "蒸発"
+        "{受粉|じゅふん}",
+        "{蒸発|じょうはつ}"
       ],
       "answer": 0,
-      "explanation": "てこが左右でかたむかず止まることをつり合いというよ。"
+      "explanation": "てこが{左右|さゆう}でかたむかず{止|と}まることをつり合いというよ。",
+      "subId": "g6_u08_s2",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-008",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "てこが{水平|すいへい}につり合うきまりに関係するものは？",
+      "stem": "てこが{水平|すいへい}につり合うきまりに{関係|かんけい}するものは？",
       "choices": [
-        "おもりの重さ×支点からのきょり",
-        "月の形×太陽の高さ",
-        "石灰水×二酸化炭素",
-        "だ液×水"
+        "おもりの{重さ|おもさ}×{支点|してん}からのきょり",
+        "{月|つき}の{形|かたち}×{太陽|たいよう}の{高|たか}さ",
+        "{石|いし}灰{水|みず}×{二酸化炭素|にさんかたんそ}",
+        "だ液×{水|みず}"
       ],
       "answer": 0,
-      "explanation": "左右の「重さ×きょり」が等しいと、てこはつり合うよ。"
+      "explanation": "{左右|さゆう}の「{重さ|おもさ}×きょり」が等しいと、てこはつり合うよ。",
+      "subId": "g6_u08_s2",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-009",
       "tier": "basic",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "実験用てこで調べることは？",
+      "stem": "{実験|じっけん}用てこで{調|しら}べることは？",
       "choices": [
         "てこがつり合うきまり",
-        "月の満ち欠け",
+        "{月|つき}の満ち欠け",
         "だ液のはたらき",
-        "水溶液の性質だけ"
+        "{水溶液|すいようえき}の性質だけ"
       ],
       "answer": 0,
-      "explanation": "おもりの重さやきょりを変えて、つり合うきまりを調べるよ。"
+      "explanation": "おもりの{重さ|おもさ}やきょりを{変|か}えて、つり合うきまりを{調|しら}べるよ。",
+      "subId": "g6_u08_s2",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-010",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "左に2個のおもりを3の位置につるした。左のはたらきは？",
+      "stem": "左に2個のおもりを3の{位置|いち}につるした。左のはたらきは？",
       "choices": [
         "2×3",
         "2+3だけ",
@@ -154,7 +195,12 @@ window.QUESTION_BANK["g6_u08"] = {
         "2÷3"
       ],
       "answer": 0,
-      "explanation": "てこでは、おもりの重さと支点からのきょりをかけて考えるよ。"
+      "explanation": "てこでは、おもりの{重さ|おもさ}と{支点|してん}からのきょりをかけて考えるよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-011",
@@ -169,35 +215,50 @@ window.QUESTION_BANK["g6_u08"] = {
         "必ず回り続ける"
       ],
       "answer": 0,
-      "explanation": "2×3も1×6も6なので、左右がつり合うよ。"
+      "explanation": "2×3も1×6も6なので、{左右|さゆう}がつり合うよ。",
+      "subId": "g6_u08_s2",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-012",
       "tier": "basic",
       "type": "ox",
       "skill": "concept",
-      "stem": "支点から遠いところで力を加えると、小さな力で動かしやすい。",
+      "stem": "{支点|してん}から遠いところで{力|ちから}を加えると、{小|ちい}さな{力|ちから}で{動|うご}かしやすい。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "{支点|してん}から遠いほど、力のはたらきが大きくなるよ。"
+      "explanation": "{支点|してん}から遠いほど、{力|ちから}のはたらきが{大|おお}きくなるよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-013",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "てこを利用した道具はどれ？",
+      "stem": "てこを利用した{道具|どうぐ}はどれ？",
       "choices": [
         "くぎぬき",
-        "石灰水",
+        "{石|いし}灰{水|みず}",
         "ヨウ素液",
-        "気体検知管"
+        "{気体検知管|きたいけんちかん}"
       ],
       "answer": 0,
-      "explanation": "くぎぬきはてこのはたらきを利用した道具だよ。"
+      "explanation": "くぎぬきはてこのはたらきを利用した{道具|どうぐ}だよ。",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-014",
@@ -207,42 +268,57 @@ window.QUESTION_BANK["g6_u08"] = {
       "stem": "はさみで{支点|してん}にあたるところは？",
       "choices": [
         "中心のねじのあたり",
-        "刃の先だけ",
-        "持つところだけ",
+        "刃の{先|さき}だけ",
+        "{持|も}つところだけ",
         "紙だけ"
       ],
       "answer": 0,
-      "explanation": "はさみは中心のねじのあたりを{支点|してん}として動くよ。"
+      "explanation": "はさみは中心のねじのあたりを{支点|してん}として{動|うご}くよ。",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-015",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "せんぬきは、何を利用した道具？",
+      "stem": "せんぬきは、何を利用した{道具|どうぐ}？",
       "choices": [
         "てこ",
-        "蒸散",
+        "{蒸散|じょうさん}",
         "燃焼",
-        "月の反射"
+        "{月|つき}の{反射|はんしゃ}"
       ],
       "answer": 0,
-      "explanation": "せんぬきはてこのはたらきで小さな力を大きくはたらかせるよ。"
+      "explanation": "せんぬきはてこのはたらきで{小|ちい}さな{力|ちから}を{大|おお}きくはたらかせるよ。",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-016",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "ピンセットで力を加える点はどこに近い？",
+      "stem": "ピンセットで{力|ちから}を加える点はどこに近い？",
       "choices": [
-        "指で押すところ",
-        "先で物をつまむところ",
-        "曲がる根もと",
-        "月の表面"
+        "指で{押す|おす}ところ",
+        "{先|さき}で{物|もの}をつまむところ",
+        "曲がる{根|ね}もと",
+        "{月|つき}の{表面|ひょうめん}"
       ],
       "answer": 0,
-      "explanation": "指で押すところが{力点|りきてん}になるよ。"
+      "explanation": "指で{押す|おす}ところが{力点|りきてん}になるよ。",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-017",
@@ -255,50 +331,130 @@ window.QUESTION_BANK["g6_u08"] = {
         "×"
       ],
       "answer": 0,
-      "explanation": "この3つの点を見つけると、てこのはたらきを考えやすいよ。"
+      "explanation": "この3つの点を{見|み}つけると、てこのはたらきを考えやすいよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-018",
       "tier": "basic",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "てこの実験で変える条件としてよいものは？",
+      "stem": "てこの{実験|じっけん}で{変|か}える{条件|じょうけん}としてよいものは？",
       "choices": [
-        "おもりの重さや支点からのきょり",
-        "月の形だけ",
-        "二酸化炭素の量だけ",
-        "だ液の温度だけ"
+        "おもりの{重さ|おもさ}や{支点|してん}からのきょり",
+        "{月|つき}の{形|かたち}だけ",
+        "{二酸化炭素|にさんかたんそ}の量だけ",
+        "だ液の{温度|おんど}だけ"
       ],
       "answer": 0,
-      "explanation": "重さやきょりを変えて、つり合いを調べるよ。"
+      "explanation": "{重さ|おもさ}やきょりを{変|か}えて、つり合いを{調|しら}べるよ。",
+      "subId": "g6_u08_s2",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-019",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "右のおもりを支点から遠くすると、右側のはたらきはどうなる？",
+      "stem": "右のおもりを{支点|してん}から遠くすると、右側のはたらきはどうなる？",
       "choices": [
-        "大きくなる",
-        "小さくなるだけ",
+        "{大|おお}きくなる",
+        "{小|ちい}さくなるだけ",
         "0になる",
-        "関係ない"
+        "{関係|かんけい}ない"
       ],
       "answer": 0,
-      "explanation": "同じ重さでも、支点から遠いほどはたらきが大きいよ。"
+      "explanation": "{同じ|おなじ}{重さ|おもさ}でも、{支点|してん}から遠いほどはたらきが{大きい|おおきい}よ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-b-020",
       "tier": "basic",
       "type": "ox",
       "skill": "concept",
-      "stem": "てこを使うと、力の大きさや向きを変えて道具に利用できる。",
+      "stem": "てこを{使|つか}うと、{力|ちから}の{大きさ|おおきさ}や向きを{変|か}えて{道具|どうぐ}に利用できる。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "身のまわりの道具にも、てこのしくみが使われているよ。"
+      "explanation": "身のまわりの{道具|どうぐ}にも、てこのしくみが{使|つか}われているよ。",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "くぎぬきで、小さな{力|ちから}で抜くには？",
+      "choices": [
+        "{持|も}つ所を{支点|してん}から遠くする",
+        "{支点|してん}に手を近づける",
+        "{作用点|さようてん}を{支点|してん}から遠くする",
+        "{支点|してん}をなくす"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "concept",
+      "explanation": "{力点|りきてん}を{支点|してん}から遠くすると、小さな{力|ちから}で{動|うご}かせるよ。",
+      "context": "everyday",
+      "id": "g6u08-b-021",
+      "tier": "basic",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "棒で荷物を{持|も}ち上げる。荷物側を{支点|してん}に近づけると？",
+      "choices": [
+        "小さな{力|ちから}で{持|も}ち上げやすい",
+        "必ず大きな{力|ちから}が{必要|ひつよう}",
+        "{力点|りきてん}がなくなる",
+        "棒の{重さ|おもさ}が消える"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "concept",
+      "explanation": "{作用点|さようてん}を{支点|してん}に近づけると、小さな{力|ちから}で{持|も}ち上げられるよ。",
+      "context": "everyday",
+      "id": "g6u08-b-022",
+      "tier": "basic",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "はさみで紙を{切|き}る。{支点|してん}は？",
+      "choices": [
+        "刃が交わるねじの所",
+        "指を{入|い}れる所",
+        "紙がふれる刃先だけ",
+        "{持|も}ち手の端だけ"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "concept",
+      "explanation": "はさみが回る中心のねじが{支点|してん}だよ。刃には触れないでね。",
+      "context": "everyday",
+      "id": "g6u08-b-023",
+      "tier": "basic",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     }
   ],
   "boss": [
@@ -307,7 +463,7 @@ window.QUESTION_BANK["g6_u08"] = {
       "tier": "boss",
       "type": "mc4",
       "skill": "concept",
-      "stem": "左に3個を2の位置、右に2個を3の位置につるした。てこは？",
+      "stem": "左に3個を2の{位置|いち}、右に2個を3の{位置|いち}につるした。てこは？",
       "choices": [
         "つり合う",
         "左にかたむく",
@@ -315,108 +471,148 @@ window.QUESTION_BANK["g6_u08"] = {
         "回り続ける"
       ],
       "answer": 0,
-      "explanation": "左は3×2=6、右は2×3=6なのでつり合うよ。"
+      "explanation": "左は3×2=6、右は2×3=6なのでつり合うよ。",
+      "subId": "g6_u08_s2",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-boss-002",
       "tier": "boss",
       "type": "mc4",
       "skill": "concept",
-      "stem": "左に2個を4の位置。右に4個をつるすなら、つり合う位置は？",
+      "stem": "左に2個を4の{位置|いち}。右に4個をつるすなら、つり合う{位置|いち}は？",
       "choices": [
-        "2の位置",
-        "1の位置",
-        "4の位置",
-        "8の位置"
+        "2の{位置|いち}",
+        "1の{位置|いち}",
+        "4の{位置|いち}",
+        "8の{位置|いち}"
       ],
       "answer": 0,
-      "explanation": "左は2×4=8。右は4×2=8でつり合うよ。"
+      "explanation": "左は2×4=8。右は4×2=8でつり合うよ。",
+      "subId": "g6_u08_s2",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-boss-003",
       "tier": "boss",
       "type": "ox",
       "skill": "concept",
-      "stem": "おもりの重さが同じなら、支点から遠い方が大きくはたらく。",
+      "stem": "おもりの{重さ|おもさ}が{同じ|おなじ}なら、{支点|してん}から遠い方が{大|おお}きくはたらく。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "きょりが長いほど、てこのはたらきは大きくなるよ。"
+      "explanation": "きょりが{長い|ながい}ほど、てこのはたらきは{大|おお}きくなるよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-boss-004",
       "tier": "boss",
       "type": "mc4",
       "skill": "concept",
-      "stem": "重い物を小さな力で持ち上げたいとき、よい組み合わせは？",
+      "stem": "重い{物|もの}を{小|ちい}さな{力|ちから}で{持|も}ち上げたいとき、よい{組|くみ}み合わせは？",
       "choices": [
-        "力点を遠く、作用点を支点に近くする",
-        "力点を近く、作用点を遠くする",
-        "支点をなくす",
-        "棒を短くしすぎる"
+        "{力点|りきてん}を遠く、{作用点|さようてん}を{支点|してん}に近くする",
+        "{力点|りきてん}を近く、{作用点|さようてん}を遠くする",
+        "{支点|してん}をなくす",
+        "棒を{短|みじか}くしすぎる"
       ],
       "answer": 0,
-      "explanation": "力点を遠く、作用点を近くすると小さな力で動かしやすいよ。"
+      "explanation": "{力点|りきてん}を遠く、{作用点|さようてん}を近くすると{小|ちい}さな{力|ちから}で{動|うご}かしやすいよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-boss-005",
       "tier": "boss",
       "type": "mc4",
       "skill": "concept",
-      "stem": "くぎぬきでくぎをぬくとき、長い持ち手が役立つ理由は？",
+      "stem": "くぎぬきでくぎをぬくとき、{長|なが}い{持|も}ち手が役立つ理由は？",
       "choices": [
-        "力点が支点から遠くなるから",
-        "月の光が当たるから",
-        "金属がとけるから",
-        "水が出るから"
+        "{力点|りきてん}が{支点|してん}から遠くなるから",
+        "{月|つき}の{光|ひかり}が当たるから",
+        "{金属|きんぞく}がとけるから",
+        "{水|みず}が{出|で}るから"
       ],
       "answer": 0,
-      "explanation": "力点が遠いと、小さな力で大きくはたらかせやすいよ。"
+      "explanation": "{力点|りきてん}が遠いと、{小|ちい}さな{力|ちから}で{大|おお}きくはたらかせやすいよ。",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-boss-006",
       "tier": "boss",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "実験用てこで左右をつり合わせるとき、見るものは？",
+      "stem": "{実験|じっけん}用てこで{左右|さゆう}をつり合わせるとき、{見|み}るものは？",
       "choices": [
-        "おもりの重さと支点からのきょり",
-        "気体の割合",
-        "葉の水てき",
-        "月の高さ"
+        "おもりの{重さ|おもさ}と{支点|してん}からのきょり",
+        "{気体|きたい}の{割合|わりあい}",
+        "{葉|は}の{水|みず}てき",
+        "{月|つき}の{高|たか}さ"
       ],
       "answer": 0,
-      "explanation": "左右の重さときょりをかけた大きさを{比|くら}べるよ。"
+      "explanation": "{左右|さゆう}の{重さ|おもさ}ときょりをかけた{大きさ|おおきさ}を{比|くら}べるよ。",
+      "subId": "g6_u08_s2",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-boss-007",
       "tier": "boss",
       "type": "ox",
       "skill": "concept",
-      "stem": "てこがつり合うとき、左右の「重さ×きょり」は等しい。",
+      "stem": "てこがつり合うとき、{左右|さゆう}の「{重さ|おもさ}×きょり」は等しい。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "このきまりでつり合いを考えられるよ。"
+      "explanation": "このきまりでつり合いを考えられるよ。",
+      "subId": "g6_u08_s2",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-boss-008",
       "tier": "boss",
       "type": "mc4",
       "skill": "concept",
-      "stem": "はさみ・せんぬき・ピンセットに共通する見方は？",
+      "stem": "はさみ・せんぬき・ピンセットに共通する{見|み}方は？",
       "choices": [
         "{支点|してん}・{力点|りきてん}・{作用点|さようてん}を探せる",
-        "どれも月で光る",
-        "どれも石灰水を使う",
-        "どれも水溶液"
+        "どれも{月|つき}で{光|ひかり}る",
+        "どれも{石|いし}灰{水|みず}を{使|つか}う",
+        "どれも{水溶液|すいようえき}"
       ],
       "answer": 0,
-      "explanation": "てこの道具では3つの点を探すとしくみがわかりやすいよ。"
+      "explanation": "てこの{道具|どうぐ}では3つの点を探すとしくみがわかりやすいよ。",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-boss-009",
@@ -431,20 +627,70 @@ window.QUESTION_BANK["g6_u08"] = {
         "わからない"
       ],
       "answer": 0,
-      "explanation": "左は6、右は4なので、左のはたらきが大きいよ。"
+      "explanation": "左は6、右は4なので、左のはたらきが{大きい|おおきい}よ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u08-boss-010",
       "tier": "boss",
       "type": "ox",
       "skill": "experiment",
-      "stem": "てこの実験では、支点からのきょりを同じものさしで正しくはかることが大切である。",
+      "stem": "てこの{実験|じっけん}では、{支点|してん}からのきょりを{同じ|おなじ}ものさしで正しくはかることが{大|おお}{切|き}である。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "きょりが変わると、てこのはたらきも変わるよ。"
+      "explanation": "きょりが{変|か}わると、てこのはたらきも{変|か}わるよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "左は{重さ|おもさ}20g、{支点|してん}から3{目もり|めもり}。右2{目もり|めもり}につり合わせる{重さ|おもさ}は？",
+      "choices": [
+        "30g",
+        "20g",
+        "10g",
+        "60g"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "concept",
+      "explanation": "左は20×3＝60。右も{同じ|おなじ}にするので30×2＝60だよ。",
+      "context": "everyday",
+      "id": "g6u08-boss-011",
+      "tier": "boss",
+      "subId": "g6_u08_s2",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "{左右|さゆう}でつり合う{組|くみ}は？",
+      "choices": [
+        "左10g×4{目もり|めもり}、右20g×2{目もり|めもり}",
+        "左10g×3、右20g×2",
+        "左20g×4、右10g×2",
+        "左10g×1、右20g×1"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "concept",
+      "explanation": "{重さ|おもさ}×{支点|してん}からの{距離|きょり}が{左右|さゆう}で等しいと、{水平|すいへい}につり合うよ。",
+      "context": "everyday",
+      "id": "g6u08-boss-012",
+      "tier": "boss",
+      "subId": "g6_u08_s2",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     }
   ],
   "bonus": [
@@ -453,43 +699,61 @@ window.QUESTION_BANK["g6_u08"] = {
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 中学以降で、力を回そうとするはたらきを何という？",
+      "stem": "🎓 {中学|ちゅうがく}以降で、{力|ちから}を回そうとするはたらきを何という？",
       "choices": [
-        "力のモーメント",
-        "光合成",
-        "中和",
-        "示準化石"
+        "{力|ちから}のモーメント",
+        "{光合成|こうごうせい}",
+        "{中和|ちゅうわ}",
+        "示準化{石|いし}"
       ],
       "answer": 0,
-      "explanation": "力のモーメントはてこのきまりにつながる言葉だよ。"
+      "explanation": "{力|ちから}のモーメントはてこのきまりにつながる言{葉|は}だよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u08-bonus-002",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 回す力を表す言葉として使われることがあるものは？",
+      "stem": "🎓 回す{力|ちから}を表す言{葉|は}として{使|つか}われることがあるものは？",
       "choices": [
         "トルク",
         "リトマス",
-        "肺胞",
-        "月食"
+        "{肺|はい}胞",
+        "{月食|げっしょく}"
       ],
       "answer": 0,
-      "explanation": "トルクは機械などで使われる言葉だよ。"
+      "explanation": "トルクは機械などで{使|つか}われる言{葉|は}だよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u08-bonus-003",
       "tier": "bonus",
       "type": "ox",
       "skill": "concept",
-      "stem": "🎓 てこのきまりは、力のモーメントの考え方につながる。",
+      "stem": "🎓 てこのきまりは、{力|ちから}のモーメントの考え方につながる。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "重さときょりをかけて考える見方がつながっているよ。"
+      "explanation": "{重さ|おもさ}ときょりをかけて考える{見|み}方がつながっているよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u08-bonus-004",
@@ -500,11 +764,17 @@ window.QUESTION_BANK["g6_u08"] = {
       "choices": [
         "てこ",
         "燃焼",
-        "呼吸",
-        "月の反射"
+        "{呼吸|こきゅう}",
+        "{月|つき}の{反射|はんしゃ}"
       ],
       "answer": 0,
-      "explanation": "左右のつり合いを利用して重さを{比|くら}べるよ。"
+      "explanation": "{左右|さゆう}のつり合いを利用して{重さ|おもさ}を{比|くら}べるよ。",
+      "subId": "g6_u08_s2",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u08-bonus-005",
@@ -513,114 +783,162 @@ window.QUESTION_BANK["g6_u08"] = {
       "skill": "term",
       "stem": "🎓 仕事の原理として知られる考え方に近いものは？",
       "choices": [
-        "力が小さくなると動かすきょりが長くなることがある",
-        "月が欠ける",
-        "石灰水が白くなる",
-        "だ液が出る"
+        "{力|ちから}が{小|ちい}さくなると{動|うご}かすきょりが{長|なが}くなることがある",
+        "{月|つき}が欠ける",
+        "{石|いし}灰{水|みず}が白くなる",
+        "だ液が{出|で}る"
       ],
       "answer": 0,
-      "explanation": "仕事の原理は中学以降で学ぶ力学の内容だよ。"
+      "explanation": "仕事の原理は{中学|ちゅうがく}以降で学ぶ{力学|りきがく}の内容だよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u08-bonus-006",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "💡 車のハンドルのように、回す道具に関係するしくみは？",
+      "stem": "💡 車のハンドルのように、回す{道具|どうぐ}に{関係|かんけい}するしくみは？",
       "choices": [
-        "輪軸",
-        "気孔",
-        "肺胞",
-        "中和"
+        "{輪|わ}軸",
+        "{気孔|きこう}",
+        "{肺|はい}胞",
+        "{中和|ちゅうわ}"
       ],
       "answer": 0,
-      "explanation": "輪軸は力を伝える道具の一つだよ。"
+      "explanation": "{輪|わ}軸は{力|ちから}を伝える{道具|どうぐ}の一つだよ。",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u08-bonus-007",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "💡 ロープと車輪で重い物を上げる道具は？",
+      "stem": "💡 ロープと車{輪|わ}で重い{物|もの}を上げる{道具|どうぐ}は？",
       "choices": [
         "滑車",
         "リトマス紙",
-        "火山灰",
-        "三日月"
+        "{火山灰|かざんばい}",
+        "{三日月|みかづき}"
       ],
       "answer": 0,
-      "explanation": "滑車も力を小さくする道具として知られているよ。"
+      "explanation": "滑車も{力|ちから}を{小|ちい}さくする{道具|どうぐ}として知られているよ。",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u08-bonus-008",
       "tier": "bonus",
       "type": "ox",
       "skill": "concept",
-      "stem": "💡 ドアノブがちょうつがいから遠いところにあるのは、てこの考え方と関係する。",
+      "stem": "💡 ドアノブがちょうつがいから遠いところにあるのは、てこの考え方と{関係|かんけい}する。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "支点から遠いところに力を加えると動かしやすいよ。"
+      "explanation": "{支点|してん}から遠いところに{力|ちから}を加えると{動|うご}かしやすいよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u08-bonus-009",
       "tier": "bonus",
       "type": "mc4",
       "skill": "concept",
-      "stem": "💡 はさみの刃の根もとで厚いものを切りやすい理由に近いものは？",
+      "stem": "💡 はさみの刃の{根|ね}もとで厚いものを{切|き}りやすい理由に近いものは？",
       "choices": [
-        "作用点が支点に近いから",
-        "月が明るいから",
-        "水溶液だから",
-        "二酸化炭素が多いから"
+        "{作用点|さようてん}が{支点|してん}に近いから",
+        "{月|つき}が{明|あか}るいから",
+        "{水溶液|すいようえき}だから",
+        "{二酸化炭素|にさんかたんそ}が多いから"
       ],
       "answer": 0,
-      "explanation": "作用点が支点に近いと、大きな力がはたらきやすいよ。"
+      "explanation": "{作用点|さようてん}が{支点|してん}に近いと、{大|おお}きな{力|ちから}がはたらきやすいよ。",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u08-bonus-010",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 力の大きさの単位として中学で学ぶものは？",
+      "stem": "🎓 {力|ちから}の{大きさ|おおきさ}の{単位|たんい}として{中学|ちゅうがく}で学ぶものは？",
       "choices": [
         "ニュートン",
         "リットル",
         "パーセントだけ",
-        "月"
+        "{月|つき}"
       ],
       "answer": 0,
-      "explanation": "ニュートンは力の大きさを表す単位だよ。"
+      "explanation": "ニュートンは{力|ちから}の{大きさ|おおきさ}を表す{単位|たんい}だよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u08-bonus-011",
       "tier": "bonus",
       "type": "ox",
       "skill": "concept",
-      "stem": "🎓 てこは、力の大きさだけでなく力の向きを変えることにも使える。",
+      "stem": "🎓 てこは、{力|ちから}の{大きさ|おおきさ}だけでなく{力|ちから}の向きを{変|か}えることにも{使|つか}える。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "道具によって力の向きやはたらき方が変わるよ。"
+      "explanation": "{道具|どうぐ}によって{力|ちから}の向きやはたらき方が{変|か}わるよ。",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u08-bonus-012",
       "tier": "bonus",
       "type": "mc4",
       "skill": "concept",
-      "stem": "💡 つめ切りには、てこのしくみが組み合わされている。探すとよい点は？",
+      "stem": "💡 つめ{切|き}りには、てこのしくみが{組|くみ}み合わされている。探すとよい点は？",
       "choices": [
-        "支点・力点・作用点",
-        "酸性・中性・アルカリ性",
-        "満月・半月・三日月",
-        "胃・小腸・大腸"
+        "{支点|してん}・{力点|りきてん}・{作用点|さようてん}",
+        "{酸性|さんせい}・{中性|ちゅうせい}・アルカリ性",
+        "{満月|まんげつ}・{半月|はんげつ}・{三日月|みかづき}",
+        "{胃|い}・{小腸|しょうちょう}・{大腸|だいちょう}"
       ],
       "answer": 0,
-      "explanation": "身近な道具でも3つの点を探すとしくみが見えてくるよ。"
+      "explanation": "身近な{道具|どうぐ}でも3つの点を探すとしくみが{見|み}えてくるよ。",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u08-bonus-013",
@@ -633,37 +951,55 @@ window.QUESTION_BANK["g6_u08"] = {
         "×"
       ],
       "answer": 0,
-      "explanation": "支点をどこにするかで、動かしやすさが変わるよ。"
+      "explanation": "{支点|してん}をどこにするかで、{動|うご}かしやすさが{変|か}わるよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u08-bonus-014",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 物体を回転させる中心になる点は、てこのどの点に近い？",
+      "stem": "🎓 {物|もの}{体|からだ}を{回転|かいてん}させる中心になる点は、てこのどの点に近い？",
       "choices": [
-        "支点",
-        "作用点だけ",
-        "力点だけ",
-        "化石"
+        "{支点|してん}",
+        "{作用点|さようてん}だけ",
+        "{力点|りきてん}だけ",
+        "化{石|いし}"
       ],
       "answer": 0,
-      "explanation": "回る中心を考える見方は、てこの{支点|してん}とつながるよ。"
+      "explanation": "回る中心を考える{見|み}方は、てこの{支点|してん}とつながるよ。",
+      "subId": "g6_u08_s1",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u08-bonus-015",
       "tier": "bonus",
       "type": "mc4",
       "skill": "concept",
-      "stem": "💡 自転車のペダルも、回す力を利用している。関係が深い考え方は？",
+      "stem": "💡 自転車のペダルも、回す{力|ちから}を利用している。{関係|かんけい}が深い考え方は？",
       "choices": [
-        "力と回転",
+        "{力|ちから}と{回転|かいてん}",
         "だ液とでんぷん",
-        "月の反射",
-        "石灰水"
+        "{月|つき}の{反射|はんしゃ}",
+        "{石|いし}灰{水|みず}"
       ],
       "answer": 0,
-      "explanation": "回す力の考え方は、いろいろな道具に使われているよ。"
+      "explanation": "回す{力|ちから}の考え方は、いろいろな{道具|どうぐ}に{使|つか}われているよ。",
+      "subId": "g6_u08_s3",
+      "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     }
   ]
 };

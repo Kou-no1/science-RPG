@@ -1,13 +1,44 @@
 (function () {
-  function svgShell(inner, label) {
+  var drawingId = 0;
+  function themeMotif(theme) {
+    var motifs = {
+      sky:'<path d="M84 37 Q75 23 92 24 Q98 9 111 23 Q131 14 135 33 Q126 42 84 37Z" fill="#eafcff" stroke="#0e93b3" stroke-width="3"/>',
+      plant:'<path d="M108 43 Q77 42 83 15 Q110 14 108 43 M108 43 Q108 9 137 17 Q137 40 108 43" fill="#b5ef76" stroke="#276a34" stroke-width="3"/>',
+      life:'<path d="M98 35 Q95 11 110 9 Q126 11 123 35Z" fill="#fff0f5" stroke="#9b3f61" stroke-width="3"/><circle cx="107" cy="25" r="4" fill="#e58aa9"/>',
+      electric:'<path d="M111 9 L92 35 H108 L101 54 L130 25 H113Z" fill="#ffd43b" stroke="#8c6a00" stroke-width="3"/>',
+      physics:'<circle cx="110" cy="25" r="15" fill="#ffd43b" stroke="#4c5965" stroke-width="3"/><path d="M110 11 V25 L120 30" fill="none" stroke="#4c5965" stroke-width="3"/>',
+      fire:'<path d="M90 39 Q88 23 102 17 Q100 30 111 7 Q132 27 128 39Z" fill="#ffcf62" stroke="#94301d" stroke-width="3"/>',
+      heat:'<path d="M90 39 Q88 23 102 17 Q100 30 111 7 Q132 27 128 39Z" fill="#ffcf62" stroke="#a53653" stroke-width="3"/>',
+      body:'<path d="M110 38 C77 19 101 8 110 19 C121 5 144 22 110 38Z" fill="#ff9ab6" stroke="#91323c" stroke-width="3"/>',
+      space:'<path d="M123 10 A19 19 0 1 0 130 37 A17 17 0 0 1 123 10Z" fill="#ffd43b" stroke="#26306b" stroke-width="3"/>',
+      earth:'<path d="M88 37 L97 11 L118 17 L135 37Z" fill="#ffd089" stroke="#5e432b" stroke-width="3"/><path d="M95 25 H125 M91 32 H131" stroke="#9c7952" stroke-width="3"/>',
+      chem:'<path d="M101 12 H119 V28 Q134 42 110 42 Q87 42 101 28Z" fill="#b5ef76" stroke="#563176" stroke-width="3"/>',
+      eco:'<circle cx="110" cy="26" r="18" fill="#70dbdd" stroke="#1e654f" stroke-width="3"/><path d="M99 13 L110 22 L102 32 L114 38 L121 24 L116 13" fill="#55aa5b"/>',
+      water:'<path d="M110 10 Q82 36 110 43 Q138 36 110 10Z" fill="#a0eeff" stroke="#29647c" stroke-width="3"/>',
+      light:'<path d="M110 7 L116 21 L131 23 L120 33 L123 47 L110 39 L97 47 L100 33 L89 23 L104 21Z" fill="#fff1a2" stroke="#a4670a" stroke-width="3"/>',
+      sound:'<path d="M106 14 V35 Q90 30 91 40 Q92 47 105 42 V21 L124 17 V31 Q111 28 111 38 Q112 45 124 38 V9Z" fill="#fff8ca" stroke="#187663" stroke-width="3"/>'
+    };
+    return motifs[theme] || '';
+  }
+  function svgShell(inner, label, theme) {
+    var prefix = 'rq-mon-' + (++drawingId), defs = '', fills = {};
+    inner = inner.replace(/fill="(#[a-fA-F0-9]{6})"/g, function (attribute, color) {
+      if (color === '#17313b' || color === '#152735' || color === '#ffffff') return attribute;
+      if (!fills[color]) {
+        var id = prefix + '-fill-' + Object.keys(fills).length;
+        fills[color] = id;
+        defs += '<radialGradient id="' + id + '" cx=".35" cy=".25" r=".85"><stop offset="0" stop-color="#fff"/><stop offset=".3" stop-color="' + color + '"/><stop offset=".75" stop-color="' + color + '"/><stop offset="1" stop-color="#253152"/></radialGradient>';
+      }
+      return 'fill="url(#' + fills[color] + ')"';
+    }).replace(/url\(#shadow\)/g,'url(#' + prefix + '-shadow)').replace(/stroke-width="6"/g,'stroke-width="3"').replace(/stroke-width="5"/g,'stroke-width="3"');
     return '<svg viewBox="0 0 220 180" role="img" aria-label="' + window.RikaSVG.esc(label || "モンスター") + '" xmlns="http://www.w3.org/2000/svg">' +
-      '<defs><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="4" flood-color="#17313b" flood-opacity=".25"/></filter></defs>' +
-      inner +
+      '<defs>' + defs + '<filter id="' + prefix + '-shadow"><feDropShadow dx="0" dy="8" stdDeviation="4" flood-color="#17313b" flood-opacity=".25"/></filter></defs>' +
+      '<g stroke-linejoin="round">' + inner + themeMotif(theme) + '</g>' +
       '</svg>';
   }
 
   function eye(cx, cy) {
-    return '<circle cx="' + cx + '" cy="' + cy + '" r="9" fill="#fff"/><circle cx="' + cx + '" cy="' + cy + '" r="4" fill="#152735"/>';
+    return '<ellipse cx="' + cx + '" cy="' + cy + '" rx="13" ry="15" fill="#fff"/><circle cx="' + cx + '" cy="' + (cy + 2) + '" r="8" fill="#152735"/><circle cx="' + (cx - 3) + '" cy="' + (cy - 3) + '" r="3" fill="#fff"/><circle cx="' + (cx - 18) + '" cy="' + (cy + 16) + '" r="5" fill="#ff9ab6" opacity=".5"/>';
   }
 
   window.RikaMonsterSVG = {
@@ -19,7 +50,7 @@
         '<path d="M75 72 C88 55 122 54 141 67" fill="none" stroke="' + c.light + '" stroke-width="9" stroke-linecap="round" opacity=".72"/>' +
         eye(88, 101) + eye(132, 101) +
         '<path d="M94 126 C105 135 121 135 133 126" fill="none" stroke="#152735" stroke-width="5" stroke-linecap="round"/>',
-        monster.name
+        monster.name, monster.theme
       );
     },
     makeGenericDragon: function (monster) {
@@ -32,7 +63,7 @@
         eye(101, 91) + eye(143, 91) +
         '<path d="M112 119 C125 130 143 128 153 116" fill="none" stroke="#152735" stroke-width="5" stroke-linecap="round"/>' +
         '<path d="M72 119 C51 141 34 133 26 119" fill="none" stroke="' + c.dark + '" stroke-width="8" stroke-linecap="round"/>',
-        monster.name
+        monster.name, monster.theme
       );
     },
     makeGenericBeast: function (monster) {
@@ -44,7 +75,7 @@
         eye(93, 95) + eye(130, 95) +
         '<path d="M101 119 C110 126 122 126 130 119" fill="none" stroke="#152735" stroke-width="5" stroke-linecap="round"/>' +
         '<circle cx="57" cy="128" r="10" fill="' + c.dark + '"/><circle cx="165" cy="128" r="10" fill="' + c.dark + '"/>',
-        monster.name
+        monster.name, monster.theme
       );
     },
     makeSoltin: function (monster) {
@@ -118,7 +149,7 @@
     var monster = window.MONSTERS[id];
     if (!monster) return "";
     var fn = window.RikaMonsterSVG[monster.svg] || window.RikaMonsterSVG.makeGenericSlime;
-    return '<span class="monster-figure theme-' + window.RikaSVG.esc(monster.theme) + ' role-' + window.RikaSVG.esc(monster.role) + ' ' + (className || "") + '">' + fn(monster) + "</span>";
+    return '<span class="monster-figure theme-' + window.RikaSVG.esc(monster.theme) + ' role-' + window.RikaSVG.esc(monster.role) + (monster.variant === "legendary" ? ' legendary' : '') + ' ' + (className || "") + '">' + fn(monster) + (monster.variant === "legendary" ? '<span class="legendary-crown" aria-hidden="true">★</span>' : '') + "</span>";
   }
 
   function byTheme(theme, role) {
@@ -128,12 +159,21 @@
   }
 
   function choose(unit, tier) {
-    var role = tier === "boss" || tier === "bonus" ? "boss" : "zako";
-    var monsters = byTheme(unit.theme, role);
-    if (unit.unitId === "g5_u07" && tier === "basic") {
-      monsters = byTheme("solution", "zako");
+    if (tier !== "basic") return window.MONSTERS[tier === "bonus" ? unit.legendaryId : unit.bossId] || byTheme(unit.theme, "boss")[0] || null;
+    var ids = unit.encounters || byTheme(unit.theme, "zako").map(function (m) { return m.id; });
+    var data = window.RikaState.get();
+    var bag = data.encounterBags[unit.unitId];
+    if (!Array.isArray(bag)) bag = [];
+    bag = bag.filter(function (id) { return ids.includes(id); });
+    if (!bag.length) {
+      bag = ids.slice();
+      for (var i = bag.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var temp = bag[i]; bag[i] = bag[j]; bag[j] = temp; }
     }
-    return monsters[0] || byTheme(unit.theme)[0] || null;
+    var unseen = bag.find(function (id) { return !data.owned.monsters.seen.includes(id); });
+    var id = unseen || bag[0];
+    data.encounterBags[unit.unitId] = bag.filter(function (x) { return x !== id; });
+    window.RikaState.save();
+    return window.MONSTERS[id] || null;
   }
 
   window.RikaMonsters = {

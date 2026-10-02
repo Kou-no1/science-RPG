@@ -1,4 +1,5 @@
 (function () {
+  var modalOpener = null;
   function escapeHtml(value) {
     return String(value == null ? "" : value)
       .replace(/&/g, "&amp;")
@@ -14,6 +15,7 @@
 
   function renderFurigana(text) {
     var source = String(text == null ? "" : text);
+    if (window.RikaReadings) source = window.RikaReadings.annotate(source);
     if (!furiganaEnabled()) {
       return escapeHtml(source.replace(/\{([^|{}]+)\|([^{}]+)\}/g, "$1"));
     }
@@ -50,12 +52,15 @@
     if (!root) return;
     root.classList.remove("is-open");
     root.innerHTML = "";
+    if (modalOpener && modalOpener.isConnected) modalOpener.focus();
   }
 
   function modal(title, body, actions) {
     var root = document.getElementById("modal-root");
     if (!root) return;
-    var buttons = (actions || [{ label: "とじる", kind: "primary", action: closeModal }]).map(function (item, index) {
+    modalOpener = document.activeElement;
+    actions = actions || [{ label: "とじる", kind: "primary", action: closeModal }];
+    var buttons = actions.map(function (item, index) {
       return '<button type="button" class="' + (item.kind || "primary") + '-button" data-modal-action="' + index + '">' + renderFurigana(item.label) + "</button>";
     }).join("");
     root.innerHTML = '<section class="modal-card rpg-frame" role="dialog" aria-modal="true" aria-labelledby="modal-title">' +
@@ -64,6 +69,15 @@
       '<div class="modal-actions">' + buttons + '</div>' +
       '</section>';
     root.classList.add("is-open");
+    root.onkeydown = function (event) {
+      if (event.key === 'Escape') { event.preventDefault(); closeModal(); }
+      if (event.key === 'Tab') {
+        var nodes = Array.from(root.querySelectorAll('button:not([disabled]),input,select,textarea,a[href]'));
+        var first = nodes[0], last = nodes[nodes.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    };
     root.querySelectorAll("[data-modal-action]").forEach(function (button) {
       button.addEventListener("click", function () {
         var action = actions[Number(button.dataset.modalAction)];

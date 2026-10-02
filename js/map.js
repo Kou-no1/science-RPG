@@ -9,6 +9,10 @@
       [622, 292], [552, 422], [418, 468], [284, 410], [170, 482], [76, 280]
     ]
   };
+  [3, 4, 5, 6].forEach(function (grade) {
+    var units = window.CURRICULUM.filter(function (u) { return u.grade === grade; });
+    coords[grade] = units.map(function (_, i) { var row = Math.floor(i / 4); return [100 + (row % 2 ? 3 - i % 4 : i % 4) * 170, 90 + row * 140]; });
+  });
 
   function getUnit(unitId) {
     return (window.CURRICULUM || []).find(function (unit) { return unit.unitId === unitId; });
@@ -35,8 +39,7 @@
 
   function renderGradeTabs(activeGrade) {
     return '<div class="grade-tabs" role="tablist" aria-label="学年の大陸">' +
-      '<button type="button" class="tab-button ' + (activeGrade === 5 ? "is-active" : "") + '" data-grade="5">5年大陸</button>' +
-      '<button type="button" class="tab-button ' + (activeGrade === 6 ? "is-active" : "") + '" data-grade="6">6年大陸</button>' +
+      [3,4,5,6].map(function (grade) { return '<button role="tab" id="grade-tab-' + grade + '" aria-controls="world-continent" tabindex="' + (activeGrade === grade ? '0' : '-1') + '" aria-selected="' + (activeGrade === grade) + '" type="button" class="tab-button ' + (activeGrade === grade ? 'is-active' : '') + '" data-grade="' + grade + '">' + grade + '年大陸</button>'; }).join('') +
       '</div>';
   }
 
@@ -45,22 +48,22 @@
     var c = window.RikaSVG.colors(unit.theme);
     var status = statusFor(unit);
     var progress = window.RikaState.progress(unit.unitId);
-    var label = unit.unitNo + ". " + unit.title;
+    var label = (unit.kind === 'chapter' ? '観察 ' : unit.unitNo + '. ') + unit.title;
     var icon = status === "locked"
       ? window.RikaSVG.lockIcon(p[0], p[1] - 2)
       : window.RikaSVG.caveIcon(p[0] - (status === "unlocked" ? 0 : 22), p[1], 0.72, unit.theme) +
         (status === "basicCleared" || status === "bossCleared" || status === "perfected" ? window.RikaSVG.castleIcon(p[0] + 25, p[1] - 1, 0.62, unit.theme) : "");
     return '<g class="map-node ' + status + '" data-unit-id="' + unit.unitId + '" role="button" tabindex="0" aria-label="' + window.RikaSVG.esc(label + " " + statusLabel(status)) + '">' +
-      '<circle class="node-ring" cx="' + p[0] + '" cy="' + p[1] + '" r="45" fill="' + c.land + '" stroke="#ffcf45"/>' +
+      '<circle class="node-ring" cx="' + p[0] + '" cy="' + p[1] + '" r="45" fill="' + (status === 'locked' ? '#302553' : c.land) + '" stroke="#ffcf45"/>' +
       icon +
       window.RikaSVG.statusGlyph(status, p[0] + 31, p[1] - 31) +
       (progress.bonusPerfected ? '<circle cx="' + (p[0] - 32) + '" cy="' + (p[1] - 32) + '" r="16" fill="#ffd85a" stroke="#7b5200" stroke-width="3"/><text x="' + (p[0] - 32) + '" y="' + (p[1] - 27) + '" text-anchor="middle" font-size="17">🎓</text>' : "") +
-      '<text x="' + p[0] + '" y="' + (p[1] + 66) + '" class="node-label">' + window.RikaSVG.esc(unit.unitNo + " " + unit.title) + '</text>' +
+      '<foreignObject x="' + (p[0] - 80) + '" y="' + (p[1] + 48) + '" width="160" height="80"><div xmlns="http://www.w3.org/1999/xhtml" class="node-name">' + window.RikaUI.renderFurigana(label) + '</div></foreignObject>' +
       '</g>';
   }
 
   function renderMap(activeGrade, selectedUnitId) {
-    var grade = activeGrade || 5;
+    var grade = activeGrade || window.RikaState.get().settings.lastGrade;
     var units = (window.CURRICULUM || []).filter(function (unit) { return unit.grade === grade; });
     var selected = getUnit(selectedUnitId) || units.find(function (unit) { return window.RikaState.progress(unit.unitId).unlocked; }) || units[0];
     var lines = units.map(function (unit, index) {
@@ -70,11 +73,11 @@
       return '<line x1="' + a[0] + '" y1="' + a[1] + '" x2="' + b[0] + '" y2="' + b[1] + '" stroke="#7a8b72" stroke-width="5" stroke-linecap="round" opacity=".45"/>';
     }).join("");
     return renderGradeTabs(grade) +
-      '<div class="map-layout">' +
+      '<div class="map-layout" id="world-continent" role="tabpanel" aria-labelledby="grade-tab-' + grade + '">' +
       '<section class="map-shell" aria-label="' + grade + '年大陸のワールドマップ">' +
-      '<svg class="world-map" viewBox="0 0 720 560" xmlns="http://www.w3.org/2000/svg">' +
+      '<svg class="world-map" viewBox="0 0 720 ' + (grade < 5 ? 90 + Math.ceil(units.length / 4) * 140 : 560) + '" xmlns="http://www.w3.org/2000/svg">' +
       '<rect width="720" height="560" fill="transparent"/>' +
-      window.RikaSVG.continentPath(grade) +
+      (grade < 5 ? '<rect x="20" y="20" width="680" height="' + (50 + Math.ceil(units.length / 4) * 140) + '" rx="45" fill="#375e65" opacity=".5"/>' : window.RikaSVG.continentPath(grade)) +
       lines +
       units.map(renderNode).join("") +
       '</svg></section>' +
@@ -88,30 +91,32 @@
     var progress = window.RikaState.progress(unit.unitId);
     var bank = (window.QUESTION_BANK || {})[unit.unitId] || { basic: [], boss: [], bonus: [] };
     var status = statusFor(unit);
-    var monsters = window.RikaMonsters.byTheme(unit.theme);
-    if (unit.unitId === "g5_u07") monsters = window.RikaMonsters.byTheme("solution");
-    var monsterHtml = monsters.slice(0, unit.unitId === "g5_u07" ? 6 : 2).map(function (monster) {
+    var monsters = (unit.encounters || []).concat(unit.bossId || []).map(function (id) { return window.MONSTERS[id]; }).filter(Boolean);
+    var monsterHtml = monsters.map(function (monster) {
       return '<span class="monster-mini">' + window.RikaMonsters.render(monster.id) + '<span>' + window.RikaUI.renderFurigana(monster.name) + '</span></span>';
     }).join("");
     var bossReady = progress.basicCleared && bank.boss && bank.boss.length;
     var bonusReady = progress.bonusUnlocked && bank.bonus && bank.bonus.length;
-    return '<h2>' + unit.grade + '年 ' + unit.unitNo + '. ' + window.RikaUI.renderFurigana(unit.title) + '</h2>' +
+    return '<h2 data-card-unit="' + unit.unitId + '">' + unit.grade + '年 ' + (unit.kind === 'chapter' ? '観察 ' : unit.unitNo + '. ') + window.RikaUI.renderFurigana(unit.title) + '</h2>' +
       '<div class="unit-meta">' +
       '<span class="tag">' + window.RikaUI.escapeHtml(unit.theme) + '</span>' +
       '<span class="tag ' + (status === "locked" ? "warn" : "good") + '">' + statusLabel(status) + '</span>' +
       '<span class="tag">基本 ' + (bank.basic ? bank.basic.length : 0) + '問</span>' +
-      '<span class="tag">ボス ' + (bank.boss ? bank.boss.length : 0) + '問</span>' +
+      '<span class="tag">ボス ' + (bank.boss ? bank.boss.length : 0) + '問（1回' + Math.min(unit.kind === 'chapter' ? 5 : 10, bank.boss.length) + '問）</span>' +
       '<span class="tag">おまけ ' + (bank.bonus ? bank.bonus.length : 0) + '問</span>' +
-      (progress.bonusPerfected ? '<span class="tag rare-tag">🎓全問正かい</span>' : '<span class="tag warn">★レア未入手</span>') +
+      (unit.kind === 'chapter' ? '' : progress.bonusPerfected ? '<span class="tag rare-tag">🎓全問正かい</span>' : '<span class="tag warn">★レア未入手</span>') +
       '</div>' +
       '<h3>小単元</h3><ol class="sub-list">' + unit.sub.map(function (sub) {
         return '<li>' + window.RikaUI.renderFurigana(sub.title) + ' <span class="tag">' + window.RikaUI.escapeHtml(sub.ref) + '</span></li>';
       }).join("") + '</ol>' +
       '<h3>出会うモンスター</h3><div class="monster-row">' + monsterHtml + '</div>' +
+      '<div class="course-settings"><label>洞窟のコース<select data-course-limit><option value="0">全問（' + bank.basic.length + '問）</option><option value="5">短く5問</option><option value="10">短く10問</option></select></label><label>モード<select data-course-mode><option value="learn">学び直し（ライフなし）</option><option value="challenge">RPG挑戦（80%以上）</option></select></label></div>' +
+      '<p>学んだ問題 ' + progress.seenQuestionIds.filter(function (id) { return bank.basic.some(function (q) { return q.id === id; }); }).length + ' / ' + bank.basic.length + '問</p>' +
       '<div class="button-row" style="margin-top:14px">' +
       '<button type="button" class="primary-button" data-start-tier="basic" ' + (!progress.unlocked ? "disabled" : "") + '>洞窟へ</button>' +
       '<button type="button" class="secondary-button" data-start-tier="boss" ' + (!bossReady ? "disabled" : "") + '>城へ</button>' +
-      '<button type="button" class="ghost-button" data-start-tier="bonus" ' + (!bonusReady ? "disabled" : "") + '>🎓中学チャレンジ</button>' +
+      '<button type="button" class="ghost-button" data-start-tier="bonus" ' + (!bonusReady ? "disabled" : "") + '>🎓' + (unit.grade < 5 ? '上の学年へ' : '中学チャレンジ') + '</button>' +
+      '<button type="button" class="secondary-button" data-start-tier="basic" data-context="everyday" ' + (!progress.unlocked || !bank.basic.some(function (q) { return q.context === 'everyday'; }) ? 'disabled' : '') + '>くらしの広場</button>' +
       '</div>' +
       '<p class="empty-state">' + fallbackText(progress, bank) + '</p>';
   }
@@ -121,12 +126,20 @@
     if (!progress.basicCleared) return "まずは洞窟で基本問題にちょうせんしよう。";
     if (!bank.boss || !bank.boss.length) return "城は準備中。洞窟は何度でも復習できるよ。";
     if (!progress.bossCleared) return "城に入れるよ。全問正かいでテーマそうびが手に入る。";
-    if (!bank.bonus || !bank.bonus.length) return "おまけは準備中。";
-    if (!progress.bonusPerfected) return "🎓中学チャレンジは本筋と別枠だよ。15問全問正かいで★レアそうびが手に入る。";
-    return "🎓中学チャレンジ全問正かいずみ。★レアそうびも記録されているよ。";
+    if (!bank.bonus || !bank.bonus.length) return "この観察クエストはここまで。次の単元もたんけんしよう。";
+    if (!progress.bonusPerfected) return "🎓おまけは本筋と別枠だよ。15問全問正かいで★レアそうびが手に入る。";
+    return "🎓15問全問正かいずみ。★レアそうびも記録されているよ。";
   }
 
   function bind(root, grade) {
+    root.querySelectorAll('[data-grade]').forEach(function (button) { button.addEventListener('keydown', function (event) {
+      if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+      event.preventDefault();
+      var grades = [3,4,5,6], index = grades.indexOf(grade);
+      var next = event.key === 'Home' ? 3 : event.key === 'End' ? 6 : grades[(index + (event.key === 'ArrowRight' ? 1 : 3)) % 4];
+      window.RikaApp.showMap(next);
+      document.getElementById('grade-tab-' + next).focus();
+    }); });
     root.querySelectorAll("[data-grade]").forEach(function (button) {
       button.addEventListener("click", function () {
         if (window.RikaApp) window.RikaApp.showMap(Number(button.dataset.grade));
@@ -162,17 +175,7 @@
   function bindUnitCard(card, unit) {
     if (!card) return;
     var heading = card.querySelector("h2");
-    var unitId = unit && unit.unitId;
-    if (heading) {
-      var text = heading.textContent;
-      var match = text.match(/(\d+)年\s+(\d+)\./);
-      if (match) {
-        var found = (window.CURRICULUM || []).find(function (item) {
-          return item.grade === Number(match[1]) && item.unitNo === Number(match[2]);
-        });
-        if (found) unitId = found.unitId;
-      }
-    }
+    var unitId = heading && heading.dataset.cardUnit;
     card.querySelectorAll("[data-start-tier]").forEach(function (button) {
       button.addEventListener("click", function () {
         var startUnit = getUnit(unitId);
@@ -182,7 +185,7 @@
           window.RikaUI.toast(tier === "boss" ? "城は準備中だよ。" : "このチャレンジは準備中だよ。");
           return;
         }
-        window.RikaBattle.start(startUnit.unitId, tier);
+        window.RikaBattle.start(startUnit.unitId, tier, { limit: Number(card.querySelector('[data-course-limit]').value), mode: card.querySelector('[data-course-mode]').value, context: button.dataset.context });
       });
     });
   }

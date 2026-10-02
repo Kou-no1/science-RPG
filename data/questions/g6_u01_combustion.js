@@ -1,9 +1,5 @@
-/* =====================================================================
- * リカ・クエスト 問題バンク : 6年「物の燃え方と空気」(g6_u01)
- * basic/boss は単元スコープ内、bonus は🎓中学チャレンジ/💡トリビア。
- * ===================================================================== */
+/* Original Rika Quest questions. Generated from tools/content-*.cjs. */
 window.QUESTION_BANK = window.QUESTION_BANK || {};
-
 window.QUESTION_BANK["g6_u01"] = {
   "basic": [
     {
@@ -11,15 +7,20 @@ window.QUESTION_BANK["g6_u01"] = {
       "tier": "basic",
       "type": "mc4",
       "skill": "term",
-      "stem": "物が燃え続けるために{必要|ひつよう}な気体は？",
+      "stem": "{物|もの}が燃え続けるために{必要|ひつよう}な{気体|きたい}は？",
       "choices": [
         "{酸素|さんそ}",
         "ちっ素",
-        "二酸化炭素",
-        "水じょう気"
+        "{二酸化炭素|にさんかたんそ}",
+        "{水|みず}じょう気"
       ],
       "answer": 0,
-      "explanation": "物が燃え続けるには{酸素|さんそ}をふくむ新しい空気が{必要|ひつよう}だよ。"
+      "explanation": "{物|もの}が燃え続けるには{酸素|さんそ}をふくむ新しい{空気|くうき}が{必要|ひつよう}だよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-002",
@@ -29,34 +30,44 @@ window.QUESTION_BANK["g6_u01"] = {
       "stem": "集気びんの中でろうそくを燃やし続けると、やがてどうなる？",
       "choices": [
         "消える",
-        "どんどん大きくなる",
+        "どんどん{大|おお}きくなる",
         "こおる",
-        "水にとける"
+        "{水|みず}にとける"
       ],
       "answer": 0,
-      "explanation": "びんの中の{酸素|さんそ}が使われ、新しい空気が入らないと火は消えるよ。"
+      "explanation": "びんの中の{酸素|さんそ}が{使|つか}われ、新しい{空気|くうき}が{入|い}らないと火は消えるよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-003",
       "tier": "basic",
       "type": "mc4",
       "skill": "term",
-      "stem": "空気の中でいちばん多い気体は？",
+      "stem": "{空気|くうき}の中でいちばん多い{気体|きたい}は？",
       "choices": [
         "ちっ素",
         "{酸素|さんそ}",
-        "二酸化炭素",
-        "水素"
+        "{二酸化炭素|にさんかたんそ}",
+        "{水素|すいそ}"
       ],
       "answer": 0,
-      "explanation": "空気はおもに、ちっ素が約78%、{酸素|さんそ}が約21%でできているよ。"
+      "explanation": "{空気|くうき}はおもに、ちっ素が約78%、{酸素|さんそ}が約21%でできているよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-004",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "空気中の{酸素|さんそ}は、およそどのくらい？",
+      "stem": "{空|そら}気中の{酸素|さんそ}は、およそどのくらい？",
       "choices": [
         "約21%",
         "約78%",
@@ -64,7 +75,12 @@ window.QUESTION_BANK["g6_u01"] = {
         "約100%"
       ],
       "answer": 0,
-      "explanation": "{酸素|さんそ}は空気の約21%で、物が燃えることに関係するよ。"
+      "explanation": "{酸素|さんそ}は{空気|くうき}の約21%で、{物|もの}が燃えることに{関係|かんけい}するよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-005",
@@ -77,224 +93,364 @@ window.QUESTION_BANK["g6_u01"] = {
         "×"
       ],
       "answer": 0,
-      "explanation": "物がよく燃えるのは{酸素|さんそ}の中だよ。"
+      "explanation": "{物|もの}がよく燃えるのは{酸素|さんそ}の中だよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-006",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "ちっ素・{酸素|さんそ}・二酸化炭素のうち、物がいちばんよく燃えるのは？",
+      "stem": "ちっ素・{酸素|さんそ}・{二酸化炭素|にさんかたんそ}のうち、{物|もの}がいちばんよく燃えるのは？",
       "choices": [
         "{酸素|さんそ}",
         "ちっ素",
-        "二酸化炭素",
-        "どれも同じ"
+        "{二酸化炭素|にさんかたんそ}",
+        "どれも{同じ|おなじ}"
       ],
       "answer": 0,
-      "explanation": "{酸素|さんそ}は物が燃えることを助ける気体だよ。"
+      "explanation": "{酸素|さんそ}は{物|もの}が燃えることを助ける{気体|きたい}だよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-007",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "物が燃えた後の空気では、燃える前より何が{減|へ}る？",
+      "stem": "{物|もの}が燃えた{後|あと}の{空気|くうき}では、燃える{前|まえ}より何が{減|へ}る？",
       "choices": [
         "{酸素|さんそ}",
-        "二酸化炭素",
+        "{二酸化炭素|にさんかたんそ}",
         "ちっ素だけ",
-        "石灰水"
+        "{石|いし}灰{水|みず}"
       ],
       "answer": 0,
-      "explanation": "物が燃えると、{酸素|さんそ}の一部が使われるよ。"
+      "explanation": "{物|もの}が燃えると、{酸素|さんそ}の一部が{使|つか}われるよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-008",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "物が燃えた後の空気では、何が{増|ふ}える？",
+      "stem": "{物|もの}が燃えた{後|あと}の{空気|くうき}では、何が{増|ふ}える？",
       "choices": [
-        "二酸化炭素",
+        "{二酸化炭素|にさんかたんそ}",
         "{酸素|さんそ}",
         "ちっ素だけ",
-        "花粉"
+        "{花粉|かふん}"
       ],
       "answer": 0,
-      "explanation": "物が燃えると二酸化炭素ができるよ。"
+      "explanation": "{物|もの}が燃えると{二酸化炭素|にさんかたんそ}ができるよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-009",
       "tier": "basic",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "二酸化炭素があるかを調べる液は？",
+      "stem": "{二酸化炭素|にさんかたんそ}があるかを{調|しら}べる液は？",
       "choices": [
-        "石灰水",
+        "{石|いし}灰{水|みず}",
         "ヨウ素液",
-        "食塩水",
+        "{食塩|しょくえん}{水|みず}",
         "BTB液だけ"
       ],
       "answer": 0,
-      "explanation": "二酸化炭素は石灰水を白くにごらせるよ。"
+      "explanation": "{二酸化炭素|にさんかたんそ}は{石|いし}灰{水|みず}を白くにごらせるよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-010",
       "tier": "basic",
       "type": "ox",
       "skill": "experiment",
-      "stem": "二酸化炭素を入れると、石灰水は白くにごる。",
+      "stem": "{二酸化炭素|にさんかたんそ}を{入|い}れると、{石|いし}灰{水|みず}は白くにごる。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "石灰水は二酸化炭素を調べるときに使えるよ。"
+      "explanation": "{石|いし}灰{水|みず}は{二酸化炭素|にさんかたんそ}を{調|しら}べるときに{使|つか}えるよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-011",
       "tier": "basic",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "空気中の{酸素|さんそ}や二酸化炭素の{割合|わりあい}を調べる器具は？",
+      "stem": "{空|そら}気中の{酸素|さんそ}や{二酸化炭素|にさんかたんそ}の{割合|わりあい}を{調|しら}べる器具は？",
       "choices": [
-        "気体検知管",
+        "{気体検知管|きたいけんちかん}",
         "{虫|むし}めがね",
         "メスシリンダー",
-        "方位じしん"
+        "{方位|ほうい}じしん"
       ],
       "answer": 0,
-      "explanation": "気体検知管で、気体の{割合|わりあい}を調べることができるよ。"
+      "explanation": "{気体検知管|きたいけんちかん}で、{気体|きたい}の{割合|わりあい}を{調|しら}べることができるよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-012",
       "tier": "basic",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "ろうそくを集気びんの中で燃やす実験で、ふたをすると火が消えやすいのはなぜ？",
+      "stem": "ろうそくを集気びんの中で燃やす{実験|じっけん}で、ふたをすると火が消えやすいのはなぜ？",
       "choices": [
-        "新しい空気が入りにくいから",
-        "石灰水がないから",
-        "ちっ素が全部消えるから",
-        "火が冷たいから"
+        "新しい{空気|くうき}が{入|い}りにくいから",
+        "{石|いし}灰{水|みず}がないから",
+        "ちっ素が{全部|ぜんぶ}消えるから",
+        "火が{冷た|つめた}いから"
       ],
       "answer": 0,
-      "explanation": "新しい空気が入らないと、燃えるための{酸素|さんそ}が足りなくなるよ。"
+      "explanation": "新しい{空気|くうき}が{入|い}らないと、燃えるための{酸素|さんそ}が{足|あし}りなくなるよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-013",
       "tier": "basic",
       "type": "ox",
       "skill": "concept",
-      "stem": "物が燃えると、空気の成分の{割合|わりあい}が変わる。",
+      "stem": "{物|もの}が燃えると、{空気|くうき}の{成分|せいぶん}の{割合|わりあい}が{変|か}わる。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "{酸素|さんそ}が使われ、二酸化炭素が{増|ふ}えるよ。"
+      "explanation": "{酸素|さんそ}が{使|つか}われ、{二酸化炭素|にさんかたんそ}が{増|ふ}えるよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-014",
       "tier": "basic",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "燃える前と後の空気を{比|くら}べるとき、調べるとよい組は？",
+      "stem": "燃える{前|まえ}と{後|あと}の{空気|くうき}を{比|くら}べるとき、{調|しら}べるとよい{組|くみ}は？",
       "choices": [
-        "{酸素|さんそ}と二酸化炭素",
-        "花粉と種子",
-        "月と太陽",
-        "支点と力点"
+        "{酸素|さんそ}と{二酸化炭素|にさんかたんそ}",
+        "{花粉|かふん}と{種子|しゅし}",
+        "{月|つき}と{太陽|たいよう}",
+        "{支点|してん}と{力点|りきてん}"
       ],
       "answer": 0,
-      "explanation": "燃える前後で、{酸素|さんそ}と二酸化炭素の{割合|わりあい}を{比|くら}べるよ。"
+      "explanation": "燃える{前|まえ}{後|あと}で、{酸素|さんそ}と{二酸化炭素|にさんかたんそ}の{割合|わりあい}を{比|くら}べるよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-015",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "二酸化炭素の中に火のついたろうそくを入れるとどうなりやすい？",
+      "stem": "{二酸化炭素|にさんかたんそ}の中に火のついたろうそくを{入|い}れるとどうなりやすい？",
       "choices": [
         "消える",
         "よく燃える",
-        "青むらさきになる",
-        "発芽する"
+        "{青むらさき|あおむらさき}になる",
+        "{発芽|はつが}する"
       ],
       "answer": 0,
-      "explanation": "二酸化炭素は物が燃えることを助けないよ。"
+      "explanation": "{二酸化炭素|にさんかたんそ}は{物|もの}が燃えることを助けないよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-016",
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "物が燃え続けるための説明として正しいものは？",
+      "stem": "{物|もの}が燃え続けるための{説明|せつめい}として正しいものは？",
       "choices": [
-        "新しい空気が入ると燃え続けやすい",
-        "空気がなくても燃え続ける",
-        "二酸化炭素だけでよく燃える",
+        "新しい{空気|くうき}が{入|い}ると燃え続けやすい",
+        "{空気|くうき}がなくても燃え続ける",
+        "{二酸化炭素|にさんかたんそ}だけでよく燃える",
         "ちっ素だけでよく燃える"
       ],
       "answer": 0,
-      "explanation": "新しい空気には{酸素|さんそ}がふくまれているよ。"
+      "explanation": "新しい{空気|くうき}には{酸素|さんそ}がふくまれているよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-017",
       "tier": "basic",
       "type": "ox",
       "skill": "experiment",
-      "stem": "気体検知管を使うと、燃える前後の{酸素|さんそ}の{割合|わりあい}を調べられる。",
+      "stem": "{気体検知管|きたいけんちかん}を{使|つか}うと、燃える{前|まえ}{後|あと}の{酸素|さんそ}の{割合|わりあい}を{調|しら}べられる。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "気体検知管は気体の{割合|わりあい}を調べる器具だよ。"
+      "explanation": "{気体検知管|きたいけんちかん}は{気体|きたい}の{割合|わりあい}を{調|しら}べる器具だよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-018",
       "tier": "basic",
       "type": "mc4",
       "skill": "term",
-      "stem": "空気をつくる気体の組として正しいものは？",
+      "stem": "{空気|くうき}をつくる{気体|きたい}の{組|くみ}として正しいものは？",
       "choices": [
-        "ちっ素・{酸素|さんそ}・二酸化炭素など",
-        "花粉・でんぷん・石",
-        "れき・砂・どろだけ",
-        "支点・力点・作用点だけ"
+        "ちっ素・{酸素|さんそ}・{二酸化炭素|にさんかたんそ}など",
+        "{花粉|かふん}・でんぷん・{石|いし}",
+        "れき・{砂|すな}・どろだけ",
+        "{支点|してん}・{力点|りきてん}・{作用点|さようてん}だけ"
       ],
       "answer": 0,
-      "explanation": "空気はいくつかの気体が混ざったものだよ。"
+      "explanation": "{空気|くうき}はいくつかの{気体|きたい}が混ざったものだよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-019",
       "tier": "basic",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "燃えた後の空気を石灰水に通したら白くにごった。増えたと考えられる気体は？",
+      "stem": "燃えた{後|あと}の{空気|くうき}を{石|いし}灰{水|みず}に通したら白くにごった。{増|ふ}えたと考えられる{気体|きたい}は？",
       "choices": [
-        "二酸化炭素",
+        "{二酸化炭素|にさんかたんそ}",
         "{酸素|さんそ}",
         "ちっ素",
-        "空気全部"
+        "{空|そら}気{全部|ぜんぶ}"
       ],
       "answer": 0,
-      "explanation": "石灰水が白くにごるのは、二酸化炭素がある手がかりだよ。"
+      "explanation": "{石|いし}灰{水|みず}が白くにごるのは、{二酸化炭素|にさんかたんそ}がある手がかりだよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-b-020",
       "tier": "basic",
       "type": "ox",
       "skill": "concept",
-      "stem": "物が燃えると、{酸素|さんそ}が少し使われて二酸化炭素ができる。",
+      "stem": "{物|もの}が燃えると、{酸素|さんそ}が少し{使|つか}われて{二酸化炭素|にさんかたんそ}ができる。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "燃えた後の空気は、{酸素|さんそ}が{減|へ}り二酸化炭素が{増|ふ}えるよ。"
+      "explanation": "燃えた{後|あと}の{空気|くうき}は、{酸素|さんそ}が{減|へ}り{二酸化炭素|にさんかたんそ}が{増|ふ}えるよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "集気びんのろうそくを{授業|じゅぎょう}で{観察|かんさつ}した。ふたをすると火が消えた理由は？",
+      "choices": [
+        "新しい{空気|くうき}が{入|い}らず、{酸素|さんそ}が不足した",
+        "ちっ素が{全部|ぜんぶ}なくなった",
+        "ガラスが{水|みず}になった",
+        "{酸素|さんそ}が{増|ふ}えた"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "concept",
+      "explanation": "燃え続けるには、新しい{空気|くうき}に含まれる{酸素|さんそ}が{必要|ひつよう}だよ。火は{先生|せんせい}と扱おう。",
+      "context": "everyday",
+      "id": "g6u01-b-021",
+      "tier": "basic",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "燃えた{後|あと}の{空気|くうき}を石灰水に通すと白くにごった。確かめた{気体|きたい}は？",
+      "choices": [
+        "{二酸化炭素|にさんかたんそ}",
+        "{酸素|さんそ}",
+        "ちっ素",
+        "{水素|すいそ}"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "concept",
+      "explanation": "{二酸化炭素|にさんかたんそ}は石灰水を白くにごらせるよ。",
+      "context": "everyday",
+      "id": "g6u01-b-022",
+      "tier": "basic",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "火のついた{道具|どうぐ}を片付けるとき、することは？",
+      "choices": [
+        "{先生|せんせい}の指示で消火し、冷めたことを確かめる",
+        "熱いまま棚へ",
+        "素手で炎に触る",
+        "一人で火を追加する"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "concept",
+      "explanation": "火と熱い{道具|どうぐ}は{先生|せんせい}と{安全|あんぜん}に扱い、冷めるまで触らないでね。",
+      "context": "everyday",
+      "id": "g6u01-b-023",
+      "tier": "basic",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     }
   ],
   "boss": [
@@ -303,146 +459,254 @@ window.QUESTION_BANK["g6_u01"] = {
       "tier": "boss",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "ろうそくを燃やす前後で気体検知管を使った。{酸素|さんそ}が21%から17%になった。言えることは？",
+      "stem": "ろうそくを燃やす{前|まえ}{後|あと}で{気体検知管|きたいけんちかん}を{使|つか}った。{酸素|さんそ}が21%から17%になった。言えることは？",
       "choices": [
-        "{酸素|さんそ}が使われた",
-        "二酸化炭素がなくなった",
-        "ちっ素が全部燃えた",
-        "空気が水になった"
+        "{酸素|さんそ}が{使|つか}われた",
+        "{二酸化炭素|にさんかたんそ}がなくなった",
+        "ちっ素が{全部|ぜんぶ}燃えた",
+        "{空気|くうき}が{水|みず}になった"
       ],
       "answer": 0,
-      "explanation": "燃えると{酸素|さんそ}の一部が使われるよ。"
+      "explanation": "燃えると{酸素|さんそ}の一部が{使|つか}われるよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-boss-002",
       "tier": "boss",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "燃えた後の空気を石灰水に通すと白くにごった。何ができたことを示す？",
+      "stem": "燃えた{後|あと}の{空気|くうき}を{石|いし}灰{水|みず}に通すと白くにごった。何ができたことを示す？",
       "choices": [
-        "二酸化炭素",
+        "{二酸化炭素|にさんかたんそ}",
         "{酸素|さんそ}",
         "ちっ素",
-        "水じょう気だけ"
+        "{水|みず}じょう気だけ"
       ],
       "answer": 0,
-      "explanation": "二酸化炭素は石灰水を白くにごらせるよ。"
+      "explanation": "{二酸化炭素|にさんかたんそ}は{石|いし}灰{水|みず}を白くにごらせるよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-boss-003",
       "tier": "boss",
       "type": "mc4",
       "skill": "concept",
-      "stem": "びんにすき間をあけたろうそくと、ふたをしたろうそくを{比|くら}べる目的は？",
+      "stem": "びんにすき{間|あいだ}をあけたろうそくと、ふたをしたろうそくを{比|くら}べる目{的|まと}は？",
       "choices": [
-        "新しい空気が入ることと燃え方の関係を調べる",
-        "花粉の形を調べる",
-        "月の位置を調べる",
-        "水溶液を分ける"
+        "新しい{空気|くうき}が{入|い}ることと燃え方の{関係|かんけい}を{調|しら}べる",
+        "{花粉|かふん}の{形|かたち}を{調|しら}べる",
+        "{月|つき}の{位置|いち}を{調|しら}べる",
+        "{水溶液|すいようえき}を分ける"
       ],
       "answer": 0,
-      "explanation": "新しい空気が入るかどうかだけを{変|か}えて{比|くら}べるよ。"
+      "explanation": "新しい{空気|くうき}が{入|い}るかどうかだけを{変|か}えて{比|くら}べるよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-boss-004",
       "tier": "boss",
       "type": "ox",
       "skill": "concept",
-      "stem": "燃える前より燃えた後の空気は、二酸化炭素の{割合|わりあい}が{増|ふ}える。",
+      "stem": "燃える{前|まえ}より燃えた{後|あと}の{空気|くうき}は、{二酸化炭素|にさんかたんそ}の{割合|わりあい}が{増|ふ}える。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "物が燃えると二酸化炭素ができるよ。"
+      "explanation": "{物|もの}が燃えると{二酸化炭素|にさんかたんそ}ができるよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-boss-005",
       "tier": "boss",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "ちっ素・{酸素|さんそ}・二酸化炭素を入れた3つのびんで火のついた線香を入れた。いちばんよく燃えるのは？",
+      "stem": "ちっ素・{酸素|さんそ}・{二酸化炭素|にさんかたんそ}を{入|い}れた3つのびんで火のついた線香を{入|い}れた。いちばんよく燃えるのは？",
       "choices": [
         "{酸素|さんそ}のびん",
         "ちっ素のびん",
-        "二酸化炭素のびん",
+        "{二酸化炭素|にさんかたんそ}のびん",
         "どれも消える"
       ],
       "answer": 0,
-      "explanation": "{酸素|さんそ}は物が燃えることを助けるよ。"
+      "explanation": "{酸素|さんそ}は{物|もの}が燃えることを助けるよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-boss-006",
       "tier": "boss",
       "type": "mc4",
       "skill": "concept",
-      "stem": "空気の説明で正しいものは？",
+      "stem": "{空気|くうき}の{説明|せつめい}で正しいものは？",
       "choices": [
         "ちっ素が最も多く、{酸素|さんそ}もふくまれる",
         "{酸素|さんそ}だけでできている",
-        "二酸化炭素だけでできている",
-        "水だけでできている"
+        "{二酸化炭素|にさんかたんそ}だけでできている",
+        "{水|みず}だけでできている"
       ],
       "answer": 0,
-      "explanation": "空気はちっ素や{酸素|さんそ}などが混ざったものだよ。"
+      "explanation": "{空気|くうき}はちっ素や{酸素|さんそ}などが混ざったものだよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-boss-007",
       "tier": "boss",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "燃焼前後の空気を調べるとき、実験としてよい順は？",
+      "stem": "燃焼{前|まえ}{後|あと}の{空気|くうき}を{調|しら}べるとき、{実験|じっけん}としてよい{順|じゅん}は？",
       "choices": [
-        "燃やす前を調べ、燃やした後も同じ方法で調べる",
-        "後だけ調べる",
-        "水を飲ませる",
-        "石灰水を見ない"
+        "燃やす{前|まえ}を{調|しら}べ、燃やした{後|あと}も{同じ|おなじ}{方法|ほうほう}で{調|しら}べる",
+        "{後|あと}だけ{調|しら}べる",
+        "{水|みず}を飲ませる",
+        "{石|いし}灰{水|みず}を{見|み}ない"
       ],
       "answer": 0,
-      "explanation": "前後を同じ方法で調べると、{変化|へんか}が{比|くら}べやすいよ。"
+      "explanation": "{前|まえ}{後|あと}を{同じ|おなじ}{方法|ほうほう}で{調|しら}べると、{変化|へんか}が{比|くら}べやすいよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-boss-008",
       "tier": "boss",
       "type": "ox",
       "skill": "experiment",
-      "stem": "石灰水だけでは、{酸素|さんそ}の{割合|わりあい}までは調べられない。",
+      "stem": "{石|いし}灰{水|みず}だけでは、{酸素|さんそ}の{割合|わりあい}までは{調|しら}べられない。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "石灰水は二酸化炭素を調べる手がかりだよ。{酸素|さんそ}の{割合|わりあい}は気体検知管で調べるよ。"
+      "explanation": "{石|いし}灰{水|みず}は{二酸化炭素|にさんかたんそ}を{調|しら}べる手がかりだよ。{酸素|さんそ}の{割合|わりあい}は{気体検知管|きたいけんちかん}で{調|しら}べるよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-boss-009",
       "tier": "boss",
       "type": "mc4",
       "skill": "concept",
-      "stem": "火を消す考え方として、燃えるための何を足りなくする方法がある？",
+      "stem": "火を消す考え方として、燃えるための何を{足|あし}りなくする{方法|ほうほう}がある？",
       "choices": [
         "{酸素|さんそ}",
-        "花粉",
+        "{花粉|かふん}",
         "でんぷん",
-        "支点"
+        "{支点|してん}"
       ],
       "answer": 0,
-      "explanation": "燃えるには{酸素|さんそ}が{必要|ひつよう}なので、それを足りなくすると火は消えやすいよ。"
+      "explanation": "燃えるには{酸素|さんそ}が{必要|ひつよう}なので、それを{足|あし}りなくすると火は消えやすいよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     },
     {
       "id": "g6u01-boss-010",
       "tier": "boss",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "集気びんの実験で、びんの大きさやろうそくの長さをそろえる理由は？",
+      "stem": "集気びんの{実験|じっけん}で、びんの{大きさ|おおきさ}やろうそくの{長さ|ながさ}をそろえる理由は？",
       "choices": [
-        "空気の入り方など調べたいことを{比|くら}べやすくするため",
-        "必ず火を大きくするため",
-        "二酸化炭素をなくすため",
-        "水を増やすため"
+        "{空気|くうき}の{入|い}り方など{調|しら}べたいことを{比|くら}べやすくするため",
+        "必ず火を{大|おお}きくするため",
+        "{二酸化炭素|にさんかたんそ}をなくすため",
+        "{水|みず}を{増|ふ}やすため"
       ],
       "answer": 0,
-      "explanation": "条件をそろえると、結果のちがいを考えやすいよ。"
+      "explanation": "{条件|じょうけん}をそろえると、{結果|けっか}のちがいを考えやすいよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "{気体検知管|きたいけんちかん}の教材記録。燃えた{後|あと}の{酸素|さんそ}は？",
+      "choices": [
+        "21%から18%に{減|へ}った",
+        "18%から21%に{増|ふ}えた",
+        "{割合|わりあい}は{変|か}わらない",
+        "全くなくなった"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "experiment",
+      "explanation": "{酸素|さんそ}の{割合|わりあい}が21%から18%へ{減|へ}っているね。一部が{使|つか}われたと考えられるよ。",
+      "context": "everyday",
+      "diagramKey": "table",
+      "diagramData": {
+        "headers": [
+          "空気",
+          "酸素の割合"
+        ],
+        "rows": [
+          [
+            "燃える前",
+            "21%"
+          ],
+          [
+            "燃えた後",
+            "18%"
+          ]
+        ],
+        "fictional": true
+      },
+      "id": "g6u01-boss-011",
+      "tier": "boss",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
+    },
+    {
+      "stem": "前後の{空気|くうき}の{比較|ひかく}で、確かめる{組|くみ}は？",
+      "choices": [
+        "{酸素|さんそ}の{減少|げんしょう}と{二酸化炭素|にさんかたんそ}の{増加|ぞうか}",
+        "{酸素|さんそ}の{増加|ぞうか}だけ",
+        "ちっ素が全部消えること",
+        "全ての{気体|きたい}が消えること"
+      ],
+      "answer": 0,
+      "type": "mc4",
+      "skill": "concept",
+      "explanation": "燃えると{酸素|さんそ}の一部が{使|つか}われ、{二酸化炭素|にさんかたんそ}ができるよ。",
+      "context": "everyday",
+      "id": "g6u01-boss-012",
+      "tier": "boss",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "targetStage": "elementary6",
+      "contentVersion": 1
     }
   ],
   "bonus": [
@@ -451,7 +715,7 @@ window.QUESTION_BANK["g6_u01"] = {
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 中学では、物が燃えることを物質が{酸素|さんそ}と結びつく変化として何という？",
+      "stem": "🎓 {中学|ちゅうがく}では、{物|もの}が燃えることを{物質|ぶっしつ}が{酸素|さんそ}と結びつく{変化|へんか}として何という？",
       "choices": [
         "{酸化|さんか}",
         "{受粉|じゅふん}",
@@ -459,207 +723,295 @@ window.QUESTION_BANK["g6_u01"] = {
         "たい積"
       ],
       "answer": 0,
-      "explanation": "{酸化|さんか}は中学で学ぶ燃焼に関係する言葉だよ。"
+      "explanation": "{酸化|さんか}は{中学|ちゅうがく}で学ぶ燃焼に{関係|かんけい}する言{葉|は}だよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u01-bonus-002",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 燃焼のように、物質が別の物質に変わる変化を何という？",
+      "stem": "🎓 燃焼のように、{物質|ぶっしつ}が別の{物質|ぶっしつ}に{変|か}わる{変化|へんか}を何という？",
       "choices": [
         "{化学変化|かがくへんか}",
         "{気象|きしょう}情報",
-        "{食物|しょくもつ}連鎖",
-        "平均"
+        "{食物連鎖|しょくもつれんさ}",
+        "{平均|へいきん}"
       ],
       "answer": 0,
-      "explanation": "{化学変化|かがくへんか}は中学でくわしく学ぶよ。"
+      "explanation": "{化学変化|かがくへんか}は{中学|ちゅうがく}でくわしく学ぶよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u01-bonus-003",
       "tier": "bonus",
       "type": "ox",
       "skill": "concept",
-      "stem": "🎓 金属が{酸素|さんそ}と結びつくと、重さが{増|ふ}えることがある。",
+      "stem": "🎓 {金属|きんぞく}が{酸素|さんそ}と結びつくと、{重さ|おもさ}が{増|ふ}えることがある。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "金属の{酸化|さんか}は中学で学ぶ内容だよ。"
+      "explanation": "{金属|きんぞく}の{酸化|さんか}は{中学|ちゅうがく}で学ぶ内容だよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u01-bonus-004",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 物質を記号で表して変化を表す式を何という？",
+      "stem": "🎓 {物質|ぶっしつ}を記号で表して{変化|へんか}を表す式を何という？",
       "choices": [
         "{化学反応式|かがくはんのうしき}",
         "天気図",
-        "地形図",
-        "食物連鎖"
+        "地{形|かたち}図",
+        "{食物連鎖|しょくもつれんさ}"
       ],
       "answer": 0,
-      "explanation": "{化学反応式|かがくはんのうしき}は中学以降で学ぶ表し方だよ。"
+      "explanation": "{化学反応式|かがくはんのうしき}は{中学|ちゅうがく}以降で学ぶ表し方だよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u01-bonus-005",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 物質をつくるとても小さなつぶを中学では何と学ぶ？",
+      "stem": "🎓 {物質|ぶっしつ}をつくるとても{小さな|ちいさな}つぶを{中学|ちゅうがく}では何と学ぶ？",
       "choices": [
         "{分子|ぶんし}",
-        "支点",
-        "化石",
-        "月"
+        "{支点|してん}",
+        "化{石|いし}",
+        "{月|つき}"
       ],
       "answer": 0,
-      "explanation": "{分子|ぶんし}は物質のつくりを考えるときの言葉だよ。"
+      "explanation": "{分子|ぶんし}は{物質|ぶっしつ}のつくりを考えるときの言{葉|は}だよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u01-bonus-006",
       "tier": "bonus",
       "type": "ox",
       "skill": "concept",
-      "stem": "💡 二酸化炭素消火器は、燃えるのに必要な{酸素|さんそ}を少なくする考え方を利用している。",
+      "stem": "💡 {二酸化炭素|にさんかたんそ}消火器は、燃えるのに{必要|ひつよう}な{酸素|さんそ}を少なくする考え方を利用している。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "火のまわりの{酸素|さんそ}を少なくすると、燃えにくくなるよ。"
+      "explanation": "火のまわりの{酸素|さんそ}を少なくすると、燃えにくくなるよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u01-bonus-007",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "💡 二酸化炭素を冷やして固体にしたものは？",
+      "stem": "💡 {二酸化炭素|にさんかたんそ}を{冷や|ひや}して{固体|こたい}にしたものは？",
       "choices": [
         "ドライアイス",
-        "石灰水",
+        "{石|いし}灰{水|みず}",
         "ヨウ素液",
         "リトマス紙"
       ],
       "answer": 0,
-      "explanation": "ドライアイスは二酸化炭素の固体だよ。"
+      "explanation": "ドライアイスは{二酸化炭素|にさんかたんそ}の{固体|こたい}だよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u01-bonus-008",
       "tier": "bonus",
       "type": "ox",
       "skill": "concept",
-      "stem": "💡 空気の約21%が{酸素|さんそ}なので、地球上では多くの物が燃えやすい条件がある。",
+      "stem": "💡 {空気|くうき}の約21%が{酸素|さんそ}なので、{地球|ちきゅう}上では多くの{物|もの}が燃えやすい{条件|じょうけん}がある。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "{酸素|さんそ}の{割合|わりあい}は燃え方と関係するよ。"
+      "explanation": "{酸素|さんそ}の{割合|わりあい}は燃え方と{関係|かんけい}するよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u01-bonus-009",
       "tier": "bonus",
       "type": "mc4",
       "skill": "concept",
-      "stem": "🎓 ろうそくが燃えるとき、ろうの成分が{酸素|さんそ}と結びついてできるものに近い組は？",
+      "stem": "🎓 ろうそくが燃えるとき、ろうの{成分|せいぶん}が{酸素|さんそ}と結びついてできるものに近い{組|くみ}は？",
       "choices": [
-        "二酸化炭素と水",
-        "花粉と種子",
-        "れきと砂",
-        "支点と力点"
+        "{二酸化炭素|にさんかたんそ}と{水|みず}",
+        "{花粉|かふん}と{種子|しゅし}",
+        "れきと{砂|すな}",
+        "{支点|してん}と{力点|りきてん}"
       ],
       "answer": 0,
-      "explanation": "燃焼で何ができるかは中学でくわしく学ぶよ。"
+      "explanation": "燃焼で何ができるかは{中学|ちゅうがく}でくわしく学ぶよ。",
+      "subId": "g6_u01_s2",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u01-bonus-010",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 {酸素|さんそ}と結びついてできた物を何ということがある？",
+      "stem": "🎓 {酸素|さんそ}と結びついてできた{物|もの}を何ということがある？",
       "choices": [
         "{酸化物|さんかぶつ}",
-        "化石",
-        "水溶液",
-        "半月"
+        "化{石|いし}",
+        "{水溶液|すいようえき}",
+        "{半月|はんげつ}"
       ],
       "answer": 0,
-      "explanation": "{酸化物|さんかぶつ}は中学で学ぶ言葉だよ。"
+      "explanation": "{酸化物|さんかぶつ}は{中学|ちゅうがく}で学ぶ言{葉|は}だよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u01-bonus-011",
       "tier": "bonus",
       "type": "ox",
       "skill": "concept",
-      "stem": "💡 火を消すには、冷やす・燃える物をなくす・{酸素|さんそ}をたつ、という考え方がある。",
+      "stem": "💡 火を消すには、{冷や|ひや}す・燃える{物|もの}をなくす・{酸素|さんそ}をたつ、という考え方がある。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "消火にはいくつかの方法があるよ。"
+      "explanation": "消火にはいくつかの{方法|ほうほう}があるよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u01-bonus-012",
       "tier": "bonus",
       "type": "mc4",
       "skill": "concept",
-      "stem": "💡 キャンプの火を消すときに大切なことは？",
+      "stem": "💡 キャンプの火を消すときに{大|おお}{切|き}なことは？",
       "choices": [
-        "完全に消えたことを大人と{確認|かくにん}する",
-        "風にまかせる",
+        "完全に消えたことを{大|おお}人と{確認|かくにん}する",
+        "{風|かぜ}にまかせる",
         "近くで走る",
         "火をそのまま残す"
       ],
       "answer": 0,
-      "explanation": "火の扱いは安全がいちばん大切だよ。"
+      "explanation": "火の扱いは{安全|あんぜん}がいちばん{大|おお}{切|き}だよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "trivia"
     },
     {
       "id": "g6u01-bonus-013",
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 炭素をふくむ物が燃えたときにできやすい気体は？",
+      "stem": "🎓 炭素をふくむ{物|もの}が燃えたときにできやすい{気体|きたい}は？",
       "choices": [
-        "二酸化炭素",
+        "{二酸化炭素|にさんかたんそ}",
         "ちっ素",
-        "酸素だけ",
+        "{酸素|さんそ}だけ",
         "アンモニア"
       ],
       "answer": 0,
-      "explanation": "くわしい燃焼のしくみは中学で学ぶよ。"
+      "explanation": "くわしい燃焼のしくみは{中学|ちゅうがく}で学ぶよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u01-bonus-014",
       "tier": "bonus",
       "type": "ox",
       "skill": "concept",
-      "stem": "🎓 燃焼では、見た目が消えても物質がなくなるのではなく別の物質に変わる。",
+      "stem": "🎓 燃焼では、{見|み}た目が消えても{物質|ぶっしつ}がなくなるのではなく別の{物質|ぶっしつ}に{変|か}わる。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "物質の変化として考えるのは中学の学習につながるよ。"
+      "explanation": "{物質|ぶっしつ}の{変化|へんか}として考えるのは{中学|ちゅうがく}の学習につながるよ。",
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "contentVersion": 1,
+      "bonusCategory": "middle"
     },
     {
       "id": "g6u01-bonus-015",
       "tier": "bonus",
-      "type": "mc4",
+      "type": "ox",
       "skill": "concept",
-      "stem": "💡 ろうそくのほのおでいちばん外側が明るく見えるのは、燃え方のちがいと関係する。これはどの学習につながる？",
+      "stem": "💡 ろうそくの炎には、{明|あか}るい{部分|ぶぶん}と、その{外側|そとがわ}でよく燃えている{部分|ぶぶん}がある。{外側|そとがわ}が必ず最も{明|あか}るいとは限らない。",
       "choices": [
-        "燃焼のくわしいしくみ",
-        "月の満ち欠け",
-        "てこのつり合い",
-        "食物連鎖だけ"
+        "○",
+        "×"
       ],
       "answer": 0,
-      "explanation": "ほのおの中のくわしい燃え方は上の学年で学ぶよ。"
+      "explanation": "炎の{明るさ|あかるさ}と燃え方は{同じ|おなじ}ではないよ。{明|あか}るい{部分|ぶぶん}と{外側|そとがわ}では、燃え方や{温度|おんど}がちがう。{安全|あんぜん}な{資料|しりょう}で{調|しら}べよう。",
+      "contentVersion": 2,
+      "subId": "g6_u01_s1",
+      "curriculumRef": "A(1)ア(ｱ),イ",
+      "context": "standard",
+      "targetStage": "middle",
+      "bonusCategory": "trivia"
     }
   ]
 };

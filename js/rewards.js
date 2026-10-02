@@ -1,145 +1,75 @@
 (function () {
-  function expWithCompanion(base) {
-    var effects = window.RikaEquipment.effects();
-    var rate = 1 + (effects.expRate || 0) + (effects.expBoostBig ? 0.5 : 0);
-    return Math.round(base * rate);
-  }
-
-  function itemName(id) {
-    return window.ITEMS[id] ? window.ITEMS[id].name : id;
-  }
-
-  function chooseEquipment(theme) {
-    var options = window.RikaEquipment.normalByTheme(theme);
-    var owned = window.RikaState.get().owned.equipment;
-    var missing = options.filter(function (item) { return owned.indexOf(item.id) === -1; });
-    var pool = missing.length ? missing : options;
-    return pool[0] || null;
-  }
-
-  function grantRareEquipment(unit, messages) {
-    var rare = window.RikaEquipment.rareForUnit(unit.unitId);
-    if (!rare) {
-      messages.push("この単元の★レア装備はまだ準備中だよ。");
-      return;
-    }
-    if (window.RikaState.addEquipment(rare.id)) {
-      messages.push("★レア「" + rare.name.replace("★", "") + "」を てにいれた！");
-      if (!window.RikaState.get().player.equipped[rare.slot]) {
-        window.RikaState.equip(rare.id);
-        messages.push(rare.name + "をそうびした。");
-      }
-    } else {
-      messages.push("全問正かい！ この★レア装備は入手済みだよ。");
-    }
-  }
-
   function handleBattleResult(context) {
-    var unit = context.unit;
-    var tier = context.tier;
-    var success = context.success;
-    var perfect = context.perfect;
-    var extraExp = context.extraExp || 0;
-    var progress = window.RikaState.progress(unit.unitId);
-    var messages = [];
-
-    if (!success) {
-      return {
-        messages: ["おしい！ じゅんびを整えて、もう一度ちょうせんしよう。"],
-        leveled: false
-      };
-    }
-
-    if (tier === "basic") {
-      var firstBasic = !progress.basicCleared;
-      window.RikaState.updateProgress(unit.unitId, {
-        basicCleared: true,
-        bonusUnlocked: true,
-        bestStreak: Math.max(progress.bestStreak || 0, context.bestStreak || 0)
-      });
-      var next = window.RikaState.unlockNext(unit.unitId);
-      if (firstBasic) {
-        var itemId = unit.theme === "solution" ? "hint_scroll" : "potion";
-        window.RikaState.addItem(itemId, 1);
-        var expResult = window.RikaState.addExp(expWithCompanion(100 + extraExp));
-        messages.push("洞窟をクリア！ 100EXPを手に入れた。");
-        messages.push(itemName(itemId) + "を1こ手に入れた。");
-        if (next) messages.push(next.title + "への道が開いた。");
-        if (expResult.leveled) messages.push("レベル" + expResult.after.level + "に上がった！");
-        return { messages: messages, leveled: expResult.leveled };
+    return window.RikaState.transaction(function (data) {
+      var unit = context.unit, tier = context.tier, p = window.RikaState.progress(unit.unitId);
+      var result = { messages: [], leveled: false, equipment: null };
+      if (context.review) {
+        result.messages.push("学び直し、おつかれさま！ 研究ノートを更新したよ。");
+        return result;
       }
-      var replayExp = window.RikaState.addExp(expWithCompanion(30 + extraExp));
-      messages.push("もう一度クリア！ 30EXPを手に入れた。");
-      if (replayExp.leveled) messages.push("レベル" + replayExp.after.level + "に上がった！");
-      return { messages: messages, leveled: replayExp.leveled };
-    }
-
-    if (tier === "boss") {
-      var firstBoss = !progress.bossCleared;
-      var wasPerfected = !!progress.perfected;
-      var bossLeveled = false;
-      var rewardPatch = {
-        bossCleared: true,
-        perfected: wasPerfected || perfect,
-        bestStreak: Math.max(progress.bestStreak || 0, context.bestStreak || 0)
-      };
-      window.RikaState.updateProgress(unit.unitId, rewardPatch);
-      if (firstBoss) {
-        var companion = window.RikaEquipment.companionForTheme(unit.theme);
-        if (companion && window.RikaState.addCompanion(companion.id)) {
-          messages.push("なかま「" + companion.name + "」が なかまになった！");
-        }
-        var bossExp = window.RikaState.addExp(expWithCompanion(200 + extraExp));
-        bossLeveled = bossExp.leveled;
-        messages.push("ボスをとうばつ！ 200EXPを手に入れた。");
-        if (bossExp.leveled) messages.push("レベル" + bossExp.after.level + "に上がった！");
-      } else {
-        var bossReplay = window.RikaState.addExp(expWithCompanion(50 + extraExp));
-        bossLeveled = bossReplay.leveled;
-        messages.push("ボス再とうばつ！ 50EXPを手に入れた。");
-        if (bossReplay.leveled) messages.push("レベル" + bossReplay.after.level + "に上がった！");
+      if (context.sessionId && data.rewardedSessions.includes(context.sessionId)) {
+        result.messages.push("このぼうけんの報酬は、すでに受け取ったよ。");
+        return result;
       }
-      if (perfect && !wasPerfected) {
-        var equipment = chooseEquipment(unit.theme);
-        if (equipment && window.RikaState.addEquipment(equipment.id)) {
-          messages.push(equipment.name + "を手に入れた！");
-          if (!window.RikaState.get().player.equipped[equipment.slot]) {
-            window.RikaState.equip(equipment.id);
-            messages.push(equipment.name + "をそうびした。");
+      p.bestStreak = Math.max(p.bestStreak, context.bestStreak || 0);
+      if (!context.success) {
+        result.messages.push("おしい！ 研究ノートでたしかめて、またちょうせんしよう。");
+        return result;
+      }
+      var base = 30;
+      if (tier === "basic") {
+        if (context.masteryComplete !== false) {
+          base = p.basicCleared ? 30 : 100;
+          if (!p.basicCleared) {
+            var itemId = unit.theme === "solution" ? "hint_scroll" : "potion";
+            window.RikaState.addItem(itemId, 1);
+            result.messages.push(window.ITEMS[itemId].name + "を1こ手に入れた。");
           }
+          p.basicCleared = p.bonusUnlocked = true;
+          var next = window.RikaState.unlockNext(unit.unitId);
+          if (next) result.messages.push(next.title + "への道が開いた。");
+        } else {
+          base = 10;
+          result.messages.push("このコースを完走！ のこりの問題も学んで洞窟をクリアしよう。");
         }
-      } else if (perfect && wasPerfected) {
-        messages.push("全問正かい！ すでにこのテーマのそうびを手に入れているよ。");
-      } else {
-        messages.push("全問正かいでテーマそうびが手に入るよ。");
+      } else if (tier === "boss") {
+        base = p.bossCleared ? 50 : 200;
+        p.bossCleared = true;
+        p.perfected = p.perfected || context.perfect;
+        var companion = window.RikaEquipment.companionForTheme(unit.theme);
+        if (companion && window.RikaState.addCompanion(companion.id)) result.messages.push("なかま「" + companion.name + "」をむかえた！");
+        if (context.perfect) {
+          var missing = window.RikaEquipment.normalByTheme(unit.theme).filter(function (eq) { return !data.owned.equipment.includes(eq.id); });
+          result.equipment = missing[0] || null;
+          if (!result.equipment) result.messages.push("全問正かい！ このテーマの通常そうびは、全部そろったよ。");
+        } else result.messages.push("全問正かいで通常そうびが手に入るよ。");
+      } else if (tier === "bonus") {
+        base = 80;
+        window.RikaState.addItem("crystal_badge", 1);
+        if (context.perfect && context.total === 15) {
+          var rare = window.RikaEquipment.rareForUnit(unit.unitId);
+          if (rare) {
+            if (!data.owned.equipment.includes(rare.id)) result.equipment = rare;
+            else result.messages.push("全問正かい！ この★レアは入手ずみだよ。");
+            p.bonusPerfected = true;
+          } else result.messages.push("★レアのデータは準備中だよ。もう一度ちょうせんできるよ。");
+        } else result.messages.push("15問すべて正かいで、単元だけの★レアが手に入るよ。");
       }
-      return { messages: messages, leveled: bossLeveled };
-    }
-
-    if (tier === "bonus") {
-      var wasBonusPerfected = !!progress.bonusPerfected;
-      window.RikaState.updateProgress(unit.unitId, {
-        bonusPerfected: wasBonusPerfected || perfect,
-        bestStreak: Math.max(progress.bestStreak || 0, context.bestStreak || 0)
-      });
-      var bonusExp = window.RikaState.addExp(expWithCompanion(80 + extraExp));
-      window.RikaState.addItem("crystal_badge", 1);
-      messages.push("中学チャレンジクリア！ 80EXPとけっしょうバッジを手に入れた。");
-      if (bonusExp.leveled) messages.push("レベル" + bonusExp.after.level + "に上がった！");
-      if (perfect && !wasBonusPerfected) {
-        grantRareEquipment(unit, messages);
-      } else if (perfect) {
-        messages.push("全問正かい！ この単元の★レアはもう手に入っているよ。");
-      } else {
-        messages.push("15問全問正かいで★レア装備が手に入るよ。");
+      if (result.equipment) {
+        window.RikaState.addEquipment(result.equipment.id);
+        if (!data.player.equipped[result.equipment.slot]) window.RikaState.equip(result.equipment.id);
+        result.messages.push((result.equipment.rarity === "rare" ? "★レア「" : "「") + result.equipment.name + "」を てにいれた！");
       }
-      return { messages: messages, leveled: bonusExp.leveled };
-    }
-
-    return { messages: messages, leveled: false };
+      var effects = context.effects || window.RikaEquipment.effects();
+      var amount = Math.round((base + (context.extraExp || 0)) * (1 + (effects.expRate || 0) + (effects.expBoostBig ? 0.5 : 0)));
+      var exp = window.RikaState.addExp(amount);
+      result.leveled = exp.leveled;
+      result.level = exp.after.level;
+      result.messages.push(amount + "EXPを手に入れた。");
+      if (exp.leveled) result.messages.push("レベル" + exp.after.level + "に上がった！");
+      if (context.sessionId) data.rewardedSessions = data.rewardedSessions.concat(context.sessionId).slice(-100);
+      return result;
+    });
   }
-
-  window.RikaRewards = {
-    handleBattleResult: handleBattleResult
-  };
+  window.RikaRewards = { handleBattleResult: handleBattleResult };
 })();
