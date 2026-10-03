@@ -1,6 +1,8 @@
 (function () {
   var labels = ["予想", "根拠", "確かめ方", "別の条件"];
   var quests = window.RikaMuData.quests;
+  var domains = window.RikaMuData.domains;
+  var selectedDomain = "all";
   var f = function (text) { return window.RikaUI.renderFurigana(text); };
   var e = function (text) { return window.RikaUI.escapeHtml(text); };
 
@@ -46,7 +48,7 @@
       target.history = Array.isArray(prior.history) ? prior.history.filter(function (h) { return h && typeof h.id === "string" && typeof h.note === "string" && Number.isFinite(h.firstCorrect); }).slice(-12).map(function (h) {
         return { id: h.id.slice(0, 40), note: h.note.slice(0, 1000), firstCorrect: Math.min(4, Math.max(0, h.firstCorrect)), rechecks: Math.max(0, Number(h.rechecks) || 0), badge: h.badge === true };
       }) : [];
-      var seen = Array.isArray((raw.seen || {})[q.id]) ? raw.seen[q.id].filter(function (s) { return typeof s === "string" && /^[clw]:[0-9,]+$/.test(s); }) : [];
+      var seen = Array.isArray((raw.seen || {})[q.id]) ? raw.seen[q.id].filter(function (s) { return typeof s === "string" && s.length <= 160 && /^[a-z][a-z0-9_]{0,39}:[0-9,]+$/.test(s); }) : [];
       result.seen[q.id] = Array.from(new Set(seen)).slice(0, 4096);
       result.exposureFull[q.id] = (raw.exposureFull || {})[q.id] === true || seen.length > 4096;
     });
@@ -87,6 +89,11 @@
     return { seed: seed, fresh: fresh };
   }
 
+  function canStart(id) {
+    var quest = quests.find(function (q) { return q.id === id; });
+    return !!quest && gate().unlocked && (quest.prerequisites || []).every(function (prior) { return state().progress[prior].cleared; });
+  }
+
   function step() {
     var s = state().active;
     return s && window.RikaMuData.build(s.questId, s.currentSeed).steps[s.index];
@@ -99,6 +106,7 @@
   function start(id, replace) {
     if (!gate().unlocked) { window.RikaUI.toast("四つの大陸の洞窟を、すべてクリアすると開くよ。"); return; }
     if (!quests.some(function (q) { return q.id === id; })) return;
+    if (!canStart(id)) { window.RikaUI.toast("この領域の二つの探究を終えると、中学への橋が開くよ。"); return; }
     if (state().active && state().active.phase !== "result" && !replace) {
       window.RikaUI.confirm("新しい研究", "途中の研究は入れかわるよ。新しい資料で始める？", function () { start(id, true); }); return;
     }
@@ -115,7 +123,7 @@
 
   function resume() {
     if (!gate().unlocked) { show(); return; }
-    if (!validSession(state().active)) {
+    if (!validSession(state().active) || !canStart(state().active.questId)) {
       state().active = null; window.RikaState.save(); show(); return;
     }
     render(true);
@@ -142,7 +150,7 @@
 
   function submit(value) {
     var s = state().active;
-    if (!gate().unlocked || !validSession(s) || s.answered || s.phase === "result") return;
+    if (!validSession(s) || !canStart(s.questId) || s.answered || s.phase === "result") return;
     var result = check(step(), value);
     if (result === null) { window.RikaUI.toast("数字や選ぶ項目を確かめてね。まだ回答は記録していないよ。"); return; }
     s.answered = true;
@@ -156,7 +164,7 @@
 
   function hint() {
     var s = state().active;
-    if (!s || s.answered || s.phase === "result") return;
+    if (!s || !canStart(s.questId) || s.answered || s.phase === "result") return;
     s.hinted = true; s.assisted = true;
     window.RikaState.save(); render();
   }
@@ -181,7 +189,7 @@
 
   function advance() {
     var s = state().active;
-    if (!s || !s.answered || s.phase === "result" || !gate().unlocked) return;
+    if (!s || !s.answered || s.phase === "result" || !canStart(s.questId)) return;
     if (s.phase === "core" && s.index < 3) s.index += 1;
     else if (s.pending.length) {
       s.phase = "recheck"; s.index = s.pending.shift(); s.currentSeed = selectCase(s.questId).seed; s.rechecks += 1;
@@ -216,16 +224,39 @@
     root.querySelectorAll('[data-mu-resume]').forEach(function (button) { button.addEventListener('click', resume); });
   }
 
-  function show() {
+  function track(quest) {
+    return '<p class="mu-track' + (quest.level === "middle" ? ' mu-middle' : '') + '">' + f(quest.level === "middle" ? '{中学|ちゅうがく}への橋' : '小学校の探究') + '</p>';
+  }
+
+  function questCard(q) {
+    var p = state().progress[q.id], available = canStart(q.id);
+    var required = (q.prerequisites || []).filter(function (id) { return !state().progress[id].cleared; });
+    return '<article class="mu-quest" data-mu-quest="' + q.id + '">' + track(q) + '<div class="mu-quest-art">' + window.RikaMonsters.render(q.guardian) + '</div><h3>' + f(q.title) + '</h3><p>' + f(q.story) + '</p><p class="mu-connection">' + f(q.connection) + '</p><p class="mu-achievement"' + (p.badged ? ' data-mu-badge' : '') + '>' + f(p.cleared ? '✓ 研究に成功' : '未調査') + '　' + f(p.badged ? '★ 探究バッジ' : '') + '</p>' +
+      (required.length ? '<p class="mu-required">' + f('あと ' + required.map(function (id) { return quests.find(function (prior) { return prior.id === id; }).title; }).join('・') + ' を調査すると開く') + '</p>' : '') +
+      '<button class="primary-button" data-mu-start="' + q.id + '"' + (!available ? ' disabled' : '') + '>' + f(!available ? 'まだ道が閉じている' : p.cleared ? '新しい資料で研究' : '研究へ') + '</button>' +
+      (p.history.length ? '<details><summary>' + f('研究ノート') + '</summary>' + p.history.slice().reverse().map(function (item) { return '<div class="mu-history"><p>' + f('初めの回答') + ' ' + item.firstCorrect + ' / 4 ・ ' + f('再確認') + ' ' + item.rechecks + '回' + (item.badge ? ' ・ ★' : '') + '</p><p>' + e(item.note || '気づきの記録はまだないよ。') + '</p></div>'; }).join('') + '</details>' : '') + '</article>';
+  }
+
+  function researchMenu() {
+    var data = state();
+    var cleared = quests.filter(function (q) { return data.progress[q.id].cleared; }).length;
+    var badged = quests.filter(function (q) { return data.progress[q.id].badged; }).length;
+    return '<div class="mu-overview"><p>' + f('研究に成功') + ' ' + cleared + ' / ' + quests.length + '　★ ' + f('探究バッジ') + ' ' + badged + ' / ' + quests.length + '</p></div>' +
+      '<div class="mu-filters" role="group" aria-label="研究する領域"><button class="secondary-button" data-mu-domain="all" aria-pressed="' + (selectedDomain === "all") + '">すべて</button>' + domains.map(function (d) { return '<button class="secondary-button" data-mu-domain="' + d.id + '" aria-pressed="' + (selectedDomain === d.id) + '">' + f(d.short) + '</button>'; }).join('') + '</div>' +
+      domains.filter(function (d) { return selectedDomain === 'all' || d.id === selectedDomain; }).map(function (d) {
+        var inDomain = quests.filter(function (q) { return q.domain === d.id; });
+        var completed = inDomain.filter(function (q) { return data.progress[q.id].cleared; }).length;
+        return '<section class="mu-domain" style="--mu-domain:' + d.color + '"><div class="mu-domain-heading"><h3>' + f(d.title) + '</h3><p>' + completed + ' / ' + inDomain.length + '</p></div><div class="mu-quests">' + inDomain.map(questCard).join('') + '</div></section>';
+      }).join('');
+  }
+
+  function show(domain) {
+    if (domain === 'all' || domains.some(function (d) { return d.id === domain; })) selectedDomain = domain;
     var g = gate(), data = state();
     mount('<section class="mu-world"><div class="mu-heading"><div><p class="eyebrow">四つの大陸の、その先へ</p><h2>' + f("{幻|まぼろし}の大陸ムー") +
       '</h2></div><button class="ghost-button" data-mu-home>ホームへ</button></div><div class="mu-atlas">' + window.RikaSVG.muContinent(g.unlocked) + '</div>' +
       (!g.unlocked ? '<div class="mu-lock"><h3>島への道は、まだ眠っている</h3><p>' + f("観察の章をふくむ、四つの大陸の洞窟をすべてクリアしよう。ボスやレアそうびの全問正解は必要ないよ。") + '</p><ul class="mu-grade-list">' + g.grades.map(function (grade) { return '<li>' + grade.grade + '年：' + grade.cleared + ' / ' + grade.total + '</li>'; }).join('') + '</ul><button class="primary-button" data-mu-map>大陸へもどる</button></div>' :
-        '<div class="mu-quests">' + quests.map(function (q) {
-          var p = data.progress[q.id];
-          return '<article class="mu-quest"><div class="mu-quest-art">' + window.RikaMonsters.render(q.guardian) + '</div><h3>' + f(q.title) + '</h3><p>' + f(q.story) + '</p><p class="mu-achievement"' + (p.badged ? ' data-mu-badge' : '') + '>' + f(p.cleared ? '✓ 研究に成功' : '未調査') + '　' + f(p.badged ? '★ 探究バッジ' : '') + '</p><button class="primary-button" data-mu-start="' + q.id + '">' + f(p.cleared ? '新しい資料で研究' : '研究へ') + '</button>' +
-            (p.history.length ? '<details><summary>研究ノート</summary>' + p.history.slice().reverse().map(function (h) { return '<div class="mu-history"><p>初めの回答 ' + h.firstCorrect + ' / 4 ・ 再確認 ' + h.rechecks + '回' + (h.badge ? ' ・ ★' : '') + '</p><p>' + e(h.note || '気づきの記録はまだないよ。') + '</p></div>'; }).join('') + '</details>' : '') + '</article>';
-        }).join('') + '</div>' + (data.active && data.active.phase !== "result" ? '<div class="button-row"><button class="secondary-button" data-mu-resume>途中の研究からつづける</button></div>' : '')) + '</section>');
+        researchMenu() + (data.active && data.active.phase !== "result" ? '<div class="button-row"><button class="secondary-button" data-mu-resume>' + f('途中の研究からつづける') + '</button></div>' : '')) + '</section>');
     bindEntry(document.getElementById('app'));
     bindCommon();
     scrollTop();
@@ -241,7 +272,7 @@
 
   function controls(q, s) {
     var disabled = s.answered ? 'disabled' : '';
-    if (q.type === 'number') return '<label class="mu-number"><span>' + f('予想した量') + '</span><span><input type="text" inputmode="decimal" autocomplete="off" maxlength="12" data-mu-number value="' + e(s.draft.number) + '" ' + disabled + '> ' + e(q.unit) + '</span></label>';
+    if (q.type === 'number') return '<label class="mu-number"><span>' + f(q.inputLabel || '予想した量') + '</span><span><input type="text" inputmode="decimal" autocomplete="off" maxlength="12" data-mu-number value="' + e(s.draft.number) + '" ' + disabled + '> ' + f(q.unit) + '</span></label>';
     if (q.type === 'order') return '<ol class="mu-order">' + s.draft.order.map(function (id, i) {
       var item = q.items.find(function (x) { return x.id === id; });
       return '<li><span>' + f(item.label) + '</span><div class="mu-order-actions"><button type="button" data-mu-move="' + i + '" data-direction="-1" title="上へ" aria-label="' + e(window.RikaUI.renderPlain(item.label)) + 'を上へ" ' + (s.answered || i === 0 ? 'disabled' : '') + '>↑</button><button type="button" data-mu-move="' + i + '" data-direction="1" title="下へ" aria-label="' + e(window.RikaUI.renderPlain(item.label)) + 'を下へ" ' + (s.answered || i === s.draft.order.length - 1 ? 'disabled' : '') + '>↓</button></div></li>';
@@ -263,16 +294,16 @@
     if (!s) { show(); return; }
     var quest = quests.find(function (q) { return q.id === s.questId; });
     if (s.phase === 'result') {
-      mount('<section class="panel mu-result"><div class="mu-result-art">' + window.RikaSVG.muBadge(s.result.badge) + '</div><h2>✓ 研究に成功！</h2><h3>' + f(quest.title) + '</h3><p>' +
+      mount('<section class="panel mu-result">' + track(quest) + '<div class="mu-result-art">' + window.RikaSVG.muBadge(s.result.badge) + '</div><h2>✓ 研究に成功！</h2><h3>' + f(quest.title) + '</h3><p>' +
         f(s.result.badge ? '新しい資料で、予想・根拠・確かめ方・別の条件をたしかめた！' : '解説を読み、新しい資料でたしかめたよ。次の研究も楽しもう。') + '</p>' +
         (s.result.newBadge ? '<p class="rare-tag">' + f('★ 探究バッジを てにいれた！') + '</p>' : s.result.badge ? '<p>' + f('★ 探究バッジ達成') + '</p>' : '<p>' + f('探究バッジは、まだ見ていない資料でヒントなしの初回回答が全部正解したときにもらえるよ。') + '</p>') +
         '<p>+' + s.result.exp + ' EXP ・ 初めの回答 ' + s.result.firstCorrect + ' / 4 ・ 再確認 ' + s.rechecks + '回</p>' + note(s) +
         '<div class="button-row"><button class="primary-button" data-mu-start="' + quest.id + '">新しい資料で研究</button><button class="secondary-button" data-mu-menu>ムー大陸へ</button></div></section>');
     } else {
       var q = step();
-      mount('<section class="mu-research"><div class="mu-heading"><div><p class="eyebrow">小学校の知識をつなぐ探究</p><h2>' + f(quest.title) + '</h2></div><button class="ghost-button" data-mu-menu>ムー大陸へ</button></div>' +
+      mount('<section class="mu-research"><div class="mu-heading"><div>' + track(quest) + '<h2>' + f(quest.title) + '</h2></div><button class="ghost-button" data-mu-menu>ムー大陸へ</button></div>' +
         '<div class="mu-research-hud"><div class="mu-guardian">' + window.RikaMonsters.render(quest.guardian) + '</div><div><p>' + f(s.phase === 'recheck' ? '新しい資料で再確認' : '研究 ' + (s.index + 1) + ' / 4') + '</p><ol class="mu-steps">' + labels.map(function (label, i) { return '<li' + (i === s.index ? ' aria-current="step"' : '') + '>' + f(label) + '</li>'; }).join('') + '</ol><p>' + f(s.fresh && !s.assisted ? '★ 探究バッジに挑戦中' : '学び直して研究に成功しよう') + '</p></div></div>' +
-        '<section class="panel mu-workspace"><p class="question-stem">' + f(q.stem) + '</p>' + (q.context ? '<p class="mu-context">' + f(q.context) + '</p>' : '') +
+        '<section class="panel mu-workspace">' + (quest.primer ? '<aside class="mu-primer" data-mu-primer>' + f(quest.primer) + '</aside>' : '') + '<p class="question-stem">' + f(q.stem) + '</p>' + (q.context ? '<p class="mu-context">' + f(q.context) + '</p>' : '') +
         '<form data-mu-form>' + renderTable(q, s) + controls(q, s) + '<div class="button-row"><button class="primary-button" type="submit" ' + (s.answered ? 'disabled' : '') + '>' + f('回答を記録') + '</button><button class="secondary-button" type="button" data-mu-hint ' + (s.answered || s.hinted ? 'disabled' : '') + '>ヒント</button></div></form>' +
         (s.hinted ? '<p class="mu-hint" role="status">' + f(q.hint) + '</p>' : '') +
         (s.answered ? '<div class="mu-feedback ' + (s.feedback.correct ? 'mu-good' : 'mu-retry') + '" data-mu-feedback tabindex="-1" role="status"><h3>' + (s.feedback.correct ? '✓ たしかめられた！' : '✗ おしい！ 新しい資料でたしかめよう') + '</h3><p>' + f(q.explanation) + '</p><button class="primary-button" data-mu-next>' + (s.phase === 'core' && s.index < 3 ? 'つぎの調査へ' : s.pending.length ? '新しい資料で再確認' : '研究をまとめる') + '</button></div>' : '') + note(s) + '</section></section>');
@@ -284,6 +315,10 @@
   function bindCommon() {
     var root = document.getElementById('app');
     root.querySelectorAll('[data-mu-start]').forEach(function (button) { button.addEventListener('click', function () { start(button.dataset.muStart); }); });
+    root.querySelectorAll('[data-mu-domain]').forEach(function (button) { button.addEventListener('click', function () {
+      var id = button.dataset.muDomain; show(id);
+      var next = document.querySelector('[data-mu-domain="' + id + '"]'); if (next) next.focus({ preventScroll: true });
+    }); });
     root.querySelectorAll('[data-mu-menu]').forEach(function (button) { button.addEventListener('click', show); });
     root.querySelectorAll('[data-mu-home]').forEach(function (button) { button.addEventListener('click', window.RikaApp.showHome); });
     root.querySelectorAll('[data-mu-map]').forEach(function (button) { button.addEventListener('click', function () { window.RikaApp.showMap(window.RikaState.get().settings.lastGrade); }); });
@@ -316,5 +351,5 @@
   }
 
   window.RikaMu = { emptySave: emptySave, normalizeSave: normalizeSave, gate: gate, entry: entry, bindEntry: bindEntry, show: show,
-    start: start, resume: resume, getSession: function () { return state().active; }, getStep: step, submit: submit, advance: advance, hint: hint, numeric: numeric, check: check };
+    start: start, resume: resume, canStart: canStart, getSession: function () { return state().active; }, getStep: step, submit: submit, advance: advance, hint: hint, numeric: numeric, check: check };
 })();

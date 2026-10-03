@@ -187,7 +187,7 @@ test('Mu completion, first-try badges, notes, resume, and rewards persist indepe
     const s=solveMu(w);assert.equal(s.result.newBadge,true);assert.equal(s.result.exp,200);assert.equal(w.RikaState.get().mu.progress[q.id].badged,true);
     const exp=w.RikaState.get().player.exp;w.RikaMu.advance();w.RikaMu.submit(w.RikaMu.getStep().answer);assert.equal(w.RikaState.get().player.exp,exp);
     w.RikaState.load();assert.match(w.RikaState.get().mu.progress[q.id].history[0].note,/<script>/);
-  }assert.equal(JSON.stringify(w.RikaState.get().owned.equipment),equipment);assert.equal(w.RikaState.get().player.exp,600);
+  }assert.equal(JSON.stringify(w.RikaState.get().owned.equipment),equipment);assert.equal(w.RikaState.get().player.exp,2400);
 });
 test('Mu wrong answers lock, rechecks use new data, hints exclude badges, and repeats do not farm EXP',()=>{
   const {w}=app();unlockMu(w);w.RikaMu.start('crystal_gate',true);let s=w.RikaMu.getSession(),q=w.RikaMu.getStep();
@@ -209,6 +209,55 @@ test('old schema 2 saves acquire Mu data; invalid inquiry drafts and changed con
   assert.equal(w.RikaMu.gate().unlocked,true);
   w.RikaMu.start('crystal_gate',true);solveMu(w);w.RikaState.get().mu.active.result.firstCorrect='<img src=x>';
   w.RikaState.save();w.RikaState.load();assert.equal(w.RikaMu.getSession(),null);assert.equal(w.RikaState.get().mu.progress.crystal_gate.cleared,true);
+});
+test('Mu has four balanced domains, with gated middle-school bridges kept out of ordinary banks',()=>{
+  const {w}=app();assert.equal(w.RikaMuData.quests.length,12);assert.equal(w.RikaMuData.domains.length,4);
+  for(const domain of w.RikaMuData.domains){
+    const quests=w.RikaMuData.quests.filter(q=>q.domain===domain.id);
+    assert.equal(quests.length,3);assert.equal(quests.filter(q=>q.level==='elementary').length,2);
+    const middle=quests.find(q=>q.level==='middle');assert.ok(middle.primer);assert.equal(middle.prerequisites.length,2);
+    assert.ok(middle.prerequisites.every(id=>quests.some(q=>q.id===id&&q.level==='elementary')));
+    assert.ok(quests.every(q=>q.units.every(id=>w.CURRICULUM.some(u=>u.unitId===id))));
+    unlockMu(w);assert.equal(w.RikaMu.canStart(middle.id),false);w.RikaMu.start(middle.id,true);assert.equal(w.RikaMu.getSession()?.questId===middle.id,false);
+    for(const id of middle.prerequisites){w.RikaMu.start(id,true);solveMu(w);}
+    assert.equal(w.RikaMu.canStart(middle.id),true);w.RikaMu.start(middle.id,true);assert.equal(solveMu(w).result.newBadge,true);
+    assert.equal(w.QUESTION_BANK[middle.id],undefined);
+  }
+  for(const quest of w.RikaMuData.quests.filter(q=>q.level==='elementary')){
+    const text=JSON.stringify(w.RikaMuData.build(quest.id,987));
+    assert.doesNotMatch(text,/溶質|溶媒|質量パーセント|オーム|抵抗|電圧|飽和水蒸気量|凝結|生産者|消費者|分解者/);
+  }
+});
+test('Mu numeric answers independently agree with mass balance, lever, Ohm and humidity records',()=>{
+  const {w}=app();let noDrops=0,drops=0;
+  for(let seed=1;seed<=300;seed++){
+    const salt=w.RikaMuData.build('salt_lab',seed),sr=salt.steps[1].table.rows.find(r=>r[0]===salt.steps[1].answer[0]);
+    assert.equal(parseFloat(sr[3]),parseFloat(sr[1])+parseFloat(sr[2]));
+    assert.ok(Math.abs(salt.steps[0].answer-parseFloat(sr[1])/parseFloat(sr[3])*100)<1e-9);
+    assert.equal(salt.steps[3].answer,salt.steps[0].answer*2);
+    const lever=w.RikaMuData.build('lever_gate',seed),lm=lever.steps[0].stem.match(/右は(\d+)gで支点から(\d+)目もり。左は(\d+)目もり/);
+    assert.ok(lm);assert.equal(lever.steps[0].answer,Number(lm[1])*Number(lm[2])/Number(lm[3]));
+    const circuit=w.RikaMuData.build('circuit_lab',seed),cm=circuit.steps[0].stem.match(/(\d+)Ωの抵抗に([\d.]+)V/);
+    assert.ok(Math.abs(circuit.steps[0].answer-Number(cm[2])/Number(cm[1]))<1e-9);
+    assert.equal(circuit.steps[3].answer,circuit.steps[0].answer/2);
+    const dew=w.RikaMuData.build('dew_lab',seed),dr=dew.steps[1].table.rows.find(r=>r[0]===dew.steps[1].answer[0]),cr=dew.steps[1].table.rows.find(r=>r[0]===dew.steps[1].answer[1]);
+    assert.ok(Math.abs(dew.steps[0].answer-parseFloat(dr[3])/parseFloat(dr[4])*100)<1e-9);
+    assert.equal(dew.steps[3].answer,Math.max(0,parseFloat(dr[3])-parseFloat(cr[4])));
+    if(dew.steps[3].answer===0)noDrops++;else drops++;
+  }
+  assert.ok(noDrops>0&&drops>0);
+});
+test('three-quest saves keep notes, badges, seen cases and active session after expansion',()=>{
+  const {w}=app();unlockMu(w);w.RikaMu.start('crystal_gate',true);solveMu(w);
+  w.RikaMu.start('light_garden',true);w.RikaMu.getSession().note='前の研究ノート';w.RikaState.save();
+  const old=JSON.parse(w.RikaState.exportData()),seed=old.mu.active.seed,seen=old.mu.seen.crystal_gate[0];
+  for(const q of w.RikaMuData.quests.filter(q=>!['crystal_gate','light_garden','river_valley'].includes(q.id))){delete old.mu.progress[q.id];delete old.mu.seen[q.id];delete old.mu.exposureFull[q.id];}
+  w.RikaState.importData(JSON.stringify(old));w.RikaMu.resume();
+  assert.equal(w.RikaMu.getSession().seed,seed);assert.equal(w.RikaMu.getSession().note,'前の研究ノート');
+  assert.equal(w.RikaState.get().mu.progress.crystal_gate.badged,true);assert.ok(w.RikaState.get().mu.seen.crystal_gate.includes(seen));
+  assert.equal(w.RikaState.get().mu.progress.salt_lab.cleared,false);
+  w.RikaMu.start('ice_box',true);solveMu(w);const exposure=JSON.stringify(w.RikaState.get().mu.seen.ice_box);
+  w.RikaState.load();assert.equal(JSON.stringify(w.RikaState.get().mu.seen.ice_box),exposure);
 });
 let failed=0;
 for(const [name,fn] of tests){try{fn();console.log('PASS '+name);}catch(error){failed++;console.error('FAIL '+name+'\n'+error.stack);}}

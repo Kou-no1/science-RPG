@@ -6,7 +6,7 @@
 .mu-world, .mu-research { color:#fff; }
 .mu-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px; }
 .mu-heading h2 { margin:6px 0; font-size:28px; text-shadow:0 2px 4px #241a63; }
-.mu-atlas { width:100%; max-width:1050px; margin:0 auto; }
+.mu-atlas { width:100%; max-width:900px; margin:0 auto; }
 .mu-atlas svg { display:block; width:100%; height:auto; }
 .mu-lock { max-width:680px; margin:24px auto; padding:20px 0; }
 .mu-grade-list { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; padding:0; list-style:none; }
@@ -21,6 +21,23 @@
 .mu-quest summary { min-height:44px; padding:10px 0; cursor:pointer; }
 .mu-history { border-top:1px solid #d7d0eb; white-space:pre-wrap; overflow-wrap:anywhere; }
 .mu-achievement { min-height:32px; font-weight:800; }
+.mu-overview { margin:20px 0; font-weight:800; }
+.mu-filters { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0 30px; }
+.mu-filters [aria-pressed="true"] { border:2px solid var(--goldD); color:var(--ink); background:#fff2b0; }
+.mu-domain { margin:32px 0 40px; }
+.mu-domain-heading { display:flex; align-items:center; gap:16px; border-bottom:2px solid var(--mu-domain); }
+.mu-domain-heading h3 { font-size:24px; margin:14px 0; }
+.mu-domain-heading p { margin-left:auto; flex-shrink:0; font-weight:800; }
+.mu-track { font-size:16px; font-weight:800; margin:0 0 12px; color:inherit; }
+.mu-middle { color:#825500; border-bottom:2px solid var(--goldD); padding-bottom:10px; }
+.mu-research .mu-middle { color:var(--gold); }
+.mu-connection { border-top:1px solid #d5cee9; padding-top:12px; color:var(--inkSoft); }
+.mu-required { font-size:16px; line-height:1.8; }
+.mu-primer { line-height:1.9; background:#fff5d4; border-left:4px solid var(--goldD); padding:16px; margin-bottom:24px; }
+.mu-gateway rt, .mu-heading rt, .mu-research-hud rt, .mu-domain-heading rt, .mu-overview rt, .mu-quest .primary-button rt, .mu-workspace .primary-button rt { color:inherit; }
+.mu-quest { display:flex; flex-direction:column; }
+.mu-quest > .primary-button { margin-top:auto; align-self:flex-start; }
+.mu-segments:has(label:nth-child(3)) { grid-template-columns:1fr; }
 .mu-research-hud { display:flex; align-items:center; gap:24px; margin:16px 0; }
 .mu-guardian { flex:0 0 130px; height:120px; }
 .mu-guardian .monster-figure { display:block; width:100%; height:100%; }

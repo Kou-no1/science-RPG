@@ -113,7 +113,13 @@ async function run() {
     assert.equal(await page.locator('[data-mu-start]').count(),0);
     await page.screenshot({path:path.join(out,'mu-locked.png'),fullPage:true});
     await page.evaluate(()=>{for(const u of window.CURRICULUM)window.RikaState.progress(u.unitId).basicCleared=true;window.RikaState.save();window.RikaMu.show();});
-    assert.equal(await page.locator('[data-mu-start]').count(),3);
+    assert.equal(await page.locator('[data-mu-start]').count(),12);
+    assert.equal(await page.locator('[data-mu-start]:disabled').count(),4);
+    await page.locator('[data-mu-domain="energy"]').focus();await page.keyboard.press('Enter');
+    assert.equal(await page.locator('[data-mu-quest]').count(),3);
+    assert.equal(await page.locator('[data-mu-domain="energy"]').getAttribute('aria-pressed'),'true');
+    await page.locator('[data-mu-domain="all"]').click();
+    await page.evaluate(()=>window.RikaMu.start('salt_lab',true));assert.equal(await page.evaluate(()=>window.RikaMu.getSession()),null);
     async function answerMu(wrong=false){
       const q=await page.evaluate(()=>{const q=window.RikaMu.getStep();return {type:q.type,answer:q.answer};});
       if(q.type==='number')await page.locator('[data-mu-number]').fill(String(q.answer+(wrong?1:0)));
@@ -133,8 +139,11 @@ async function run() {
       assert.equal(await page.evaluate(()=>scrollY),0);
       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Mu menu overflow');
       await page.screenshot({path:path.join(out,'mu-map-'+viewport.width+'.png'),fullPage:true});
-      for(const id of ['crystal_gate','light_garden','river_valley']){
+      const questIds=await page.evaluate(()=>window.RikaMuData.quests.map(q=>q.id));
+      for(const id of questIds){
         await page.evaluate(id=>window.RikaMu.start(id,true),id);
+        const middle=await page.evaluate(id=>window.RikaMuData.quests.find(q=>q.id===id).level==='middle',id);
+        assert.equal(await page.locator('[data-mu-primer]').count(),middle?1:0);
         let count=0;
         while(await page.evaluate(()=>window.RikaMu.getSession().phase!=='result')){
           assert.ok(++count<15);
@@ -159,7 +168,7 @@ async function run() {
       }
     }
     await page.reload();await page.locator('[data-mu-open]').click();
-    assert.equal(await page.locator('[data-mu-badge]').count(),3);
+    assert.equal(await page.locator('[data-mu-badge]').count(),12);
     assert.equal(await page.evaluate(()=>Object.values(RikaState.get().mu.progress).every(p=>p.badged)),true);
     const local=await browser.newPage();local.on('pageerror',e=>errors.push(e.message));await local.goto(pathToFileURL(path.join(root,'index.html')).href);await local.locator('[data-home-map]').waitFor();await local.close();
     assert.deepEqual(errors,[]);assert.deepEqual(external,[]);

@@ -1,9 +1,9 @@
 (function () {
   var revision = 1;
   var quests = [
-    { id: "crystal_gate", title: "{結晶|けっしょう}の{扉|とびら}", theme: "solution", guardian: "crystadra", story: "水と{温度|おんど}の記録から、{結晶|けっしょう}の{扉|とびら}を開こう。", units: ["g4_u11", "g5_u07"] },
-    { id: "light_garden", title: "光の庭", theme: "plant", guardian: "tane_dragon", story: "庭の葉に{養分|ようぶん}ができるのはどこ？　日光と葉の{実験|じっけん}をたどろう。", units: ["g3_u06", "g5_u02", "g6_u03"] },
-    { id: "river_valley", title: "水門の谷", theme: "water", guardian: "gorota_wani", story: "水が運ぶ砂を調べて、谷の記録を読み{解|と}こう。", units: ["g4_u05", "g5_u06"] }
+    { id: "crystal_gate", domain: "matter", level: "elementary", title: "{結晶|けっしょう}の{扉|とびら}", theme: "solution", guardian: "crystadra", story: "水と{温度|おんど}の記録から、{結晶|けっしょう}の{扉|とびら}を開こう。", connection: "とける量から、中学の{濃度|のうど}へ。", units: ["g4_u11", "g5_u07"] },
+    { id: "light_garden", domain: "life", level: "elementary", title: "光の庭", theme: "plant", guardian: "tane_dragon", story: "庭の葉に{養分|ようぶん}ができるのはどこ？　日光と葉の{実験|じっけん}をたどろう。", connection: "葉が作る養分から、生き物のつながりへ。", units: ["g3_u06", "g5_u02", "g6_u03"] },
+    { id: "river_valley", domain: "earth", level: "elementary", title: "水門の谷", theme: "water", guardian: "gorota_wani", story: "水が運ぶ砂を調べて、谷の記録を読み{解|と}こう。", connection: "流れる水と、天気による水の変化をつなぐ。", units: ["g4_u05", "g5_u06"] }
   ];
 
   function random(seed) {
@@ -159,6 +159,7 @@
   window.RikaMuData = {
     revision: revision,
     quests: quests,
+    helpers: { random: random, shuffled: shuffled, orderStep: orderStep, table: table },
     build: function (id, seed) {
       var rng = random(seed);
       return id === "crystal_gate" ? crystal(rng) : id === "light_garden" ? leaves(rng) : id === "river_valley" ? river(rng) : null;
