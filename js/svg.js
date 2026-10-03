@@ -129,7 +129,25 @@
     return '<path d="M94 408 C34 319 74 177 174 132 C247 99 312 130 370 92 C454 37 586 91 633 186 C697 316 636 451 500 484 C414 505 351 456 289 491 C215 532 131 462 94 408 Z" fill="#cbd5ee" stroke="#7c87b5" stroke-width="5"/>';
   }
 
+  function muContinent(unlocked) {
+    return '<svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="海に浮かぶムー大陸。結晶の扉、光の庭、水門の谷の三つの研究地。' + (unlocked ? '島への道が開いている。' : '島への道はまだ閉じている。') + '">' +
+      '<defs><linearGradient id="muSea" x2="0" y2="1"><stop stop-color="#33227d"/><stop offset="1" stop-color="#116a89"/></linearGradient><linearGradient id="muStone" x2="0" y2="1"><stop stop-color="#8473ba"/><stop offset="1" stop-color="#37245e"/></linearGradient><linearGradient id="muCrystal" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>' +
+      '<path d="M0 20Q400-20 800 20V360H0Z" fill="url(#muSea)"/><g fill="none" stroke="#64dce5" stroke-width="2" opacity=".32"><path d="M0 260Q150 225 320 265T800 260M0 300Q160 265 350 305T800 295M20 335Q240 300 470 335T800 330"/></g>' +
+      '<g opacity="' + (unlocked ? '1' : '.45') + '"><path d="M190 180Q345 310 425 128T630 210" fill="none" stroke="#ffd43b" stroke-width="3" stroke-dasharray="9 9"/>' +
+      '<g transform="translate(180 180)"><ellipse cy="74" rx="108" ry="19" fill="#071a49" opacity=".45"/><path d="M-100 10L-72 65L0 90L72 60L100 10Z" fill="url(#muStone)" stroke="#241a63" stroke-width="3"/><ellipse rx="100" ry="35" fill="#61d6df" stroke="#eafcff" stroke-width="3"/><path d="M-38-2V-67Q0-110 38-67V-2Z" fill="#302563" stroke="#ffd43b" stroke-width="6"/><path d="M-28-4V-64Q0-92 28-64V-4" fill="none" stroke="#22d3ee" stroke-width="3"/><path d="M-70 4L-61-57L-45 4M46 4L62-62L74 4M-16-63L0-115L16-63" fill="url(#muCrystal)" stroke="#167b98" stroke-width="3"/><text y="121" text-anchor="middle" fill="#fff" font-size="20" font-weight="800">けっしょうのとびら</text></g>' +
+      '<g transform="translate(423 115)"><ellipse cy="80" rx="106" ry="18" fill="#071a49" opacity=".45"/><path d="M-100 10L-62 74L0 98L70 64L100 10Z" fill="url(#muStone)" stroke="#241a63" stroke-width="3"/><ellipse rx="100" ry="34" fill="#53bda0" stroke="#dbfff1" stroke-width="3"/><path d="M-75 0V-52H75V0M-90-52H90L66-71H-63Z" fill="#d7e2ed" stroke="#444478" stroke-width="4"/><path d="M0 2V-51M0-23Q-42-70-40-26Q-23 0 0-23M0-37Q37-82 40-39Q25-15 0-37" fill="#99e871" stroke="#247057" stroke-width="4"/><path d="M-69-48V-3M69-48V-3" stroke="#ffd43b" stroke-width="8"/><text y="128" text-anchor="middle" fill="#fff" font-size="20" font-weight="800">ひかりのにわ</text></g>' +
+      '<g transform="translate(642 213)"><ellipse cy="65" rx="104" ry="17" fill="#071a49" opacity=".45"/><path d="M-100 9L-66 59L0 80L75 58L100 9Z" fill="url(#muStone)" stroke="#241a63" stroke-width="3"/><ellipse rx="100" ry="33" fill="#c7d77c" stroke="#f5ffcc" stroke-width="3"/><path d="M-8-24Q30 0 0 25L-26 28Q4 0-29-23" fill="#22d3ee"/><path d="M-46-12V-66H41V-12" fill="#677cb2" stroke="#263461" stroke-width="4"/><path d="M-32-11V-50H28V-11" fill="#19376d" stroke="#ffd43b" stroke-width="4"/><path d="M-29-10Q-6-31 25-10L32 7H-30Z" fill="#80eaf3"/><text y="106" text-anchor="middle" fill="#fff" font-size="20" font-weight="800">すいもんのたに</text></g></g>' +
+      (!unlocked ? '<g transform="translate(420 265)"><rect x="-34" y="-12" width="68" height="56" rx="9" fill="#fff2b0" stroke="#5c447f" stroke-width="4"/><path d="M-22-12V-31A22 22 0 0 1 22-31V-12" fill="none" stroke="#ffd43b" stroke-width="8"/><circle cy="13" r="7" fill="#45346e"/></g>' : '') + '</svg>';
+  }
+
+  function muBadge(badged) {
+    var color = badged ? '#ffd43b' : '#22d3ee';
+    return '<svg viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="' + (badged ? '探究バッジ' : '研究成功のしるし') + '"><path d="M35 85L20 167L62 150L80 170L87 81M80 84L90 170L112 150L148 167L126 82" fill="#7c3aed" stroke="#241a63" stroke-width="3"/><circle cx="80" cy="75" r="60" fill="' + color + '" stroke="#fff" stroke-width="5"/><circle cx="80" cy="75" r="48" fill="#fff" opacity=".35"/><path d="M80 35L90 62L120 63L97 82L105 111L80 94L55 111L63 82L40 63L70 62Z" fill="#fff" stroke="#776014" stroke-width="3"/><text x="80" y="82" text-anchor="middle" font-size="18" font-weight="800" fill="#34215a">MU</text></svg>';
+  }
+
   window.RikaSVG = {
+    muContinent: muContinent,
+    muBadge: muBadge,
     colors: colors,
     esc: esc,
     slotIcon: slotIcon,

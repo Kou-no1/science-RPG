@@ -108,9 +108,62 @@ async function run() {
     await page.locator('[data-next-question]').click();assert.ok(await oldStage.evaluate(e=>e.isConnected));
     const ruby=await page.evaluate(()=>{const text=window.RikaUI.renderFurigana('子{葉|は} 体温');window.RikaState.get().settings.furigana=false;return {text,off:window.RikaUI.renderFurigana('子葉')};});
     assert.match(ruby.text,/<ruby>子葉<rt>しよう/);assert.equal(ruby.off,'子葉');
+    await page.evaluate(()=>{window.RikaState.get().settings.furigana=true;window.RikaApp.showHome();});
+    await page.locator('[data-mu-open]').click();
+    assert.equal(await page.locator('[data-mu-start]').count(),0);
+    await page.screenshot({path:path.join(out,'mu-locked.png'),fullPage:true});
+    await page.evaluate(()=>{for(const u of window.CURRICULUM)window.RikaState.progress(u.unitId).basicCleared=true;window.RikaState.save();window.RikaMu.show();});
+    assert.equal(await page.locator('[data-mu-start]').count(),3);
+    async function answerMu(wrong=false){
+      const q=await page.evaluate(()=>{const q=window.RikaMu.getStep();return {type:q.type,answer:q.answer};});
+      if(q.type==='number')await page.locator('[data-mu-number]').fill(String(q.answer+(wrong?1:0)));
+      if(q.type==='evidence')for(const id of q.answer)await page.locator('[data-mu-evidence="'+id+'"]').check();
+      if(q.type==='classify')for(const [id,value] of Object.entries(q.answer))await page.locator('[data-mu-field="'+id+'"][value="'+value+'"]').check();
+      if(q.type==='order')for(let target=0;target<q.answer.length;target++){
+        let from=await page.evaluate(id=>window.RikaMu.getSession().draft.order.indexOf(id),q.answer[target]);
+        while(from>target){await page.locator('[data-mu-move="'+from+'"][data-direction="-1"]').click();from--;}
+      }
+      await page.locator('[data-mu-form] button[type="submit"]').click();
+      assert.match(await page.locator('[data-mu-feedback]').innerText(),wrong?/✗/:/✓/);
+      assert.equal(await page.locator('[data-mu-form] button[type="submit"]').isDisabled(),true);
+    }
+    for(const viewport of [{width:1280,height:900},{width:768,height:1024},{width:390,height:844}]){
+      await page.setViewportSize(viewport);
+      await page.evaluate(()=>window.RikaMu.show());
+      assert.equal(await page.evaluate(()=>scrollY),0);
+      assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Mu menu overflow');
+      await page.screenshot({path:path.join(out,'mu-map-'+viewport.width+'.png'),fullPage:true});
+      for(const id of ['crystal_gate','light_garden','river_valley']){
+        await page.evaluate(id=>window.RikaMu.start(id,true),id);
+        let count=0;
+        while(await page.evaluate(()=>window.RikaMu.getSession().phase!=='result')){
+          assert.ok(++count<15);
+          assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Mu workspace overflow: '+id);
+          const stage=await page.evaluate(()=>window.RikaMu.getSession().index);
+          await page.screenshot({path:path.join(out,'mu-'+id+'-'+viewport.width+'-'+stage+'.png'),fullPage:true});
+          const wrong=id==='crystal_gate'&&viewport.width===1280&&count===1;
+          if(count===1)await page.locator('[data-mu-note]').fill('水の量と温度を分けて考える。');
+          await answerMu(wrong);
+          if(wrong){
+            const seed=await page.evaluate(()=>window.RikaMu.getSession().seed);
+            await page.reload();await page.locator('[data-mu-resume]').click();
+            assert.equal(await page.evaluate(()=>window.RikaMu.getSession().seed),seed);
+            assert.match(await page.locator('[data-mu-feedback]').innerText(),/✗/);
+            assert.equal(await page.locator('[data-mu-note]').inputValue(),'水の量と温度を分けて考える。');
+          }
+          await page.locator('[data-mu-next]').click();
+        }
+        assert.equal(await page.evaluate(id=>window.RikaState.get().mu.progress[id].cleared,id),true);
+        assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Mu result overflow');
+        await page.screenshot({path:path.join(out,'mu-result-'+id+'-'+viewport.width+'.png'),fullPage:true});
+      }
+    }
+    await page.reload();await page.locator('[data-mu-open]').click();
+    assert.equal(await page.locator('[data-mu-badge]').count(),3);
+    assert.equal(await page.evaluate(()=>Object.values(RikaState.get().mu.progress).every(p=>p.badged)),true);
     const local=await browser.newPage();local.on('pageerror',e=>errors.push(e.message));await local.goto(pathToFileURL(path.join(root,'index.html')).href);await local.locator('[data-home-map]').waitFor();await local.close();
     assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
-    console.log('PASS browser UI, responsive SVG pixel checks, resume, rewards, ruby, file:// and offline requests');
+    console.log('PASS browser UI, responsive SVG pixel checks, resume, rewards, ruby, Mu inquiry workflows, file:// and offline requests');
     console.log('Screenshots: '+out);
   } finally {if(browser)await browser.close();await new Promise(resolve=>server.close(resolve));}
 }

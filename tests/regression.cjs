@@ -162,6 +162,54 @@ test('reward transactions are idempotent, review has no rewards, and companions 
   w.RikaRewards.handleBattleResult({...ctx,sessionId:'review',review:true});assert.equal(w.RikaState.get().player.exp,exp);
   for(const id of Object.keys(w.COMPANIONS))w.RikaState.addCompanion(id);assert.equal(w.RikaState.get().activeCompanions.length,2);
 });
+function unlockMu(w){for(const u of w.CURRICULUM)w.RikaState.progress(u.unitId).basicCleared=true;w.RikaState.save();}
+function solveMu(w){let n=0;while(w.RikaMu.getSession().phase!=='result'){assert.ok(++n<25);const q=w.RikaMu.getStep();w.RikaMu.submit(q.answer);w.RikaMu.advance();}return w.RikaMu.getSession();}
+test('Mu unlock requires all four grades including observation chapters, not bosses',()=>{
+  const {w}=app();assert.equal(w.RikaMu.gate().unlocked,false);w.RikaMu.start('crystal_gate');assert.equal(w.RikaMu.getSession(),null);
+  for(const u of w.CURRICULUM.filter(u=>u.kind!=='chapter'))w.RikaState.progress(u.unitId).basicCleared=true;
+  assert.equal(w.RikaMu.gate().unlocked,false);unlockMu(w);assert.equal(w.RikaMu.gate().unlocked,true);assert.equal(w.RikaMu.gate().total,52);
+  assert.ok(w.CURRICULUM.every(u=>!w.RikaState.progress(u.unitId).bossCleared));
+});
+test('Mu cases vary answers and evidence labels, remain deterministic, and never start sorted',()=>{
+  const {w}=app();for(const quest of w.RikaMuData.quests){const signatures=new Set(),evidence=new Set();
+    assert.match(w.RikaMonsters.render(quest.guardian),/<svg/);
+    for(let i=1;i<=160;i++){const c=w.RikaMuData.build(quest.id,Math.imul(i,2654435761)>>>0);assert.equal(JSON.stringify(c),JSON.stringify(w.RikaMuData.build(quest.id,Math.imul(i,2654435761)>>>0)));signatures.add(c.signature);evidence.add(c.steps[1].answer.slice().sort().join(','));
+      assert.equal(c.steps.length,4);for(const q of c.steps){assert.equal(w.RikaMu.check(q,q.answer),true);if(q.type==='order')assert.notEqual(q.items.map(i=>i.id).join(','),q.answer.join(','));}
+      if(quest.id==='crystal_gate')assert.notEqual(c.steps[0].answer,c.steps[3].answer);
+    }assert.ok(signatures.size>50,quest.id);assert.ok(evidence.size>=5,quest.id);
+  }
+  assert.equal(w.RikaMu.numeric('１２.０'),12);assert.equal(w.RikaMu.numeric('1e3'),null);assert.equal(w.RikaMu.numeric(''),null);
+});
+test('Mu completion, first-try badges, notes, resume, and rewards persist independently',()=>{
+  const {w}=app();unlockMu(w);const equipment=JSON.stringify(w.RikaState.get().owned.equipment);
+  for(const q of w.RikaMuData.quests){w.RikaMu.start(q.id,true);const seed=w.RikaMu.getSession().seed;w.RikaMu.getSession().note='わかったこと <script>保存</script>';
+    w.RikaState.save();w.RikaState.load();w.RikaMu.resume();assert.equal(w.RikaMu.getSession().seed,seed);
+    const s=solveMu(w);assert.equal(s.result.newBadge,true);assert.equal(s.result.exp,200);assert.equal(w.RikaState.get().mu.progress[q.id].badged,true);
+    const exp=w.RikaState.get().player.exp;w.RikaMu.advance();w.RikaMu.submit(w.RikaMu.getStep().answer);assert.equal(w.RikaState.get().player.exp,exp);
+    w.RikaState.load();assert.match(w.RikaState.get().mu.progress[q.id].history[0].note,/<script>/);
+  }assert.equal(JSON.stringify(w.RikaState.get().owned.equipment),equipment);assert.equal(w.RikaState.get().player.exp,600);
+});
+test('Mu wrong answers lock, rechecks use new data, hints exclude badges, and repeats do not farm EXP',()=>{
+  const {w}=app();unlockMu(w);w.RikaMu.start('crystal_gate',true);let s=w.RikaMu.getSession(),q=w.RikaMu.getStep();
+  w.RikaMu.submit('bad');assert.equal(s.answered,false);w.RikaMu.submit(q.answer+1);assert.equal(s.misses,1);w.RikaMu.submit(q.answer);assert.equal(s.responses[0].correct,false);
+  const seed=s.seed;w.RikaState.load();w.RikaMu.resume();assert.equal(w.RikaMu.getSession().answered,true);w.RikaMu.advance();
+  for(let i=0;i<3;i++){w.RikaMu.submit(w.RikaMu.getStep().answer);w.RikaMu.advance();}
+  s=w.RikaMu.getSession();assert.equal(s.phase,'recheck');assert.notEqual(s.currentSeed,seed);assert.equal(w.RikaState.get().mu.progress.crystal_gate.cleared,false);
+  const retry=s.currentSeed;w.RikaMu.submit(w.RikaMu.getStep().answer+1);w.RikaMu.advance();assert.notEqual(s.currentSeed,retry);
+  solveMu(w);assert.equal(s.result.badge,false);assert.equal(s.result.exp,80);assert.equal(w.RikaState.get().mu.progress.crystal_gate.badged,false);
+  w.RikaMu.start('crystal_gate',true);w.RikaMu.hint();assert.equal(solveMu(w).result.badge,false);
+  w.RikaMu.start('crystal_gate',true);assert.equal(solveMu(w).result.exp,120);
+  w.RikaMu.start('crystal_gate',true);assert.equal(solveMu(w).result.exp,0);
+  w.RikaState.get().mu.exposureFull.light_garden=true;w.RikaMu.start('light_garden',true);assert.equal(solveMu(w).result.badge,false);
+});
+test('old schema 2 saves acquire Mu data; invalid inquiry drafts and changed content discard only inquiry session',()=>{
+  const {w}=app();const prior=JSON.parse(w.RikaState.exportData());delete prior.mu;w.RikaState.importData(JSON.stringify(prior));assert.equal(w.RikaState.get().mu.active,null);
+  unlockMu(w);w.RikaMu.start('crystal_gate',true);w.RikaState.get().mu.active.draft.order=null;w.RikaState.save();w.RikaState.load();assert.equal(w.RikaMu.getSession(),null);assert.equal(w.RikaMu.gate().unlocked,true);
+  w.RikaMu.start('light_garden',true);w.RikaState.get().mu.active.revision=99;w.RikaState.save();w.RikaState.load();assert.equal(w.RikaMu.getSession(),null);
+  assert.equal(w.RikaMu.gate().unlocked,true);
+  w.RikaMu.start('crystal_gate',true);solveMu(w);w.RikaState.get().mu.active.result.firstCorrect='<img src=x>';
+  w.RikaState.save();w.RikaState.load();assert.equal(w.RikaMu.getSession(),null);assert.equal(w.RikaState.get().mu.progress.crystal_gate.cleared,true);
+});
 let failed=0;
 for(const [name,fn] of tests){try{fn();console.log('PASS '+name);}catch(error){failed++;console.error('FAIL '+name+'\n'+error.stack);}}
 console.log(`${tests.length-failed}/${tests.length} checks passed`);

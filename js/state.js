@@ -72,6 +72,7 @@
       activeCompanions: [],
       activeSession: null,
       rewardedSessions: [],
+      mu: window.RikaMu ? window.RikaMu.emptySave() : null,
       settings: { furigana: true, sound: true, motion: true, lastGrade: 3 }
     };
   }
@@ -118,6 +119,7 @@
     base.activeCompanions = unique(raw.schema === 1 ? base.owned.companions : raw.activeCompanions).filter(function (id) { return base.owned.companions.includes(id); }).slice(0, 2);
     base.activeSession = raw.activeSession && typeof raw.activeSession === "object" ? raw.activeSession : null;
     base.rewardedSessions = unique(raw.rewardedSessions).slice(-100);
+    if (window.RikaMu) base.mu = window.RikaMu.normalizeSave(raw.mu);
     syncUnlocks(base);
     syncLevel(base);
     return base;

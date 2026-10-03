@@ -64,12 +64,13 @@
       '<li><span class="status-gear">★</span><span>全問正かいそうび：' + data.owned.equipment.length + 'こ</span></li>' +
       '</ul></section>' +
       '<section class="panel rpg-frame"><h2>研究ノート</h2><p>これまでの正かい：' + Object.keys(data.questionStats).filter(function (id) { return data.questionStats[id].lastCorrect; }).length + '問</p><button type="button" class="primary-button" data-home-notebook>ノートを開く</button></section>' +
-      '</div>');
+      '</div>' + (window.RikaMu ? window.RikaMu.entry() : ''));
     bindHome();
     renderStatus();
   }
 
   function bindHome() {
+    if (window.RikaMu) window.RikaMu.bindEntry(appRoot());
     var resume = document.querySelector('[data-resume]');
     if (resume) resume.addEventListener('click', window.RikaBattle.resume);
     var notebook = document.querySelector('[data-home-notebook]');

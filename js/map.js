@@ -72,7 +72,7 @@
       var b = coords[grade][index];
       return '<line x1="' + a[0] + '" y1="' + a[1] + '" x2="' + b[0] + '" y2="' + b[1] + '" stroke="#7a8b72" stroke-width="5" stroke-linecap="round" opacity=".45"/>';
     }).join("");
-    return renderGradeTabs(grade) +
+    return renderGradeTabs(grade) + (window.RikaMu ? '<div class="mu-map-link"><button type="button" class="ghost-button" data-mu-open>幻の大陸ムー</button></div>' : '') +
       '<div class="map-layout" id="world-continent" role="tabpanel" aria-labelledby="grade-tab-' + grade + '">' +
       '<section class="map-shell" aria-label="' + grade + '年大陸のワールドマップ">' +
       '<svg class="world-map" viewBox="0 0 720 ' + (grade < 5 ? 90 + Math.ceil(units.length / 4) * 140 : 560) + '" xmlns="http://www.w3.org/2000/svg">' +
@@ -132,6 +132,7 @@
   }
 
   function bind(root, grade) {
+    if (window.RikaMu) window.RikaMu.bindEntry(root);
     root.querySelectorAll('[data-grade]').forEach(function (button) { button.addEventListener('keydown', function (event) {
       if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
       event.preventDefault();
