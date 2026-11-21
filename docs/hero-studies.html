@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>リカ・クエスト｜3人の主人公</title>
+<title>リカ・クエスト｜6人の主人公</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#17152f;color:#fff8e4;font-family:"Hiragino Maru Gothic ProN","Yu Gothic UI","Meiryo",sans-serif}
@@ -16,8 +16,8 @@ header p{margin-left:auto;font-size:16px;color:#d5cbe5}
 .lineup,.exports{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .lineup{padding-top:22px}
 article{--accent:#89e2d1;--shade:#23415a;min-width:0}
-article:nth-child(2){--accent:#ffd37a;--shade:#44405a}
-article:nth-child(3){--accent:#d3bbff;--shade:#3d365e}
+article:nth-child(3n+2){--accent:#ffd37a;--shade:#44405a}
+article:nth-child(3n){--accent:#d3bbff;--shade:#3d365e}
 .stage{position:relative;isolation:isolate;background:linear-gradient(155deg,var(--shade),#26223f 83%);border-top:3px solid var(--accent);overflow:hidden;min-height:360px}
 .stage:before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(#d7f0ff08 1px,transparent 1px),linear-gradient(90deg,#d7f0ff08 1px,transparent 1px);background-size:24px 24px}
 .lab{display:flex;gap:8px;align-items:center;color:var(--accent);font-size:13px;font-weight:700;padding:13px 15px 0}
@@ -40,11 +40,14 @@ a:focus-visible{outline:3px solid #fbd056;outline-offset:3px}
 <body>
 <main>
 <div id="sheet">
-<header><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M17 7H31M20 8V20L8 38Q7 41 12 41H36Q41 41 39 37L28 20V8" fill="none" stroke="#94e7d8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 30Q21 27 25 31Q29 33 32 30L36 37H12Z" fill="#94e7d8"/><path d="M38 6L39 10L43 11L39 12L38 17L37 12L33 11L37 10Z" fill="#ffd37a"/></svg><h1>リカ・クエスト</h1><p>えらべる3人の科学少年</p></header>
+<header><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M17 7H31M20 8V20L8 38Q7 41 12 41H36Q41 41 39 37L28 20V8" fill="none" stroke="#94e7d8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 30Q21 27 25 31Q29 33 32 30L36 37H12Z" fill="#94e7d8"/><path d="M38 6L39 10L43 11L39 12L38 17L37 12L33 11L37 10Z" fill="#ffd37a"/></svg><h1>リカ・クエスト</h1><p>えらべる6人の科学探検家</p></header>
 <div class="lineup">
 <article data-hero="aoi"><figure><div class="stage"><div class="lab"><b>A</b> CHEMISTRY</div><div class="figure"></div></div><figcaption><h2><small>結晶研究の</small>アオイ</h2><p>白衣をひるがえし、フラスコの光に目をこらす。</p></figcaption></figure></article>
 <article data-hero="jin"><figure><div class="stage"><div class="lab"><b>B</b> ENGINEERING</div><div class="figure"></div></div><figcaption><h2><small>電気工作の</small>ジン</h2><p>手回し発電機に明かりがともると、思わずひと跳び。</p></figcaption></figure></article>
 <article data-hero="sora"><figure><div class="stage"><div class="lab"><b>C</b> ASTRONOMY</div><div class="figure"></div></div><figcaption><h2><small>星空観測の</small>ソラ</h2><p>星図のマントをまとい、望遠鏡で夜空をたどる。</p></figcaption></figure></article>
+<article data-hero="mio"><figure><div class="stage"><div class="lab"><b>D</b> CHEMISTRY</div><div class="figure"></div></div><figcaption><h2><small>結晶研究の</small>ミオ</h2><p>ルーペをのぞいて、結晶の面が光る角度を探す。</p></figcaption></figure></article>
+<article data-hero="ritsu"><figure><div class="stage"><div class="lab"><b>E</b> ENGINEERING</div><div class="figure"></div></div><figcaption><h2><small>電気工作の</small>リツ</h2><p>手づくりのモーターで、プロペラに風を起こす。</p></figcaption></figure></article>
+<article data-hero="nagi"><figure><div class="stage"><div class="lab"><b>F</b> ASTRONOMY</div><div class="figure"></div></div><figcaption><h2><small>星空観測の</small>ナギ</h2><p>星座早見盤を片手に、今夜いちばんの星を見つけた。</p></figcaption></figure></article>
 </div></div>
 <nav class="exports" aria-label="キャラクターをSVGで保存"></nav>
 </main>

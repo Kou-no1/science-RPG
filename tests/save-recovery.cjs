@@ -92,7 +92,7 @@ test('selecting any hero preserves migrated game data, live references and expor
   const storage = store(JSON.stringify(legacy)), state = tab(storage), data = state.get();
   const {player, activeSession} = data;
   const expected = JSON.parse(state.exportData());
-  for (const id of ['jin', 'sora', 'aoi']) {
+  for (const id of ['jin', 'sora', 'mio', 'ritsu', 'nagi', 'aoi']) {
     assert.equal(state.setHero(id), true);
     assert.equal(state.get(), data);
     assert.equal(state.get().player, player);

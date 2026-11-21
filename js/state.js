@@ -82,7 +82,7 @@
 
   function record(value) { return value !== null && typeof value === "object" && !Array.isArray(value); }
   function hasOwn(obj, id) { return Object.prototype.hasOwnProperty.call(obj, id); }
-  function validHero(id) { return id === "aoi" || id === "jin" || id === "sora"; }
+  function validHero(id) { return ["aoi", "jin", "sora", "mio", "ritsu", "nagi"].includes(id); }
 
   function normalize(raw) {
     if (!record(raw) || ![1, 2].includes(raw.schema) || !record(raw.player) || !record(raw.owned) || !record(raw.progress)) throw new Error("Unsupported save");

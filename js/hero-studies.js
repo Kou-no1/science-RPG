@@ -4,7 +4,10 @@
   var characters = [
     { id: "aoi", name: "アオイ", specialty: "結晶研究" },
     { id: "jin", name: "ジン", specialty: "電気工作" },
-    { id: "sora", name: "ソラ", specialty: "星空観測" }
+    { id: "sora", name: "ソラ", specialty: "星空観測" },
+    { id: "mio", name: "ミオ", specialty: "結晶研究" },
+    { id: "ritsu", name: "リツ", specialty: "電気工作" },
+    { id: "nagi", name: "ナギ", specialty: "星空観測" }
   ];
   function p(d, fill, stroke, width) {
     return '<path d="' + d + '" fill="' + fill + '" stroke="' + (stroke || "none") + '" stroke-width="' + (width || 2.4) + '"/>';
@@ -49,8 +52,8 @@
         c(-2,-5,2.7,"white")+c(4,3,1.2,"#e7ffff") +
         line("M-10 -2 Q-6 -10 3 -9 L9 -7",ink,2.7));
     }
-    function face(shade,smile,wink) {
-      return paint("M64 76 Q61 49 88 44 Q115 38 134 61 L134 81 Q141 74 143 82 Q144 90 135 95 Q131 108 112 117 Q103 121 96 117 Q80 113 71 103 Q63 102 59 94 Q54 85 60 83 Q63 82 66 86Z",color('skin')) +
+    function face(shade,smile,wink,skin) {
+      return paint("M64 76 Q61 49 88 44 Q115 38 134 61 L134 81 Q141 74 143 82 Q144 90 135 95 Q131 108 112 117 Q103 121 96 117 Q80 113 71 103 Q63 102 59 94 Q54 85 60 83 Q63 82 66 86Z",skin || color('skin')) +
         p("M70 99 Q82 111 96 114 Q104 118 113 112 L123 106 Q116 114 106 117 Q99 121 87 114Z","#e9a182")+
         line("M60 87 Q65 86 67 94 M138 84 L135 89","#bf7f68",1.5) +
         (wink ? line("M80 88 Q87 81 96 86",ink,3.4) : eye(88,87,1,shade,false)) + eye(116,84,.91,shade,true) +
@@ -235,7 +238,141 @@
       return mantle+legs+coat+group("rotate(-9 99 91)",head)+sleeve+scope+
         star(170,42,.68,brass)+star(182,50,.38,"#dce9ff");
     }
-    var art=key==='aoi'?aoi():key==='jin'?jin():sora();
+    function mio() {
+      var white=color('snow'),teal=color('teal'),denim=color('blue'),skin=color('skin'),gold=color('gold');
+      defs+=grad('jade',['#497d80','#315966','#24394f']);
+      var hair=color('jade');
+      var bob=paint("M52 68 Q48 38 74 27 Q99 13 123 27 Q147 32 147 62 Q144 84 151 101 L157 106 Q148 112 138 108 L144 116 Q126 121 114 110 L76 109 Q71 120 56 119 L60 111 Q44 114 38 106 Q47 102 48 91Z",hair);
+      var fringe=paint("M52 76 Q45 49 65 32 Q85 13 110 23 Q134 22 143 43 Q150 61 141 81 L136 93 L130 85 Q134 72 127 58 Q123 69 113 72 L115 61 Q99 74 85 74 Q95 63 97 54 Q87 68 72 73 Q64 85 67 99 L59 96 L62 105 Q44 96 52 76Z",hair)+
+        p("M59 54 Q67 34 88 31 Q102 25 113 31 Q90 32 76 47 L81 37 Q68 43 59 54Z","#7caaa3")+
+        line("M124 39 Q130 47 130 54 M60 71 Q55 85 60 92","#668b91",1.6)+
+        p("M56 58 L62 49 L68 56 L62 64Z","#a6f5e1",ink,1.6)+
+        p("M63 66 L67 60 L71 65 L67 71Z",gold,ink,1.4);
+      var legs=paint("M82 163 L103 165 L94 188 L83 202 L68 201 L78 183Z",denim)+
+        paint("M97 165 L118 162 L124 184 L122 204 L106 204 L106 189Z",denim)+
+        line("M83 185 L88 189 M112 189 L119 185","#617c93",1.7)+
+        boot(76,210,9,true,"#4d5359","#bb976d")+boot(115,212,-2,false,"#4d5359","#d2a873");
+      var coat=paint("M75 121 L90 114 L112 114 Q123 117 129 128 L124 152 L138 178 L125 186 L116 181 L113 188 L94 177 L69 185 L54 175 Q68 154 66 137Z",white)+
+        p("M89 117 L104 117 L112 129 L107 157 L116 175 L93 176 L78 170 L87 151Z",teal,ink,1.8)+
+        p("M78 120 L87 113 L97 117 L92 128 L96 136 L82 147 L82 135 L75 130Z",paper,ink,1.7)+
+        p("M112 116 L121 121 L124 132 L115 132 L111 142 L105 136Z",paper,ink,1.6)+
+        p("M68 159 Q91 164 122 155 L124 162 Q94 172 66 166Z","#705043",ink,1.6)+
+        p("M95 160 L106 158 L107 165 L96 167Z",gold,ink,1.4)+
+        paint("M67 159 L83 162 L80 176 Q74 181 62 173Z","#aa775a",1.7)+
+        p("M65 158 L84 161 L81 167 L72 169 L64 165Z","#d1a478",ink,1.4)+c(73,166,1.5,brass);
+      var glass=group("translate(147 106) rotate(32)",
+        paint("M-3 9 H3 L4 27 Q0 32 -4 27Z","#676361",1.9)+p("M-3 15 H3 V19 H-3Z",gold)+
+        c(0,0,13.7,gold,ink,2.2)+c(0,0,10.2,"#b9ebe4",ink,1.6)+
+        p("M-8 -3 Q-5 -9 1 -8 L-7 3Z","#edfdfa")+line("M2 5 L6 0","#f9fff6",1.6));
+      var crystal=group("translate(129 155)",
+        paint("M-13 -3 L-14 -12 L-10 -17 L-2 -10 L1 -4Z","#69d8c9",1.5)+
+        paint("M-4 -4 L-6 -20 L0 -29 L7 -23 L9 -7 L4 -1Z","#aff9e4",1.7)+
+        p("M0 -27 L2 -18 L6 -21 L8 -8 L4 -3 L1 -5Z","#45abae")+
+        line("M-5 -19 L2 -17 L6 -22","#399895",1.15)+
+        paint("M5 -4 L9 -16 L15 -19 L17 -13 L12 -3Z","#7ae1d8",1.45)+
+        paint("M-15 -6 Q-9 -7 -4 -4 L1 -6 L7 -4 L13 -6 L17 -3 L13 1 L-11 3 L-17 0Z","#728594",1.6));
+      return bob+legs+coat+
+        paint("M117 124 Q125 121 130 131 L133 136 L137 123 L145 126 L142 142 Q139 152 133 151 Q125 149 119 141Z",white)+
+        glass+paint("M135 127 Q134 123 137 119 Q138 117 141 118 Q145 119 144 122 L142 127 L139 130Z",skin,1.65)+
+        group("rotate(5 98 97)",face("#308d8d",false,false)+fringe)+
+        paint("M75 123 Q66 122 62 133 L60 147 Q59 157 68 161 Q85 166 101 163 L108 157 L103 150 L82 153 L83 135Z",white)+
+        p("M98 152 L105 149 L110 159 L102 164Z",teal,ink,1.65)+
+        paint("M105 153 Q111 152 117 154 L130 153 L142 150 Q147 148 148 151 Q147 155 140 159 L122 165 Q114 165 107 161Z",skin,1.7)+
+        crystal+line("M129 161 L138 158","#bc8066",1.2)+star(164,120,.53,"#bfffe8");
+    }
+    function ritsu() {
+      defs+=grad('amberSkin',['#f6ca9c','#eab080','#c78a6c']);
+      var skin=color('amberSkin'),copper=color('copper'),navy=color('blue'),gold=color('gold'),mint="#a1e4d6";
+      var pony=paint("M125 37 Q141 14 156 22 Q179 28 172 51 Q165 74 174 84 Q158 84 153 77 Q155 87 145 92 Q146 82 139 77 Q129 67 138 51 Q145 37 133 41Z",navy)+
+        p("M144 31 Q157 22 165 32 Q172 40 163 57 Q167 44 158 40 Q154 35 144 37Z","#6287aa")+
+        line("M148 55 Q140 70 151 76","#526f91",1.7)+
+        p("M126 34 L137 29 L145 42 L134 48Z",gold,ink,1.85);
+      var bangs=paint("M58 84 Q46 75 54 61 Q48 54 58 44 Q62 27 82 28 Q89 18 102 25 Q119 20 127 30 Q145 32 144 47 Q152 58 142 70 L139 81 L131 89 L125 73 L129 64 Q120 73 111 73 L114 62 Q100 74 89 73 L94 62 L79 74 L80 67 Q72 72 72 86 L67 92 L61 84Z",navy)+
+        p("M59 53 Q69 33 85 35 L83 40 Q100 28 112 33 Q93 34 80 48 Q73 45 59 53Z","#628da8")+
+        p("M56 54 Q90 36 133 42 L142 50 L139 55 Q94 46 56 62Z",copper,ink,1.7)+
+        p("M59 53 Q69 45 78 43 L72 53 L57 58Z",brass)+
+        group("rotate(6 116 49)",paint("M100 43 Q103 39 109 40 L133 42 Q140 43 138 50 L136 56 Q134 60 129 58 L120 54 L116 54 L109 57 Q103 60 101 54Z","#435364",2)+
+          p("M104 45 Q106 42 110 43 L133 45 L132 53 L123 50 L116 50 L108 54Z",color('sky'),ink,1.25)+line("M109 48 L112 45 M126 48 L129 46","#f3ffeb",1.5));
+      var legs=paint("M81 163 L105 170 L96 186 L83 205 L67 202 L77 180Z",navy)+
+        paint("M101 165 L121 163 L128 182 L138 198 L128 211 L113 191 L101 182Z",navy)+
+        p("M119 183 L128 178 L133 188 L123 194Z","#597193",ink,1.45)+
+        boot(76,211,8,true,"#434d5e","#f1aa5c")+boot(137,208,-16,false,"#434d5e","#f1aa5c");
+      var suit=paint("M82 118 Q104 111 118 119 L130 132 L125 150 L132 166 L119 175 L108 170 L99 177 L69 168 L72 144Z",copper)+
+        p("M91 121 L100 116 L111 120 L110 132 L120 126 L124 134 L116 155 L120 167 L82 169 L86 147Z",navy,ink,1.7)+
+        p("M87 117 L94 118 L99 135 L93 138Z","#f6c780",ink,1.4)+
+        p("M116 117 L122 122 L110 138 L105 136Z","#f6c780",ink,1.4)+
+        c(95,137,2.2,brass,ink,1)+c(108,137,2.2,brass,ink,1)+
+        p("M89 142 L111 143 L106 153 L96 155 L89 151Z","#4d7491",ink,1.3)+
+        p("M77 157 Q96 164 123 157 L125 164 Q97 172 75 164Z","#474756",ink,1.65)+
+        p("M95 160 H106 L105 167 H94Z",gold,ink,1.4);
+      var pack=group("translate(76 166) rotate(10)",paint("M-9 -6 Q-8 -9 -5 -9 H6 Q10 -8 10 -5 V9 Q8 13 3 13 H-6 Q-10 12 -10 9Z","#42696f",1.85)+
+        p("M-7 -4 H7 V4 H-7Z",mint,ink,1.2)+line("M-4 0 H-1 M1 0 H4","#3c706f",1.7)+c(4,8,1.5,brass));
+      var rotor=group("translate(31 91) rotate(-32)",
+        paint("M-4 5 L4 4 L6 31 Q2 35 -4 31Z","#7bbcb6",1.8)+
+        paint("M-6 3 Q0 1 6 3 L7 12 Q1 16 -6 13Z","#4c6975",1.65)+
+        line("M-3 9 L3 8 M-2 12 L4 11","#bedbd3",1.1)+
+        p("M-4 23 H5 V31 H-4Z","#385262",ink,1.3)+
+        [0,120,240].map(function(a){return group("rotate("+a+")",
+          paint("M-2 -2 C-11 -10 -14 -24 -7 -28 Q-2 -31 0 -25 Q1 -16 4 -11 Q7 -4 2 1Z",color('sky'),1.75)+
+          line("M-6 -24 Q-7 -17 -4 -13","#efffec",1.65));}).join("")+
+        c(0,0,6.7,gold,ink,1.85)+c(0,0,2.1,"#4d5b69"));
+      return pony+legs+suit+
+        paint("M120 122 Q130 122 135 134 L145 151 Q147 156 142 160 L126 169 L120 162 L132 152 L120 141Z",copper)+
+        p("M120 160 L128 163 L127 171 L119 171Z","#42515f",ink,1.6)+
+        paint("M122 162 Q119 160 117 162 L113 165 Q109 167 111 170 L116 169 Q117 174 122 171 L125 168Z",skin,1.65)+
+        group("rotate(-5 98 91)",face("#a96530",true,false,skin)+bangs)+
+        line("M44 116 C40 131 30 145 41 151 C51 160 55 145 59 152 Q63 159 68 166","#293b51",3.4)+
+        line("M44 116 C40 131 30 145 41 151 C51 160 55 145 59 152 Q63 159 68 166","#d7a35e",1.4)+pack+
+        paint("M80 123 Q73 120 66 128 L60 137 L49 121 L40 126 L53 150 Q60 160 68 153 L83 139Z",copper)+
+        p("M39 123 L48 117 L54 126 L44 132Z","#435361",ink,1.7)+rotor+
+        paint("M43 125 Q39 121 38 117 L39 111 Q40 108 43 109 L44 115 L47 112 Q49 110 51 112 L50 119 L48 124Z",skin,1.7)+
+        line("M43 117 L44 120","#a46856",1.2)+line("M7 82 Q8 75 14 69 M51 107 Q57 104 60 98",brass,1.9);
+    }
+    function nagi() {
+      defs+=grad('plum',['#9282ad','#605884','#403952']);
+      var hair=color('plum'),cloak=color('night'),silver=color('silver'),metal=color('gold'),skin=color('skin');
+      var braid=paint("M72 29 Q52 25 48 41 Q40 45 43 59 Q33 68 38 80 Q29 86 34 98 Q26 104 30 114 L34 117 Q28 124 20 125 Q27 133 40 128 Q48 121 43 115 Q54 110 50 99 Q60 92 56 82 Q68 73 62 64 Q72 55 68 48 L84 40Z",hair)+
+        line("M44 59 Q54 53 59 54 M38 80 Q51 75 55 68 M35 98 Q47 94 52 85 M32 114 Q41 109 44 103","#aca2c6",1.75)+
+        p("M29 113 Q36 115 44 111 L45 116 Q39 121 32 120Z",metal,ink,1.4);
+      var bangs=paint("M56 82 Q48 64 56 47 Q57 33 73 28 Q95 14 113 26 Q133 25 140 45 Q148 57 140 79 L132 89 L129 83 Q134 69 126 58 Q116 72 99 74 L105 62 Q91 72 77 74 Q94 58 96 48 Q85 62 70 69 Q63 81 69 91 L75 95 Q65 100 60 94Z",hair)+
+        p("M62 51 Q67 34 88 31 Q98 23 110 28 Q90 33 82 45 L84 38 Q73 43 62 51Z","#c3b1ce")+
+        line("M114 33 Q120 34 126 39 M136 52 Q139 60 135 69","#aa9ab6",1.55)+
+        p("M60 54 Q55 45 64 39 Q61 48 70 50 Q76 51 79 47 Q76 58 66 58Z",metal,ink,1.55)+star(77,39,.48,brass);
+      var legs=paint("M86 164 L106 169 L99 186 L99 205 L82 205 L78 184Z",color('blue'))+
+        paint("M100 167 L120 163 L129 181 L142 198 L127 207 L113 190Z",color('blue'))+
+        line("M84 187 L93 189 M121 185 L127 184","#617687",1.65)+
+        boot(90,211,0,true,"#58556b","#c6a577")+boot(138,209,-13,false,"#58556b","#dbb47e");
+      var cape=paint("M76 119 Q92 108 114 116 Q135 124 135 148 Q139 173 161 187 Q144 194 118 180 Q96 176 76 185 Q55 199 27 188 Q42 180 47 163 L38 168 Q54 149 59 137Z",cloak)+
+        p("M67 133 Q58 168 39 185 Q56 183 66 175 Q61 181 52 187 Q72 182 81 167Z","#8181b4")+
+        line("M34 187 Q57 194 77 180 M126 180 Q143 189 154 186","#edcf8c",1.5)+
+        line("M43 181 L53 177 L56 166 L62 172 L69 158","#bbb9dd",1)+
+        star(43,181,.38,brass)+c(53,177,1.5,brass)+c(56,166,1.4,paper)+c(62,172,1.45,brass)+star(69,158,.46,paper);
+      var tunic=paint("M83 119 Q103 113 122 120 L127 142 L118 153 L135 173 Q119 181 102 176 L96 180 L69 175 L79 151 L76 137Z",silver)+
+        p("M101 131 L111 127 L114 146 L108 159 L94 160 L101 147Z","#aca9ca")+
+        p("M77 155 Q95 161 120 152 L123 159 Q99 168 75 163Z","#514861",ink,1.6)+
+        p("M97 157 L107 155 L108 162 L98 164Z",metal,ink,1.45)+
+        paint("M80 117 L97 112 L111 115 L119 110 L128 120 L126 128 L114 131 L110 138 L101 132 L86 130 L72 138Z",cloak)+
+        star(108,129,.83,brass);
+      var skyHand=paint("M119 125 Q124 120 130 125 L135 131 L150 105 L159 110 L145 139 Q140 149 133 147 L119 138Z",silver)+
+        line("M135 131 L134 137","#9895b8",1.6)+
+        p("M149 104 L152 99 L162 105 L159 112Z",cloak,ink,1.6)+
+        paint("M152 101 Q148 97 150 93 L154 88 Q156 86 157 89 L158 91 L164 80 Q167 76 169 79 Q171 81 167 87 L163 94 Q167 91 168 94 Q169 97 165 101 L159 106Z",skin,1.8)+
+        line("M157 96 L160 93 M161 100 L165 96","#b77d6c",1.15);
+      var wheel=group("translate(73 146) rotate(-17)",
+        c(0,0,20,metal,ink,2.2)+c(0,0,16.5,"#e9d5a0",ink,1.45)+
+        Array.from({length:16},function(_,i){return group("rotate("+i*22.5+")",line("M0 -18.5 V-17",ink,1));}).join("")+
+        paint("M-14 4 C-14 -5 -6 -13 3 -12 Q13 -12 15 -1 Q13 8 4 11 Q-7 14 -14 4Z","#37486e",1.4)+
+        line("M-9 3 L-4 -3 L0 0 L6 -6 L10 -3","#b7dbed",1.1)+
+        c(-9,3,1.3,paper)+c(-4,-3,1.6,brass)+c(0,0,1.2,paper)+star(6,-6,.48,brass)+c(10,-3,1.2,paper)+
+        line("M-3 14 H4","#8a714e",1.4));
+      return cape+braid+legs+tunic+
+        group("rotate(-7 99 92)",face("#65609b",false,false)+bangs)+skyHand+
+        paint("M79 125 Q72 123 67 133 L60 147 Q56 156 62 160 Q70 167 85 159 L89 151 L80 144 L74 148 L81 135Z",silver)+
+        wheel+paint("M63 160 Q60 157 62 153 Q64 150 67 151 L72 154 L77 152 Q81 151 81 154 Q82 157 78 160 L71 164 Q66 165 63 160Z",skin,1.65)+
+        star(173,68,.8,brass)+star(181,79,.38,"#dedfff");
+    }
+    var portraits={aoi:aoi,jin:jin,sora:sora,mio:mio,ritsu:ritsu,nagi:nagi};
+    var art=portraits[key]();
     return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" data-hero-id="'+key+'" role="img" aria-label="'+title+'"><title>'+title+'</title><defs>'+defs+'</defs>'+footShadow+'<g stroke-linecap="round" stroke-linejoin="round">'+art+'</g></svg>';
   }
   window.RikaHeroStudies = {characters:characters, render:render};
