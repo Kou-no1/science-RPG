@@ -45,7 +45,7 @@ window.QUESTION_BANK["g3_fruiting"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "新しくできたたねは、何とくらべる？",
+      "stem": "春にまいたたねと、秋にとれたたねを{見|み}くらべる。どこに注目する？",
       "choices": [
         "{色|いろ}・{形|かたち}・{大きさ|おおきさ}",
         "ノートの{色|いろ}だけ",
@@ -60,7 +60,7 @@ window.QUESTION_BANK["g3_fruiting"] = {
       "subId": "g3_fruiting_s1",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",

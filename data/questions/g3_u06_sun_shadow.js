@@ -105,7 +105,7 @@ window.QUESTION_BANK["g3_u06"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "{日なた|ひなた}と{日かげ|ひかげ}の{地面|じめん}を{比|くら}べると？",
+      "stem": "晴れた日に、同じ{時刻|じこく}に同じ{種類|しゅるい}の{土|つち}を{調|しら}べた。{地面|じめん}が暖まりやすいのは？",
       "choices": [
         "{日なた|ひなた}の{地面|じめん}",
         "{日かげ|ひかげ}の{地面|じめん}",
@@ -117,10 +117,10 @@ window.QUESTION_BANK["g3_u06"] = {
       "context": "standard",
       "id": "g3u06-b-006",
       "tier": "basic",
-      "subId": "g3_u06_s1",
+      "subId": "g3_u06_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -137,7 +137,7 @@ window.QUESTION_BANK["g3_u06"] = {
       "context": "standard",
       "id": "g3u06-b-007",
       "tier": "basic",
-      "subId": "g3_u06_s1",
+      "subId": "g3_u06_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -157,7 +157,7 @@ window.QUESTION_BANK["g3_u06"] = {
       "context": "standard",
       "id": "g3u06-b-008",
       "tier": "basic",
-      "subId": "g3_u06_s1",
+      "subId": "g3_u06_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g3_u06"] = {
       "explanation": "{太陽|たいよう}の{光|ひかり}が当たる{地面|じめん}は、{日かげ|ひかげ}より{暖か|あたたか}くなるよ。",
       "id": "g3u06-b-016",
       "tier": "basic",
-      "subId": "g3_u06_s1",
+      "subId": "g3_u06_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -322,7 +322,7 @@ window.QUESTION_BANK["g3_u06"] = {
       "explanation": "{温度計|おんどけい}を{使|つか}って、同じ深さなどで{比|くら}べるよ。",
       "id": "g3u06-b-017",
       "tier": "basic",
-      "subId": "g3_u06_s1",
+      "subId": "g3_u06_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -331,22 +331,22 @@ window.QUESTION_BANK["g3_u06"] = {
     {
       "type": "mc4",
       "skill": "experiment",
-      "stem": "{太陽|たいよう}とかげを{調|しら}べた二つの{記録|きろく}を{比|くら}べたい。あとで同じ対象かわかるように残すものは？",
+      "stem": "{日本|にほん}で、晴れた日の朝から夕方まで棒のかげを{記録|きろく}した。{太陽|たいよう}はおよそどの{順|じゅん}に{動|うご}いて{見|み}える？",
       "choices": [
-        "{調|しら}べた{物|もの}と{場所|ばしょ}の名前",
-        "{数字|すうじ}だけで名前は不要",
-        "{絵|え}だけで{日付|ひづけ}は不要",
-        "{調|しら}べなかった別の{物|もの}の名前"
+        "東の方から南の{空|そら}を通って西の方へ",
+        "西の方から南の{空|そら}を通って東の方へ",
+        "東の方から北の{空|そら}を通って西の方へ",
+        "一日中、南の同じ所にとどまる"
       ],
       "answer": 0,
-      "explanation": "何を、どこで{調|しら}べた{記録|きろく}かも残すと、別の対象を取りちがえず{比|くら}べられるよ。",
+      "explanation": "{太陽|たいよう}は東の方から南の{空|そら}を通って西の方へ{動|うご}いて{見|み}えるよ。棒のかげは、そのときの{太陽|たいよう}と反対の方にできるよ。",
       "context": "everyday",
       "id": "g3u06-b-018",
       "tier": "basic",
       "subId": "g3_u06_s1",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g3_u06"] = {
       "context": "everyday",
       "id": "g3u06-boss-006",
       "tier": "boss",
-      "subId": "g3_u06_s1",
+      "subId": "g3_u06_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -525,7 +525,7 @@ window.QUESTION_BANK["g3_u06"] = {
       "context": "everyday",
       "id": "g3u06-boss-007",
       "tier": "boss",
-      "subId": "g3_u06_s1",
+      "subId": "g3_u06_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -545,7 +545,7 @@ window.QUESTION_BANK["g3_u06"] = {
       "context": "everyday",
       "id": "g3u06-boss-008",
       "tier": "boss",
-      "subId": "g3_u06_s1",
+      "subId": "g3_u06_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -645,7 +645,7 @@ window.QUESTION_BANK["g3_u06"] = {
     {
       "type": "mc4",
       "skill": "experiment",
-      "stem": "🎓 4年につながる問題。観察場所をそろえるのはなぜ？",
+      "stem": "🎓 4年につながる問題。同じ夜に{月|つき}の{位置|いち}を二回調べる。建物を目印に{位置|いち}の{変化|へんか}を{比|くら}べるには？",
       "choices": [
         "同じ{場所|ばしょ}から{見|み}る",
         "毎回場所を{変|か}える",
@@ -660,7 +660,7 @@ window.QUESTION_BANK["g3_u06"] = {
       "subId": "g4_u06_s1",
       "curriculumRef": "B(5)ア(ｱ)(ｳ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "bonusCategory": "next_grade",
       "sourceQuestionId": "g4u06-b-003",
       "prerequisiteIds": [

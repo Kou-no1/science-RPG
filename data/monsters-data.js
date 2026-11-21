@@ -69,7 +69,7 @@
       name: "ソルティン",
       theme: "solution",
       role: "zako",
-      flavor: "{食塩|しょくえん}のけっしょうがスライムになったよ。",
+      flavor: "{食塩|しょくえん}のけっしょうから生まれたよ。さいころのような体がじまん。",
       svg: "makeSoltin"
     },
     myoubaroo: {
@@ -77,7 +77,7 @@
       name: "ミョウバルー",
       theme: "solution",
       role: "zako",
-      flavor: "ミョウバンのつばさをもつ小さな{竜|りゅう}。",
+      flavor: "上下にとがったつばさは、ミョウバンのけっしょう。三角の面が八つあるよ。",
       svg: "makeMyoubaroo"
     },
     tokerun: {
@@ -85,7 +85,7 @@
       name: "トケルン",
       theme: "solution",
       role: "zako",
-      flavor: "{水|みず}の中で半透明になるスライム。",
+      flavor: "すきとおった食塩水のビーカー。食塩は見えなくても、中にちゃんとあるよ。",
       svg: "makeTokerun"
     },
     rokagaeru: {
@@ -93,7 +93,7 @@
       name: "ロカガエル",
       theme: "solution",
       role: "zako",
-      flavor: "ろ紙のマントで、とけ残りを止めるカエル。",
+      flavor: "ろうとのろ紙で、とけ残りをキャッチ。水にとけた食塩は、水といっしょに通るよ。",
       svg: "makeRokagaeru"
     },
     johatsu_bat: {
@@ -101,7 +101,7 @@
       name: "ジョーハツバット",
       theme: "solution",
       role: "zako",
-      flavor: "{蒸発|じょうはつ}の風をおこすコウモリ。",
+      flavor: "食塩水の皿をつばさであおぐよ。水が{蒸発|じょうはつ}しても、食塩は皿に残るんだ。",
       svg: "makeJohatsuBat"
     },
     crystadra: {
@@ -109,7 +109,7 @@
       name: "クリスタドラゴン",
       theme: "solution",
       role: "boss",
-      flavor: "ミョウバンのけっしょうから生まれた{竜|りゅう}。とけ残りを{操|あやつ}る。",
+      flavor: "温かい水にたっぷりとかしたミョウバン。そっと冷やすと出てくるけっしょうが、この{竜|りゅう}の背中をかざるよ。",
       svg: "makeCrystadra"
     },
     biribiri_slime: {
@@ -131,6 +131,7 @@
     furiko_bat: {
       id: "furiko_bat",
       name: "フリコウモリ",
+      motif: "pendulum",
       theme: "physics",
       role: "zako",
       flavor: "ふりこのリズムでとぶコウモリ。",
@@ -139,6 +140,7 @@
     teko_lizard: {
       id: "teko_lizard",
       name: "テコトカゲ",
+      motif: "lever",
       theme: "physics",
       role: "boss",
       flavor: "てこの力で大きな岩を動かすトカゲ。",

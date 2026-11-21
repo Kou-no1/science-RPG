@@ -85,7 +85,7 @@ window.QUESTION_BANK["g3_u10"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "{電気|でんき}を通すかを{調|しら}べるには？",
+      "stem": "{豆電球|まめでんきゅう}の{回路|かいろ}の{切|き}れ目に{鉄|てつ}のクリップをはさむと{明|あか}かりがついた。この{結果|けっか}からわかることは？",
       "choices": [
         "クリップは{電気|でんき}を通す",
         "クリップは{電気|でんき}を通さない",
@@ -97,10 +97,10 @@ window.QUESTION_BANK["g3_u10"] = {
       "context": "standard",
       "id": "g3u10-b-005",
       "tier": "basic",
-      "subId": "g3_u10_s1",
+      "subId": "g3_u10_s2",
       "curriculumRef": "A(5)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -117,7 +117,7 @@ window.QUESTION_BANK["g3_u10"] = {
       "context": "standard",
       "id": "g3u10-b-006",
       "tier": "basic",
-      "subId": "g3_u10_s1",
+      "subId": "g3_u10_s2",
       "curriculumRef": "A(5)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -137,7 +137,7 @@ window.QUESTION_BANK["g3_u10"] = {
       "context": "standard",
       "id": "g3u10-b-007",
       "tier": "basic",
-      "subId": "g3_u10_s1",
+      "subId": "g3_u10_s2",
       "curriculumRef": "A(5)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -157,7 +157,7 @@ window.QUESTION_BANK["g3_u10"] = {
       "context": "standard",
       "id": "g3u10-b-008",
       "tier": "basic",
-      "subId": "g3_u10_s1",
+      "subId": "g3_u10_s2",
       "curriculumRef": "A(5)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -286,7 +286,7 @@ window.QUESTION_BANK["g3_u10"] = {
       "explanation": "{明|あか}かりがついたら、その{物|もの}を{電気|でんき}が通ったと考えられるよ。",
       "id": "g3u10-b-015",
       "tier": "basic",
-      "subId": "g3_u10_s1",
+      "subId": "g3_u10_s2",
       "curriculumRef": "A(5)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g3_u10"] = {
       "explanation": "{鉄|てつ}などの{金ぞく|きんぞく}は{電気|でんき}を通すよ。",
       "id": "g3u10-b-016",
       "tier": "basic",
-      "subId": "g3_u10_s1",
+      "subId": "g3_u10_s2",
       "curriculumRef": "A(5)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -322,7 +322,7 @@ window.QUESTION_BANK["g3_u10"] = {
       "explanation": "ふつうのプラスチックは{電気|でんき}を通さないよ。",
       "id": "g3u10-b-017",
       "tier": "basic",
-      "subId": "g3_u10_s1",
+      "subId": "g3_u10_s2",
       "curriculumRef": "A(5)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -485,7 +485,7 @@ window.QUESTION_BANK["g3_u10"] = {
       "context": "everyday",
       "id": "g3u10-boss-005",
       "tier": "boss",
-      "subId": "g3_u10_s1",
+      "subId": "g3_u10_s2",
       "curriculumRef": "A(5)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g3_u10"] = {
       "context": "everyday",
       "id": "g3u10-boss-006",
       "tier": "boss",
-      "subId": "g3_u10_s1",
+      "subId": "g3_u10_s2",
       "curriculumRef": "A(5)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -525,7 +525,7 @@ window.QUESTION_BANK["g3_u10"] = {
       "context": "everyday",
       "id": "g3u10-boss-007",
       "tier": "boss",
-      "subId": "g3_u10_s1",
+      "subId": "g3_u10_s2",
       "curriculumRef": "A(5)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -545,7 +545,7 @@ window.QUESTION_BANK["g3_u10"] = {
       "context": "everyday",
       "id": "g3u10-boss-008",
       "tier": "boss",
-      "subId": "g3_u10_s1",
+      "subId": "g3_u10_s2",
       "curriculumRef": "A(5)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -957,7 +957,7 @@ window.QUESTION_BANK["g3_u10"] = {
       "subId": "g5_u09_s1",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia",
       "sourceQuestionId": "g5u09-bonus-005",

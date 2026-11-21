@@ -185,20 +185,20 @@ window.QUESTION_BANK["g6_u03"] = {
       "tier": "basic",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "{日光|にっこう}を当てた{葉|は}にヨウ素液をつけ、青むらさき{色|いろ}になった。わかることは？",
+      "stem": "{日光|にっこう}に当てた{葉|は}をヨウ素液で{調|しら}べると青むらさき{色|いろ}になった。この{結果|けっか}だけでわかることは？",
       "choices": [
-        "でんぷんができた",
-        "{二酸化炭素|にさんかたんそ}が消えた",
-        "{火山灰|かざんばい}ができた",
-        "{水|みず}がなくなった"
+        "{調|しら}べた{葉|は}にでんぷんがある",
+        "そのでんぷんはすべて今日できた",
+        "{葉|は}に{水|みず}がない",
+        "{葉|は}から{出|で}る{水|みず}の{量|りょう}がわかる"
       ],
       "answer": 0,
-      "explanation": "青むらさき{色|いろ}は、でんぷんがあるしるしだよ。",
+      "explanation": "この{色|いろ}はでんぷんがあるしるし。{日光|にっこう}が当たってできたかどうかを{調|しら}べるには、はじめの状態をそろえ、{光|ひかり}に当てた{葉|は}と当てない{葉|は}を{比|くら}べるよ。",
       "subId": "g6_u03_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary6",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "id": "g6u03-b-011",
@@ -861,7 +861,7 @@ window.QUESTION_BANK["g6_u03"] = {
       "tier": "bonus",
       "type": "mc4",
       "skill": "concept",
-      "stem": "💡 {葉|は}に{水|みず}てきがつくことがあるのは、{植物|しょくぶつ}が{水|みず}を{出|で}している手がかりになる。{関係|かんけい}する言{葉|は}は？",
+      "stem": "💡 乾いた{葉|は}のついた枝に乾いた袋をかぶせると、袋の{内側|うちがわ}に{水滴|すいてき}がついた。{葉|は}から{水蒸気|すいじょうき}が{出|で}るはたらきは？",
       "choices": [
         "{蒸散|じょうさん}",
         "{噴火|ふんか}",
@@ -869,12 +869,12 @@ window.QUESTION_BANK["g6_u03"] = {
         "{公転|こうてん}"
       ],
       "answer": 0,
-      "explanation": "{蒸散|じょうさん}は{水|みず}のめぐりとも{関係|かんけい}するよ。",
+      "explanation": "{蒸散|じょうさん}で{出|で}た{水蒸気|すいじょうき}が冷えて、袋の{内側|うちがわ}に{水滴|すいてき}ができるよ。{葉|は}の上の{水滴|すいてき}を{見|み}るだけでは、朝露などとも{区別|くべつ}できないよ。",
       "subId": "g6_u03_s1",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
-      "contentVersion": 1,
+      "targetStage": "trivia",
+      "contentVersion": 2,
       "bonusCategory": "trivia"
     },
     {
@@ -894,7 +894,7 @@ window.QUESTION_BANK["g6_u03"] = {
       "subId": "g6_u03_s1",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -913,7 +913,7 @@ window.QUESTION_BANK["g6_u03"] = {
       "subId": "g6_u03_s1",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -974,7 +974,7 @@ window.QUESTION_BANK["g6_u03"] = {
       "subId": "g6_u03_s1",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },

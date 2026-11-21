@@ -257,7 +257,7 @@ window.QUESTION_BANK["g4_summer_life"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "同じ{植物|しょくぶつ}の{葉|は}の{数|かず}の差は？",
+      "stem": "{同じ|おなじ}ヘチマの{葉|は}を{数|かず}えると、春は10枚、夏は30枚だった。{葉|は}の{数|かず}はどう{変|か}わった？",
       "choices": [
         "20枚増えた",
         "20枚減った",
@@ -272,7 +272,7 @@ window.QUESTION_BANK["g4_summer_life"] = {
       "subId": "g4_summer_life_s1",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",

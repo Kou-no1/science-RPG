@@ -10,6 +10,7 @@ const everyday = require('./content-everyday.cjs');
 const dedicatedBonus = require('./content-bonus34.cjs');
 const content = {...require('./content-grades3.cjs'),...require('./content-grades4.cjs'),...require('./content-chapters.cjs')};
 const sources = {};
+const published = new Map();
 const subMatchers = {
  g5_u01:[[2,/西|東|予想|予報|画像|アメダス|衛星/]], g5_u02:[[3,/成長|苗|肥料あり/],[2,/子葉|でんぷん|ヨウ素/]],
  g5_u04:[[2,/受粉|花粉を|実が|袋|ふくろ/]],g5_u05:[[2,/災害|避難|洪水|土砂|高潮|備え|増水/]],
@@ -26,35 +27,48 @@ const subMatchers = {
 const plain = text => text.replace(/\{([^|{}]+)\|[^{}]+\}/g,'$1');
 function finishQuestion(u,tier,q,index) {
  const result = {...q,id:q.id || u.unitId.replaceAll('_','') + '-' + (tier==='basic'?'b':tier) + '-' + String(index+1).padStart(3,'0'),tier};
+ const fix = corrections[result.id];
+ if(fix) Object.assign(result,fix,{contentVersion:Math.max(result.contentVersion || 1,fix.contentVersion || 2)});
  const text = plain(result.stem + result.explanation);
  const selected = (subMatchers[u.unitId] || []).find(([,pattern])=>pattern.test(text));
- const sub = u.sub.find(s=>s.no===(q.sub || (selected && selected[0]) || 1)) || u.sub[0];
+ const sub = u.sub.find(s=>s.no===(result.sub || (selected && selected[0]) || 1)) || u.sub[0];
  result.subId = tier === 'bonus' && result.sourceQuestionId && result.subId ? result.subId : sub.subId;
  result.curriculumRef = result.curriculumRef || sub.ref;
  result.context = result.context || 'standard';
- result.targetStage = result.targetStage || (tier==='bonus' ? 'middle' : 'elementary'+u.grade);
  result.contentVersion = result.contentVersion || 1;
  if (tier==='bonus') result.bonusCategory = result.bonusCategory || (result.stem.startsWith('💡')?'trivia':'middle');
- ['stem','explanation'].forEach(key=>result[key]=w.RikaReadings.annotate(result[key]));
- result.choices = result.choices.map(s=>w.RikaReadings.annotate(s));
+ result.targetStage = result.bonusCategory==='trivia' ? 'trivia' : result.targetStage || (tier==='bonus' ? 'middle' : 'elementary'+u.grade);
+ // Saved battles compare literal choices, including ruby. A dictionary update
+ // must not invalidate an otherwise unchanged published question.
+ const old = published.get(result.id);
+ const annotate = (s,prev)=>old && old.contentVersion===result.contentVersion && prev && plain(prev)===plain(s) ? prev : w.RikaReadings.annotate(s);
+ for(const key of ['stem','explanation']) result[key]=annotate(result[key],old && old[key]);
+ result.choices = result.choices.map((s,i)=>annotate(s,old && old.choices[i]));
  delete result.sub;
- return result;
+ if(!old) return result;
+ // The legacy grade generators construct the same fields in different orders.
+ // Retain the published layout; append new fields but do not revive deleted ones.
+ const keys = new Set([...Object.keys(old),...Object.keys(result)]);
+ return Object.fromEntries([...keys].filter(k=>Object.hasOwn(result,k)).map(k=>[k,result[k]]));
 }
 function writeBank(u,bank,file) {
- for(const tier of ['basic','boss','bonus']) bank[tier]=bank[tier].map((q,i)=>finishQuestion(u,tier,q,i));
- fs.writeFileSync(path.join(root,'data/questions',file),'/* Original Rika Quest questions. Generated from tools/content-*.cjs. */\nwindow.QUESTION_BANK = window.QUESTION_BANK || {};\nwindow.QUESTION_BANK['+JSON.stringify(u.unitId)+'] = '+JSON.stringify(bank,null,2)+';\n');
+ const output=path.join(root,'data/questions',file);
+ const body='/* Original Rika Quest questions. Generated from tools/content-*.cjs. */\nwindow.QUESTION_BANK = window.QUESTION_BANK || {};\nwindow.QUESTION_BANK['+JSON.stringify(u.unitId)+'] = '+JSON.stringify(bank,null,2)+';\n';
+ if(!fs.existsSync(output) || fs.readFileSync(output,'utf8').replace(/\r\n/g,'\n')!==body) fs.writeFileSync(output,body);
  w.QUESTION_BANK[u.unitId]=bank;
  console.log(u.unitId+': '+['basic','boss','bonus'].map(t=>bank[t].length).join('/'));
 }
+function generate(baseBanks={}) {
 w.QUESTION_BANK = {};
-for(const file of fs.readdirSync(path.join(root,'data/questions')).filter(f=>/^g[56]_/.test(f))) {
+published.clear();
+for(const file of fs.readdirSync(path.join(root,'data/questions')).filter(f=>/^g[3-6]_/.test(f))) {
  vm.runInContext(fs.readFileSync(path.join(root,'data/questions',file),'utf8'),ctx);
- sources[file.startsWith('g5_u07')?'g5_u07':file.slice(0,6)]=file;
+ if(/^g[56]_/.test(file)) sources[file.slice(0,6)]=file;
 }
+for(const bank of Object.values(w.QUESTION_BANK)) for(const q of Object.values(bank).flat()) published.set(q.id,q);
 for(const u of w.CURRICULUM.filter(u=>u.grade>=5)) {
- const bank=w.QUESTION_BANK[u.unitId];
+ const bank=baseBanks[u.unitId] || w.QUESTION_BANK[u.unitId];
  for(const tier of ['basic','boss','bonus']) for(const q of bank[tier]) {
-  if(corrections[q.id]) Object.assign(q,corrections[q.id],{contentVersion:2});
   if(tier==='bonus' && /pH/.test(q.stem+q.explanation)) q.explanation=q.explanation.replace(/酸性・アルカリ性の強さ/g,'水溶液の酸性・アルカリ性の程度').replace(/酸性やアルカリ性の強さ/g,'水溶液の酸性やアルカリ性の程度');
  }
  // Re-running is idempotent: appended IDs are stable, never duplicate a bank.
@@ -64,6 +78,7 @@ for(const u of w.CURRICULUM.filter(u=>u.grade>=5)) {
   const row={...q,id}; const old=bank[tier].findIndex(x=>x.id===id);
   if(old<0)bank[tier].push(row);else bank[tier][old]=row;
  });
+ for(const tier of ['basic','boss','bonus']) bank[tier]=bank[tier].map((q,i)=>finishQuestion(u,tier,q,i));
  writeBank(u,bank,sources[u.unitId]);
 }
 for(const u of w.CURRICULUM.filter(u=>u.grade<5)) {
@@ -82,7 +97,9 @@ for(const u of w.CURRICULUM.filter(u=>u.grade<5)) {
   );
  }
  const boss=rows.map(row=>mc(row,row.apply,'everyday'));
- writeBank(u,{basic,boss,bonus:[]},u.file);
+ const bank = w.QUESTION_BANK[u.unitId] = {basic,boss,bonus:[]};
+ for(const tier of ['basic','boss']) bank[tier]=bank[tier].map((q,i)=>finishQuestion(u,tier,q,i));
+ if(u.kind==='chapter') writeBank(u,bank,u.file);
 }
 // Extension questions are deliberately shared learning steps, not falsely
 // claimed to be new facts. Their source IDs and actual destination grade remain.
@@ -93,5 +110,9 @@ for(const u of w.CURRICULUM.filter(u=>u.grade<5&&u.kind!=='chapter')) {
  // Ten elementary next steps, then five explicitly labelled middle/trivia steps.
  const middleSource=destination.grade>=5?next:w.QUESTION_BANK[destination.theme==='space'?'g6_u05':destination.theme==='electric'?'g5_u09':destination.theme==='physics'?'g5_u10':'g5_u02'];
  bank.bonus=dedicatedBonus[u.unitId] || next.basic.slice(0,10).map(q=>({...q,id:undefined,tier:'bonus',stem:'🎓 '+destination.grade+'年につながる問題。'+q.stem,explanation:destination.grade+'年で学ぶよ。'+q.explanation,targetStage:'elementary'+destination.grade,bonusCategory:'next_grade',sourceQuestionId:q.id,prerequisiteIds:[q.id]})).concat(middleSource.bonus.slice(0,5).map(q=>({...q,id:undefined,tier:'bonus',sourceQuestionId:q.id,prerequisiteIds:[q.id]})));
+ bank.bonus=bank.bonus.map((q,i)=>finishQuestion(u,'bonus',q,i));
  writeBank(u,bank,u.file);
 }
+}
+module.exports=generate;
+if(require.main===module) generate();

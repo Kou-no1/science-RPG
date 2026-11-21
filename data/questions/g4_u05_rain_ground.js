@@ -77,7 +77,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "context": "standard",
       "id": "g4u05-b-004",
       "tier": "basic",
-      "subId": "g4_u05_s1",
+      "subId": "g4_u05_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -97,7 +97,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "context": "standard",
       "id": "g4u05-b-005",
       "tier": "basic",
-      "subId": "g4_u05_s1",
+      "subId": "g4_u05_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -117,7 +117,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "context": "standard",
       "id": "g4u05-b-006",
       "tier": "basic",
-      "subId": "g4_u05_s1",
+      "subId": "g4_u05_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -137,7 +137,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "context": "standard",
       "id": "g4u05-b-007",
       "tier": "basic",
-      "subId": "g4_u05_s1",
+      "subId": "g4_u05_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -177,7 +177,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "context": "standard",
       "id": "g4u05-b-009",
       "tier": "basic",
-      "subId": "g4_u05_s1",
+      "subId": "g4_u05_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -268,7 +268,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "explanation": "{水|みず}は{地面|じめん}にしみこむ。{空|そら}へ{出|で}ていくこともあるので一つの原因だけに決めないよ。",
       "id": "g4u05-b-014",
       "tier": "basic",
-      "subId": "g4_u05_s1",
+      "subId": "g4_u05_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -286,7 +286,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "explanation": "粒の{大きさ|おおきさ}などで{水|みず}のしみこみ方がちがうよ。",
       "id": "g4u05-b-015",
       "tier": "basic",
-      "subId": "g4_u05_s1",
+      "subId": "g4_u05_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "explanation": "同じ{容器|ようき}、同じ{土|つち}の量、同じ{水|みず}の量で{比|くら}べよう。",
       "id": "g4u05-b-016",
       "tier": "basic",
-      "subId": "g4_u05_s1",
+      "subId": "g4_u05_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -322,7 +322,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "explanation": "かかった{時間|じかん}が短い方が、この{実験|じっけん}では早く通したよ。",
       "id": "g4u05-b-017",
       "tier": "basic",
-      "subId": "g4_u05_s1",
+      "subId": "g4_u05_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -413,7 +413,7 @@ window.QUESTION_BANK["g4_u05"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "運動場の一部が{周り|まわり}より{低|ひく}い。{雨|あめ}のあとできやすいのは？",
+      "stem": "{雨|あめ}のあとの運動場で{水|みず}たまりを探す。まわりより{高|たか}い所と{低|ひく}い所なら、どこにできやすい？",
       "choices": [
         "{低|ひく}いくぼみ",
         "最も{高|たか}い山",
@@ -428,7 +428,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "subId": "g4_u05_s1",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -465,7 +465,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "context": "everyday",
       "id": "g4u05-boss-004",
       "tier": "boss",
-      "subId": "g4_u05_s1",
+      "subId": "g4_u05_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -485,7 +485,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "context": "everyday",
       "id": "g4u05-boss-005",
       "tier": "boss",
-      "subId": "g4_u05_s1",
+      "subId": "g4_u05_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "context": "everyday",
       "id": "g4u05-boss-006",
       "tier": "boss",
-      "subId": "g4_u05_s1",
+      "subId": "g4_u05_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -525,7 +525,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "context": "everyday",
       "id": "g4u05-boss-007",
       "tier": "boss",
-      "subId": "g4_u05_s1",
+      "subId": "g4_u05_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -565,7 +565,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "context": "everyday",
       "id": "g4u05-boss-009",
       "tier": "boss",
-      "subId": "g4_u05_s1",
+      "subId": "g4_u05_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -928,7 +928,7 @@ window.QUESTION_BANK["g4_u05"] = {
       "subId": "g5_u06_s2",
       "curriculumRef": "B(3)ア(ｱ)(ｲ)(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia",
       "sourceQuestionId": "g5u06-bonus-004",

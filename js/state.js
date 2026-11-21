@@ -1,10 +1,12 @@
 (function () {
   var KEY = "rika_quest_save_v1";
+  var COPY_KEY = KEY + "_protected";
   var saveData = null;
-  var writeBlocked = false;
-  var originalSave = null;
+  var primaryRaw = null;
+  var copyRaw = null;
+  var blocked = "";
+  var storageIssue = "";
   var transactionDepth = 0;
-  var storageWarned = false;
 
   function finite(value, fallback, max) {
     return Number.isFinite(Number(value)) ? Math.min(max || 100000000, Math.max(0, Number(value))) : fallback;
@@ -77,9 +79,19 @@
     };
   }
 
+  function record(value) { return value !== null && typeof value === "object" && !Array.isArray(value); }
+  function hasOwn(obj, id) { return Object.prototype.hasOwnProperty.call(obj, id); }
+
   function normalize(raw) {
-    if (!raw || [1, 2].indexOf(raw.schema) === -1 || !raw.player || !raw.owned || !raw.progress) throw new Error("Unsupported save");
+    if (!record(raw) || ![1, 2].includes(raw.schema) || !record(raw.player) || !record(raw.owned) || !record(raw.progress)) throw new Error("Unsupported save");
     var base = createDefault();
+    // A mixed/older set of game scripts must not silently discard saved content.
+    if (Object.keys(raw.progress).some(function (id) { return !hasOwn(base.progress, id); }) ||
+        unique(raw.owned.equipment).some(function (id) { return !hasOwn(window.EQUIPMENT || {}, id); }) ||
+        unique(raw.owned.companions).some(function (id) { return !hasOwn(window.COMPANIONS || {}, id); }) ||
+        (raw.mu && (!base.mu || Object.keys(raw.mu.progress || {}).some(function (id) { return !hasOwn(base.mu.progress, id); })))) {
+      throw new Error("Unavailable save content");
+    }
     base.player.name = String(raw.player.name || base.player.name).slice(0, 16);
     base.player.exp = finite(raw.player.exp, 0);
     base.player.hpBase = finite(raw.player.hpBase, 3, 10) || 3;
@@ -136,33 +148,66 @@
     data.player.level = levelInfo(data.player.exp).level;
   }
 
+  function readData(raw) {
+    if (raw === null) return null;
+    try { return normalize(JSON.parse(raw)); } catch (error) { return null; }
+  }
+
+  function checkStorage() {
+    if (blocked === "stale" || blocked === "unreadable") return false;
+    try {
+      if (localStorage.getItem(KEY) !== primaryRaw || localStorage.getItem(COPY_KEY) !== copyRaw) blocked = "stale";
+    } catch (error) { blocked = "unreadable"; }
+    return blocked !== "stale" && blocked !== "unreadable";
+  }
+
+  function copyPrimary() {
+    if (primaryRaw === copyRaw) return;
+    localStorage.setItem(COPY_KEY, primaryRaw);
+    copyRaw = primaryRaw;
+  }
+
+  function persist(data, raw, explicit) {
+    if (!checkStorage() || (blocked && !explicit)) return false;
+    try {
+      if (raw === null) raw = JSON.stringify(data);
+      if (raw !== primaryRaw) localStorage.setItem(KEY, raw);
+    } catch (error) { storageIssue = "write"; return false; }
+    primaryRaw = raw;
+    saveData = data;
+    blocked = storageIssue = "";
+    try { copyPrimary(); } catch (error) {
+      // The main write succeeded. Do not claim that the recovery copy is current.
+      storageIssue = "copy";
+      if (explicit && copyRaw !== null) blocked = "different";
+    }
+    return true;
+  }
+
   function save() {
     if (!saveData || transactionDepth) return false;
     syncLevel(saveData);
     syncUnlocks(saveData);
-    var saved = false;
-    try {
-      if (!writeBlocked) { localStorage.setItem(KEY, JSON.stringify(saveData)); saved = true; storageWarned = false; }
-    } catch (error) {
-      if (!storageWarned && window.RikaUI) window.RikaUI.toast("きろくを保存できないよ。設定からデータを書き出してね。");
-      storageWarned = true;
-    }
+    var saved = persist(saveData, null, false);
     if (window.RikaApp && window.RikaApp.renderStatus) window.RikaApp.renderStatus();
     return saved;
   }
 
   function load() {
+    primaryRaw = copyRaw = null;
+    blocked = storageIssue = "";
     try {
-      originalSave = localStorage.getItem(KEY);
-      saveData = originalSave ? normalize(JSON.parse(originalSave)) : createDefault();
-      writeBlocked = false;
-      save();
-    } catch (error) {
-      saveData = createDefault();
-      writeBlocked = true;
-      if (window.RikaUI) {
-        window.RikaUI.toast("きろくを読めなかったよ。元のデータは残してあるよ。設定で書き出すか、やり直してね。");
-      }
+      primaryRaw = localStorage.getItem(KEY);
+      copyRaw = localStorage.getItem(COPY_KEY);
+    } catch (error) { blocked = "unreadable"; }
+    var primary = readData(primaryRaw);
+    saveData = primary || readData(copyRaw) || createDefault();
+    if (blocked) return saveData;
+    if (copyRaw !== null && primaryRaw !== copyRaw) blocked = "different";
+    else if (primaryRaw !== null && !primary) blocked = "invalid";
+    else if (primary && copyRaw === null && checkStorage()) {
+      // First run after an update: checkpoint the exact bytes, never rewrite the original on boot.
+      try { copyPrimary(); } catch (error) { storageIssue = "copy"; }
     }
     return saveData;
   }
@@ -175,7 +220,7 @@
   function setName(name) {
     var cleaned = String(name || "").trim().slice(0, 16);
     get().player.name = cleaned || "ぼうけんしゃ";
-    save();
+    return save();
   }
 
   function progress(unitId) {
@@ -279,10 +324,15 @@
   }
 
   function reset() {
-    writeBlocked = false;
-    originalSave = null;
-    saveData = createDefault();
-    save();
+    var data = createDefault();
+    return persist(data, null, true);
+  }
+
+  function restore(source) {
+    if (blocked !== "different" || !["primary", "copy"].includes(source)) return false;
+    var raw = source === "copy" ? copyRaw : primaryRaw;
+    var data = readData(raw);
+    return !!data && persist(data, raw, true);
   }
 
   function transaction(action) {
@@ -323,15 +373,24 @@
     KEY: KEY,
     load: load,
     save: save,
-    isPersisted: function () { return !writeBlocked && !storageWarned; },
+    isPersisted: function () { return !blocked && storageIssue !== "write"; },
+    saveIssue: function () { return blocked === "stale" || blocked === "unreadable" ? blocked : storageIssue || blocked; },
+    needsChoice: function () { return blocked === "different"; },
+    checkStorage: checkStorage,
+    COPY_KEY: COPY_KEY,
+    restore: restore,
+    recoverySource: function (source) { return source === "copy" ? copyRaw : primaryRaw; },
     get: get,
     reset: reset,
     normalize: normalize,
     transaction: transaction,
     selectCompanion: selectCompanion,
     recordQuestion: recordQuestion,
-    exportData: function () { return writeBlocked && originalSave ? originalSave : JSON.stringify(get(), null, 2); },
-    importData: function (text) { var data = normalize(JSON.parse(text)); saveData = data; writeBlocked = false; originalSave = null; save(); return data; },
+    exportData: function () { return blocked === "invalid" ? primaryRaw : JSON.stringify(get(), null, 2); },
+    importData: function (text) {
+      var data = normalize(JSON.parse(text));
+      return persist(data, null, true) ? data : null;
+    },
     setName: setName,
     expToNext: expToNext,
     levelInfo: levelInfo,

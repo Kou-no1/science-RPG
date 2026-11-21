@@ -9,3 +9,5 @@ jobs:
         with:
           node-version: '22'
       - run: node tests/regression.cjs
+      - run: node tests/save-recovery.cjs
+      - run: node tools/check_question_generation.cjs

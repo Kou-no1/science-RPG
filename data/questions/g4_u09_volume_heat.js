@@ -77,7 +77,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "context": "standard",
       "id": "g4u09-b-004",
       "tier": "basic",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -85,7 +85,7 @@ window.QUESTION_BANK["g4_u09"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "{水|みず}を{冷や|ひや}すと、{体積|たいせき}は？",
+      "stem": "30℃の{水|みず}を20℃まで{冷や|ひや}した。{水|みず}の{量|りょう}を{変|か}えなければ、{水|みず}の{体積|たいせき}はどう{変|か}わる？",
       "choices": [
         "{体積|たいせき}が{小|ちい}さくなった",
         "{体積|たいせき}が{大|おお}きくなった",
@@ -97,15 +97,15 @@ window.QUESTION_BANK["g4_u09"] = {
       "context": "standard",
       "id": "g4u09-b-005",
       "tier": "basic",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "同じ{体積|たいせき}の{空気|くうき}と{水|みず}を{暖め|あたため}ると？",
+      "stem": "{空気|くうき}と{水|みず}を同じ{体積|たいせき}ずつ用意し、自由にふくらめるようにして20℃から30℃まで{温め|あたため}た。{体積|たいせき}の{増|ふ}え方が{大きい|おおきい}のは？",
       "choices": [
         "{空気|くうき}",
         "{水|みず}",
@@ -117,10 +117,10 @@ window.QUESTION_BANK["g4_u09"] = {
       "context": "standard",
       "id": "g4u09-b-006",
       "tier": "basic",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -137,7 +137,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "context": "standard",
       "id": "g4u09-b-007",
       "tier": "basic",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -157,7 +157,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "context": "standard",
       "id": "g4u09-b-008",
       "tier": "basic",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -197,7 +197,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "context": "standard",
       "id": "g4u09-b-010",
       "tier": "basic",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -268,7 +268,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "explanation": "この{実験|じっけん}で{水|みず}を{暖め|あたため}ると{体積|たいせき}が{大|おお}きくなるよ。",
       "id": "g4u09-b-014",
       "tier": "basic",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -286,7 +286,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "explanation": "この{実験|じっけん}では{冷や|ひや}すと{体積|たいせき}が{小|ちい}さくなり、{水面|すいめん}が下がったよ。",
       "id": "g4u09-b-015",
       "tier": "basic",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "explanation": "{空気|くうき}は{水|みず}より、{温度|おんど}による{体積|たいせき}の{変化|へんか}が{大きい|おおきい}よ。",
       "id": "g4u09-b-016",
       "tier": "basic",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -322,7 +322,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "explanation": "{金ぞく|きんぞく}も{暖め|あたため}ると{体積|たいせき}が{大|おお}きくなるよ。",
       "id": "g4u09-b-017",
       "tier": "basic",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -465,7 +465,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "context": "everyday",
       "id": "g4u09-boss-004",
       "tier": "boss",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -485,7 +485,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "context": "everyday",
       "id": "g4u09-boss-005",
       "tier": "boss",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "context": "everyday",
       "id": "g4u09-boss-006",
       "tier": "boss",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -525,7 +525,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "context": "everyday",
       "id": "g4u09-boss-007",
       "tier": "boss",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -545,7 +545,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "context": "everyday",
       "id": "g4u09-boss-008",
       "tier": "boss",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -585,7 +585,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "context": "everyday",
       "id": "g4u09-boss-010",
       "tier": "boss",
-      "subId": "g4_u09_s1",
+      "subId": "g4_u09_s2",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -879,7 +879,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "curriculumRef": "bonus",
       "subId": "g5_u07_s3",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia",
       "sourceQuestionId": "g5u07-t-002",
@@ -952,7 +952,7 @@ window.QUESTION_BANK["g4_u09"] = {
       "curriculumRef": "bonus",
       "subId": "g5_u07_s3",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia",
       "sourceQuestionId": "g5u07-t-005",

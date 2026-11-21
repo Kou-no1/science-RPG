@@ -1,7 +1,3 @@
-const fs = require("fs");
-const path = require("path");
-
-const qDir = path.join(__dirname, "..", "data", "questions");
 const ox = ["○", "×"];
 
 function q(type, skill, stem, choices, answer, explanation) {
@@ -28,21 +24,14 @@ function withIds(unitId, tier, rows) {
   }, row));
 }
 
-function write(unitId, file, title, rows) {
+function makeBank(unitId, rows) {
   const bank = {
     basic: withIds(unitId, "basic", rows.basic),
     boss: withIds(unitId, "boss", rows.boss),
     bonus: withIds(unitId, "bonus", rows.bonus)
   };
   validate(unitId, bank);
-  const text = `/* =====================================================================\n` +
-    ` * リカ・クエスト 問題バンク : 6年「${title}」(${unitId})\n` +
-    ` * basic/boss は単元スコープ内、bonus は🎓中学チャレンジ/💡トリビア。\n` +
-    ` * ===================================================================== */\n` +
-    `window.QUESTION_BANK = window.QUESTION_BANK || {};\n\n` +
-    `window.QUESTION_BANK[${JSON.stringify(unitId)}] = ${JSON.stringify(bank, null, 2)};\n`;
-  fs.writeFileSync(path.join(qDir, file), text, "utf8");
-  console.log(`${unitId}: ${bank.basic.length}/${bank.boss.length}/${bank.bonus.length} -> ${file}`);
+  return bank;
 }
 
 function validate(unitId, bank) {
@@ -712,6 +701,6 @@ function livingEarth() {
 
 addRest();
 
-Object.entries(banks).forEach(([unitId, data]) => {
-  write(unitId, data.file, data.title, data);
-});
+require("./generate_grades34.cjs")(Object.fromEntries(
+  Object.entries(banks).map(([unitId, data]) => [unitId, makeBank(unitId, data)])
+));

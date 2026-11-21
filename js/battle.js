@@ -161,6 +161,7 @@
       return { wave: item.wave, question: Object.assign({}, source.find(function (q) { return q.id === item.question.id; }), { choices: item.question.choices.slice(), answer: item.question.answer }) };
     });
     battle.monster = monster;
+    if (battle.reviewing && !battle.usedHint) delete battle.hiddenChoices[currentQuestion().id];
     render();
   }
 
@@ -418,9 +419,11 @@
       window.RikaAudio.bad();
     }
     battle.waves[battle.wave].hp = battle.enemyHp;
-    if (battle.enemyHp === 0 && battle.monster) window.RikaState.rememberMonster(battle.monster.id, true);
-    window.RikaState.recordQuestion(battle.unit.unitId, q, correct, battle.usedHint, battle.reviewing);
-    persist();
+    window.RikaState.transaction(function () {
+      if (battle.enemyHp === 0 && battle.monster) window.RikaState.rememberMonster(battle.monster.id, true);
+      window.RikaState.recordQuestion(battle.unit.unitId, q, correct, battle.usedHint, battle.reviewing);
+      persist();
+    });
     updateHUD();
     document.querySelectorAll('[data-use-item]').forEach(function (button) { button.disabled = true; });
     if (battle.lives <= 0) {
@@ -461,6 +464,8 @@
       if (battle.mode === 'learn' && battle.reviewQueue.length) {
         var review = battle.reviewQueue.shift();
         battle.reviewing = true;
+        // A retry shuffles the options, so the first attempt's hidden positions no longer apply.
+        delete battle.hiddenChoices[review.question.id];
         battle.questions.push(prepareQuestion(review.question));
         battle.wave = review.wave;
         var wave = battle.waves[battle.wave];
@@ -480,7 +485,7 @@
       if (battle.mode === 'challenge') battle.enemyMax = Math.ceil(battle.enemyMax * .8);
       battle.enemyHp = battle.enemyMax;
       battle.waves.push({monsterId:battle.monster && battle.monster.id,hp:battle.enemyHp,max:battle.enemyMax});
-      battle.log = 'つぎの5問！ ' + (battle.monster ? battle.monster.name : 'モンスター') + 'があらわれた。';
+      battle.log = 'つぎの' + Math.min(5, battle.initialCount - battle.index) + '問！ ' + (battle.monster ? battle.monster.name : 'モンスター') + 'があらわれた。';
     }
     persist();
     render();
@@ -508,10 +513,14 @@
     if (success && window.RikaAudio) window.RikaAudio.reward();
     var app = document.getElementById("app");
     var title = success ? "クエストクリア！" : "もう一度ちょうせん";
+    var attempted = battle.firstCorrectCount + battle.misses;
+    var remaining = battle.initialCount - attempted;
     app.innerHTML = '<section class="panel rpg-frame">' +
       '<h2>' + title + '</h2>' +
-      '<p>はじめの回答：' + battle.firstCorrectCount + ' / ' + battle.initialCount + '問 正かい ・ ' + battle.misses + '問 学び直し</p>' +
-      '<p>' + window.RikaUI.renderFurigana(success ? "よくがんばったね。ぼうけんは自動で記録されたよ。" : "おしい！ 復習して、もう一度ちょうせんしよう。") + '</p>' +
+      '<p>はじめの回答：' + battle.firstCorrectCount + ' / ' + attempted + '問 正かい' +
+      (remaining ? ' ・ まだ答えていない問題 ' + remaining + '問' : '') + '</p>' +
+      (battle.reviewing ? '<p>学び直した問題：' + battle.misses + '問</p>' : '') +
+      '<p>' + window.RikaUI.renderFurigana(success ? "よくがんばったね。" : "おしい！ 復習して、もう一度ちょうせんしよう。") + '</p>' +
       '<ul class="result-list">' + result.messages.map(function (message) { return '<li>' + window.RikaUI.renderFurigana(message) + '</li>'; }).join("") + '</ul>' +
       '<div class="button-row" style="margin-top:16px">' +
       '<button type="button" class="primary-button" data-result-map>マップへ</button>' +

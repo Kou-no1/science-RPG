@@ -810,7 +810,7 @@ window.QUESTION_BANK["g5_u09"] = {
       "subId": "g5_u09_s1",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -829,7 +829,7 @@ window.QUESTION_BANK["g5_u09"] = {
       "subId": "g5_u09_s1",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -850,7 +850,7 @@ window.QUESTION_BANK["g5_u09"] = {
       "subId": "g5_u09_s1",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -871,7 +871,7 @@ window.QUESTION_BANK["g5_u09"] = {
       "subId": "g5_u09_s1",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -890,7 +890,7 @@ window.QUESTION_BANK["g5_u09"] = {
       "subId": "g5_u09_s1",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -930,7 +930,7 @@ window.QUESTION_BANK["g5_u09"] = {
       "subId": "g5_u09_s1",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -951,7 +951,7 @@ window.QUESTION_BANK["g5_u09"] = {
       "subId": "g5_u09_s1",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -991,7 +991,7 @@ window.QUESTION_BANK["g5_u09"] = {
       "subId": "g5_u09_s1",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },

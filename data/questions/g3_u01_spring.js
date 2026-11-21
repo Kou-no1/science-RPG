@@ -125,7 +125,7 @@ window.QUESTION_BANK["g3_u01"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "{植物|しょくぶつ}AとBの共通点は、どんなところ？",
+      "stem": "白い{花|はな}の草にも、黄色い{花|はな}の草にも、緑の{葉|は}があった。この{記録|きろく}からわかる共通点は？",
       "choices": [
         "どちらにも緑の{葉|は}がある",
         "{花|はな}の{色|いろ}が{同じ|おなじ}",
@@ -137,10 +137,10 @@ window.QUESTION_BANK["g3_u01"] = {
       "context": "standard",
       "id": "g3u01-b-007",
       "tier": "basic",
-      "subId": "g3_u01_s1",
+      "subId": "g3_u01_s2",
       "curriculumRef": "B(1)ア(ｱ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -157,7 +157,7 @@ window.QUESTION_BANK["g3_u01"] = {
       "context": "standard",
       "id": "g3u01-b-008",
       "tier": "basic",
-      "subId": "g3_u01_s1",
+      "subId": "g3_u01_s2",
       "curriculumRef": "B(1)ア(ｱ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -177,7 +177,7 @@ window.QUESTION_BANK["g3_u01"] = {
       "context": "standard",
       "id": "g3u01-b-009",
       "tier": "basic",
-      "subId": "g3_u01_s1",
+      "subId": "g3_u01_s2",
       "curriculumRef": "B(1)ア(ｱ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -197,7 +197,7 @@ window.QUESTION_BANK["g3_u01"] = {
       "context": "standard",
       "id": "g3u01-b-010",
       "tier": "basic",
-      "subId": "g3_u01_s1",
+      "subId": "g3_u01_s2",
       "curriculumRef": "B(1)ア(ｱ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -322,7 +322,7 @@ window.QUESTION_BANK["g3_u01"] = {
       "explanation": "共通点が一つあっても、同じ{種類|しゅるい}とはまだ決められないよ。",
       "id": "g3u01-b-017",
       "tier": "basic",
-      "subId": "g3_u01_s1",
+      "subId": "g3_u01_s2",
       "curriculumRef": "B(1)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -525,7 +525,7 @@ window.QUESTION_BANK["g3_u01"] = {
       "context": "everyday",
       "id": "g3u01-boss-007",
       "tier": "boss",
-      "subId": "g3_u01_s1",
+      "subId": "g3_u01_s2",
       "curriculumRef": "B(1)ア(ｱ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -545,7 +545,7 @@ window.QUESTION_BANK["g3_u01"] = {
       "context": "everyday",
       "id": "g3u01-boss-008",
       "tier": "boss",
-      "subId": "g3_u01_s1",
+      "subId": "g3_u01_s2",
       "curriculumRef": "B(1)ア(ｱ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -565,7 +565,7 @@ window.QUESTION_BANK["g3_u01"] = {
       "context": "everyday",
       "id": "g3u01-boss-009",
       "tier": "boss",
-      "subId": "g3_u01_s1",
+      "subId": "g3_u01_s2",
       "curriculumRef": "B(1)ア(ｱ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -585,7 +585,7 @@ window.QUESTION_BANK["g3_u01"] = {
       "context": "everyday",
       "id": "g3u01-boss-010",
       "tier": "boss",
-      "subId": "g3_u01_s1",
+      "subId": "g3_u01_s2",
       "curriculumRef": "B(1)ア(ｱ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -795,7 +795,7 @@ window.QUESTION_BANK["g3_u01"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "🎓 4年につながる問題。{葉|は}の{数|かず}の{変化|へんか}を{比|くら}べるには？",
+      "stem": "🎓 4年につながる問題。先週は同じ枝に{葉|は}が2枚、今週は5枚あった。何枚増えた？",
       "choices": [
         "3枚",
         "2枚",
@@ -810,7 +810,7 @@ window.QUESTION_BANK["g3_u01"] = {
       "subId": "g4_u01_s1",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "bonusCategory": "next_grade",
       "sourceQuestionId": "g4u01-b-009",
       "prerequisiteIds": [
@@ -882,7 +882,7 @@ window.QUESTION_BANK["g3_u01"] = {
       "subId": "g5_u02_s2",
       "curriculumRef": "B(1)",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia",
       "sourceQuestionId": "g5u02-bonus-002",
@@ -905,7 +905,7 @@ window.QUESTION_BANK["g3_u01"] = {
       "subId": "g5_u02_s1",
       "curriculumRef": "B(1)ア(ｱ)(ｲ)(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia",
       "sourceQuestionId": "g5u02-bonus-003",

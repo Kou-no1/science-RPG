@@ -45,7 +45,7 @@ window.QUESTION_BANK["g4_autumn_life"] = {
     {
       "type": "mc4",
       "skill": "experiment",
-      "stem": "秋の{植物|しょくぶつ}に{実|み}が{見|み}えた。{記録|きろく}するのは？",
+      "stem": "秋にヘチマの{実|み}ができた。{同じ|おなじ}ヘチマのどの{記録|きろく}と{比|くら}べると、{花|はな}から{実|み}への{変化|へんか}がわかる？",
       "choices": [
         "夏の{花|はな}の{記録|きろく}",
         "{星|ほし}の{色|いろ}だけ",
@@ -60,7 +60,7 @@ window.QUESTION_BANK["g4_autumn_life"] = {
       "subId": "g4_autumn_life_s1",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -257,7 +257,7 @@ window.QUESTION_BANK["g4_autumn_life"] = {
     {
       "type": "mc4",
       "skill": "experiment",
-      "stem": "同じ{方法|ほうほう}の{記録|きろく}で、秋の{気温|きおん}は夏より？",
+      "stem": "夏の観察日は28℃、秋の観察日は18℃だった。秋の{気温|きおん}は夏に{比|くら}べてどうだった？",
       "choices": [
         "10℃{低|ひく}い",
         "10℃{高|たか}い",
@@ -272,7 +272,7 @@ window.QUESTION_BANK["g4_autumn_life"] = {
       "subId": "g4_autumn_life_s1",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",

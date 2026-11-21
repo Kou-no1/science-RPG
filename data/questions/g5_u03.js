@@ -557,20 +557,20 @@ window.QUESTION_BANK["g5_u03"] = {
       "tier": "boss",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "かいぼう{顕微鏡|けんびきょう}の{使|つか}い方で{正|ただ}しいのは？",
+      "stem": "かいぼう{顕微鏡|けんびきょう}の{使|つか}い方で{正しい|ただしい}のは？",
       "choices": [
-        "反しゃ{鏡|きょう}で{光|ひかり}を{集|あつ}め、{近|ちか}づけてピントを{合|あ}わせる",
-        "{太陽|たいよう}に{向|む}けて{直接|ちょくせつ}{見|み}る",
-        "{真|ま}っ{暗|くら}な{部屋|へや}で{使|つか}う",
-        "{水|みず}に{入|い}れて{使|つか}う"
+        "横から{見|み}てレンズをたまごに近づけ、のぞいて少しずつ遠ざける",
+        "のぞいたまま、たまごに当たるまでレンズを下げる",
+        "{太陽|たいよう}の{光|ひかり}を直接反しゃ{鏡|かがみ}に当てる",
+        "レンズを{水|みず}につけてのぞく"
       ],
       "answer": 0,
-      "explanation": "{明|あか}るいところで反しゃ{鏡|きょう}で{光|ひかり}を{集|あつ}め、ピントを{合|あ}わせるよ。{直射日光|ちょくしゃにっこう}はさける。",
+      "explanation": "{直射日光|ちょくしゃにっこう}の当たらない{明|あか}るい所で{使|つか}うよ。横から{見|み}てレンズをぶつけないよう近づけ、のぞきながら遠ざけてピントを合わせよう。",
       "subId": "g5_u03_s1",
       "curriculumRef": "B(2)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary5",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "id": "g5u03-boss-007",
@@ -750,7 +750,7 @@ window.QUESTION_BANK["g5_u03"] = {
       "subId": "g5_u03_s1",
       "curriculumRef": "B(2)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -769,7 +769,7 @@ window.QUESTION_BANK["g5_u03"] = {
       "subId": "g5_u03_s1",
       "curriculumRef": "B(2)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -870,7 +870,7 @@ window.QUESTION_BANK["g5_u03"] = {
       "subId": "g5_u03_s1",
       "curriculumRef": "B(2)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -891,7 +891,7 @@ window.QUESTION_BANK["g5_u03"] = {
       "subId": "g5_u03_s1",
       "curriculumRef": "B(2)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -910,7 +910,7 @@ window.QUESTION_BANK["g5_u03"] = {
       "subId": "g5_u03_s1",
       "curriculumRef": "B(2)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -952,7 +952,7 @@ window.QUESTION_BANK["g5_u03"] = {
       "subId": "g5_u03_s1",
       "curriculumRef": "B(2)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -992,7 +992,7 @@ window.QUESTION_BANK["g5_u03"] = {
       "subId": "g5_u03_s1",
       "curriculumRef": "B(2)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -1011,7 +1011,7 @@ window.QUESTION_BANK["g5_u03"] = {
       "subId": "g5_u03_s1",
       "curriculumRef": "B(2)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     }

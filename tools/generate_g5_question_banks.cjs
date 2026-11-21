@@ -57,17 +57,6 @@ function appendTo(bank, tier, items, target) {
   });
 }
 
-function writeBank(file, unitId, bank) {
-  const body = `/* =====================================================================\n` +
-    ` * リカ・クエスト 問題バンク : ${unitId}\n` +
-    ` * 生成元: tools/generate_g5_question_banks.js\n` +
-    ` * basic/boss は5年単元スコープ内、bonus は🎓中学チャレンジ/💡トリビア。\n` +
-    ` * ===================================================================== */\n` +
-    `window.QUESTION_BANK = window.QUESTION_BANK || {};\n\n` +
-    `window.QUESTION_BANK[${JSON.stringify(unitId)}] = ${JSON.stringify(bank, null, 2)};\n`;
-  fs.writeFileSync(path.join(qDir, file), body, "utf8");
-}
-
 const ox = ["○", "×"];
 
 const u01BossAdd = numbered("g5u01", "boss", "boss", [
@@ -523,6 +512,5 @@ Object.keys(files).forEach((unitId) => {
   ["basic", "boss", "bonus"].forEach((tier) => {
     if (!Array.isArray(bank[tier])) throw new Error(`${unitId}.${tier} is not an array`);
   });
-  writeBank(files[unitId], unitId, bank);
-  console.log(`${unitId}: basic=${bank.basic.length} boss=${bank.boss.length} bonus=${bank.bonus.length}`);
 });
+require("./generate_grades34.cjs")(banks);

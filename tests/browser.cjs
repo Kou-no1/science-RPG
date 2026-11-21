@@ -8,6 +8,99 @@ const {chromium} = require('playwright');
 const root = path.resolve(__dirname,'..');
 const out = process.env.RIKA_SCREENSHOT_DIR || path.join(os.tmpdir(),'rika-quest-qa');
 fs.mkdirSync(out,{recursive:true});
+
+// Use the question key only to choose an answer. All progress comes from UI actions.
+async function freshPlaythrough(page) {
+  const basic=page.locator('[data-start-tier="basic"]:not([data-context])');
+  const boss=page.locator('[data-start-tier="boss"]');
+  const next=page.locator('[data-next-question]');
+  const answerKey=()=>page.evaluate(()=>{
+    const b=window.RikaBattle.getBattle(),q=b.questions[b.index];
+    return {id:q.id,answer:q.answer,count:q.choices.length};
+  });
+  const choice=i=>page.locator('[data-choice="'+i+'"]');
+  await page.goto(pathToFileURL(path.join(root,'index.html')).href);
+  await page.locator('[data-home-map]').waitFor();
+  assert.equal(await page.locator('[data-resume]').count(),0);
+  await page.locator('[data-home-map]').click();
+  assert.equal(await page.locator('#grade-tab-3').getAttribute('aria-selected'),'true');
+  const second=page.locator('[data-unit-id="g3_u02"]');
+  assert.ok(await second.isDisabled(),'next unit should start locked');
+  assert.equal(await page.locator('[data-card-unit]').getAttribute('data-card-unit'),'g3_u01');
+  const total=await page.evaluate(()=>window.QUESTION_BANK.g3_u01.basic.length);
+  const seen=new Set();
+  let reviewed=false;
+  while(seen.size<total){
+    assert.ok(await boss.isDisabled(),'short courses must not unlock the castle early');
+    await page.locator('[data-course-limit]').selectOption('5');
+    await basic.click();
+    const batch=Math.min(5,total-seen.size);
+    let missed;
+    for(let i=0;i<batch;i++){
+      const q=await answerKey();
+      assert.ok(!seen.has(q.id),'short courses repeated '+q.id+' before exhausting the bank');
+      seen.add(q.id);
+      if(!reviewed && !missed && q.count===4){
+        await page.locator('[data-use-item="hint_scroll"]').click();
+        assert.equal(await page.locator('[data-choice]:disabled').count(),2);
+        await page.locator('[data-choice]:enabled:not([data-choice="'+q.answer+'"])').click();
+        missed=q.id;
+        const stem=await page.locator('.question-stem').innerText();
+        await page.locator('[data-battle-exit]').click();
+        await basic.click();
+        await page.getByRole('dialog').getByRole('button',{name:'キャンセル'}).click();
+        await page.reload();
+        await page.locator('[data-resume]').click();
+        assert.equal(await page.locator('.question-stem').innerText(),stem);
+        assert.equal(await page.locator('[data-choice]:disabled').count(),4);
+        assert.match(await page.locator('#feedback').innerText(),/✗/);
+      }else await choice(q.answer).click();
+      await next.click();
+    }
+    if(missed){
+      const retry=await answerKey();
+      assert.equal(retry.id,missed);
+      assert.equal(await page.locator('[data-choice]:enabled').count(),4,'first-pass hint leaked into the retry');
+      await choice(retry.answer).click();
+      await next.click();
+      reviewed=true;
+    }
+    await page.getByRole('heading',{name:'クエストクリア！'}).waitFor();
+    assert.ok((await page.locator('#app').innerText()).includes('はじめの回答：'+(batch-(missed?1:0))+' / '+batch+'問'));
+    await page.locator('[data-result-map]').click();
+  }
+  assert.ok(reviewed,'expected at least one four-choice question');
+  assert.ok(await boss.isEnabled());
+  await second.click();
+  assert.equal(await page.locator('[data-card-unit]').getAttribute('data-card-unit'),'g3_u02');
+  await page.locator('[data-unit-id="g3_u01"]').click();
+  await boss.click();
+  const lives=await page.locator('.heart:not(.is-empty)').count();
+  assert.ok(lives>0);
+  for(let i=0;i<lives;i++){
+    const q=await answerKey();
+    await choice((q.answer+1)%q.count).click();
+    await next.click();
+  }
+  await page.getByRole('heading',{name:'もう一度ちょうせん'}).waitFor();
+  await page.locator('[data-result-retry]').click();
+  for(let i=0;i<10;i++){
+    const q=await answerKey();
+    await choice(q.answer).click();
+    await next.click();
+  }
+  await page.getByRole('dialog').waitFor();
+  await page.keyboard.press('Escape');
+  await page.locator('[data-result-map]').click();
+  await page.reload();
+  await page.locator('[data-home-map]').waitFor();
+  assert.equal(await page.locator('[data-resume]').count(),0);
+  assert.match(await page.locator('.info-list').innerText(),/ボスとうばつ：1 \/ /);
+  await page.locator('[data-mu-open]').click();
+  await page.locator('[data-mu-map]').click();
+  assert.ok(await boss.isEnabled(),'cleared cave must remain unlocked after reload');
+}
+
 async function run() {
   const server=http.createServer((req,res)=>{
     const file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname === '/' ? '/index.html' : new URL(req.url,'http://localhost').pathname));
@@ -22,6 +115,12 @@ async function run() {
     const page=await browser.newPage({viewport:{width:1280,height:900},reducedMotion:'reduce'});
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     const external=[];page.on('request',r=>{if(/^https?:/.test(r.url())&&!r.url().startsWith('http://127.0.0.1:'))external.push(r.url());});
+    const local=await browser.newPage({reducedMotion:'reduce'});
+    local.on('pageerror',e=>errors.push(e.message));
+    local.on('request',r=>{if(/^https?:/.test(r.url()))external.push(r.url());});
+    await freshPlaythrough(local);
+    await local.close();
+    console.log('PASS fresh UI playthrough: short courses, resume, mastery, boss defeat/retry and reward');
     await page.goto('http://127.0.0.1:'+server.address().port+'/');
     await page.locator('[data-home-map]').waitFor();
     await page.screenshot({path:path.join(out,'home-desktop.png'),fullPage:true});
@@ -30,7 +129,7 @@ async function run() {
     assert.equal(await page.locator('#grade-tab-4').getAttribute('aria-selected'),'true');
     assert.equal(await page.evaluate(()=>document.activeElement.id),'grade-tab-4');
     for(const grade of [3,4,5,6]){
-      await page.evaluate(g=>window.RikaApp.showMap(g),grade);
+      await page.locator('#grade-tab-'+grade).click();
       assert.equal(await page.locator('[data-grade]').count(),4);
       await page.screenshot({path:path.join(out,'map-grade'+grade+'.png'),fullPage:true});
     }
@@ -112,7 +211,10 @@ async function run() {
     await page.locator('[data-mu-open]').click();
     assert.equal(await page.locator('[data-mu-start]').count(),0);
     await page.screenshot({path:path.join(out,'mu-locked.png'),fullPage:true});
-    await page.evaluate(()=>{for(const u of window.CURRICULUM)window.RikaState.progress(u.unitId).basicCleared=true;window.RikaState.save();window.RikaMu.show();});
+    // Seed only the all-caves prerequisite for the twelve endgame quests.
+    await page.evaluate(()=>{for(const u of window.CURRICULUM)window.RikaState.progress(u.unitId).basicCleared=true;window.RikaState.save();});
+    await page.reload();
+    await page.locator('[data-mu-open]').click();
     assert.equal(await page.locator('[data-mu-start]').count(),12);
     assert.equal(await page.locator('[data-mu-start]:disabled').count(),4);
     await page.locator('[data-mu-domain="energy"]').focus();await page.keyboard.press('Enter');
@@ -135,13 +237,12 @@ async function run() {
     }
     for(const viewport of [{width:1280,height:900},{width:768,height:1024},{width:390,height:844}]){
       await page.setViewportSize(viewport);
-      await page.evaluate(()=>window.RikaMu.show());
       assert.equal(await page.evaluate(()=>scrollY),0);
       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Mu menu overflow');
       await page.screenshot({path:path.join(out,'mu-map-'+viewport.width+'.png'),fullPage:true});
       const questIds=await page.evaluate(()=>window.RikaMuData.quests.map(q=>q.id));
       for(const id of questIds){
-        await page.evaluate(id=>window.RikaMu.start(id,true),id);
+        await page.locator('[data-mu-start="'+id+'"]').click();
         const middle=await page.evaluate(id=>window.RikaMuData.quests.find(q=>q.id===id).level==='middle',id);
         assert.equal(await page.locator('[data-mu-primer]').count(),middle?1:0);
         let count=0;
@@ -165,12 +266,12 @@ async function run() {
         assert.equal(await page.evaluate(id=>window.RikaState.get().mu.progress[id].cleared,id),true);
         assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Mu result overflow');
         await page.screenshot({path:path.join(out,'mu-result-'+id+'-'+viewport.width+'.png'),fullPage:true});
+        await page.locator('[data-mu-menu]').click();
       }
     }
     await page.reload();await page.locator('[data-mu-open]').click();
     assert.equal(await page.locator('[data-mu-badge]').count(),12);
     assert.equal(await page.evaluate(()=>Object.values(RikaState.get().mu.progress).every(p=>p.badged)),true);
-    const local=await browser.newPage();local.on('pageerror',e=>errors.push(e.message));await local.goto(pathToFileURL(path.join(root,'index.html')).href);await local.locator('[data-home-map]').waitFor();await local.close();
     assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
     console.log('PASS browser UI, responsive SVG pixel checks, resume, rewards, ruby, Mu inquiry workflows, file:// and offline requests');
     console.log('Screenshots: '+out);

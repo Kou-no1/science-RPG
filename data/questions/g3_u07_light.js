@@ -57,7 +57,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "context": "standard",
       "id": "g3u07-b-003",
       "tier": "basic",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -65,7 +65,7 @@ window.QUESTION_BANK["g3_u07"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "{鏡|かがみ}の{光|ひかり}を{重ね|かさね}た{場所|ばしょ}の{暖か|あたたか}さは？",
+      "stem": "同じ{鏡|かがみ}を{使|つか}い、同じ紙に同じ{時間|じかん}だけ{日光|にっこう}を当てた。紙がいちばん暖まりやすいのは？",
       "choices": [
         "三枚の{光|ひかり}を{重ね|かさね}た{場所|ばしょ}",
         "一枚だけの{場所|ばしょ}",
@@ -77,10 +77,10 @@ window.QUESTION_BANK["g3_u07"] = {
       "context": "standard",
       "id": "g3u07-b-004",
       "tier": "basic",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -97,7 +97,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "context": "standard",
       "id": "g3u07-b-005",
       "tier": "basic",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -117,7 +117,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "context": "standard",
       "id": "g3u07-b-006",
       "tier": "basic",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -137,7 +137,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "context": "standard",
       "id": "g3u07-b-007",
       "tier": "basic",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -177,7 +177,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "context": "standard",
       "id": "g3u07-b-009",
       "tier": "basic",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -250,7 +250,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "explanation": "同じ{条件|じょうけん}なら、{光|ひかり}を{重ね|かさね}ると{明|あか}るくなるよ。",
       "id": "g3u07-b-013",
       "tier": "basic",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -268,7 +268,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "explanation": "{日光|にっこう}を{重ね|かさね}ると、より{暖か|あたたか}くなるよ。",
       "id": "g3u07-b-014",
       "tier": "basic",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -286,7 +286,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "explanation": "{温度計|おんどけい}で{暖か|あたたか}さを数値にして{比|くら}べるよ。",
       "id": "g3u07-b-015",
       "tier": "basic",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "explanation": "{日光|にっこう}が集まる{場所|ばしょ}は熱くなるので注意しよう。",
       "id": "g3u07-b-016",
       "tier": "basic",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -322,7 +322,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "explanation": "集光は{先生|せんせい}とだけ行い、人や燃えやすい{物|もの}に向けないでね。",
       "id": "g3u07-b-017",
       "tier": "basic",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -445,7 +445,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "context": "everyday",
       "id": "g3u07-boss-003",
       "tier": "boss",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -465,7 +465,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "context": "everyday",
       "id": "g3u07-boss-004",
       "tier": "boss",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -485,7 +485,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "context": "everyday",
       "id": "g3u07-boss-005",
       "tier": "boss",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "context": "everyday",
       "id": "g3u07-boss-006",
       "tier": "boss",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -525,7 +525,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "context": "everyday",
       "id": "g3u07-boss-007",
       "tier": "boss",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -565,7 +565,7 @@ window.QUESTION_BANK["g3_u07"] = {
       "context": "everyday",
       "id": "g3u07-boss-009",
       "tier": "boss",
-      "subId": "g3_u07_s1",
+      "subId": "g3_u07_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1

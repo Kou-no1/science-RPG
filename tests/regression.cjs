@@ -136,11 +136,43 @@ test('learning retries mistakes; challenge accuracy is independent of equipment 
   assert.equal(b.firstCorrectCount,19);assert.equal(b.questions.length,21);assert.equal(b.lives,3);assert.equal(b.perfect,false);
   w.RikaState.reset();b=clear(w,'g3_u01','basic',{mode:'challenge'},[0]);assert.equal(b.lives,2);assert.equal(w.RikaState.progress('g3_u01').basicCleared,true);
 });
+test('a shuffled retry starts with all choices available, including after reload',()=>{
+  const {w}=app();
+  w.RikaBattle.start('g5_u01','basic');
+  const battle=w.RikaBattle.getBattle();
+  const target=battle.questions.find(q=>q.type==='mc4');
+  for(let i=0;i<battle.initialCount;i++){
+    const q=battle.questions[battle.index];
+    if(q===target){
+      const wrong=q.choices.map((_,index)=>index).filter(index=>index!==q.answer);
+      battle.hiddenChoices[q.id]=wrong.slice(0,2);
+      battle.usedHint=true;
+      w.RikaBattle.answer(wrong[2]);
+    } else w.RikaBattle.answer(q.answer);
+    w.RikaBattle.advance();
+  }
+  assert.equal(battle.reviewing,true);
+  assert.equal(battle.questions[battle.index].id,target.id);
+  assert.deepEqual(Array.from(battle.hiddenChoices[target.id] || []),[]);
+  w.RikaState.load();
+  w.RikaBattle.resume();
+  const resumed=w.RikaBattle.getBattle();
+  w.RikaBattle.answer(resumed.questions[resumed.index].answer);
+  w.RikaBattle.advance();
+  assert.equal(w.RikaState.get().activeSession,null);
+});
 test('course completion does not mark an undefeated final monster defeated',()=>{
   const {w}=app();w.RikaState.get().player.hpBase=6;
   const b=clear(w,'g3_u01','basic',{mode:'challenge'},[15,16,17]);
   assert.ok(b.enemyHp>0);assert.equal(w.RikaState.progress('g3_u01').basicCleared,true);
   assert.equal(b.waves[b.wave].hp,b.enemyHp);
+});
+test('an early challenge loss reports attempted and unanswered questions separately',()=>{
+  const {w,node}=app();
+  clear(w,'g3_u01','basic',{mode:'challenge'},[0,1,2]);
+  assert.match(node.innerHTML,/0 \/ 3問 正かい/);
+  assert.match(node.innerHTML,/まだ答えていない問題 17問/);
+  assert.doesNotMatch(node.innerHTML,/学び直した問題/);
 });
 test('perfect boss replays collect all normal equipment; a shield never makes a mistake perfect',()=>{
   const {w}=app();w.RikaState.progress('g5_u07').unlocked=true;clear(w,'g5_u07','basic');

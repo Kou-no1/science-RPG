@@ -619,7 +619,7 @@ window.QUESTION_BANK["g6_u02"] = {
       "tier": "boss",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "はく{空気|くうき}を{石|いし}灰{水|みず}に通したら白くにごった。何が多くふくまれていた？",
+      "stem": "はく{空気|くうき}を石灰水に通したら白くにごった。この{結果|けっか}から、どの{気体|きたい}がふくまれているとわかる？",
       "choices": [
         "{二酸化炭素|にさんかたんそ}",
         "{酸素|さんそ}",
@@ -632,7 +632,7 @@ window.QUESTION_BANK["g6_u02"] = {
       "curriculumRef": "B(1)ア(ｱ)(ｲ)(ｳ)(ｴ),イ",
       "context": "standard",
       "targetStage": "elementary6",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "id": "g6u02-boss-010",
@@ -900,7 +900,7 @@ window.QUESTION_BANK["g6_u02"] = {
       "subId": "g6_u02_s1",
       "curriculumRef": "B(1)ア(ｱ)(ｲ)(ｳ)(ｴ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -921,7 +921,7 @@ window.QUESTION_BANK["g6_u02"] = {
       "subId": "g6_u02_s3",
       "curriculumRef": "B(1)ア(ｱ)(ｲ)(ｳ)(ｴ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -940,7 +940,7 @@ window.QUESTION_BANK["g6_u02"] = {
       "subId": "g6_u02_s3",
       "curriculumRef": "B(1)ア(ｱ)(ｲ)(ｳ)(ｴ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -1001,7 +1001,7 @@ window.QUESTION_BANK["g6_u02"] = {
       "subId": "g6_u02_s3",
       "curriculumRef": "B(1)ア(ｱ)(ｲ)(ｳ)(ｴ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },

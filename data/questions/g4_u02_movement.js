@@ -77,7 +77,7 @@ window.QUESTION_BANK["g4_u02"] = {
       "context": "standard",
       "id": "g4u02-b-004",
       "tier": "basic",
-      "subId": "g4_u02_s1",
+      "subId": "g4_u02_s2",
       "curriculumRef": "B(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -97,7 +97,7 @@ window.QUESTION_BANK["g4_u02"] = {
       "context": "standard",
       "id": "g4u02-b-005",
       "tier": "basic",
-      "subId": "g4_u02_s1",
+      "subId": "g4_u02_s2",
       "curriculumRef": "B(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -117,7 +117,7 @@ window.QUESTION_BANK["g4_u02"] = {
       "context": "standard",
       "id": "g4u02-b-006",
       "tier": "basic",
-      "subId": "g4_u02_s1",
+      "subId": "g4_u02_s2",
       "curriculumRef": "B(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -145,7 +145,7 @@ window.QUESTION_BANK["g4_u02"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "人以外の{動物|どうぶつ}にも、ほねときん肉は？",
+      "stem": "犬のあしのほねときん肉を{模型|もけい}で{調|しら}べた。人のあしと共通する{動|うご}き方は？",
       "choices": [
         "ほね・{関節|かんせつ}・きん肉で{動|うご}く",
         "ほねが全くない",
@@ -157,10 +157,10 @@ window.QUESTION_BANK["g4_u02"] = {
       "context": "standard",
       "id": "g4u02-b-008",
       "tier": "basic",
-      "subId": "g4_u02_s1",
+      "subId": "g4_u02_s2",
       "curriculumRef": "B(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -268,7 +268,7 @@ window.QUESTION_BANK["g4_u02"] = {
       "explanation": "きん肉がほねを{動|うご}かすよ。",
       "id": "g4u02-b-014",
       "tier": "basic",
-      "subId": "g4_u02_s1",
+      "subId": "g4_u02_s2",
       "curriculumRef": "B(1)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -286,7 +286,7 @@ window.QUESTION_BANK["g4_u02"] = {
       "explanation": "きん肉が{縮ん|ちぢん}で、ほねを{引く|ひく}ことで{動|うご}くよ。",
       "id": "g4u02-b-015",
       "tier": "basic",
-      "subId": "g4_u02_s1",
+      "subId": "g4_u02_s2",
       "curriculumRef": "B(1)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g4_u02"] = {
       "explanation": "きん肉が{組|くみ}になり、片側が{縮む|ちぢむ}ともう片側はゆるむよ。",
       "id": "g4u02-b-016",
       "tier": "basic",
-      "subId": "g4_u02_s1",
+      "subId": "g4_u02_s2",
       "curriculumRef": "B(1)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -465,7 +465,7 @@ window.QUESTION_BANK["g4_u02"] = {
       "context": "everyday",
       "id": "g4u02-boss-004",
       "tier": "boss",
-      "subId": "g4_u02_s1",
+      "subId": "g4_u02_s2",
       "curriculumRef": "B(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -485,7 +485,7 @@ window.QUESTION_BANK["g4_u02"] = {
       "context": "everyday",
       "id": "g4u02-boss-005",
       "tier": "boss",
-      "subId": "g4_u02_s1",
+      "subId": "g4_u02_s2",
       "curriculumRef": "B(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g4_u02"] = {
       "context": "everyday",
       "id": "g4u02-boss-006",
       "tier": "boss",
-      "subId": "g4_u02_s1",
+      "subId": "g4_u02_s2",
       "curriculumRef": "B(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -545,7 +545,7 @@ window.QUESTION_BANK["g4_u02"] = {
       "context": "everyday",
       "id": "g4u02-boss-008",
       "tier": "boss",
-      "subId": "g4_u02_s1",
+      "subId": "g4_u02_s2",
       "curriculumRef": "B(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1

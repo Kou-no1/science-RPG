@@ -810,7 +810,7 @@ window.QUESTION_BANK["g6_u05"] = {
       "subId": "g6_u05_s1",
       "curriculumRef": "B(5)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -831,7 +831,7 @@ window.QUESTION_BANK["g6_u05"] = {
       "subId": "g6_u05_s1",
       "curriculumRef": "B(5)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -852,7 +852,7 @@ window.QUESTION_BANK["g6_u05"] = {
       "subId": "g6_u05_s1",
       "curriculumRef": "B(5)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -892,7 +892,7 @@ window.QUESTION_BANK["g6_u05"] = {
       "subId": "g6_u05_s1",
       "curriculumRef": "B(5)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -932,7 +932,7 @@ window.QUESTION_BANK["g6_u05"] = {
       "subId": "g6_u05_s1",
       "curriculumRef": "B(5)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -972,7 +972,7 @@ window.QUESTION_BANK["g6_u05"] = {
       "subId": "g6_u05_s1",
       "curriculumRef": "B(5)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },

@@ -790,7 +790,7 @@ window.QUESTION_BANK["g5_u05"] = {
       "subId": "g5_u05_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -809,7 +809,7 @@ window.QUESTION_BANK["g5_u05"] = {
       "subId": "g5_u05_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -851,7 +851,7 @@ window.QUESTION_BANK["g5_u05"] = {
       "subId": "g5_u05_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -870,7 +870,7 @@ window.QUESTION_BANK["g5_u05"] = {
       "subId": "g5_u05_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -879,20 +879,20 @@ window.QUESTION_BANK["g5_u05"] = {
       "tier": "bonus",
       "type": "mc4",
       "skill": "concept",
-      "stem": "🎓 {暖か|あたたか}い海から{水|みず}じょう気が多く{入|い}ることは、台{風|かぜ}の{発達|はったつ}と{関係|かんけい}する。ここで{出|で}てくる{中学|ちゅうがく}用語は？",
+      "stem": "🎓 台風の雲の中で、{水蒸気|すいじょうき}が{水|みず}の粒になるときの熱の{出入り|でいり}は？",
       "choices": [
-        "{水|みず}じょう気",
-        "{種子|しゅし}",
-        "{鉄心|てっしん}",
-        "{花粉|かふん}"
+        "まわりに熱を{出|で}す",
+        "まわりから熱をうばう",
+        "熱の{出入り|でいり}はない",
+        "{水|みず}の粒が{凍る|こおる}まで熱の{出入り|でいり}はない"
       ],
       "answer": 0,
-      "explanation": "{水|みず}じょう気や雲のでき方は{中学|ちゅうがく}でくわしく学ぶよ。",
+      "explanation": "{水蒸気|すいじょうき}が{水|みず}に{変|か}わるときに熱が{出|で}るよ。台風では、この熱が上昇する{空気|くうき}の流れを強めるはたらきをするよ。",
       "subId": "g5_u05_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "middle",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "bonusCategory": "middle"
     },
     {
@@ -912,7 +912,7 @@ window.QUESTION_BANK["g5_u05"] = {
       "subId": "g5_u05_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -952,7 +952,7 @@ window.QUESTION_BANK["g5_u05"] = {
       "subId": "g5_u05_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -971,7 +971,7 @@ window.QUESTION_BANK["g5_u05"] = {
       "subId": "g5_u05_s2",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -1011,7 +1011,7 @@ window.QUESTION_BANK["g5_u05"] = {
       "subId": "g5_u05_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     }

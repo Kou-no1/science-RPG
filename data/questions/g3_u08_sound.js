@@ -65,7 +65,7 @@ window.QUESTION_BANK["g3_u08"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "太鼓のふるえを{見|み}やすくするには？",
+      "stem": "太鼓の上に小さな紙切れをのせて、太鼓を鳴らした。紙切れはどうなる？",
       "choices": [
         "ふるえに合わせて{動|うご}く",
         "必ずとける",
@@ -80,7 +80,7 @@ window.QUESTION_BANK["g3_u08"] = {
       "subId": "g3_u08_s1",
       "curriculumRef": "A(3)ア(ｳ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -117,7 +117,7 @@ window.QUESTION_BANK["g3_u08"] = {
       "context": "standard",
       "id": "g3u08-b-006",
       "tier": "basic",
-      "subId": "g3_u08_s1",
+      "subId": "g3_u08_s2",
       "curriculumRef": "A(3)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -137,7 +137,7 @@ window.QUESTION_BANK["g3_u08"] = {
       "context": "standard",
       "id": "g3u08-b-007",
       "tier": "basic",
-      "subId": "g3_u08_s1",
+      "subId": "g3_u08_s2",
       "curriculumRef": "A(3)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -145,7 +145,7 @@ window.QUESTION_BANK["g3_u08"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "糸電話で声を{出|で}すと、紙コップの{底|そこ}は？",
+      "stem": "糸電話で声を{出|で}したとき、話す側の紙コップの{底|そこ}から糸へ伝わるものは？",
       "choices": [
         "ふるえ",
         "{水|みず}の流れ",
@@ -157,15 +157,15 @@ window.QUESTION_BANK["g3_u08"] = {
       "context": "standard",
       "id": "g3u08-b-008",
       "tier": "basic",
-      "subId": "g3_u08_s1",
+      "subId": "g3_u08_s2",
       "curriculumRef": "A(3)ア(ｳ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "{音|おと}の伝わりを{調|しら}べるとき、{変|か}えることは？",
+      "stem": "糸電話で、糸の張り方だけを{変|か}えて{音|おと}の伝わり方を{比|くら}べたい。そろえる{条件|じょうけん}は？",
       "choices": [
         "同じ糸とコップを{使|つか}う",
         "糸の{種類|しゅるい}も{変|か}える",
@@ -177,10 +177,10 @@ window.QUESTION_BANK["g3_u08"] = {
       "context": "standard",
       "id": "g3u08-b-009",
       "tier": "basic",
-      "subId": "g3_u08_s1",
+      "subId": "g3_u08_s2",
       "curriculumRef": "A(3)ア(ｳ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g3_u08"] = {
       "explanation": "糸がふるえを伝えるので、ぴんと張って{使|つか}おう。",
       "id": "g3u08-b-016",
       "tier": "basic",
-      "subId": "g3_u08_s1",
+      "subId": "g3_u08_s2",
       "curriculumRef": "A(3)ア(ｳ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -322,7 +322,7 @@ window.QUESTION_BANK["g3_u08"] = {
       "explanation": "糸のふるえを{止|と}めると、{音|おと}が伝わりにくくなるよ。",
       "id": "g3u08-b-017",
       "tier": "basic",
-      "subId": "g3_u08_s1",
+      "subId": "g3_u08_s2",
       "curriculumRef": "A(3)ア(ｳ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g3_u08"] = {
       "context": "everyday",
       "id": "g3u08-boss-006",
       "tier": "boss",
-      "subId": "g3_u08_s1",
+      "subId": "g3_u08_s2",
       "curriculumRef": "A(3)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -525,7 +525,7 @@ window.QUESTION_BANK["g3_u08"] = {
       "context": "everyday",
       "id": "g3u08-boss-007",
       "tier": "boss",
-      "subId": "g3_u08_s1",
+      "subId": "g3_u08_s2",
       "curriculumRef": "A(3)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -545,7 +545,7 @@ window.QUESTION_BANK["g3_u08"] = {
       "context": "everyday",
       "id": "g3u08-boss-008",
       "tier": "boss",
-      "subId": "g3_u08_s1",
+      "subId": "g3_u08_s2",
       "curriculumRef": "A(3)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -565,7 +565,7 @@ window.QUESTION_BANK["g3_u08"] = {
       "context": "everyday",
       "id": "g3u08-boss-009",
       "tier": "boss",
-      "subId": "g3_u08_s1",
+      "subId": "g3_u08_s2",
       "curriculumRef": "A(3)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1

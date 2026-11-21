@@ -27,7 +27,7 @@ window.QUESTION_BANK["g6_u01"] = {
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "集気びんの中でろうそくを燃やし続けると、やがてどうなる？",
+      "stem": "火のついたろうそくを集気びんに{入|い}れ、ふたをして新しい{空気|くうき}が{入|い}らないようにした。火はやがてどうなる？",
       "choices": [
         "消える",
         "どんどん{大|おお}きくなる",
@@ -40,7 +40,7 @@ window.QUESTION_BANK["g6_u01"] = {
       "curriculumRef": "A(1)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary6",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "id": "g6u01-b-003",
@@ -145,7 +145,7 @@ window.QUESTION_BANK["g6_u01"] = {
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "{物|もの}が燃えた{後|あと}の{空気|くうき}では、何が{増|ふ}える？",
+      "stem": "ろうそくを集気びんの中で燃やした{後|あと}、燃やす{前|まえ}より空気中で{割合|わりあい}が{増|ふ}える{気体|きたい}は？",
       "choices": [
         "{二酸化炭素|にさんかたんそ}",
         "{酸素|さんそ}",
@@ -153,12 +153,12 @@ window.QUESTION_BANK["g6_u01"] = {
         "{花粉|かふん}"
       ],
       "answer": 0,
-      "explanation": "{物|もの}が燃えると{二酸化炭素|にさんかたんそ}ができるよ。",
+      "explanation": "ろうそくのろうが燃えると{二酸化炭素|にさんかたんそ}ができるので、びんの中でその{割合|わりあい}が{増|ふ}えるよ。",
       "subId": "g6_u01_s2",
       "curriculumRef": "A(1)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary6",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "id": "g6u01-b-009",
@@ -243,18 +243,18 @@ window.QUESTION_BANK["g6_u01"] = {
       "tier": "basic",
       "type": "ox",
       "skill": "concept",
-      "stem": "{物|もの}が燃えると、{空気|くうき}の{成分|せいぶん}の{割合|わりあい}が{変|か}わる。",
+      "stem": "集気びんの中でろうそくを燃やすと、びんの中の{空気|くうき}の{成分|せいぶん}の{割合|わりあい}が{変|か}わる。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "{酸素|さんそ}が{使|つか}われ、{二酸化炭素|にさんかたんそ}が{増|ふ}えるよ。",
+      "explanation": "ろうそくが燃えると、{酸素|さんそ}の一部が{使|つか}われ、{二酸化炭素|にさんかたんそ}ができるよ。",
       "subId": "g6_u01_s2",
       "curriculumRef": "A(1)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary6",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "id": "g6u01-b-014",
@@ -359,7 +359,7 @@ window.QUESTION_BANK["g6_u01"] = {
       "tier": "basic",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "燃えた{後|あと}の{空気|くうき}を{石|いし}灰{水|みず}に通したら白くにごった。{増|ふ}えたと考えられる{気体|きたい}は？",
+      "stem": "ろうそくを燃やした{後|あと}の{空気|くうき}を石灰水に通すと白くにごった。この{結果|けっか}から、どの{気体|きたい}があるとわかる？",
       "choices": [
         "{二酸化炭素|にさんかたんそ}",
         "{酸素|さんそ}",
@@ -367,30 +367,30 @@ window.QUESTION_BANK["g6_u01"] = {
         "{空|そら}気{全部|ぜんぶ}"
       ],
       "answer": 0,
-      "explanation": "{石|いし}灰{水|みず}が白くにごるのは、{二酸化炭素|にさんかたんそ}がある手がかりだよ。",
+      "explanation": "石灰水のにごりは{二酸化炭素|にさんかたんそ}があるしるし。どれだけ{増|ふ}えたかを確かめるには、燃やす{前|まえ}と{後|あと}の{割合|わりあい}を{比|くら}べよう。",
       "subId": "g6_u01_s2",
       "curriculumRef": "A(1)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary6",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "id": "g6u01-b-020",
       "tier": "basic",
       "type": "ox",
       "skill": "concept",
-      "stem": "{物|もの}が燃えると、{酸素|さんそ}が少し{使|つか}われて{二酸化炭素|にさんかたんそ}ができる。",
+      "stem": "{木|き}が空気中で燃えると、{酸素|さんそ}の一部が{使|つか}われ、{二酸化炭素|にさんかたんそ}ができる。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "燃えた{後|あと}の{空気|くうき}は、{酸素|さんそ}が{減|へ}り{二酸化炭素|にさんかたんそ}が{増|ふ}えるよ。",
-      "subId": "g6_u01_s2",
+      "explanation": "{木|き}やろうそくが燃えると{二酸化炭素|にさんかたんそ}ができるよ。何を燃やしても同じ{物|もの}ができるわけではないよ。",
+      "subId": "g6_u01_s1",
       "curriculumRef": "A(1)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary6",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "stem": "集気びんのろうそくを{授業|じゅぎょう}で{観察|かんさつ}した。ふたをすると火が消えた理由は？",
@@ -479,7 +479,7 @@ window.QUESTION_BANK["g6_u01"] = {
       "tier": "boss",
       "type": "mc4",
       "skill": "experiment",
-      "stem": "燃えた{後|あと}の{空気|くうき}を{石|いし}灰{水|みず}に通すと白くにごった。何ができたことを示す？",
+      "stem": "ろうそくを燃やす{前|まえ}と{後|あと}の{空気|くうき}を、同じ{量|りょう}ずつ同じ{量|りょう}の石灰水に通した。燃やした{後|あと}の方が白くにごった。{増|ふ}えたと考えられる{気体|きたい}は？",
       "choices": [
         "{二酸化炭素|にさんかたんそ}",
         "{酸素|さんそ}",
@@ -492,7 +492,7 @@ window.QUESTION_BANK["g6_u01"] = {
       "curriculumRef": "A(1)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary6",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "id": "g6u01-boss-003",
@@ -519,18 +519,18 @@ window.QUESTION_BANK["g6_u01"] = {
       "tier": "boss",
       "type": "ox",
       "skill": "concept",
-      "stem": "燃える{前|まえ}より燃えた{後|あと}の{空気|くうき}は、{二酸化炭素|にさんかたんそ}の{割合|わりあい}が{増|ふ}える。",
+      "stem": "集気びんの中でろうそくを燃やすと、燃やす{前|まえ}より{二酸化炭素|にさんかたんそ}の{割合|わりあい}が{増|ふ}える。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "{物|もの}が燃えると{二酸化炭素|にさんかたんそ}ができるよ。",
+      "explanation": "ろうそくのろうが燃えると、{酸素|さんそ}の一部が{使|つか}われ、{二酸化炭素|にさんかたんそ}ができるよ。",
       "subId": "g6_u01_s2",
       "curriculumRef": "A(1)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary6",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "id": "g6u01-boss-005",
@@ -797,20 +797,20 @@ window.QUESTION_BANK["g6_u01"] = {
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 {物質|ぶっしつ}をつくるとても{小さな|ちいさな}つぶを{中学|ちゅうがく}では何と学ぶ？",
+      "stem": "🎓 酸素原子が二つ結びついた、{酸素|さんそ}という{物質|ぶっしつ}の性質を示す{小さな|ちいさな}まとまりを何という？",
       "choices": [
         "{分子|ぶんし}",
-        "{支点|してん}",
-        "化{石|いし}",
-        "{月|つき}"
+        "{細胞|さいぼう}",
+        "{結晶|けっしょう}",
+        "{地層|ちそう}"
       ],
       "answer": 0,
-      "explanation": "{分子|ぶんし}は{物質|ぶっしつ}のつくりを考えるときの言{葉|は}だよ。",
+      "explanation": "{酸素|さんそ}は{分子|ぶんし}をつくる{物質|ぶっしつ}だよ。{鉄|てつ}や{食塩|しょくえん}のように、{分子|ぶんし}をつくらない{物質|ぶっしつ}もあるよ。",
       "subId": "g6_u01_s1",
       "curriculumRef": "A(1)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "middle",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "bonusCategory": "middle"
     },
     {
@@ -828,7 +828,7 @@ window.QUESTION_BANK["g6_u01"] = {
       "subId": "g6_u01_s1",
       "curriculumRef": "A(1)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -849,7 +849,7 @@ window.QUESTION_BANK["g6_u01"] = {
       "subId": "g6_u01_s1",
       "curriculumRef": "A(1)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -868,7 +868,7 @@ window.QUESTION_BANK["g6_u01"] = {
       "subId": "g6_u01_s2",
       "curriculumRef": "A(1)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -929,7 +929,7 @@ window.QUESTION_BANK["g6_u01"] = {
       "subId": "g6_u01_s1",
       "curriculumRef": "A(1)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -950,7 +950,7 @@ window.QUESTION_BANK["g6_u01"] = {
       "subId": "g6_u01_s1",
       "curriculumRef": "A(1)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -1010,7 +1010,7 @@ window.QUESTION_BANK["g6_u01"] = {
       "subId": "g6_u01_s1",
       "curriculumRef": "A(1)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "bonusCategory": "trivia"
     }
   ]

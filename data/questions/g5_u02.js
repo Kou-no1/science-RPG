@@ -123,7 +123,7 @@ window.QUESTION_BANK["g5_u02"] = {
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "{種子|しゅし}が{発芽|はつが}するときに{使|つか}う{養分|ようぶん}は、どこにたくわえられている？",
+      "stem": "インゲンマメの{種子|しゅし}が{発芽|はつが}するとき、おもにどこにたくわえた{養分|ようぶん}を{使|つか}う？",
       "choices": [
         "{子葉|しよう}",
         "{根|ね}の{先|さき}",
@@ -136,7 +136,7 @@ window.QUESTION_BANK["g5_u02"] = {
       "curriculumRef": "B(1)",
       "context": "standard",
       "targetStage": "elementary5",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "id": "g5u02-b-008",
@@ -357,7 +357,7 @@ window.QUESTION_BANK["g5_u02"] = {
       "tier": "basic",
       "type": "mc4",
       "skill": "concept",
-      "stem": "{発芽|はつが}して{最初|さいしょ}に{出|で}てくる、{養分|ようぶん}をたくわえた{葉|は}のようなものを{何|なん}という？",
+      "stem": "インゲンマメの芽で、本葉より{先|さき}に{地上|ちじょう}に開く二枚の厚い{葉|は}を何という？",
       "choices": [
         "{子葉|しよう}",
         "{根|ね}",
@@ -365,12 +365,12 @@ window.QUESTION_BANK["g5_u02"] = {
         "くき"
       ],
       "answer": 0,
-      "explanation": "{最初|さいしょ}に{出|で}る{子葉|しよう}には{養分|ようぶん}がたくわえられているよ。",
+      "explanation": "この二枚は{子葉|しよう}。たねのときから{養分|ようぶん}をたくわえているよ。芽が{育|そだ}つと、あとから本葉が{出|で}るよ。",
       "subId": "g5_u02_s2",
       "curriculumRef": "B(1)",
       "context": "standard",
       "targetStage": "elementary5",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "id": "g5u02-b-020",
@@ -775,7 +775,7 @@ window.QUESTION_BANK["g5_u02"] = {
       "subId": "g5_u02_s2",
       "curriculumRef": "B(1)",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -794,7 +794,7 @@ window.QUESTION_BANK["g5_u02"] = {
       "subId": "g5_u02_s1",
       "curriculumRef": "B(1)ア(ｱ)(ｲ)(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -895,7 +895,7 @@ window.QUESTION_BANK["g5_u02"] = {
       "subId": "g5_u02_s1",
       "curriculumRef": "B(1)ア(ｱ)(ｲ)(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -916,7 +916,7 @@ window.QUESTION_BANK["g5_u02"] = {
       "subId": "g5_u02_s1",
       "curriculumRef": "B(1)ア(ｱ)(ｲ)(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -956,7 +956,7 @@ window.QUESTION_BANK["g5_u02"] = {
       "subId": "g5_u02_s2",
       "curriculumRef": "B(1)",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -996,7 +996,7 @@ window.QUESTION_BANK["g5_u02"] = {
       "subId": "g5_u02_s1",
       "curriculumRef": "B(1)ア(ｱ)(ｲ)(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -1036,7 +1036,7 @@ window.QUESTION_BANK["g5_u02"] = {
       "subId": "g5_u02_s3",
       "curriculumRef": "B(1)",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     }

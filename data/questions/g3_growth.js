@@ -65,7 +65,7 @@ window.QUESTION_BANK["g3_growth"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "{育|そだ}ったことを{数字|すうじ}で残すには？",
+      "stem": "同じ{苗|なえ}の{高|たか}さが10cmから15cmになった。{高|たか}さの{変|か}わり方は？",
       "choices": [
         "5cm{増|ふ}えた",
         "5cm{減|へ}った",
@@ -80,7 +80,7 @@ window.QUESTION_BANK["g3_growth"] = {
       "subId": "g3_growth_s1",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",

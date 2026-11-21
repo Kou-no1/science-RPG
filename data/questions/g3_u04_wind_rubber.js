@@ -117,7 +117,7 @@ window.QUESTION_BANK["g3_u04"] = {
       "context": "standard",
       "id": "g3u04-b-006",
       "tier": "basic",
-      "subId": "g3_u04_s1",
+      "subId": "g3_u04_s2",
       "curriculumRef": "A(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -137,7 +137,7 @@ window.QUESTION_BANK["g3_u04"] = {
       "context": "standard",
       "id": "g3u04-b-007",
       "tier": "basic",
-      "subId": "g3_u04_s1",
+      "subId": "g3_u04_s2",
       "curriculumRef": "A(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -157,7 +157,7 @@ window.QUESTION_BANK["g3_u04"] = {
       "context": "standard",
       "id": "g3u04-b-008",
       "tier": "basic",
-      "subId": "g3_u04_s1",
+      "subId": "g3_u04_s2",
       "curriculumRef": "A(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -197,7 +197,7 @@ window.QUESTION_BANK["g3_u04"] = {
       "context": "standard",
       "id": "g3u04-b-010",
       "tier": "basic",
-      "subId": "g3_u04_s1",
+      "subId": "g3_u04_s2",
       "curriculumRef": "A(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g3_u04"] = {
       "explanation": "ゴムはのばすともとにもどろうとするよ。",
       "id": "g3u04-b-016",
       "tier": "basic",
-      "subId": "g3_u04_s1",
+      "subId": "g3_u04_s2",
       "curriculumRef": "A(2)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -322,7 +322,7 @@ window.QUESTION_BANK["g3_u04"] = {
       "explanation": "ゴムをのばす{長さ|ながさ}を{大|おお}きくすると、{動|うご}かすはたらきが{大|おお}きくなるよ。",
       "id": "g3u04-b-017",
       "tier": "basic",
-      "subId": "g3_u04_s1",
+      "subId": "g3_u04_s2",
       "curriculumRef": "A(2)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g3_u04"] = {
       "context": "everyday",
       "id": "g3u04-boss-006",
       "tier": "boss",
-      "subId": "g3_u04_s1",
+      "subId": "g3_u04_s2",
       "curriculumRef": "A(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -525,7 +525,7 @@ window.QUESTION_BANK["g3_u04"] = {
       "context": "everyday",
       "id": "g3u04-boss-007",
       "tier": "boss",
-      "subId": "g3_u04_s1",
+      "subId": "g3_u04_s2",
       "curriculumRef": "A(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -545,7 +545,7 @@ window.QUESTION_BANK["g3_u04"] = {
       "context": "everyday",
       "id": "g3u04-boss-008",
       "tier": "boss",
-      "subId": "g3_u04_s1",
+      "subId": "g3_u04_s2",
       "curriculumRef": "A(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -585,7 +585,7 @@ window.QUESTION_BANK["g3_u04"] = {
       "context": "everyday",
       "id": "g3u04-boss-010",
       "tier": "boss",
-      "subId": "g3_u04_s1",
+      "subId": "g3_u04_s2",
       "curriculumRef": "A(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -745,7 +745,7 @@ window.QUESTION_BANK["g3_u04"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "🎓 4年につながる問題。{空気|くうき}と{水|みず}を{押し|おし}たときのちがいは？",
+      "stem": "🎓 4年につながる問題。同じ筒に同じ{体積|たいせき}の{空気|くうき}と{水|みず}を別々にとじこめ、同じ{力|ちから}で{押し|おし}た。{体積|たいせき}が{小|ちい}さくなりやすいのは？",
       "choices": [
         "{空気|くうき}",
         "{水|みず}だけ",
@@ -760,7 +760,7 @@ window.QUESTION_BANK["g3_u04"] = {
       "subId": "g4_u08_s2",
       "curriculumRef": "A(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "bonusCategory": "next_grade",
       "sourceQuestionId": "g4u08-b-007",
       "prerequisiteIds": [
@@ -820,22 +820,22 @@ window.QUESTION_BANK["g3_u04"] = {
     {
       "type": "mc4",
       "skill": "experiment",
-      "stem": "🎓 4年につながる問題。筒を押す{実験|じっけん}の{安全|あんぜん}な向きは？",
+      "stem": "🎓 4年につながる問題。押し棒や栓が飛ぶことがある。筒を{使|つか}う{前|まえ}に確かめる、{安全|あんぜん}な向きは？",
       "choices": [
-        "人の顔",
-        "人のいない方",
-        "決めた{実験|じっけん}の向き",
-        "保護板の方"
+        "{実験|じっけん}する人の顔に向ける",
+        "人のいない方に向ける",
+        "横で{見|み}ている人に向ける",
+        "自分の目に向ける"
       ],
-      "answer": 0,
-      "explanation": "4年で学ぶよ。人に向けず、無理な{力|ちから}で押さないでね。",
+      "answer": 1,
+      "explanation": "4年で学ぶよ。筒の両側に人がいないことを確かめてから{使|つか}うよ。筒をのぞきこんだり、無理な{力|ちから}で{押し|おし}たりしないでね。",
       "context": "standard",
       "id": "g3u04-bonus-010",
       "tier": "bonus",
       "subId": "g4_u08_s1",
       "curriculumRef": "A(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "bonusCategory": "next_grade",
       "sourceQuestionId": "g4u08-b-010",
       "prerequisiteIds": [
@@ -932,7 +932,7 @@ window.QUESTION_BANK["g3_u04"] = {
       "subId": "g5_u10_s1",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia",
       "sourceQuestionId": "g5u10-bonus-004",
@@ -957,7 +957,7 @@ window.QUESTION_BANK["g3_u04"] = {
       "subId": "g5_u10_s1",
       "curriculumRef": "A(2)ア(ｱ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia",
       "sourceQuestionId": "g5u10-bonus-005",

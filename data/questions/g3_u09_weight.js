@@ -25,7 +25,7 @@ window.QUESTION_BANK["g3_u09"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "粘土を丸めても、{重さ|おもさ}は？",
+      "stem": "50gの粘土を、{足|あし}したり取ったりせずに丸めた。丸めたあとの{重さ|おもさ}は？",
       "choices": [
         "50g",
         "25g",
@@ -40,12 +40,12 @@ window.QUESTION_BANK["g3_u09"] = {
       "subId": "g3_u09_s1",
       "curriculumRef": "A(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "粘土を平たくしても、{重さ|おもさ}は？",
+      "stem": "40gの粘土を平たくのばした。粘土を少しも取りのぞいていないときの{重さ|おもさ}は？",
       "choices": [
         "40g",
         "80g",
@@ -53,14 +53,14 @@ window.QUESTION_BANK["g3_u09"] = {
         "0g"
       ],
       "answer": 0,
-      "explanation": "粘土の量が{同じ|おなじ}なら、{形|かたち}を{変|か}えても{重さ|おもさ}は{同じ|おなじ}だよ。",
+      "explanation": "粘土の{量|りょう}が{同じ|おなじ}なら、{形|かたち}を{変|か}えても{重さ|おもさ}は{同じ|おなじ}だよ。",
       "context": "standard",
       "id": "g3u09-b-003",
       "tier": "basic",
       "subId": "g3_u09_s1",
       "curriculumRef": "A(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -117,7 +117,7 @@ window.QUESTION_BANK["g3_u09"] = {
       "context": "standard",
       "id": "g3u09-b-006",
       "tier": "basic",
-      "subId": "g3_u09_s1",
+      "subId": "g3_u09_s2",
       "curriculumRef": "A(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -137,7 +137,7 @@ window.QUESTION_BANK["g3_u09"] = {
       "context": "standard",
       "id": "g3u09-b-007",
       "tier": "basic",
-      "subId": "g3_u09_s1",
+      "subId": "g3_u09_s2",
       "curriculumRef": "A(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -145,7 +145,7 @@ window.QUESTION_BANK["g3_u09"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "{物|もの}をいくつかに分けても、全部合わせた{重さ|おもさ}は？",
+      "stem": "60gの粘土を三つに分けた。こぼさずに{全部|ぜんぶ}を一度にはかると何g？",
       "choices": [
         "60g",
         "20g",
@@ -160,12 +160,12 @@ window.QUESTION_BANK["g3_u09"] = {
       "subId": "g3_u09_s1",
       "curriculumRef": "A(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "{容器|ようき}をのぞいた{重さ|おもさ}を知るには？",
+      "stem": "{入|い}れ{物|もの}と{砂|すな}を合わせると70g、{空|そら}の{入|い}れ{物|もの}は10g。{砂|すな}だけの{重さ|おもさ}は？",
       "choices": [
         "60g",
         "70g",
@@ -180,7 +180,7 @@ window.QUESTION_BANK["g3_u09"] = {
       "subId": "g3_u09_s1",
       "curriculumRef": "A(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g3_u09"] = {
       "explanation": "同じ{体積|たいせき}でも、{物|もの}の{種類|しゅるい}で{重さ|おもさ}がちがうよ。",
       "id": "g3u09-b-016",
       "tier": "basic",
-      "subId": "g3_u09_s1",
+      "subId": "g3_u09_s2",
       "curriculumRef": "A(1)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -322,7 +322,7 @@ window.QUESTION_BANK["g3_u09"] = {
       "explanation": "同じ{体積|たいせき}にすると、{物|もの}の{種類|しゅるい}によるちがいを{比|くら}べられるよ。",
       "id": "g3u09-b-017",
       "tier": "basic",
-      "subId": "g3_u09_s1",
+      "subId": "g3_u09_s2",
       "curriculumRef": "A(1)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g3_u09"] = {
       "context": "everyday",
       "id": "g3u09-boss-006",
       "tier": "boss",
-      "subId": "g3_u09_s1",
+      "subId": "g3_u09_s2",
       "curriculumRef": "A(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -525,7 +525,7 @@ window.QUESTION_BANK["g3_u09"] = {
       "context": "everyday",
       "id": "g3u09-boss-007",
       "tier": "boss",
-      "subId": "g3_u09_s1",
+      "subId": "g3_u09_s2",
       "curriculumRef": "A(1)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -847,7 +847,7 @@ window.QUESTION_BANK["g3_u09"] = {
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 {中学|ちゅうがく}以降で、{力|ちから}を回そうとするはたらきを何という？",
+      "stem": "💡 ドアを押す{力|ちから}には、ドアをちょうつがいのまわりに回すはたらきがある。このはたらきの{大きさ|おおきさ}を表すものは？",
       "choices": [
         "{力|ちから}のモーメント",
         "{光合成|こうごうせい}",
@@ -855,13 +855,13 @@ window.QUESTION_BANK["g3_u09"] = {
         "示準化{石|いし}"
       ],
       "answer": 0,
-      "explanation": "{力|ちから}のモーメントはてこのきまりにつながる言{葉|は}だよ。",
+      "explanation": "{力|ちから}のモーメントというよ。同じ{力|ちから}でドアを{面|めん}に垂直に{押す|おす}なら、ちょうつがいから遠い所ほど回しやすい。高校の物理につながるよ。",
       "subId": "g6_u08_s1",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
-      "contentVersion": 1,
-      "bonusCategory": "middle",
+      "targetStage": "beyond_middle",
+      "contentVersion": 2,
+      "bonusCategory": "beyond_middle",
       "sourceQuestionId": "g6u08-bonus-001",
       "prerequisiteIds": [
         "g6u08-bonus-001"
@@ -872,7 +872,7 @@ window.QUESTION_BANK["g3_u09"] = {
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 回す{力|ちから}を表す言{葉|は}として{使|つか}われることがあるものは？",
+      "stem": "💡 ねじを回す{道具|どうぐ}などで、{力|ちから}の{回転|かいてん}させるはたらきを表す言葉は？",
       "choices": [
         "トルク",
         "リトマス",
@@ -880,13 +880,13 @@ window.QUESTION_BANK["g3_u09"] = {
         "{月食|げっしょく}"
       ],
       "answer": 0,
-      "explanation": "トルクは機械などで{使|つか}われる言{葉|は}だよ。",
-      "subId": "g6_u08_s1",
+      "explanation": "トルクというよ。同じ{力|ちから}で{持|も}ち手を垂直に{押す|おす}なら、{持|も}ち手が長い方が{大きな|おおきな}トルクを{出|で}せるよ。",
+      "subId": "g6_u08_s3",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
-      "contentVersion": 1,
-      "bonusCategory": "middle",
+      "targetStage": "trivia",
+      "contentVersion": 2,
+      "bonusCategory": "trivia",
       "sourceQuestionId": "g6u08-bonus-002",
       "prerequisiteIds": [
         "g6u08-bonus-002"
@@ -897,19 +897,19 @@ window.QUESTION_BANK["g3_u09"] = {
       "tier": "bonus",
       "type": "ox",
       "skill": "concept",
-      "stem": "🎓 てこのきまりは、{力|ちから}のモーメントの考え方につながる。",
+      "stem": "💡 棒を{水平|すいへい}にして支え、おもりをつるす。{同じ|おなじ}おもりでも{支点|してん}から遠いほど、棒を回そうとするはたらきが{大きい|おおきい}。",
       "choices": [
         "○",
         "×"
       ],
       "answer": 0,
-      "explanation": "{重さ|おもさ}ときょりをかけて考える{見|み}方がつながっているよ。",
-      "subId": "g6_u08_s1",
+      "explanation": "てこで{調|しら}べた「{重さ|おもさ}と{支点|してん}からの{距離|きょり}」は、{力|ちから}のモーメントにつながるよ。高校の物理で詳しく学ぶよ。",
+      "subId": "g6_u08_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
-      "contentVersion": 1,
-      "bonusCategory": "middle",
+      "targetStage": "beyond_middle",
+      "contentVersion": 2,
+      "bonusCategory": "beyond_middle",
       "sourceQuestionId": "g6u08-bonus-003",
       "prerequisiteIds": [
         "g6u08-bonus-003"
@@ -932,7 +932,7 @@ window.QUESTION_BANK["g3_u09"] = {
       "subId": "g6_u08_s2",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia",
       "sourceQuestionId": "g6u08-bonus-004",

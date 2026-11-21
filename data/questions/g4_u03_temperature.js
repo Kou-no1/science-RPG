@@ -97,7 +97,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "context": "standard",
       "id": "g4u03-b-005",
       "tier": "basic",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -105,7 +105,7 @@ window.QUESTION_BANK["g4_u03"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "晴れた日の{気温|きおん}は、一般に？",
+      "stem": "晴れた日に、朝15℃、午後22℃、夕方18℃と{記録|きろく}した。この三つでいちばん{高|たか}い{気温|きおん}は？",
       "choices": [
         "午後の22℃",
         "朝の15℃",
@@ -117,10 +117,10 @@ window.QUESTION_BANK["g4_u03"] = {
       "context": "standard",
       "id": "g4u03-b-006",
       "tier": "basic",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -137,7 +137,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "context": "standard",
       "id": "g4u03-b-007",
       "tier": "basic",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -157,7 +157,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "context": "standard",
       "id": "g4u03-b-008",
       "tier": "basic",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -165,7 +165,7 @@ window.QUESTION_BANK["g4_u03"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "同じ日の最高と最低の差は？",
+      "stem": "校庭の{一日|いちにち}の{記録|きろく}で、最も{高|たか}い{気温|きおん}は24℃、最も{低|ひく}い{気温|きおん}は16℃だった。差は何℃？",
       "choices": [
         "8℃",
         "16℃",
@@ -177,10 +177,10 @@ window.QUESTION_BANK["g4_u03"] = {
       "context": "standard",
       "id": "g4u03-b-009",
       "tier": "basic",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -197,7 +197,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "context": "standard",
       "id": "g4u03-b-010",
       "tier": "basic",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -286,7 +286,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "explanation": "同じ{場所|ばしょ}で、決まった{時刻|じこく}ごとの{記録|きろく}を{比|くら}べよう。",
       "id": "g4u03-b-015",
       "tier": "basic",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "explanation": "晴れた日は昼過ぎに{高|たか}くなりやすい。{実際|じっさい}の{記録|きろく}で確かめよう。",
       "id": "g4u03-b-016",
       "tier": "basic",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -322,7 +322,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "explanation": "くもりや{雨|あめ}の日は、晴れの日より{変化|へんか}が{小さい|ちいさい}ことが多いよ。",
       "id": "g4u03-b-017",
       "tier": "basic",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -485,7 +485,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "context": "everyday",
       "id": "g4u03-boss-005",
       "tier": "boss",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "context": "everyday",
       "id": "g4u03-boss-006",
       "tier": "boss",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -525,7 +525,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "context": "everyday",
       "id": "g4u03-boss-007",
       "tier": "boss",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -545,7 +545,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "context": "everyday",
       "id": "g4u03-boss-008",
       "tier": "boss",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -565,7 +565,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "context": "everyday",
       "id": "g4u03-boss-009",
       "tier": "boss",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -585,7 +585,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "context": "everyday",
       "id": "g4u03-boss-010",
       "tier": "boss",
-      "subId": "g4_u03_s1",
+      "subId": "g4_u03_s2",
       "curriculumRef": "B(4)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -878,7 +878,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "subId": "g5_u01_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia",
       "sourceQuestionId": "g5u01-bonus-002",
@@ -903,7 +903,7 @@ window.QUESTION_BANK["g4_u03"] = {
       "subId": "g5_u01_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia",
       "sourceQuestionId": "g5u01-bonus-003",

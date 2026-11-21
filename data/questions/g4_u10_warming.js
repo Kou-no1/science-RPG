@@ -45,7 +45,7 @@ window.QUESTION_BANK["g4_u10"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "{金ぞく|きんぞく}の暖まり方を{見|み}やすくするものは？",
+      "stem": "金ぞく板に{温度|おんど}で{色|いろ}が{変|か}わる材料をぬり、板のはしを{温め|あたため}た。{色|いろ}が{変|か}わるようすから何がわかる？",
       "choices": [
         "暖まる{順番|じゅんばん}",
         "{重さ|おもさ}だけ",
@@ -60,7 +60,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "subId": "g4_u10_s1",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -77,7 +77,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "context": "standard",
       "id": "g4u10-b-004",
       "tier": "basic",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -97,7 +97,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "context": "standard",
       "id": "g4u10-b-005",
       "tier": "basic",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -105,7 +105,7 @@ window.QUESTION_BANK["g4_u10"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "{水|みず}を上だけから{暖め|あたため}ると？",
+      "stem": "{水|みず}を上の方だけから{温め|あたため}た。{動|うご}かさないでおくと、{底|そこ}の方の{水|みず}は？",
       "choices": [
         "暖まりにくい",
         "必ずすぐ同じ{温度|おんど}",
@@ -117,10 +117,10 @@ window.QUESTION_BANK["g4_u10"] = {
       "context": "standard",
       "id": "g4u10-b-006",
       "tier": "basic",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -137,7 +137,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "context": "standard",
       "id": "g4u10-b-007",
       "tier": "basic",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -157,7 +157,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "context": "standard",
       "id": "g4u10-b-008",
       "tier": "basic",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -177,7 +177,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "context": "standard",
       "id": "g4u10-b-009",
       "tier": "basic",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -268,7 +268,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "explanation": "暖まった{水|みず}は上へ{動|うご}き、{冷た|つめた}い{水|みず}が下へ{動|うご}くよ。",
       "id": "g4u10-b-014",
       "tier": "basic",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -286,7 +286,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "explanation": "{水|みず}は上下に{動|うご}くことで、全体が暖まるよ。",
       "id": "g4u10-b-015",
       "tier": "basic",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "explanation": "{暖か|あたたか}い{水|みず}は上にあるので、下の{水|みず}は暖まりにくいよ。",
       "id": "g4u10-b-016",
       "tier": "basic",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -322,7 +322,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "explanation": "暖まった{空気|くうき}は上へ{動|うご}くよ。",
       "id": "g4u10-b-017",
       "tier": "basic",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -465,7 +465,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "context": "everyday",
       "id": "g4u10-boss-004",
       "tier": "boss",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -485,7 +485,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "context": "everyday",
       "id": "g4u10-boss-005",
       "tier": "boss",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "context": "everyday",
       "id": "g4u10-boss-006",
       "tier": "boss",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -525,7 +525,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "context": "everyday",
       "id": "g4u10-boss-007",
       "tier": "boss",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -545,7 +545,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "context": "everyday",
       "id": "g4u10-boss-008",
       "tier": "boss",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -565,7 +565,7 @@ window.QUESTION_BANK["g4_u10"] = {
       "context": "everyday",
       "id": "g4u10-boss-009",
       "tier": "boss",
-      "subId": "g4_u10_s1",
+      "subId": "g4_u10_s2",
       "curriculumRef": "A(2)ア(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1

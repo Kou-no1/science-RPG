@@ -97,7 +97,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "context": "standard",
       "id": "g3u02-b-005",
       "tier": "basic",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -117,7 +117,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "context": "standard",
       "id": "g3u02-b-006",
       "tier": "basic",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -137,7 +137,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "context": "standard",
       "id": "g3u02-b-007",
       "tier": "basic",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -157,7 +157,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "context": "standard",
       "id": "g3u02-b-008",
       "tier": "basic",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -165,7 +165,7 @@ window.QUESTION_BANK["g3_u02"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "たねと芽の{順番|じゅんばん}は？",
+      "stem": "Aはまく{前|まえ}のたね、Bはそこから芽が{出|で}たすがた。{育|そだ}つ{順|じゅん}にならべると？",
       "choices": [
         "AからB",
         "BからA",
@@ -177,10 +177,10 @@ window.QUESTION_BANK["g3_u02"] = {
       "context": "standard",
       "id": "g3u02-b-009",
       "tier": "basic",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "targetStage": "elementary3",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -197,7 +197,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "context": "standard",
       "id": "g3u02-b-010",
       "tier": "basic",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -286,7 +286,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "explanation": "{育|そだ}ち方がわかるように、{日付|ひづけ}とすがたを{記録|きろく}しよう。",
       "id": "g3u02-b-015",
       "tier": "basic",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "explanation": "{見|み}える{葉|は}の{数|かず}や{形|かたち}、{高|たか}さを{調|しら}べよう。",
       "id": "g3u02-b-016",
       "tier": "basic",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -322,7 +322,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "explanation": "{日付|ひづけ}のちがう{記録|きろく}を並べると、{育|そだ}ち方がわかるよ。",
       "id": "g3u02-b-017",
       "tier": "basic",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "context": "standard",
       "targetStage": "elementary3",
@@ -485,7 +485,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "context": "everyday",
       "id": "g3u02-boss-005",
       "tier": "boss",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "context": "everyday",
       "id": "g3u02-boss-006",
       "tier": "boss",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -525,7 +525,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "context": "everyday",
       "id": "g3u02-boss-007",
       "tier": "boss",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -545,7 +545,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "context": "everyday",
       "id": "g3u02-boss-008",
       "tier": "boss",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -565,7 +565,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "context": "everyday",
       "id": "g3u02-boss-009",
       "tier": "boss",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -585,7 +585,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "context": "everyday",
       "id": "g3u02-boss-010",
       "tier": "boss",
-      "subId": "g3_u02_s1",
+      "subId": "g3_u02_s2",
       "curriculumRef": "B(1)ア(ｳ),イ",
       "targetStage": "elementary3",
       "contentVersion": 1
@@ -743,7 +743,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "tier": "bonus",
       "type": "mc4",
       "skill": "concept",
-      "stem": "🎓 5年につながる問題。{種子|しゅし}が{発芽|はつが}するときに{使|つか}う{養分|ようぶん}は、どこにたくわえられている？",
+      "stem": "🎓 5年につながる問題。インゲンマメの{種子|しゅし}が{発芽|はつが}するとき、おもにどこにたくわえた{養分|ようぶん}を{使|つか}う？",
       "choices": [
         "{子葉|しよう}",
         "{根|ね}の{先|さき}",
@@ -756,7 +756,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "curriculumRef": "B(1)",
       "context": "standard",
       "targetStage": "elementary5",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "bonusCategory": "next_grade",
       "sourceQuestionId": "g5u02-b-007",
       "prerequisiteIds": [
@@ -878,7 +878,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "subId": "g5_u02_s2",
       "curriculumRef": "B(1)",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia",
       "sourceQuestionId": "g5u02-bonus-002",
@@ -901,7 +901,7 @@ window.QUESTION_BANK["g3_u02"] = {
       "subId": "g5_u02_s1",
       "curriculumRef": "B(1)ア(ｱ)(ｲ)(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia",
       "sourceQuestionId": "g5u02-bonus-003",

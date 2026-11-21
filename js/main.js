@@ -1,5 +1,13 @@
 (function () {
   var currentGrade = 3;
+  var warnings = {
+    invalid: "この版では記録を読みこめないよ。元の記録は残してあるよ。設定から書き出せるよ。",
+    different: "本体と保護コピーの記録が一致しないよ。自動保存を止めたよ。設定で残す記録を選んでね。",
+    stale: "ほかのタブなどで記録が変わったので、上書きを止めたよ。必要なら設定で書き出してから、このページを再読み込みしてね。",
+    unreadable: "保存場所を確認できないよ。上書きを止めたので、必要な記録は設定から書き出してね。",
+    write: "保存できなかったよ。この画面を閉じる前に、設定から記録を書き出してね。",
+    copy: "保護コピーを保存できなかったよ。設定から記録を書き出しておいてね。"
+  };
 
   function appRoot() {
     return document.getElementById("app");
@@ -15,6 +23,7 @@
     var root = document.getElementById("status-bar");
     if (!root || !window.RikaState) return;
     var data = window.RikaState.get();
+    var warning = warnings[window.RikaState.saveIssue()];
     document.body.classList.toggle('reduce-motion', data.settings.motion === false);
     var info = window.RikaState.levelInfo(data.player.exp);
     var equipped = data.player.equipped;
@@ -31,7 +40,7 @@
         var item = id && window.EQUIPMENT[id];
         return '<span class="slot ' + (item && item.rarity === "rare" ? "rare" : "") + '" title="' + window.RikaUI.escapeHtml(item ? window.RikaUI.renderPlain(item.name) : "未そうび") + '">' + window.RikaSVG.slotIcon(slot, 24) + '</span>';
       }).join("") +
-      '</div></div>' + (!window.RikaState.isPersisted() ? '<p class="save-warning" role="status">保存できないため、この画面だけの記録だよ。設定から書き出してね。</p>' : '');
+      '</div></div>' + (warning ? '<p class="save-warning" role="status">' + warning + '</p>' : '');
   }
 
   function showHome() {
@@ -88,8 +97,7 @@
     if (form) {
       form.addEventListener("submit", function (event) {
         event.preventDefault();
-        window.RikaState.setName(new FormData(form).get("name"));
-        window.RikaUI.toast("名前を記録したよ。");
+        if (window.RikaState.setName(new FormData(form).get("name"))) window.RikaUI.toast("名前を記録したよ。");
         renderStatus();
       });
     }
@@ -110,46 +118,82 @@
     renderStatus();
   }
 
+  function download(text, filename) {
+    var url = URL.createObjectURL(new Blob([text], {type:'application/json'})), link = document.createElement('a');
+    link.href = url; link.download = filename; link.click();
+    window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+  }
+
+  function recoveryOptions() {
+    var state = window.RikaState;
+    if (!state.needsChoice()) return '';
+    return '<fieldset><legend>記録の復旧</legend><p>必要な記録は、入れかえる前に書き出してね。</p>' + ['primary', 'copy'].map(function (source) {
+      var raw = state.recoverySource(source), title = source === 'primary' ? '本体' : '保護コピー';
+      if (raw === null) return '<p>' + title + '：記録なし</p>';
+      var data;
+      try { data = state.normalize(JSON.parse(raw)); } catch (error) { /* Raw bytes can still be exported. */ }
+      return '<p><strong>' + title + '</strong>：' + (data ? window.RikaUI.escapeHtml(data.player.name) + ' / ' + data.player.exp + ' EXP' : 'この版では読みこめない記録') +
+        '</p><div class="button-row"><button class="secondary-button" data-raw="' + source + '">' + title + 'を書き出す</button>' +
+        (data ? '<button class="secondary-button" data-restore="' + source + '">' + title + 'を使う</button>' : '') + '</div>';
+    }).join('') + '</fieldset>';
+  }
+
+  function finishReplacement(ok, message) {
+    if (!ok) { showSettings(); window.RikaUI.toast(warnings[window.RikaState.saveIssue()] || '記録を入れかえられなかったよ。'); return; }
+    currentGrade = window.RikaState.get().settings.lastGrade;
+    if (window.RikaState.needsChoice()) showSettings();
+    else showHome();
+    window.RikaUI.toast(window.RikaState.saveIssue() === 'copy' ? '本体は保存したよ。保護コピーは更新できなかったよ。' : message);
+  }
+
   function showSettings() {
     var settings = window.RikaState.get().settings;
     setView('<section class="panel rpg-frame"><h2>設定</h2><div class="settings-grid">' +
+      recoveryOptions() +
       '<label class="toggle-line"><span><strong>ルビ</strong><br>むずかしい漢字の読みがなを表示する。</span><input type="checkbox" data-setting="furigana" ' + (settings.furigana !== false ? "checked" : "") + '></label>' +
       '<label class="toggle-line"><span><strong>音</strong><br>WebAudioの短い効果音を鳴らす。</span><input type="checkbox" data-setting="sound" ' + (settings.sound !== false ? "checked" : "") + '></label>' +
       '<label class="toggle-line"><span><strong>アニメーション</strong></span><input type="checkbox" data-setting="motion" ' + (settings.motion !== false ? 'checked' : '') + '></label>' +
       '<div class="button-row"><button class="secondary-button" data-export>記録を書き出す</button><label class="import-label">記録を読みこむ<input type="file" accept="application/json,.json" data-import></label></div>' +
-      '<div class="empty-state">セーブキー：rika_quest_save_v1</div>' +
+      '<p>前の記録が見えないときは、遊んでいたときと同じブラウザ・プロフィール・アドレスで開いてね。</p>' +
       '<button type="button" class="danger-button" data-reset>最初からやり直す</button>' +
       '</div></section>');
     appRoot().querySelectorAll("[data-setting]").forEach(function (input) {
       input.addEventListener("change", function () {
         window.RikaState.get().settings[input.dataset.setting] = input.checked;
-        window.RikaState.save();
-        window.RikaUI.toast("設定を保存したよ。");
+        if (window.RikaState.save()) window.RikaUI.toast("設定を保存したよ。");
         showSettings();
       });
     });
     var reset = appRoot().querySelector("[data-reset]");
     appRoot().querySelector('[data-export]').addEventListener('click', function () {
-      var blob = new Blob([window.RikaState.exportData()], {type:'application/json'});
-      var url = URL.createObjectURL(blob), link = document.createElement('a');
-      link.href = url; link.download = 'rika-quest-save.json'; link.click();
-      window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      download(window.RikaState.exportData(), 'rika-quest-save.json');
+    });
+    appRoot().querySelectorAll('[data-raw]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        download(window.RikaState.recoverySource(button.dataset.raw), 'rika-quest-' + button.dataset.raw + '.json');
+      });
+    });
+    appRoot().querySelectorAll('[data-restore]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var source = button.dataset.restore, title = source === 'primary' ? '本体' : '保護コピー';
+        window.RikaUI.confirm('使う記録を選ぶ', title + 'の記録を残して、もう一方を入れかえる？', function () {
+          finishReplacement(window.RikaState.restore(source), '選んだ記録に戻したよ。');
+        });
+      });
     });
     appRoot().querySelector('[data-import]').addEventListener('change', async function (event) {
       var file = event.target.files[0];
       if (!file) return;
       if (file.size > 2000000) { window.RikaUI.toast('ファイルが大きすぎるよ。'); return; }
-      var text = await file.text();
-      try { window.RikaState.normalize(JSON.parse(text)); } catch (error) { window.RikaUI.toast('この記録は読みこめないよ。今の記録は残っているよ。'); return; }
+      var text;
+      try { text = await file.text(); window.RikaState.normalize(JSON.parse(text)); } catch (error) { window.RikaUI.toast('この記録は読みこめないよ。今の記録は残っているよ。'); return; }
       window.RikaUI.confirm('記録を読みこむ', '今の記録を、選んだファイルの記録に入れかえる？', function () {
-        window.RikaState.importData(text); currentGrade = window.RikaState.get().settings.lastGrade; showHome(); window.RikaUI.toast('記録を読みこんだよ。');
+        finishReplacement(window.RikaState.importData(text), '記録を読みこんだよ。');
       });
     });
     reset.addEventListener("click", function () {
       window.RikaUI.confirm("セーブをリセット", "今のぼうけん記録を消して、最初から始めるよ。よろしいですか？", function () {
-        window.RikaState.reset();
-        window.RikaUI.toast("セーブをリセットしたよ。");
-        showHome();
+        finishReplacement(window.RikaState.reset(), 'セーブをリセットしたよ。');
       });
     });
     renderStatus();
@@ -168,10 +212,20 @@
   }
 
   function init() {
+    if (!window.RikaState || typeof window.RikaState.checkStorage !== 'function') {
+      setView('<section class="panel rpg-frame"><h2>記録の読みこみを止めたよ</h2><p>必要なファイルがそろっていないよ。保存データは消さずに、ページを再読み込みしてね。</p></section>');
+      return;
+    }
     window.RikaState.load();
     currentGrade = window.RikaState.get().settings.lastGrade;
     bindNav();
-    showHome();
+    window.addEventListener('storage', function (event) {
+      if (event.key !== null && event.key !== window.RikaState.KEY && event.key !== window.RikaState.COPY_KEY) return;
+      window.RikaState.checkStorage();
+      renderStatus();
+    });
+    if (window.RikaState.isPersisted()) showHome();
+    else showSettings();
   }
 
   window.RikaApp = {

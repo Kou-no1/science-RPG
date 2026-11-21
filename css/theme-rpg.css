@@ -163,7 +163,12 @@
 .map-node.locked { opacity:1; }
 .map-node.locked .node-ring { opacity:.8; }
 .map-node.locked .node-name { opacity:.9; }
+.map-node[aria-current="true"] .node-name { color:#332700; background:#ffe487; text-shadow:none; }
+.map-node[aria-current="true"] .node-name rt { color:inherit; }
 .map-node:focus-visible .node-ring { stroke:#22d3ee; stroke-width:7; }
+.unit-card { top:auto; }
+:where(.unit-card) .tag { color:#101b30; }
+.unit-card :focus-visible { outline:3px solid #45329b; outline-offset:3px; }
 .battle-stage { height:400px; min-height:400px; }
 .battle-stage .enemy-stage, .battle-panel.tier-bonus .enemy-stage { background:transparent; border:0; box-shadow:none; }
 .enemy-art { top:20px; }

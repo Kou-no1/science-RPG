@@ -769,7 +769,7 @@ window.QUESTION_BANK["g6_u11"] = {
       "subId": "g6_u11_s2",
       "curriculumRef": "B(3)ア(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -790,7 +790,7 @@ window.QUESTION_BANK["g6_u11"] = {
       "subId": "g6_u11_s2",
       "curriculumRef": "B(3)ア(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -851,7 +851,7 @@ window.QUESTION_BANK["g6_u11"] = {
       "subId": "g6_u11_s1",
       "curriculumRef": "B(3)ア(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -872,7 +872,7 @@ window.QUESTION_BANK["g6_u11"] = {
       "subId": "g6_u11_s2",
       "curriculumRef": "B(3)ア(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -891,7 +891,7 @@ window.QUESTION_BANK["g6_u11"] = {
       "subId": "g6_u11_s2",
       "curriculumRef": "B(3)ア(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -933,7 +933,7 @@ window.QUESTION_BANK["g6_u11"] = {
       "subId": "g6_u11_s2",
       "curriculumRef": "B(3)ア(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -952,7 +952,7 @@ window.QUESTION_BANK["g6_u11"] = {
       "subId": "g6_u11_s1",
       "curriculumRef": "B(3)ア(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -973,7 +973,7 @@ window.QUESTION_BANK["g6_u11"] = {
       "subId": "g6_u11_s1",
       "curriculumRef": "B(3)ア(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -1013,7 +1013,7 @@ window.QUESTION_BANK["g6_u11"] = {
       "subId": "g6_u11_s2",
       "curriculumRef": "B(3)ア(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     }

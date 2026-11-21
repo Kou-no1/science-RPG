@@ -831,7 +831,7 @@ window.QUESTION_BANK["g6_u04"] = {
       "subId": "g6_u04_s1",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -850,7 +850,7 @@ window.QUESTION_BANK["g6_u04"] = {
       "subId": "g6_u04_s1",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -871,7 +871,7 @@ window.QUESTION_BANK["g6_u04"] = {
       "subId": "g6_u04_s3",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -911,7 +911,7 @@ window.QUESTION_BANK["g6_u04"] = {
       "subId": "g6_u04_s1",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -920,20 +920,20 @@ window.QUESTION_BANK["g6_u04"] = {
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 {生き物|いきもの}どうしと{環境|かんきょう}の{関係|かんけい}を学ぶ分野を何ということがある？",
+      "stem": "🎓 {生き物|いきもの}どうしの{関係|かんけい}や、{生き物|いきもの}と{環境|かんきょう}との{関係|かんけい}を{研究|けんきゅう}する学問は？",
       "choices": [
-        "{生態|せいたい}",
-        "電熱",
-        "{月|つき}{光|ひかり}",
-        "{支点|してん}"
+        "生態学",
+        "天文学",
+        "気象学",
+        "地質学"
       ],
       "answer": 0,
-      "explanation": "{生態|せいたい}は{生き物|いきもの}と{環境|かんきょう}の{関係|かんけい}に関する言{葉|は}だよ。",
+      "explanation": "生態学では、{生き物|いきもの}が何を{食|た}べ、どんな{環境|かんきょう}で、ほかの{生き物|いきもの}とどうかかわって{生活|せいかつ}するかなどを{調|しら}べるよ。",
       "subId": "g6_u04_s1",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "middle",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "bonusCategory": "middle"
     },
     {
@@ -951,7 +951,7 @@ window.QUESTION_BANK["g6_u04"] = {
       "subId": "g6_u04_s1",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -972,7 +972,7 @@ window.QUESTION_BANK["g6_u04"] = {
       "subId": "g6_u04_s3",
       "curriculumRef": "B(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },

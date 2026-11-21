@@ -77,7 +77,7 @@ window.QUESTION_BANK["g4_u04"] = {
       "context": "standard",
       "id": "g4u04-b-004",
       "tier": "basic",
-      "subId": "g4_u04_s1",
+      "subId": "g4_u04_s2",
       "curriculumRef": "A(3)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -97,7 +97,7 @@ window.QUESTION_BANK["g4_u04"] = {
       "context": "standard",
       "id": "g4u04-b-005",
       "tier": "basic",
-      "subId": "g4_u04_s1",
+      "subId": "g4_u04_s2",
       "curriculumRef": "A(3)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -117,7 +117,7 @@ window.QUESTION_BANK["g4_u04"] = {
       "context": "standard",
       "id": "g4u04-b-006",
       "tier": "basic",
-      "subId": "g4_u04_s1",
+      "subId": "g4_u04_s2",
       "curriculumRef": "A(3)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -137,7 +137,7 @@ window.QUESTION_BANK["g4_u04"] = {
       "context": "standard",
       "id": "g4u04-b-007",
       "tier": "basic",
-      "subId": "g4_u04_s1",
+      "subId": "g4_u04_s2",
       "curriculumRef": "A(3)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -177,7 +177,7 @@ window.QUESTION_BANK["g4_u04"] = {
       "context": "standard",
       "id": "g4u04-b-009",
       "tier": "basic",
-      "subId": "g4_u04_s1",
+      "subId": "g4_u04_s2",
       "curriculumRef": "A(3)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -268,7 +268,7 @@ window.QUESTION_BANK["g4_u04"] = {
       "explanation": "{電池|でんち}を同じ向きにひと続きにつなぐのが{直列|ちょくれつ}つなぎだよ。",
       "id": "g4u04-b-014",
       "tier": "basic",
-      "subId": "g4_u04_s1",
+      "subId": "g4_u04_s2",
       "curriculumRef": "A(3)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -286,7 +286,7 @@ window.QUESTION_BANK["g4_u04"] = {
       "explanation": "{電池|でんち}の同じ{極|きょく}どうしを合わせるのが{並列|へいれつ}つなぎだよ。",
       "id": "g4u04-b-015",
       "tier": "basic",
-      "subId": "g4_u04_s1",
+      "subId": "g4_u04_s2",
       "curriculumRef": "A(3)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g4_u04"] = {
       "explanation": "同じ{条件|じょうけん}なら、直列二個で{電流|でんりゅう}が{大|おお}きくなり、速く回るよ。",
       "id": "g4u04-b-016",
       "tier": "basic",
-      "subId": "g4_u04_s1",
+      "subId": "g4_u04_s2",
       "curriculumRef": "A(3)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -322,7 +322,7 @@ window.QUESTION_BANK["g4_u04"] = {
       "explanation": "{並列|へいれつ}では一個とだいたい同じ回り方になるよ。",
       "id": "g4u04-b-017",
       "tier": "basic",
-      "subId": "g4_u04_s1",
+      "subId": "g4_u04_s2",
       "curriculumRef": "A(3)ア(ｱ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -453,7 +453,7 @@ window.QUESTION_BANK["g4_u04"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "一個のプラスともう一個のマイナスをつなぎ、{輪|わ}を作った。つなぎ方は？",
+      "stem": "モーターを回す{回路|かいろ}で、電池二個を同じ向きにひと続きにつないだ。このつなぎ方は？",
       "choices": [
         "{直列|ちょくれつ}つなぎ",
         "{並列|へいれつ}つなぎ",
@@ -461,14 +461,14 @@ window.QUESTION_BANK["g4_u04"] = {
         "枝のない水路"
       ],
       "answer": 0,
-      "explanation": "{電池|でんち}を同じ向きにひと続きにつなぐのが{直列|ちょくれつ}つなぎだよ。",
+      "explanation": "電池二個とモーターが一本の{輪|わ}になる{直列|ちょくれつ}つなぎだよ。{電池|でんち}だけを{導線|どうせん}で{輪|わ}につなぐと熱くなるので、しないでね。",
       "context": "everyday",
       "id": "g4u04-boss-004",
       "tier": "boss",
-      "subId": "g4_u04_s1",
+      "subId": "g4_u04_s2",
       "curriculumRef": "A(3)ア(ｱ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -485,7 +485,7 @@ window.QUESTION_BANK["g4_u04"] = {
       "context": "everyday",
       "id": "g4u04-boss-005",
       "tier": "boss",
-      "subId": "g4_u04_s1",
+      "subId": "g4_u04_s2",
       "curriculumRef": "A(3)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g4_u04"] = {
       "context": "everyday",
       "id": "g4u04-boss-006",
       "tier": "boss",
-      "subId": "g4_u04_s1",
+      "subId": "g4_u04_s2",
       "curriculumRef": "A(3)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -525,7 +525,7 @@ window.QUESTION_BANK["g4_u04"] = {
       "context": "everyday",
       "id": "g4u04-boss-007",
       "tier": "boss",
-      "subId": "g4_u04_s1",
+      "subId": "g4_u04_s2",
       "curriculumRef": "A(3)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -565,7 +565,7 @@ window.QUESTION_BANK["g4_u04"] = {
       "context": "everyday",
       "id": "g4u04-boss-009",
       "tier": "boss",
-      "subId": "g4_u04_s1",
+      "subId": "g4_u04_s2",
       "curriculumRef": "A(3)ア(ｱ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -953,7 +953,7 @@ window.QUESTION_BANK["g4_u04"] = {
       "subId": "g5_u09_s1",
       "curriculumRef": "A(3)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia",
       "sourceQuestionId": "g5u09-bonus-005",

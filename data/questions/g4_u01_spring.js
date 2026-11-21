@@ -97,7 +97,7 @@ window.QUESTION_BANK["g4_u01"] = {
       "context": "standard",
       "id": "g4u01-b-005",
       "tier": "basic",
-      "subId": "g4_u01_s1",
+      "subId": "g4_u01_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -117,7 +117,7 @@ window.QUESTION_BANK["g4_u01"] = {
       "context": "standard",
       "id": "g4u01-b-006",
       "tier": "basic",
-      "subId": "g4_u01_s1",
+      "subId": "g4_u01_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -157,7 +157,7 @@ window.QUESTION_BANK["g4_u01"] = {
       "context": "standard",
       "id": "g4u01-b-008",
       "tier": "basic",
-      "subId": "g4_u01_s1",
+      "subId": "g4_u01_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -165,7 +165,7 @@ window.QUESTION_BANK["g4_u01"] = {
     {
       "type": "mc4",
       "skill": "concept",
-      "stem": "{葉|は}の{数|かず}の{変化|へんか}を{比|くら}べるには？",
+      "stem": "先週は同じ枝に{葉|は}が2枚、今週は5枚あった。何枚増えた？",
       "choices": [
         "3枚",
         "2枚",
@@ -180,7 +180,7 @@ window.QUESTION_BANK["g4_u01"] = {
       "subId": "g4_u01_s1",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -286,7 +286,7 @@ window.QUESTION_BANK["g4_u01"] = {
       "explanation": "{気温|きおん}が上がると、{活動|かつどう}が活発になる{動物|どうぶつ}がいるよ。",
       "id": "g4u01-b-015",
       "tier": "basic",
-      "subId": "g4_u01_s1",
+      "subId": "g4_u01_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g4_u01"] = {
       "explanation": "かくれていたり、{活動|かつどう}する{時刻|じこく}がちがったりするよ。",
       "id": "g4u01-b-016",
       "tier": "basic",
-      "subId": "g4_u01_s1",
+      "subId": "g4_u01_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -485,7 +485,7 @@ window.QUESTION_BANK["g4_u01"] = {
       "context": "everyday",
       "id": "g4u01-boss-005",
       "tier": "boss",
-      "subId": "g4_u01_s1",
+      "subId": "g4_u01_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g4_u01"] = {
       "context": "everyday",
       "id": "g4u01-boss-006",
       "tier": "boss",
-      "subId": "g4_u01_s1",
+      "subId": "g4_u01_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -545,7 +545,7 @@ window.QUESTION_BANK["g4_u01"] = {
       "context": "everyday",
       "id": "g4u01-boss-008",
       "tier": "boss",
-      "subId": "g4_u01_s1",
+      "subId": "g4_u01_s2",
       "curriculumRef": "B(2)ア(ｱ)(ｲ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1

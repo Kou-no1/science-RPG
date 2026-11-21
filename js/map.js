@@ -1,18 +1,8 @@
 (function () {
-  var coords = {
-    5: [
-      [102, 168], [235, 120], [365, 154], [510, 118], [612, 216],
-      [538, 346], [392, 396], [254, 330], [140, 420], [80, 290]
-    ],
-    6: [
-      [106, 390], [172, 250], [285, 154], [430, 122], [566, 172],
-      [622, 292], [552, 422], [418, 468], [284, 410], [170, 482], [76, 280]
-    ]
-  };
-  [3, 4, 5, 6].forEach(function (grade) {
-    var units = window.CURRICULUM.filter(function (u) { return u.grade === grade; });
-    coords[grade] = units.map(function (_, i) { var row = Math.floor(i / 4); return [100 + (row % 2 ? 3 - i % 4 : i % 4) * 170, 90 + row * 140]; });
-  });
+  function nodePosition(index) {
+    var row = Math.floor(index / 4);
+    return [100 + (row % 2 ? 3 - index % 4 : index % 4) * 170, 90 + row * 180];
+  }
 
   function getUnit(unitId) {
     return (window.CURRICULUM || []).find(function (unit) { return unit.unitId === unitId; });
@@ -43,8 +33,8 @@
       '</div>';
   }
 
-  function renderNode(unit, index) {
-    var p = (coords[unit.grade] || [])[index] || [100 + index * 50, 240];
+  function renderNode(unit, index, selectedId) {
+    var p = nodePosition(index);
     var c = window.RikaSVG.colors(unit.theme);
     var status = statusFor(unit);
     var progress = window.RikaState.progress(unit.unitId);
@@ -53,7 +43,9 @@
       ? window.RikaSVG.lockIcon(p[0], p[1] - 2)
       : window.RikaSVG.caveIcon(p[0] - (status === "unlocked" ? 0 : 22), p[1], 0.72, unit.theme) +
         (status === "basicCleared" || status === "bossCleared" || status === "perfected" ? window.RikaSVG.castleIcon(p[0] + 25, p[1] - 1, 0.62, unit.theme) : "");
-    return '<g class="map-node ' + status + '" data-unit-id="' + unit.unitId + '" role="button" tabindex="0" aria-label="' + window.RikaSVG.esc(label + " " + statusLabel(status)) + '">' +
+    return '<g class="map-node ' + status + '" data-unit-id="' + unit.unitId + '" role="button" aria-controls="unit-card" ' +
+      (status === 'locked' ? 'aria-disabled="true" tabindex="-1"' : 'tabindex="0"') +
+      (unit.unitId === selectedId ? ' aria-current="true"' : '') + ' aria-label="' + window.RikaSVG.esc(label + " " + statusLabel(status)) + '">' +
       '<circle class="node-ring" cx="' + p[0] + '" cy="' + p[1] + '" r="45" fill="' + (status === 'locked' ? '#302553' : c.land) + '" stroke="#ffcf45"/>' +
       icon +
       window.RikaSVG.statusGlyph(status, p[0] + 31, p[1] - 31) +
@@ -66,20 +58,20 @@
     var grade = activeGrade || window.RikaState.get().settings.lastGrade;
     var units = (window.CURRICULUM || []).filter(function (unit) { return unit.grade === grade; });
     var selected = getUnit(selectedUnitId) || units.find(function (unit) { return window.RikaState.progress(unit.unitId).unlocked; }) || units[0];
+    var mapHeight = nodePosition(units.length - 1)[1] + 144;
     var lines = units.map(function (unit, index) {
       if (index === 0) return "";
-      var a = coords[grade][index - 1];
-      var b = coords[grade][index];
+      var a = nodePosition(index - 1);
+      var b = nodePosition(index);
       return '<line x1="' + a[0] + '" y1="' + a[1] + '" x2="' + b[0] + '" y2="' + b[1] + '" stroke="#7a8b72" stroke-width="5" stroke-linecap="round" opacity=".45"/>';
     }).join("");
     return renderGradeTabs(grade) + (window.RikaMu ? '<div class="mu-map-link"><button type="button" class="ghost-button" data-mu-open>幻の大陸ムー</button></div>' : '') +
       '<div class="map-layout" id="world-continent" role="tabpanel" aria-labelledby="grade-tab-' + grade + '">' +
       '<section class="map-shell" aria-label="' + grade + '年大陸のワールドマップ">' +
-      '<svg class="world-map" viewBox="0 0 720 ' + (grade < 5 ? 90 + Math.ceil(units.length / 4) * 140 : 560) + '" xmlns="http://www.w3.org/2000/svg">' +
-      '<rect width="720" height="560" fill="transparent"/>' +
-      (grade < 5 ? '<rect x="20" y="20" width="680" height="' + (50 + Math.ceil(units.length / 4) * 140) + '" rx="45" fill="#375e65" opacity=".5"/>' : window.RikaSVG.continentPath(grade)) +
+      '<svg class="world-map" viewBox="0 0 720 ' + mapHeight + '" xmlns="http://www.w3.org/2000/svg">' +
+      (grade < 5 ? '<rect x="20" y="20" width="680" height="' + (mapHeight - 40) + '" rx="45" fill="#375e65" opacity=".5"/>' : window.RikaSVG.continentPath(grade)) +
       lines +
-      units.map(renderNode).join("") +
+      units.map(function (unit, index) { return renderNode(unit, index, selected.unitId); }).join("") +
       '</svg></section>' +
       '<aside id="unit-card" class="unit-card rpg-frame">' + renderUnitCard(selected.unitId) + '</aside>' +
       '</div>';
@@ -97,7 +89,7 @@
     }).join("");
     var bossReady = progress.basicCleared && bank.boss && bank.boss.length;
     var bonusReady = progress.bonusUnlocked && bank.bonus && bank.bonus.length;
-    return '<h2 data-card-unit="' + unit.unitId + '">' + unit.grade + '年 ' + (unit.kind === 'chapter' ? '観察 ' : unit.unitNo + '. ') + window.RikaUI.renderFurigana(unit.title) + '</h2>' +
+    return '<h2 tabindex="-1" data-card-unit="' + unit.unitId + '">' + unit.grade + '年 ' + (unit.kind === 'chapter' ? '観察 ' : unit.unitNo + '. ') + window.RikaUI.renderFurigana(unit.title) + '</h2>' +
       '<div class="unit-meta">' +
       '<span class="tag">' + window.RikaUI.escapeHtml(unit.theme) + '</span>' +
       '<span class="tag ' + (status === "locked" ? "warn" : "good") + '">' + statusLabel(status) + '</span>' +
@@ -118,7 +110,8 @@
       '<button type="button" class="ghost-button" data-start-tier="bonus" ' + (!bonusReady ? "disabled" : "") + '>🎓' + (unit.grade < 5 ? '上の学年へ' : '中学チャレンジ') + '</button>' +
       '<button type="button" class="secondary-button" data-start-tier="basic" data-context="everyday" ' + (!progress.unlocked || !bank.basic.some(function (q) { return q.context === 'everyday'; }) ? 'disabled' : '') + '>くらしの広場</button>' +
       '</div>' +
-      '<p class="empty-state">' + fallbackText(progress, bank) + '</p>';
+      '<p class="empty-state">' + fallbackText(progress, bank) + '</p>' +
+      '<button type="button" class="ghost-button" data-return-node>単元マップに戻る</button>';
   }
 
   function fallbackText(progress, bank) {
@@ -138,12 +131,12 @@
       event.preventDefault();
       var grades = [3,4,5,6], index = grades.indexOf(grade);
       var next = event.key === 'Home' ? 3 : event.key === 'End' ? 6 : grades[(index + (event.key === 'ArrowRight' ? 1 : 3)) % 4];
-      window.RikaApp.showMap(next);
-      document.getElementById('grade-tab-' + next).focus();
+      root.querySelector('#grade-tab-' + next).click();
     }); });
     root.querySelectorAll("[data-grade]").forEach(function (button) {
       button.addEventListener("click", function () {
-        if (window.RikaApp) window.RikaApp.showMap(Number(button.dataset.grade));
+        window.RikaApp.showMap(Number(button.dataset.grade));
+        document.getElementById(button.id).focus();
       });
     });
     root.querySelectorAll(".map-node").forEach(function (node) {
@@ -156,8 +149,12 @@
         }
         var card = root.querySelector("#unit-card");
         if (card) {
+          var previous = root.querySelector('.map-node[aria-current]');
+          if (previous) previous.removeAttribute('aria-current');
+          node.setAttribute('aria-current', 'true');
           card.innerHTML = renderUnitCard(unit.unitId);
-          bindUnitCard(card, unit);
+          bindUnitCard(card);
+          focusMapTarget(card.querySelector('h2'));
         }
       }
       node.addEventListener("click", select);
@@ -168,15 +165,26 @@
         }
       });
     });
-    var selected = root.querySelector("#unit-card h2");
-    var firstUnit = (window.CURRICULUM || []).find(function (unit) { return unit.grade === grade && window.RikaState.progress(unit.unitId).unlocked; });
-    bindUnitCard(root.querySelector("#unit-card"), firstUnit);
+    bindUnitCard(root.querySelector("#unit-card"));
   }
 
-  function bindUnitCard(card, unit) {
+  function focusMapTarget(target) {
+    var header = document.querySelector('.app-header');
+    var top = getComputedStyle(header).position === 'sticky' ? header.getBoundingClientRect().height : 0;
+    target.style.scrollMarginTop = (top + 12) + 'px';
+    target.focus({ preventScroll: true });
+    var rect = target.getBoundingClientRect();
+    target.scrollIntoView({ block: rect.top < top || rect.bottom > window.innerHeight ? 'start' : 'nearest', inline: 'nearest' });
+  }
+
+  function bindUnitCard(card) {
     if (!card) return;
     var heading = card.querySelector("h2");
     var unitId = heading && heading.dataset.cardUnit;
+    card.querySelector('[data-return-node]').addEventListener('click', function () {
+      var node = card.parentElement.querySelector('.map-node[aria-current]');
+      if (node) focusMapTarget(node);
+    });
     card.querySelectorAll("[data-start-tier]").forEach(function (button) {
       button.addEventListener("click", function () {
         var startUnit = getUnit(unitId);

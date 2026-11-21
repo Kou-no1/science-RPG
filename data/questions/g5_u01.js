@@ -591,7 +591,7 @@ window.QUESTION_BANK["g5_u01"] = {
       "tier": "boss",
       "type": "mc4",
       "skill": "concept",
-      "stem": "雲の{量|りょう}が8から9に{増|ふ}えた。{天気|てんき}の分け方として{正|ただ}しいのは？",
+      "stem": "{雨|あめ}も雪も降っていない。空全体を10として、雲の{量|りょう}が8から9に{増|ふ}えた。晴れ・くもりの分け方では？",
       "choices": [
         "晴れからくもりになる",
         "くもりから晴れになる",
@@ -604,7 +604,7 @@ window.QUESTION_BANK["g5_u01"] = {
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "elementary5",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "id": "g5u01-boss-009",
@@ -770,7 +770,7 @@ window.QUESTION_BANK["g5_u01"] = {
       "subId": "g5_u01_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -791,7 +791,7 @@ window.QUESTION_BANK["g5_u01"] = {
       "subId": "g5_u01_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -861,20 +861,20 @@ window.QUESTION_BANK["g5_u01"] = {
       "tier": "bonus",
       "type": "mc4",
       "skill": "concept",
-      "stem": "🎓 天気図でよく{使|つか}う「{気圧|きあつ}」は、何の{大きさ|おおきさ}を表す？",
+      "stem": "🎓 {空気|くうき}による圧力を「{気圧|きあつ}」という。{気圧|きあつ}は何を表している？",
       "choices": [
-        "{空気|くうき}がものをおす{力|ちから}",
-        "{雲|くも}の{色|いろ}",
-        "{雨|あめ}の味",
-        "{風|かぜ}の名{前|まえ}"
+        "面積あたりに{空気|くうき}が{面|めん}を垂直に押す{力|ちから}",
+        "空気全体の{体積|たいせき}",
+        "{風|かぜ}が一秒で進む{距離|きょり}",
+        "{空気|くうき}の{温度|おんど}"
       ],
       "answer": 0,
-      "explanation": "{気圧|きあつ}は{空気|くうき}がおす{力|ちから}のこと。{中学|ちゅうがく}で天気図といっしょに学ぶよ。",
+      "explanation": "{面|めん}を押す{力|ちから}をその面積で割ったものが圧力。{空気|くうき}による圧力が{気圧|きあつ}だよ。",
       "subId": "g5_u01_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "middle",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "bonusCategory": "middle"
     },
     {
@@ -882,20 +882,20 @@ window.QUESTION_BANK["g5_u01"] = {
       "tier": "bonus",
       "type": "mc4",
       "skill": "concept",
-      "stem": "🎓 {空|そら}気中にふくまれる{水|みず}じょう気の{割合|わりあい}を表す言{葉|は}は？",
+      "stem": "🎓 同じ{体積|たいせき}で、同じ{気温|きおん}の{空気|くうき}にふくまれうる最大の水蒸気量を100％とするとき、{実際|じっさい}の水蒸気量の{割合|わりあい}を何という？",
       "choices": [
-        "しつ度",
-        "{雨量|うりょう}",
-        "{風向|ふうこう}",
-        "{方位|ほうい}"
+        "{湿度|しつど}（相対湿度）",
+        "雨量",
+        "風向",
+        "{気圧|きあつ}"
       ],
       "answer": 0,
-      "explanation": "しつ度は{空気|くうき}のしめりぐあいを表す言{葉|は}だよ。",
+      "explanation": "{湿度|しつど}50％なら、水蒸気量はその{気温|きおん}でふくまれうる最大量の半分。{空気|くうき}の半分が{水蒸気|すいじょうき}という意味ではないよ。",
       "subId": "g5_u01_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
       "targetStage": "middle",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "bonusCategory": "middle"
     },
     {
@@ -913,7 +913,7 @@ window.QUESTION_BANK["g5_u01"] = {
       "subId": "g5_u01_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -934,7 +934,7 @@ window.QUESTION_BANK["g5_u01"] = {
       "subId": "g5_u01_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -955,7 +955,7 @@ window.QUESTION_BANK["g5_u01"] = {
       "subId": "g5_u01_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -974,7 +974,7 @@ window.QUESTION_BANK["g5_u01"] = {
       "subId": "g5_u01_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -995,7 +995,7 @@ window.QUESTION_BANK["g5_u01"] = {
       "subId": "g5_u01_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -1035,7 +1035,7 @@ window.QUESTION_BANK["g5_u01"] = {
       "subId": "g5_u01_s1",
       "curriculumRef": "B(4)ア(ｱ)(ｲ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     }

@@ -899,7 +899,7 @@ window.QUESTION_BANK["g6_u09"] = {
       "subId": "g6_u09_s2",
       "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -920,7 +920,7 @@ window.QUESTION_BANK["g6_u09"] = {
       "subId": "g6_u09_s2",
       "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -939,7 +939,7 @@ window.QUESTION_BANK["g6_u09"] = {
       "subId": "g6_u09_s3",
       "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -960,7 +960,7 @@ window.QUESTION_BANK["g6_u09"] = {
       "subId": "g6_u09_s1",
       "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     },
@@ -969,20 +969,20 @@ window.QUESTION_BANK["g6_u09"] = {
       "tier": "bonus",
       "type": "mc4",
       "skill": "term",
-      "stem": "🎓 {電気|でんき}をためるしくみをより{大|おお}きくしたものとして身近なのは？",
+      "stem": "🎓 {充電|じゅうでん}して{使|つか}う{電池|でんち}が、{充電|じゅうでん}したときのエネルギーを主にどんな{形|かたち}でたくわえているか知っている？",
       "choices": [
-        "バッテリー",
-        "化{石|いし}",
-        "{気孔|きこう}",
-        "{火山灰|かざんばい}"
+        "化学エネルギー",
+        "{音|おと}のエネルギー",
+        "{運動|うんどう}エネルギー",
+        "{光|ひかり}のエネルギー"
       ],
       "answer": 0,
-      "explanation": "バッテリーは{電気|でんき}をためて{使|つか}う{道具|どうぐ}だよ。",
+      "explanation": "充電式の{電池|でんち}は化学変化を{使|つか}ってエネルギーをたくわえ、{使|つか}うときに{電気|でんき}として取り{出|で}すよ。コンデンサーを{大|おお}きくしたものではないよ。",
       "subId": "g6_u09_s2",
       "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
       "context": "standard",
       "targetStage": "middle",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "bonusCategory": "middle"
     },
     {
@@ -1021,7 +1021,7 @@ window.QUESTION_BANK["g6_u09"] = {
       "subId": "g6_u09_s3",
       "curriculumRef": "A(4)ア(ｱ)(ｲ)(ｳ),イ",
       "context": "standard",
-      "targetStage": "middle",
+      "targetStage": "trivia",
       "contentVersion": 1,
       "bonusCategory": "trivia"
     }

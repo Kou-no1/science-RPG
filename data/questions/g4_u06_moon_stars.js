@@ -45,7 +45,7 @@ window.QUESTION_BANK["g4_u06"] = {
     {
       "type": "mc4",
       "skill": "experiment",
-      "stem": "観察場所をそろえるのはなぜ？",
+      "stem": "同じ夜に{月|つき}の{位置|いち}を二回調べる。建物を目印に{位置|いち}の{変化|へんか}を{比|くら}べるには？",
       "choices": [
         "同じ{場所|ばしょ}から{見|み}る",
         "毎回場所を{変|か}える",
@@ -60,7 +60,7 @@ window.QUESTION_BANK["g4_u06"] = {
       "subId": "g4_u06_s1",
       "curriculumRef": "B(5)ア(ｱ)(ｳ),イ",
       "targetStage": "elementary4",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "type": "mc4",
@@ -117,7 +117,7 @@ window.QUESTION_BANK["g4_u06"] = {
       "context": "standard",
       "id": "g4u06-b-006",
       "tier": "basic",
-      "subId": "g4_u06_s1",
+      "subId": "g4_u06_s2",
       "curriculumRef": "B(5)ア(ｱ)(ｳ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -137,7 +137,7 @@ window.QUESTION_BANK["g4_u06"] = {
       "context": "standard",
       "id": "g4u06-b-007",
       "tier": "basic",
-      "subId": "g4_u06_s1",
+      "subId": "g4_u06_s2",
       "curriculumRef": "B(5)ア(ｱ)(ｳ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -157,7 +157,7 @@ window.QUESTION_BANK["g4_u06"] = {
       "context": "standard",
       "id": "g4u06-b-008",
       "tier": "basic",
-      "subId": "g4_u06_s1",
+      "subId": "g4_u06_s2",
       "curriculumRef": "B(5)ア(ｱ)(ｳ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -177,7 +177,7 @@ window.QUESTION_BANK["g4_u06"] = {
       "context": "standard",
       "id": "g4u06-b-009",
       "tier": "basic",
-      "subId": "g4_u06_s1",
+      "subId": "g4_u06_s2",
       "curriculumRef": "B(5)ア(ｱ)(ｳ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -197,7 +197,7 @@ window.QUESTION_BANK["g4_u06"] = {
       "context": "standard",
       "id": "g4u06-b-010",
       "tier": "basic",
-      "subId": "g4_u06_s1",
+      "subId": "g4_u06_s2",
       "curriculumRef": "B(5)ア(ｱ)(ｳ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -304,7 +304,7 @@ window.QUESTION_BANK["g4_u06"] = {
       "explanation": "{星|ほし}の並び方はほぼ{同じ|おなじ}で、{見|み}える{位置|いち}が{変|か}わるよ。",
       "id": "g4u06-b-016",
       "tier": "basic",
-      "subId": "g4_u06_s1",
+      "subId": "g4_u06_s2",
       "curriculumRef": "B(5)ア(ｱ)(ｳ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -322,7 +322,7 @@ window.QUESTION_BANK["g4_u06"] = {
       "explanation": "並び方を保ちながら、{星|ほし}の{見|み}える{位置|いち}は{変|か}わるよ。",
       "id": "g4u06-b-017",
       "tier": "basic",
-      "subId": "g4_u06_s1",
+      "subId": "g4_u06_s2",
       "curriculumRef": "B(5)ア(ｱ)(ｳ),イ",
       "context": "standard",
       "targetStage": "elementary4",
@@ -505,7 +505,7 @@ window.QUESTION_BANK["g4_u06"] = {
       "context": "everyday",
       "id": "g4u06-boss-006",
       "tier": "boss",
-      "subId": "g4_u06_s1",
+      "subId": "g4_u06_s2",
       "curriculumRef": "B(5)ア(ｱ)(ｳ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -525,7 +525,7 @@ window.QUESTION_BANK["g4_u06"] = {
       "context": "everyday",
       "id": "g4u06-boss-007",
       "tier": "boss",
-      "subId": "g4_u06_s1",
+      "subId": "g4_u06_s2",
       "curriculumRef": "B(5)ア(ｱ)(ｳ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -545,7 +545,7 @@ window.QUESTION_BANK["g4_u06"] = {
       "context": "everyday",
       "id": "g4u06-boss-008",
       "tier": "boss",
-      "subId": "g4_u06_s1",
+      "subId": "g4_u06_s2",
       "curriculumRef": "B(5)ア(ｱ)(ｳ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -565,7 +565,7 @@ window.QUESTION_BANK["g4_u06"] = {
       "context": "everyday",
       "id": "g4u06-boss-009",
       "tier": "boss",
-      "subId": "g4_u06_s1",
+      "subId": "g4_u06_s2",
       "curriculumRef": "B(5)ア(ｱ)(ｳ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
@@ -585,7 +585,7 @@ window.QUESTION_BANK["g4_u06"] = {
       "context": "everyday",
       "id": "g4u06-boss-010",
       "tier": "boss",
-      "subId": "g4_u06_s1",
+      "subId": "g4_u06_s2",
       "curriculumRef": "B(5)ア(ｱ)(ｳ),イ",
       "targetStage": "elementary4",
       "contentVersion": 1
