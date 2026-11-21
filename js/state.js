@@ -7,6 +7,7 @@
   var blocked = "";
   var storageIssue = "";
   var transactionDepth = 0;
+  var pendingProgress = false;
 
   function finite(value, fallback, max) {
     return Number.isFinite(Number(value)) ? Math.min(max || 100000000, Math.max(0, Number(value))) : fallback;
@@ -81,6 +82,7 @@
 
   function record(value) { return value !== null && typeof value === "object" && !Array.isArray(value); }
   function hasOwn(obj, id) { return Object.prototype.hasOwnProperty.call(obj, id); }
+  function validHero(id) { return id === "aoi" || id === "jin" || id === "sora"; }
 
   function normalize(raw) {
     if (!record(raw) || ![1, 2].includes(raw.schema) || !record(raw.player) || !record(raw.owned) || !record(raw.progress)) throw new Error("Unsupported save");
@@ -93,6 +95,7 @@
       throw new Error("Unavailable save content");
     }
     base.player.name = String(raw.player.name || base.player.name).slice(0, 16);
+    if (validHero(raw.player.heroId)) base.player.heroId = raw.player.heroId;
     base.player.exp = finite(raw.player.exp, 0);
     base.player.hpBase = finite(raw.player.hpBase, 3, 10) || 3;
     base.owned.equipment = unique(raw.owned.equipment).filter(function (id) { return !!window.EQUIPMENT[id]; });
@@ -167,14 +170,15 @@
     copyRaw = primaryRaw;
   }
 
-  function persist(data, raw, explicit) {
+  function persist(data, raw, explicit, snapshot) {
     if (!checkStorage() || (blocked && !explicit)) return false;
     try {
-      if (raw === null) raw = JSON.stringify(data);
+      if (raw === null) raw = JSON.stringify(snapshot || data);
       if (raw !== primaryRaw) localStorage.setItem(KEY, raw);
     } catch (error) { storageIssue = "write"; return false; }
     primaryRaw = raw;
     saveData = data;
+    pendingProgress = false;
     blocked = storageIssue = "";
     try { copyPrimary(); } catch (error) {
       // The main write succeeded. Do not claim that the recovery copy is current.
@@ -189,6 +193,7 @@
     syncLevel(saveData);
     syncUnlocks(saveData);
     var saved = persist(saveData, null, false);
+    if (!saved) pendingProgress = true;
     if (window.RikaApp && window.RikaApp.renderStatus) window.RikaApp.renderStatus();
     return saved;
   }
@@ -196,6 +201,7 @@
   function load() {
     primaryRaw = copyRaw = null;
     blocked = storageIssue = "";
+    pendingProgress = false;
     try {
       primaryRaw = localStorage.getItem(KEY);
       copyRaw = localStorage.getItem(COPY_KEY);
@@ -221,6 +227,25 @@
     var cleaned = String(name || "").trim().slice(0, 16);
     get().player.name = cleaned || "ぼうけんしゃ";
     return save();
+  }
+
+  function getHero() {
+    var id = get().player.heroId;
+    return validHero(id) ? id : "aoi";
+  }
+
+  function setHero(id) {
+    if (!validHero(id) || transactionDepth) return false;
+    var data = get();
+    // A preference-only write must not acknowledge unsaved game progress.
+    if (blocked || pendingProgress) return false;
+    // Patch the stored source, not the migrated view. Keep live battle references intact.
+    var snapshot = primaryRaw === null ? Object.assign({}, data, { player: Object.assign({}, data.player) }) : JSON.parse(primaryRaw);
+    snapshot.player.heroId = id;
+    var saved = persist(data, null, false, snapshot);
+    if (saved) data.player.heroId = id;
+    if (window.RikaApp && window.RikaApp.renderStatus) window.RikaApp.renderStatus();
+    return saved;
   }
 
   function progress(unitId) {
@@ -392,6 +417,8 @@
       return persist(data, null, true) ? data : null;
     },
     setName: setName,
+    getHero: getHero,
+    setHero: setHero,
     expToNext: expToNext,
     levelInfo: levelInfo,
     progress: progress,

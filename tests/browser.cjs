@@ -22,6 +22,16 @@ async function freshPlaythrough(page) {
   await page.goto(pathToFileURL(path.join(root,'index.html')).href);
   await page.locator('[data-home-map]').waitFor();
   assert.equal(await page.locator('[data-resume]').count(),0);
+  const pick = id => page.locator('button[data-hero-id="'+id+'"]');
+  const shownHero = container => page.locator(container+' svg[data-hero-id]').getAttribute('data-hero-id');
+  assert.equal(await shownHero('.home-hero'),'aoi');
+  assert.equal(await pick('aoi').getAttribute('aria-pressed'),'true');
+  await pick('jin').focus();
+  await page.keyboard.press('Enter');
+  assert.equal(await shownHero('.home-hero'),'jin');
+  await page.locator('[data-home-inventory]').click();
+  assert.equal(await shownHero('.equipment-preview'),'jin');
+  await page.locator('[data-route="home"]').click();
   await page.locator('[data-home-map]').click();
   assert.equal(await page.locator('#grade-tab-3').getAttribute('aria-selected'),'true');
   const second=page.locator('[data-unit-id="g3_u02"]');
@@ -34,6 +44,7 @@ async function freshPlaythrough(page) {
     assert.ok(await boss.isDisabled(),'short courses must not unlock the castle early');
     await page.locator('[data-course-limit]').selectOption('5');
     await basic.click();
+    assert.equal(await shownHero('.battle-hero'),reviewed ? 'sora' : 'jin');
     const batch=Math.min(5,total-seen.size);
     let missed;
     for(let i=0;i<batch;i++){
@@ -49,8 +60,16 @@ async function freshPlaythrough(page) {
         await page.locator('[data-battle-exit]').click();
         await basic.click();
         await page.getByRole('dialog').getByRole('button',{name:'キャンセル'}).click();
+        await page.locator('[data-route="home"]').click();
+        const readSave = () => page.evaluate(()=>JSON.parse(localStorage.getItem(window.RikaState.KEY)));
+        const beforeSwitch = await readSave();
+        await pick('sora').click();
+        const expected = {...beforeSwitch,player:{...beforeSwitch.player,heroId:'sora'}};
+        assert.deepEqual(await readSave(),expected,'switching portraits must keep the complete saved adventure');
         await page.reload();
+        assert.equal(await pick('sora').getAttribute('aria-pressed'),'true');
         await page.locator('[data-resume]').click();
+        assert.equal(await shownHero('.battle-hero'),'sora');
         assert.equal(await page.locator('.question-stem').innerText(),stem);
         assert.equal(await page.locator('[data-choice]:disabled').count(),4);
         assert.match(await page.locator('#feedback').innerText(),/✗/);

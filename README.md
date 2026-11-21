@@ -118,6 +118,8 @@ node tests/regression.cjs
 
 ## キャラクターと装備
 
+ホームで「アオイ」「ジン」「ソラ」から主人公を選べます。装備画面や途中から再開した戦闘にも選んだ姿が表示されます。主人公を選んでいない以前の記録ではアオイが表示されます。選択は既存セーブの `player.heroId` に保存します。
+
 既存定義は `data/monsters-data.js` / `equipment-data.js` / `companions.js`、3・4年と単元別出現表は `data/grades34-content.js` にあります。描画は `js/monsters.js` / `svg.js` のSVG文字列を返す関数です。
 
 テーマは `sky, plant, life, water, solution, electric, physics, fire, body, space, earth, chem, eco, light, sound, heat`。通常装備は4スロット。レアには `rarity:'rare'` と `unitId` を指定します。効果は `critUp, block, hpUp, comboUp, doubleCrit, reviveOnce, comboKeep, hintFree, expBoostBig` を使用できます。

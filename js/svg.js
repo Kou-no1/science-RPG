@@ -51,6 +51,11 @@
   }
 
   function hero() {
+    if (window.RikaHeroStudies) {
+      var id = window.RikaState && window.RikaState.getHero ? window.RikaState.getHero() : 'aoi';
+      return window.RikaHeroStudies.render(id);
+    }
+    // An older cached index.html can still load this script without the new portraits.
     return '<svg viewBox="0 0 200 240" role="img" aria-label="主人公" xmlns="http://www.w3.org/2000/svg">' +
       '<defs>' +
       '<radialGradient id="heroSkin" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#ffe6cf"/><stop offset="1" stop-color="#f6b98f"/></radialGradient>' +

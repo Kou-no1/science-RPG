@@ -40,12 +40,15 @@ function tab(storage) {
 test('first visit is read-only; migration checkpoints exact source bytes without rewriting the main key', () => {
   const empty = store(), fresh = tab(empty);
   assert.equal(fresh.get().player.exp, 0);
+  assert.equal(fresh.getHero(), 'aoi');
+  assert.equal(Object.hasOwn(fresh.get().player, 'heroId'), false);
   assert.deepEqual(empty.writes, []);
   const storage = store(older), state = tab(storage);
   assert.deepEqual(storage.writes, [state.COPY_KEY]);
   assert.equal(storage.getItem(key), older);
   assert.equal(storage.getItem(state.COPY_KEY), older);
   assert.equal(state.get().schema, 2);
+  assert.equal(state.getHero(), 'aoi');
   assert.equal(state.get().progress.g5_u01.basicCleared, true);
   assert.deepEqual(Object.keys(state.get().owned.items), []);
   state.load();
@@ -55,11 +58,105 @@ test('first visit is read-only; migration checkpoints exact source bytes without
   assert.equal(storage.getItem(key), storage.getItem(state.COPY_KEY));
   const migrated = tab(storage).get();
   assert.equal(migrated.player.name, 'Returning');
+  assert.equal(Object.hasOwn(migrated.player, 'heroId'), false);
   assert.equal(migrated.player.equipped.sword, 'sol_sword');
   assert.equal(migrated.owned.monsters.defeated[0], 'soltin');
   assert.equal(migrated.owned.items.potion, undefined);
   assert.equal(migrated.settings.lastGrade, 5);
   assert.equal(migrated.progress.g5_u01.basicCleared, true);
+});
+
+test('missing and unrecognized heroes are display defaults, not reasons to rewrite or reset a save', () => {
+  for (const heroId of [undefined, null, 'unknown', '__proto__', 1, ['jin']]) {
+    const record = JSON.parse(older);
+    record.schema = 2;
+    record.player.heroId = heroId;
+    const raw = JSON.stringify(record), storage = store(raw), state = tab(storage);
+    assert.equal(state.getHero(), 'aoi');
+    assert.equal(Object.hasOwn(state.get().player, 'heroId'), false);
+    assert.equal(state.get().player.exp, 900);
+    assert.equal(state.setHero(heroId), false);
+    assert.equal(storage.getItem(key), raw);
+    assert.equal(storage.getItem(state.COPY_KEY), raw);
+    assert.deepEqual(storage.writes, [state.COPY_KEY]);
+  }
+});
+
+test('selecting any hero preserves migrated game data, live references and export/import round trips', () => {
+  const legacy = JSON.parse(older);
+  legacy.activeSession = {sessionId: 's1', index: 1, questions: [{id: 'q1', choices: ['a', 'b']}]};
+  legacy.rewardedSessions = ['s0'];
+  legacy.questionStats = {q1: {seen: 2, correct: 1}};
+  legacy.optionalSection = {revision: 7};
+  legacy.player.optionalField = ['keep'];
+  const storage = store(JSON.stringify(legacy)), state = tab(storage), data = state.get();
+  const {player, activeSession} = data;
+  const expected = JSON.parse(state.exportData());
+  for (const id of ['jin', 'sora', 'aoi']) {
+    assert.equal(state.setHero(id), true);
+    assert.equal(state.get(), data);
+    assert.equal(state.get().player, player);
+    assert.equal(state.get().activeSession, activeSession);
+    assert.equal(state.getHero(), id);
+    expected.player.heroId = id;
+    const raw = storage.getItem(key);
+    assert.deepEqual(JSON.parse(raw), {...legacy, player: {...legacy.player, heroId: id}});
+    assert.equal(storage.getItem(state.COPY_KEY), raw);
+    const resumed = tab(storage);
+    assert.equal(resumed.getHero(), id);
+    const imported = tab(store());
+    assert.ok(imported.importData(resumed.exportData()));
+    assert.deepEqual(JSON.parse(imported.exportData()), expected);
+  }
+  assert.deepEqual([...storage.rows.keys()], [key, key + '_protected']);
+});
+
+test('a hero-only write cannot mask a failed gameplay save or strand pending progress on reload', () => {
+  const storage = store(older), state = tab(storage);
+  storage.failWrite = key;
+  state.addExp(35);
+  delete storage.failWrite;
+  assert.equal(state.setHero('sora'), false);
+  assert.equal(state.saveIssue(), 'write');
+  assert.equal(state.isPersisted(), false);
+  assert.equal(state.getHero(), 'aoi');
+  assert.equal(state.get().player.exp, 935);
+  assert.equal(JSON.parse(state.exportData()).player.exp, 935);
+  assert.deepEqual([...storage.rows.values()], [older, older]);
+  assert.equal(state.save(), true);
+  assert.equal(state.setHero('sora'), true);
+  const resumed = tab(storage);
+  assert.equal(resumed.get().player.exp, 935);
+  assert.equal(resumed.getHero(), 'sora');
+});
+
+test('rejected selections leave both the live appearance and previously committed bytes alone', () => {
+  const storage = store(older), state = tab(storage);
+  for (const previous of [undefined, 'sora']) {
+    if (previous) assert.equal(state.setHero(previous), true);
+    const before = state.exportData(), raw = storage.getItem(key), writes = storage.writes.slice();
+    storage.failWrite = key;
+    assert.equal(state.setHero('jin'), false);
+    assert.equal(state.saveIssue(), 'write');
+    assert.equal(state.getHero(), previous || 'aoi');
+    assert.equal(state.setHero('invalid'), false);
+    assert.equal(state.exportData(), before);
+    assert.deepEqual(storage.writes, writes);
+    assert.equal(storage.getItem(key), raw);
+    assert.equal(storage.getItem(state.COPY_KEY), raw);
+    delete storage.failWrite;
+  }
+  const raw = storage.getItem(key);
+  storage.failWrite = state.COPY_KEY;
+  assert.equal(state.setHero('jin'), true, 'the primary write committed');
+  assert.equal(state.getHero(), 'jin');
+  assert.equal(state.saveIssue(), 'copy');
+  assert.equal(storage.getItem(state.COPY_KEY), raw);
+  const reload = tab(storage);
+  assert.equal(reload.needsChoice(), true);
+  assert.equal(reload.setHero('aoi'), false);
+  assert.equal(reload.getHero(), 'jin');
+  assert.equal(storage.getItem(state.COPY_KEY), raw);
 });
 
 test('a cached pre-guard state script is never asked to load or create a save', () => {
@@ -78,6 +175,8 @@ test('unreadable, structurally invalid and unsupported records remain byte-expor
     JSON.stringify({...JSON.parse(older), progress: {not_in_this_catalog: {basicCleared: true}}})]) {
     const storage = store(text), state = tab(storage);
     assert.equal(state.saveIssue(), 'invalid');
+    assert.equal(state.setHero('jin'), false);
+    assert.equal(state.getHero(), 'aoi');
     assert.equal(state.setName('Changed'), false);
     assert.equal(state.exportData(), text);
     assert.deepEqual(storage.writes, []);
@@ -92,6 +191,8 @@ test('out-of-date tabs cannot overwrite newer progress, including import and con
   const committed = storage.getItem(key);
   second.addExp(10);
   assert.equal(second.saveIssue(), 'stale');
+  assert.equal(second.setHero('jin'), false);
+  assert.equal(second.getHero(), 'aoi');
   assert.equal(JSON.parse(second.exportData()).player.exp, 10);
   assert.equal(second.reset(), false);
   assert.equal(second.importData(older), null);
@@ -102,6 +203,48 @@ test('out-of-date tabs cannot overwrite newer progress, including import and con
   storage.rows.clear();
   assert.equal(second.save(), false);
   assert.equal(storage.rows.size, 0);
+});
+
+test('hero downgrade: a primary-only old writer leaves a choice; an old two-key writer drops only the preference', () => {
+  for (const bothKeys of [false, true]) {
+    const storage = store(older), previouslyOpen = tab(storage), current = tab(storage);
+    assert.equal(current.setHero('sora'), true);
+    const selected = storage.getItem(key);
+    previouslyOpen.addExp(10);
+    assert.equal(previouslyOpen.saveIssue(), 'stale');
+    assert.equal(storage.getItem(key), selected);
+    assert.equal(storage.getItem(current.COPY_KEY), selected);
+    // A legacy normalizer rebuilds player from known fields before saving more progress.
+    const downgraded = JSON.parse(selected);
+    delete downgraded.player.heroId;
+    downgraded.player.exp += 25;
+    const legacyRaw = JSON.stringify(downgraded);
+    storage.rows.set(key, legacyRaw);
+    if (bothKeys) storage.rows.set(current.COPY_KEY, legacyRaw);
+    assert.equal(current.setHero('jin'), false);
+    assert.equal(current.getHero(), 'sora');
+    assert.equal(current.saveIssue(), 'stale');
+    const writes = storage.writes.slice(), reader = tab(storage);
+    assert.deepEqual(storage.writes, writes);
+    assert.equal(reader.getHero(), 'aoi');
+    assert.equal(reader.get().player.exp, 925);
+    assert.equal(reader.get().player.equipped.sword, 'sol_sword');
+    assert.equal(reader.get().progress.g5_u01.basicCleared, true);
+    assert.equal(reader.needsChoice(), !bothKeys);
+    if (!bothKeys) {
+      assert.equal(reader.setHero('jin'), false);
+      assert.equal(reader.recoverySource('primary'), legacyRaw);
+      assert.equal(reader.recoverySource('copy'), selected);
+      assert.equal(reader.restore('copy'), true);
+      assert.equal(reader.getHero(), 'sora');
+      assert.equal(storage.getItem(key), selected);
+    } else {
+      assert.equal(reader.restore('copy'), false);
+      assert.equal(reader.setHero('jin'), true);
+      const newlySelected = JSON.parse(storage.getItem(key));
+      assert.deepEqual(newlySelected, {...downgraded, player: {...downgraded.player, heroId: 'jin'}});
+    }
+  }
 });
 
 test('legacy overwrite, deletion and corruption leave an independent, explicitly restorable snapshot', () => {
@@ -143,6 +286,8 @@ test('read and quota failures do not replace the in-memory player or report a su
   storage.failRead = key;
   const state = tab(storage);
   assert.equal(state.saveIssue(), 'unreadable');
+  assert.equal(state.setHero('sora'), false);
+  assert.equal(state.getHero(), 'aoi');
   delete storage.failRead;
   assert.equal(state.reset(), false);
   assert.deepEqual(storage.writes, []);
@@ -224,9 +369,24 @@ test('isolated Chrome tabs: visible stale warning, raw downloads, cancel and con
       await page.locator('[data-home-map]').waitFor();
     }
     await first.evaluate(() => RikaState.addExp(450));
+    const previousFormat = await first.evaluate(() => {
+      const record = JSON.parse(localStorage.getItem(RikaState.KEY));
+      record.mu.exposureFull = {};
+      record.mu.optionalField = {notes: ['keep']};
+      record.player.optionalField = 'keep';
+      const raw = JSON.stringify(record);
+      for (const k of [RikaState.KEY, RikaState.COPY_KEY]) localStorage.setItem(k, raw);
+      return record;
+    });
+    await first.reload();
+    assert.ok(await first.evaluate(() => Object.keys(RikaState.get().mu.exposureFull).length));
+    assert.equal(await first.evaluate(() => localStorage.getItem(RikaState.KEY)), JSON.stringify(previousFormat));
+    assert.equal(await first.evaluate(() => RikaState.setHero('jin')), true);
     await second.locator('.save-warning').filter({hasText: 'ほかのタブ'}).waitFor();
     assert.equal(await second.evaluate(() => RikaState.save()), false);
     const latest = await first.evaluate(() => localStorage.getItem(RikaState.KEY));
+    assert.deepEqual(JSON.parse(latest), {...previousFormat, player: {...previousFormat.player, heroId: 'jin'}});
+    assert.equal(await first.evaluate(() => localStorage.getItem(RikaState.COPY_KEY)), latest);
     await first.evaluate(text => localStorage.setItem(RikaState.KEY, text), older);
     await first.reload();
     await first.locator('[data-restore="copy"]').waitFor();
@@ -244,6 +404,26 @@ test('isolated Chrome tabs: visible stale warning, raw downloads, cancel and con
     await first.locator('[data-home-map]').waitFor();
     await first.reload();
     assert.equal(await first.evaluate(() => RikaState.get().player.exp), 450);
+    assert.equal(await first.evaluate(() => RikaState.getHero()), 'jin');
+    const session = await first.evaluate(() => {
+      RikaBattle.start('g3_u01', 'basic', {limit: 5});
+      return JSON.stringify(RikaState.get().activeSession);
+    });
+    assert.ok(JSON.parse(session).questions.length);
+    await first.reload();
+    const resumed = await first.evaluate(() => {
+      RikaBattle.resume();
+      const battle = RikaBattle.getBattle();
+      if (battle !== RikaState.get().activeSession || !RikaState.setHero('sora') ||
+          battle !== RikaState.get().activeSession) throw Error('lost resumed battle reference');
+      const beforeAnswer = JSON.stringify(battle);
+      RikaBattle.answer(battle.questions[battle.index].answer);
+      return beforeAnswer;
+    });
+    assert.deepEqual(JSON.parse(resumed), JSON.parse(session));
+    await first.reload();
+    assert.equal(await first.evaluate(() => RikaState.get().activeSession.answered), true);
+    assert.equal(await first.evaluate(() => RikaState.getHero()), 'sora');
     assert.deepEqual(errors, []);
   } finally { await browser.close(); }
 });

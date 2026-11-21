@@ -43,6 +43,54 @@
       '</div></div>' + (warning ? '<p class="save-warning" role="status">' + warning + '</p>' : '');
   }
 
+  var heroReloadMessage = "主人公をえらぶには、ページを再読み込みしてね。";
+
+  function currentHeroId() {
+    var state = window.RikaState;
+    return typeof state.getHero === "function" ? state.getHero() : state.get().player.heroId || "aoi";
+  }
+
+  function renderHeroPicker(selectedId) {
+    var studies = window.RikaHeroStudies;
+    var heroes = studies && Array.isArray(studies.characters) ? studies.characters : [];
+    var ready = heroes.length > 0 && typeof studies.render === "function" && typeof window.RikaState.setHero === "function";
+    return '<fieldset class="hero-picker"><legend>主人公をえらぶ</legend>' +
+      '<div class="hero-options">' + heroes.map(function (hero) {
+        return '<button type="button" data-hero-id="' + window.RikaUI.escapeHtml(hero.id) +
+          '" aria-pressed="' + (hero.id === selectedId) + '"' + (ready ? '' : ' disabled') + '>' +
+          '<span class="hero-thumb" aria-hidden="true">' + (typeof studies.render === "function" ? studies.render(hero.id) : '') + '</span>' +
+          '<span class="hero-caption"><strong>' + window.RikaUI.escapeHtml(hero.name) + '</strong>' +
+          '<small>' + window.RikaUI.renderFurigana(hero.specialty) + '</small></span>' +
+          '<span class="hero-check" aria-hidden="true">✓</span></button>';
+      }).join('') + '</div><p class="hero-pick-message" role="status">' + (ready ? '' : heroReloadMessage) + '</p></fieldset>';
+  }
+
+  function bindHeroPicker() {
+    var root = appRoot();
+    var message = root.querySelector('.hero-pick-message');
+    var buttons = root.querySelectorAll('button[data-hero-id]');
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        var state = window.RikaState;
+        if (typeof state.setHero !== "function") {
+          buttons.forEach(function (option) { option.disabled = true; });
+          message.textContent = heroReloadMessage;
+          return;
+        }
+        var saved = state.setHero(button.dataset.heroId) === true;
+        if (saved) {
+          var selectedId = currentHeroId();
+          buttons.forEach(function (option) {
+            option.setAttribute('aria-pressed', String(option.dataset.heroId === selectedId));
+          });
+          root.querySelector('.home-hero').innerHTML = window.RikaSVG.hero();
+        }
+        message.textContent = saved ? (warnings[state.saveIssue()] || '') : '主人公を記録できなかったよ。';
+        renderStatus();
+      });
+    });
+  }
+
   function showHome() {
     var data = window.RikaState.get();
     var total = (window.CURRICULUM || []).length;
@@ -59,6 +107,7 @@
       (data.activeSession ? '<button type="button" class="secondary-button" data-resume>途中からつづける</button>' : '') +
       '<button type="button" class="ghost-button" data-home-inventory>そうびを見る</button>' +
       '</div>' +
+      renderHeroPicker(currentHeroId()) +
       '<form class="name-form" data-name-form>' +
       '<label><span class="sr-only">プレイヤー名</span><input name="name" maxlength="16" value="' + window.RikaUI.escapeHtml(data.player.name) + '" placeholder="名前"></label>' +
       '<button type="submit" class="secondary-button">名前を記録</button>' +
@@ -79,6 +128,7 @@
   }
 
   function bindHome() {
+    bindHeroPicker();
     if (window.RikaMu) window.RikaMu.bindEntry(appRoot());
     var resume = document.querySelector('[data-resume]');
     if (resume) resume.addEventListener('click', window.RikaBattle.resume);
